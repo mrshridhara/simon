@@ -20,7 +20,13 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li>@Html.ActionLink("API Documentation", "Index", "Help", new { area = "" }, null)</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>@Html.ActionLink("API Documentation", "Index", "Help", new { area = "HelpPage" }, null)</li>
+							<li>@Html.ActionLink("About Simon", "About", "Help", new { area = "HelpPage" }, null)</li>
+						</ul>
+					</li>					
 				</ul>
 			</div>
 		</div>
@@ -32,7 +38,6 @@
 			<p>&copy; @DateTime.Now.Year - <a href="mailto:mrshridhara@outlook.com">Shridhara Rangaraju</a></p>
 		</footer>
 	</div>
-
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
 	@Scripts.Render("~/bundles/appscripts")

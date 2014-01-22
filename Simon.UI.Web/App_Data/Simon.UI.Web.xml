@@ -153,6 +153,14 @@
             View for the specified API.
             </returns>
         </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.About">
+            <summary>
+            GET /Help/About
+            </summary>
+            <returns>
+            View for about page.
+            </returns>
+        </member>
         <member name="P:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.Configuration">
             <summary>
             Get the HTTP configuration.

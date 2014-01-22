@@ -64,5 +64,16 @@ namespace Simon.UI.Web.Areas.HelpPage.Controllers
 
 			return View("Error");
 		}
+
+		/// <summary>
+		/// GET /Help/About
+		/// </summary>
+		/// <returns>
+		/// View for about page.
+		/// </returns>
+		public ActionResult About()
+		{
+			return View();
+		}
 	}
 }
