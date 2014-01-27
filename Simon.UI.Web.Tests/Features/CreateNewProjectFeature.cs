@@ -7,6 +7,7 @@ namespace Simon.UI.Web.Tests.Features
 	public class CreateNewProjectFeature : FeatureBase<CreateNewProjectSteps>
 	{
 		[Test]
+		[Ignore("Incomplete feature.")]
 		public void ShouldBeAbleToCreateNewProject()
 		{
 			Given.SimonNewProjectPageIsOpen();

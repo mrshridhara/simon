@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Users\mrshr_000\Projects\Simon\Simon.Tests.nunit</TopNode>
+  <SelectedNode>[0-1003]C:\Users\mrshr_000\Projects\Simon\Simon.UI.Web.Tests\bin\Debug\Simon.UI.Web.Tests.dll</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\mrshr_000\Projects\Simon\Simon.Tests.nunit" Expanded="true" />
+    <Node UniqueName="[0-1004]Simon" Expanded="true" />
+    <Node UniqueName="[0-1005]Simon.UI" Expanded="true" />
+    <Node UniqueName="[0-1006]Simon.UI.Web" Expanded="true" />
+    <Node UniqueName="[0-1007]Simon.UI.Web.Tests" Expanded="true" />
+    <Node UniqueName="[0-1008]Simon.UI.Web.Tests.Features" Expanded="true" />
+    <Node UniqueName="[0-1001]Simon.UI.Web.Tests.Features.CreateNewProjectFeature" Expanded="true" />
+    <Node UniqueName="[0-1024]Simon" Expanded="true" />
+    <Node UniqueName="[0-1025]Simon.Utilities" Expanded="true" />
+    <Node UniqueName="[0-1026]Simon.Utilities.Tests" Expanded="true" />
+    <Node UniqueName="[0-1009]Simon.Utilities.Tests.GuardTests" Expanded="true" />
+    <Node UniqueName="[0-1012]Simon.Utilities.Tests.GuardTests.Shrould_ThrowException_For_EmptyStringArgument" Expanded="true" />
+    <Node UniqueName="[0-1015]Simon.Utilities.Tests.GuardTests.ShrouldNot_ThrowException_For_NonEmptyStringArgument" Expanded="true" />
+  </Nodes>
+</VisualState>
