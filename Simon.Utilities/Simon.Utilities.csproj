@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5164B079-218B-4798-840B-7DA290C1905C}</ProjectGuid>
+    <ProjectGuid>{99228775-3509-4320-859E-1756496A298D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simon.Domain</RootNamespace>
-    <AssemblyName>Simon.Domain</AssemblyName>
+    <RootNamespace>Simon.Utilities</RootNamespace>
+    <AssemblyName>Simon.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Simon.Utilities.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,24 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-    <Compile Include="DomainBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Feature.cs" />
-    <Compile Include="FeatureState.cs" />
-    <Compile Include="Process\IAsyncProcess.cs" />
-    <Compile Include="Project.cs" />
+    <Compile Include="Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SourceRepository.cs" />
-    <Compile Include="SourceRepositoryBranch.cs" />
-    <Compile Include="User.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
-      <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
-      <Name>Simon.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

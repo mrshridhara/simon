@@ -12,6 +12,9 @@ namespace Simon.UI.Web.Areas.Api.Controllers
 	{
 		private IEnumerable<Project> projects;
 
+		/// <summary>
+		/// Initializes an instance of <see cref="ProjectsController"/>.
+		/// </summary>
 		public ProjectsController()
 		{
 			projects = new List<Project>()

@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Simon.UI.Web.Tests.Steps;
 
 namespace Simon.UI.Web.Tests.Features
 {
-	[TestClass]
+	[TestFixture]
 	public class CreateNewProjectFeature : FeatureBase<CreateNewProjectSteps>
 	{
-		[TestMethod]
+		[Test]
 		public void ShouldBeAbleToCreateNewProject()
 		{
 			Given.SimonNewProjectPageIsOpen();

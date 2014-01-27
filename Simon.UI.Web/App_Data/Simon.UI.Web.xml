@@ -53,6 +53,11 @@
             API to manipulate project data.
             </summary>
         </member>
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.Api.Controllers.ProjectsController"/>.
+            </summary>
+        </member>
         <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Get">
             <summary>
             Gets the sequence of projects.
@@ -317,6 +322,220 @@
             <returns>
             An <see cref="T:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel"/>
             </returns>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.CollectionModelDescription">
+            <summary>
+            Represents the collection model description.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Represents a model description.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.Documentation">
+            <summary>
+            Gets or sets the documentation.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.ModelType">
+            <summary>
+            Gets or sets the model type.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.CollectionModelDescription.ElementDescription">
+            <summary>
+            Gets or sets the element description.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription">
+            <summary>
+            Represents the complex type model description.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription"/> class.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription.Properties">
+            <summary>
+            Gets the properties.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.DictionaryModelDescription">
+            <summary>
+            Represents the dictionary model description.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription">
+            <summary>
+            Represents the key value pair model description.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription.KeyModelDescription">
+            <summary>
+            Gets or sets the key model description.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription.ValueModelDescription">
+            <summary>
+            Gets or sets the value model description.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription">
+            <summary>
+            Represents the enum type model description.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription"/> class.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription.Values">
+            <summary>
+            Gets the values.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription">
+            <summary>
+            Represents the enum value description.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Documentation">
+            <summary>
+            Gets or sets the documentation.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider">
+            <summary>
+            Defines a model documentation provider.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider.GetDocumentation(System.Reflection.MemberInfo)">
+            <summary>
+            Gets the documentatation of the specified <paramref name="member"/>.
+            </summary>
+            <param name="member">The member.</param>
+            <returns>
+            Documentation for the specified <paramref name="member"/>.
+            </returns>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider.GetDocumentation(System.Type)">
+            <summary>
+            Gets the documentatation of the specified <paramref name="type"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            Documentation for the specified <paramref name="type"/>.
+            </returns>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.#ctor(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/> class.
+            </summary>
+            <param name="config">The http configuration.</param>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(System.Type)">
+            <summary>
+            Gets or creates a model description of the specified <paramref name="modelType"/>.
+            </summary>
+            <param name="modelType">The model type.</param>
+            <returns>
+            The description of specified <paramref name="modelType"/>.
+            </returns>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GeneratedModels">
+            <summary>
+            Gets the generated models.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation">
+            <summary>
+            Represents the parameter annotation.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation.AnnotationAttribute">
+            <summary>
+            Gets or sets the annotation attribute.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation.Documentation">
+            <summary>
+            Gets or sets the documentation.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription">
+            <summary>
+            Represents the parameter description.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> class.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Annotations">
+            <summary>
+            Gets the annotations.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Documentation">
+            <summary>
+            Gets or sets the documentation.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.TypeDescription">
+            <summary>
+            Gets or sets the type description.
+            </summary>
+        </member>
+        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.SimpleTypeModelDescription">
+            <summary>
+            Represents the simple type model description.
+            </summary>
         </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel">
             <summary>
