@@ -974,5 +974,33 @@
             Called when the application starts the web host.
             </summary>
         </member>
+        <member name="T:Simon.UI.Web.Ioc.StructureMapDependencyResolver">
+            <summary>
+            Defines the dependency resolver using structure map.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.UI.Web.Ioc.StructureMapDependencyResolver"/> class.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.GetService(System.Type)">
+            <summary>
+            Resolves singly registered services that support arbitrary object creation.
+            </summary>
+            <param name="serviceType">The type of the requested service or object.</param>
+            <returns>
+            The requested service or object.
+            </returns>
+        </member>
+        <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.GetServices(System.Type)">
+            <summary>
+            Resolves multiply registered services.
+            </summary>
+            <param name="serviceType">The type of the requested services.</param>
+            <returns>
+            The requested services.
+            </returns>
+        </member>
     </members>
 </doc>
