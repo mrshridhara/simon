@@ -605,10 +605,11 @@
             Defines the dependency resolver using structure map.
             </summary>
         </member>
-        <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.#ctor">
+        <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.#ctor(StructureMap.IContainer)">
             <summary>
             Initializes an instance of <see cref="T:Simon.UI.Web.Ioc.StructureMapDependencyResolver"/> class.
             </summary>
+            <param name="container">The container.</param>
         </member>
         <member name="M:Simon.UI.Web.Ioc.StructureMapDependencyResolver.GetService(System.Type)">
             <summary>

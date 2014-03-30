@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApi = System.Web.Http.Controllers;
 using Mvc = System.Web.Mvc;
 
 namespace Simon.UI.Web.Ioc
@@ -12,20 +11,15 @@ namespace Simon.UI.Web.Ioc
 	/// </summary>
 	public class StructureMapDependencyResolver : Mvc.IDependencyResolver
 	{
+		private IContainer container;
+
 		/// <summary>
 		/// Initializes an instance of <see cref="StructureMapDependencyResolver"/> class.
 		/// </summary>
-		public StructureMapDependencyResolver()
+		/// <param name="container">The container.</param>
+		public StructureMapDependencyResolver(IContainer container)
 		{
-			ObjectFactory.Initialize(config =>
-			{
-				config.Scan(scanner =>
-				{
-					scanner.TheCallingAssembly();
-					scanner.AddAllTypesOf<Mvc.IController>();
-					scanner.AddAllTypesOf<WebApi.IHttpController>();
-				});
-			});
+			this.container = container;
 		}
 
 		/// <summary>
@@ -37,7 +31,7 @@ namespace Simon.UI.Web.Ioc
 		/// </returns>
 		public object GetService(Type serviceType)
 		{
-			return ObjectFactory.TryGetInstance(serviceType);
+			return container.TryGetInstance(serviceType);
 		}
 
 		/// <summary>
@@ -49,7 +43,7 @@ namespace Simon.UI.Web.Ioc
 		/// </returns>
 		public IEnumerable<object> GetServices(Type serviceType)
 		{
-			return ObjectFactory.GetAllInstances(serviceType).Cast<object>();
+			return container.GetAllInstances(serviceType).Cast<object>();
 		}
 	}
 }
