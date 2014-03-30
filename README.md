@@ -1,7 +1,4 @@
-simon
-
+SIMON
 =====
 
-
-
-SIMON stands for SIMple OperatioNs. It is a contentious delivery management application which provides a simple yet definitive structure to a software development life cycle.
+SIMON stands for SIMple OperatioNs. It is an ALM tool with contentious delivery management support. It provides a simple yet definitive structure to a software development life cycle.
