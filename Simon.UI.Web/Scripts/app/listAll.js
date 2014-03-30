@@ -2,63 +2,23 @@
 
 window.simonApi = window.simonApi || {};
 
-window.simonApi.buildItem = function (itemData, index) {
-	'use strict';
+simonApi.onListAllFailed = function () {
+    'use strict';
 
-	var tableRow, slnoTableCell, nameTableCell, descriptionTableCell, actionTableCell, openAction;
-
-	slnoTableCell = document.createElement('td');
-	$(slnoTableCell).text(index + 1);
-
-	nameTableCell = document.createElement('td');
-	$(nameTableCell).text(itemData.Name);
-
-	descriptionTableCell = document.createElement('td');
-	$(descriptionTableCell).text(itemData.Description);
-
-	openAction = document.createElement('a');
-	$(openAction).attr('href', '#projects:' + itemData.Id);
-	$(openAction).text('Open');
-	$(openAction).addClass('btn');
-	$(openAction).addClass('btn-default');
-	$(openAction).addClass('btn-sm');
-	window.simonApi.attachOpenProjectEvent(openAction);
-
-	actionTableCell = document.createElement('td');
-	$(actionTableCell).append(openAction);
-
-	tableRow = document.createElement('tr');
-	$(tableRow).append(slnoTableCell);
-	$(tableRow).append(nameTableCell);
-	$(tableRow).append(descriptionTableCell);
-	$(tableRow).append(actionTableCell);
-
-	return tableRow;
+    $('#item-list').empty
+    simonApi.ui.hideLoading();
+    $('.error-section').show();
 };
 
-window.simonApi.onListAllSuccess = function (result) {
-	'use strict';
+simonApi.listAll = function (domain, listAllSuccessCallBack) {
+    'use strict';
 
-	$('#item-list').empty();
+    var url = '/api/' + domain;
 
-	$(result).each(function (index) {
-		var item = window.simonApi.buildItem(this, index);
-		$('#item-list').append(item);
-	});
-};
+    $('.section').hide();
+    simonApi.ui.showLoading();
 
-window.simonApi.onListAllFailed = function () {
-	'use strict';
-
-	$('#item-list').empty();
-};
-
-window.simonApi.listAll = function (domain) {
-	'use strict';
-
-	var url = '/api/' + domain;
-
-	$.get(url)
-        .success(window.simonApi.onListAllSuccess)
-        .fail(window.simonApi.onListAllFailed);
+    $.get(url)
+        .success(listAllSuccessCallBack)
+        .fail(simonApi.onListAllFailed);
 };

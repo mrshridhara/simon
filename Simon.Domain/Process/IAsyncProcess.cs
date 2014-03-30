@@ -2,8 +2,8 @@
 
 namespace Simon.Domain.Process
 {
-	public interface IProcess<TDomain>
-	{
-		Task<TDomain> ProcessAsync();
-	}
+    public interface IProcess<TDomain>
+    {
+        Task<TDomain> ProcessAsync();
+    }
 }

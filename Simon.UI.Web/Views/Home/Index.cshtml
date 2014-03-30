@@ -1,24 +1,29 @@
-﻿@{
-	ViewBag.Title = "Home";
-}
-<div>
-	<ol class="breadcrumb">
-		<li><a class="nav-list-all" href="#projects">Projects</a></li>
-	</ol>
+﻿<div class="section main-nav-section">
+    <ol class="breadcrumb">
+        <li><a class="nav-list-all" href="#projects">Projects</a></li>
+    </ol>
 </div>
-<div class="panel panel-default">
-	<div class="panel-heading">Available projects</div>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th class="col-md-1">#</th>
-				<th class="col-md-2">Name</th>
-				<th class="col-md-7">Description</th>
-				<th class="col-md-2">
-					<a class="btn btn-default add-new" href="#projects">Add New Project</a>
-				</th>
-			</tr>
-		</thead>
-		<tbody id="item-list"></tbody>
-	</table>
+<div class="section error-section panel panel-danger">
+    <div class="heading panel-heading">Error!!!</div>
+    <div class="contnet">Sorry! Something went wrong!</div>
+</div>
+<div class="section list-section panel panel-default">
+    <div class="heading panel-heading"></div>
+    <table class="contnet table table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-1">#</th>
+                <th class="col-md-2">Name</th>
+                <th class="col-md-7">Description</th>
+                <th class="col-md-2">
+                    <a class="btn btn-default add-new" href=""></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="item-list"></tbody>
+    </table>
+</div>
+<div class="section details-section panel panel-default">
+    <div class="heading panel-heading"></div>
+    <div class="contnet"></div>
 </div>

@@ -1,15 +1,14 @@
 ﻿/// <reference path="../_references.js" />
-/// <reference path="eventAttachments.js" />
 
 window.simonApi = window.simonApi || {};
 
 $(document).ready(function () {
-	'use strict';
+    'use strict';
 
-	var firstListAllElement;
+    var firstListAllElement;
 
-	window.simonApi.attachListAllEvents();
-	firstListAllElement = $('.nav-list-all')[0];
+    simonApi.attachListAllEvents();
+    firstListAllElement = $('.nav-list-all')[0];
 
-	$(firstListAllElement).click();
+    $(firstListAllElement).click();
 });

@@ -2,31 +2,36 @@
 
 window.simonApi = window.simonApi || {};
 
-window.simonApi.onOpenSuccess = function (result) {
-	'use strict';
+simonApi.onOpenSuccess = function (result) {
+    'use strict';
 
-	$('#item-list').hide();
+    $(result).each(function (index) {
+        simonApi.ui.breadcrumb.add(this.Name, this.Name);
 
-	$(result).each(function (index) {
-		// open the page from here.
-	});
+        $('.details-section .content').text(index);
+
+        simonApi.ui.hideLoading();
+        $('.main-nav-section').show();
+        $('.details-section').show();
+    });
 };
 
-window.simonApi.onOpenFailed = function () { };
+simonApi.onOpenFailed = function () {
+    'use strict';
 
-window.simonApi.open = function (data) {
-	'use strict';
+    simonApi.ui.hideLoading();
+    $('.error-section').show();
+};
 
-	var dataArray, domain, id, url;
+simonApi.open = function (domain) {
+    'use strict';
 
-	dataArray = data.split(':');
+    var url = '/api/' + domain;
 
-	domain = dataArray[0];
-	id = dataArray[1];
+    $('.section').hide();
+    simonApi.ui.showLoading();
 
-	url = '/api/' + domain;
-
-	$.get(url, { id: id })
-        .success(window.simonApi.onOpenSuccess)
-        .fail(window.simonApi.onOpenFailed);
+    $.get(url)
+        .success(simonApi.onOpenSuccess)
+        .fail(simonApi.onOpenFailed);
 };

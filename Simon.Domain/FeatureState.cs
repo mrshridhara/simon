@@ -1,17 +1,17 @@
 ﻿namespace Simon.Domain
 {
-	public enum FeatureState
-	{
-		Unknown = 0,
+    public enum FeatureState
+    {
+        Unknown = 0,
 
-		Todo,
+        Todo,
 
-		InBuild,
+        InBuild,
 
-		BuildCompleted,
+        BuildCompleted,
 
-		InTest,
+        InTest,
 
-		InProduction
-	}
+        InProduction
+    }
 }
