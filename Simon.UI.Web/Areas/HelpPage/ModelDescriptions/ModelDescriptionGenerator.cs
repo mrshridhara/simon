@@ -86,10 +86,6 @@ namespace Simon.UI.Web.Areas.HelpPage.ModelDescriptions
 
         private Lazy<IModelDocumentationProvider> _documentationProvider;
 
-		/// <summary>
-		/// Initializes an instance of <see cref="ModelDescriptionGenerator"/> class.
-		/// </summary>
-		/// <param name="config">The http configuration.</param>
         public ModelDescriptionGenerator(HttpConfiguration config)
         {
             if (config == null)
@@ -101,9 +97,6 @@ namespace Simon.UI.Web.Areas.HelpPage.ModelDescriptions
             GeneratedModels = new Dictionary<string, ModelDescription>(StringComparer.OrdinalIgnoreCase);
         }
 
-		/// <summary>
-		/// Gets the generated models.
-		/// </summary>
         public Dictionary<string, ModelDescription> GeneratedModels { get; private set; }
 
         private IModelDocumentationProvider DocumentationProvider
@@ -114,13 +107,6 @@ namespace Simon.UI.Web.Areas.HelpPage.ModelDescriptions
             }
         }
 
-		/// <summary>
-		/// Gets or creates a model description of the specified <paramref name="modelType"/>.
-		/// </summary>
-		/// <param name="modelType">The model type.</param>
-		/// <returns>
-		/// The description of specified <paramref name="modelType"/>.
-		/// </returns>
         public ModelDescription GetOrCreateModelDescription(Type modelType)
         {
             if (modelType == null)

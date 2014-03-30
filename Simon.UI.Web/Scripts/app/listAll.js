@@ -17,11 +17,12 @@ window.simonApi.buildItem = function (itemData, index) {
 	$(descriptionTableCell).text(itemData.Description);
 
 	openAction = document.createElement('a');
-	$(openAction).attr('href', '#');
+	$(openAction).attr('href', '#projects:' + itemData.Id);
 	$(openAction).text('Open');
 	$(openAction).addClass('btn');
 	$(openAction).addClass('btn-default');
 	$(openAction).addClass('btn-sm');
+	window.simonApi.attachOpenProjectEvent(openAction);
 
 	actionTableCell = document.createElement('td');
 	$(actionTableCell).append(openAction);

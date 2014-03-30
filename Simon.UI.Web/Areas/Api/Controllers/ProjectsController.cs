@@ -1,6 +1,7 @@
 ﻿using Simon.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace Simon.UI.Web.Areas.Api.Controllers
@@ -17,6 +18,7 @@ namespace Simon.UI.Web.Areas.Api.Controllers
 		/// </summary>
 		public ProjectsController()
 		{
+			// TODO: Get data from repository.
 			projects = new List<Project>()
 			{
 				new Project(Guid.NewGuid(), "Project 1", "Project 1 description", null),
@@ -45,7 +47,14 @@ namespace Simon.UI.Web.Areas.Api.Controllers
 		/// </returns>
 		public IHttpActionResult Get(string id)
 		{
-			return Ok();
+			var availableProject = projects.FirstOrDefault(project => project.Id.Equals(id));
+
+			if (availableProject != null)
+			{
+				return Ok(availableProject);
+			}
+
+			return NotFound();
 		}
 
 		/// <summary>

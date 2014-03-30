@@ -6,7 +6,10 @@ window.simonApi = window.simonApi || {};
 $(document).ready(function () {
 	'use strict';
 
-	window.simonApi.attachListAllEvents();
+	var firstListAllElement;
 
-	$($('.nav-list-all')[0]).click();
+	window.simonApi.attachListAllEvents();
+	firstListAllElement = $('.nav-list-all')[0];
+
+	$(firstListAllElement).click();
 });

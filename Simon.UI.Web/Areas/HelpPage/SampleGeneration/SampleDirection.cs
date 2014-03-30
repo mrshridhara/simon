@@ -5,15 +5,7 @@ namespace Simon.UI.Web.Areas.HelpPage
     /// </summary>
     public enum SampleDirection
     {
-		/// <summary>
-		/// The request direction.
-		/// This is the default value.
-		/// </summary>
         Request = 0,
-
-		/// <summary>
-		/// The response direction.
-		/// </summary>
         Response
     }
 }

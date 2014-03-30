@@ -100,11 +100,6 @@
             </summary>
             <param name="id">The ID of a peoject.</param>
         </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ApiDescriptionExtensions">
-            <summary>
-            Defines the extension method to get API description.
-            </summary>
-        </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
             Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
@@ -119,77 +114,9 @@
             or you can provide the samples for the requests/responses.
             </summary>
         </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfig.Register(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Registers the documentation provider to the sepecified <paramref name="config"/> instance.
-            </summary>
-            <param name="config">The HTTP configuration.</param>
-        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController">
             <summary>
             The controller that will handle requests for the help page.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController"/>.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.#ctor(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController"/> with the specified <paramref name="config"/>.
-            </summary>
-            <param name="config">The HTTP configuration.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.Index">
-            <summary>
-            GET /Help
-            </summary>
-            <returns>
-            View for index page.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.Api(System.String)">
-            <summary>
-            GET /Help/Api/{apiId}
-            </summary>
-            <param name="apiId">The API Id.</param>
-            <returns>
-            View for the specified API.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.About">
-            <summary>
-            GET /Help/About
-            </summary>
-            <returns>
-            View for about page.
-            </returns>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.Controllers.HelpController.Configuration">
-            <summary>
-            Get the HTTP configuration.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.HelpPageAreaRegistration">
-            <summary>
-            Represents the registration of the help page area.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
-            <summary>
-            Registers help page area using the specified <paramref name="context"/> instance.
-            </summary>
-            <param name="context">The area registration context.</param>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.HelpPageAreaRegistration.AreaName">
-            <summary>
-            Gets the name of the area to register.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions">
-            <summary>
-            Defines extension methods required for help page.
             </summary>
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
@@ -248,6 +175,14 @@
             <param name="actionName">Name of the action.</param>
             <param name="parameterNames">The parameter names.</param>
         </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
             <summary>
             Sets the sample directly for all actions with the specified type and media type.
@@ -259,7 +194,7 @@
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
             The help page will use this information to produce more accurate request samples.
             </summary>
             <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
@@ -269,7 +204,7 @@
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
             The help page will use this information to produce more accurate request samples.
             </summary>
             <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
@@ -280,7 +215,7 @@
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
             The help page will use this information to produce more accurate response samples.
             </summary>
             <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
@@ -290,7 +225,7 @@
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
             <summary>
-            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
             The help page will use this information to produce more accurate response samples.
             </summary>
             <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
@@ -313,6 +248,13 @@
             <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
             <param name="sampleGenerator">The help page sample generator.</param>
         </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
             <summary>
             Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
@@ -323,218 +265,19 @@
             An <see cref="T:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel"/>
             </returns>
         </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.CollectionModelDescription">
-            <summary>
-            Represents the collection model description.
-            </summary>
-        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription">
             <summary>
-            Represents a model description.
+            Describes a type model.
             </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.Documentation">
-            <summary>
-            Gets or sets the documentation.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.ModelType">
-            <summary>
-            Gets or sets the model type.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.CollectionModelDescription.ElementDescription">
-            <summary>
-            Gets or sets the element description.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription">
-            <summary>
-            Represents the complex type model description.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription"/> class.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ComplexTypeModelDescription.Properties">
-            <summary>
-            Gets the properties.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.DictionaryModelDescription">
-            <summary>
-            Represents the dictionary model description.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription">
-            <summary>
-            Represents the key value pair model description.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription.KeyModelDescription">
-            <summary>
-            Gets or sets the key model description.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.KeyValuePairModelDescription.ValueModelDescription">
-            <summary>
-            Gets or sets the value model description.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription">
-            <summary>
-            Represents the enum type model description.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription"/> class.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumTypeModelDescription.Values">
-            <summary>
-            Gets the values.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription">
-            <summary>
-            Represents the enum value description.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Documentation">
-            <summary>
-            Gets or sets the documentation.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.EnumValueDescription.Value">
-            <summary>
-            Gets or sets the value.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider">
-            <summary>
-            Defines a model documentation provider.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider.GetDocumentation(System.Reflection.MemberInfo)">
-            <summary>
-            Gets the documentatation of the specified <paramref name="member"/>.
-            </summary>
-            <param name="member">The member.</param>
-            <returns>
-            Documentation for the specified <paramref name="member"/>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.IModelDocumentationProvider.GetDocumentation(System.Type)">
-            <summary>
-            Gets the documentatation of the specified <paramref name="type"/>.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            Documentation for the specified <paramref name="type"/>.
-            </returns>
         </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
             <summary>
             Generates model descriptions for given types.
             </summary>
         </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.#ctor(System.Web.Http.HttpConfiguration)">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/> class.
-            </summary>
-            <param name="config">The http configuration.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(System.Type)">
-            <summary>
-            Gets or creates a model description of the specified <paramref name="modelType"/>.
-            </summary>
-            <param name="modelType">The model type.</param>
-            <returns>
-            The description of specified <paramref name="modelType"/>.
-            </returns>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GeneratedModels">
-            <summary>
-            Gets the generated models.
-            </summary>
-        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
             <summary>
             Use this attribute to change the name of the <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute.#ctor(System.String)">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute"/> class.
-            </summary>
-            <param name="name">The name.</param>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelNameAttribute.Name">
-            <summary>
-            Gets the name.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation">
-            <summary>
-            Represents the parameter annotation.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation.AnnotationAttribute">
-            <summary>
-            Gets or sets the annotation attribute.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterAnnotation.Documentation">
-            <summary>
-            Gets or sets the documentation.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription">
-            <summary>
-            Represents the parameter description.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> class.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Annotations">
-            <summary>
-            Gets the annotations.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Documentation">
-            <summary>
-            Gets or sets the documentation.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription.TypeDescription">
-            <summary>
-            Gets or sets the type description.
-            </summary>
-        </member>
-        <member name="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.SimpleTypeModelDescription">
-            <summary>
-            Represents the simple type model description.
             </summary>
         </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel">
@@ -550,6 +293,36 @@
         <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
             <summary>
             Gets or sets the <see cref="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:Simon.UI.Web.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
             </summary>
         </member>
         <member name="P:Simon.UI.Web.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
@@ -615,10 +388,19 @@
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
             <summary>
             Gets the sample object that will be serialized by the formatters. 
-            First, it will look at the <see cref="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:Simon.UI.Web.Areas.HelpPage.ObjectGenerator"/>.
+            First, it will look at the <see cref="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:Simon.UI.Web.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
             </summary>
             <param name="type">The type.</param>
             <returns>The sample object.</returns>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Simon.UI.Web.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
             <summary>
@@ -656,10 +438,26 @@
             Gets the objects that are serialized as samples by the supported formatters.
             </summary>
         </member>
+        <member name="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:Simon.UI.Web.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey">
             <summary>
             This is used to identify the place where the sample should be applied.
             </summary>
+        </member>
+        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
         </member>
         <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
             <summary>
@@ -686,23 +484,6 @@
             <param name="controllerName">Name of the controller.</param>
             <param name="actionName">Name of the action.</param>
             <param name="parameterNames">The parameter names.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <paramref name="obj"/> is equal to the current <see cref="T:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey"/> instance.
-            </summary>
-            <param name="obj">The object to compare.</param>
-            <returns>
-            <c>true</c> if equal otherwise; <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.GetHashCode">
-            <summary>
-            Serves as a hash function for <see cref="T:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey"/>.
-            </summary>
-            <returns>
-            A hash code for current <see cref="T:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey"/> instance.
-            </returns>
         </member>
         <member name="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.ControllerName">
             <summary>
@@ -733,11 +514,6 @@
             Gets the parameter names.
             </summary>
         </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.ParameterType">
-            <summary>
-            Gets the parameter type.
-            </summary>
-        </member>
         <member name="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
             <summary>
             Gets the <see cref="P:Simon.UI.Web.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
@@ -754,75 +530,9 @@
             </summary>
             <param name="src">The URL of an image.</param>
         </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ImageSample.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <paramref name="obj"/> is equal to the current <see cref="T:Simon.UI.Web.Areas.HelpPage.ImageSample"/> instance.
-            </summary>
-            <param name="obj">The object to compare.</param>
-            <returns>
-            <c>true</c> if equal otherwise; <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ImageSample.GetHashCode">
-            <summary>
-            Serves as a hash function for <see cref="T:Simon.UI.Web.Areas.HelpPage.ImageSample"/>.
-            </summary>
-            <returns>
-            A hash code for current <see cref="T:Simon.UI.Web.Areas.HelpPage.ImageSample"/> instance.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.ImageSample.ToString">
-            <summary>
-            Returns a string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.ImageSample"/> instance.
-            </summary>
-            <returns>
-            A string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.ImageSample"/> instance.
-            </returns>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.ImageSample.Src">
-            <summary>
-            Gets the source.
-            </summary>
-        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.InvalidSample">
             <summary>
             This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.InvalidSample.#ctor(System.String)">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/> with specified <paramref name="errorMessage"/>.
-            </summary>
-            <param name="errorMessage">The error message.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.InvalidSample.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <paramref name="obj"/> is equal to the current <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/> instance.
-            </summary>
-            <param name="obj">The object to compare.</param>
-            <returns>
-            <c>true</c> if equal otherwise; <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.InvalidSample.GetHashCode">
-            <summary>
-            Serves as a hash function for <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/>.
-            </summary>
-            <returns>
-            A hash code for current <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/> instance.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.InvalidSample.ToString">
-            <summary>
-            Returns a string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/> instance.
-            </summary>
-            <returns>
-            A string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.InvalidSample"/> instance.
-            </returns>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.InvalidSample.ErrorMessage">
-            <summary>
-            Gets the error message.
             </summary>
         </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.ObjectGenerator">
@@ -851,57 +561,9 @@
             Indicates whether the sample is used for request or response
             </summary>
         </member>
-        <member name="F:Simon.UI.Web.Areas.HelpPage.SampleDirection.Request">
-            <summary>
-            The request direction.
-            This is the default value.
-            </summary>
-        </member>
-        <member name="F:Simon.UI.Web.Areas.HelpPage.SampleDirection.Response">
-            <summary>
-            The response direction.
-            </summary>
-        </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.TextSample">
             <summary>
-            This represents a preformatted text sample on the help page.
-            There's a display template named TextSample associated with this class.
-            </summary>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.TextSample.#ctor(System.String)">
-            <summary>
-            Initializes an instance of <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/>.
-            </summary>
-            <param name="text">The text.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.TextSample.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <paramref name="obj"/> is equal to the current <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/> instance.
-            </summary>
-            <param name="obj">The object to compare.</param>
-            <returns>
-            <c>true</c> if equal otherwise; <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.TextSample.GetHashCode">
-            <summary>
-            Serves as a hash function for <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/>.
-            </summary>
-            <returns>
-            A hash code for current <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/> instance.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.TextSample.ToString">
-            <summary>
-            Returns a string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/> instance.
-            </summary>
-            <returns>
-            A string that represents the current <see cref="T:Simon.UI.Web.Areas.HelpPage.TextSample"/> instance.
-            </returns>
-        </member>
-        <member name="P:Simon.UI.Web.Areas.HelpPage.TextSample.Text">
-            <summary>
-            Get the text.
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
             </summary>
         </member>
         <member name="T:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider">
@@ -914,42 +576,6 @@
             Initializes a new instance of the <see cref="T:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider"/> class.
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpControllerDescriptor)">
-            <summary>
-            Gets documentaion for the specified <paramref name="controllerDescriptor"/>.
-            </summary>
-            <param name="controllerDescriptor">The controller descriptor.</param>
-            <returns>
-            The documentaion for the specified <paramref name="controllerDescriptor"/>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
-            <summary>
-            Gets documentaion for the specified <paramref name="actionDescriptor"/>.
-            </summary>
-            <param name="actionDescriptor">The action descriptor.</param>
-            <returns>
-            The documentaion for the specified <paramref name="actionDescriptor"/>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpParameterDescriptor)">
-            <summary>
-            Gets documentaion for the specified <paramref name="parameterDescriptor"/>.
-            </summary>
-            <param name="parameterDescriptor">The parameter descriptor.</param>
-            <returns>
-            The documentaion for the specified <paramref name="parameterDescriptor"/>.
-            </returns>
-        </member>
-        <member name="M:Simon.UI.Web.Areas.HelpPage.XmlDocumentationProvider.GetResponseDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)">
-            <summary>
-            Gets the response documentaion for the specified <paramref name="actionDescriptor"/>.
-            </summary>
-            <param name="actionDescriptor">The action descriptor.</param>
-            <returns>
-            The documentaion for the specified <paramref name="actionDescriptor"/>.
-            </returns>
         </member>
         <member name="T:Simon.UI.Web.Controllers.HomeController">
             <summary>

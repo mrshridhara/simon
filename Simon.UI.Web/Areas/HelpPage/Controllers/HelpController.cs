@@ -1,79 +1,63 @@
-using Simon.UI.Web.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
+using Simon.UI.Web.Areas.HelpPage.ModelDescriptions;
+using Simon.UI.Web.Areas.HelpPage.Models;
 
 namespace Simon.UI.Web.Areas.HelpPage.Controllers
 {
-	/// <summary>
-	/// The controller that will handle requests for the help page.
-	/// </summary>
-	public class HelpController : Controller
-	{
-		/// <summary>
-		/// Initializes an instance of <see cref="HelpController"/>.
-		/// </summary>
-		public HelpController()
-			: this(GlobalConfiguration.Configuration)
-		{
-		}
+    /// <summary>
+    /// The controller that will handle requests for the help page.
+    /// </summary>
+    public class HelpController : Controller
+    {
+        private const string ErrorViewName = "Error";
 
-		/// <summary>
-		/// Initializes an instance of <see cref="HelpController"/> with the specified <paramref name="config"/>.
-		/// </summary>
-		/// <param name="config">The HTTP configuration.</param>
-		public HelpController(HttpConfiguration config)
-		{
-			Configuration = config;
-		}
+        public HelpController()
+            : this(GlobalConfiguration.Configuration)
+        {
+        }
 
-		/// <summary>
-		/// Get the HTTP configuration.
-		/// </summary>
-		public HttpConfiguration Configuration { get; private set; }
+        public HelpController(HttpConfiguration config)
+        {
+            Configuration = config;
+        }
 
-		/// <summary>
-		/// GET /Help
-		/// </summary>
-		/// <returns>
-		/// View for index page.
-		/// </returns>
-		public ActionResult Index()
-		{
-			ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
-			return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
-		}
+        public HttpConfiguration Configuration { get; private set; }
 
-		/// <summary>
-		/// GET /Help/Api/{apiId}
-		/// </summary>
-		/// <param name="apiId">The API Id.</param>
-		/// <returns>
-		/// View for the specified API.
-		/// </returns>
-		public ActionResult Api(string apiId)
-		{
-			if (!String.IsNullOrEmpty(apiId))
-			{
-				HelpPageApiModel apiModel = Configuration.GetHelpPageApiModel(apiId);
-				if (apiModel != null)
-				{
-					return View(apiModel);
-				}
-			}
+        public ActionResult Index()
+        {
+            ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
+            return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
+        }
 
-			return View("Error");
-		}
+        public ActionResult Api(string apiId)
+        {
+            if (!String.IsNullOrEmpty(apiId))
+            {
+                HelpPageApiModel apiModel = Configuration.GetHelpPageApiModel(apiId);
+                if (apiModel != null)
+                {
+                    return View(apiModel);
+                }
+            }
 
-		/// <summary>
-		/// GET /Help/About
-		/// </summary>
-		/// <returns>
-		/// View for about page.
-		/// </returns>
-		public ActionResult About()
-		{
-			return View();
-		}
-	}
+            return View(ErrorViewName);
+        }
+
+        public ActionResult ResourceModel(string modelName)
+        {
+            if (!String.IsNullOrEmpty(modelName))
+            {
+                ModelDescriptionGenerator modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
+                ModelDescription modelDescription;
+                if (modelDescriptionGenerator.GeneratedModels.TryGetValue(modelName, out modelDescription))
+                {
+                    return View(modelDescription);
+                }
+            }
+
+            return View(ErrorViewName);
+        }
+    }
 }

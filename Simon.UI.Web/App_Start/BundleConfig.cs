@@ -25,6 +25,7 @@ namespace Simon.UI.Web
 
 			bundles.Add(new ScriptBundle("~/bundles/appscripts").Include(
 					  "~/Scripts/app/listAll.js",
+					  "~/Scripts/app/open.js",
 					  "~/Scripts/app/eventAttachments.js",
 					  "~/Scripts/app/documentReady.js"));
 
