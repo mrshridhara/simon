@@ -26,6 +26,16 @@
             </summary>
             <param name="filters">The global filter collection.</param>
         </member>
+        <member name="T:Simon.UI.Web.IocConfig">
+            <summary>
+            Represents the configuraion for the IoC.
+            </summary>
+        </member>
+        <member name="M:Simon.UI.Web.IocConfig.RegisterDependencies">
+            <summary>
+            Registers the dependencies to the IoC container.
+            </summary>
+        </member>
         <member name="T:Simon.UI.Web.RouteConfig">
             <summary>
             Represents the configuraion for the routes.

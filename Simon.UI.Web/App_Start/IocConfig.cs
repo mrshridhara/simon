@@ -5,8 +5,14 @@ using WebApi = System.Web.Http.Controllers;
 
 namespace Simon.UI.Web
 {
+	/// <summary>
+	/// Represents the configuraion for the IoC.
+	/// </summary>
 	public class IocConfig
 	{
+		/// <summary>
+		/// Registers the dependencies to the IoC container.
+		/// </summary>
 		public static void RegisterDependencies()
 		{
 			ObjectFactory.Initialize(config =>
