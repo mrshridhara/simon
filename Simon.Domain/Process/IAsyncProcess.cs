@@ -4,11 +4,11 @@ namespace Simon.Domain.Process
 {
     public interface IAsyncProcess<TContext, TResult>
     {
-        Task<TResult> ProcessAsync(TContext context);
+        Task<TResult> ExecuteAsync(TContext context);
     }
     
     public interface IAsyncProcess<TContext>
     {
-        Task ProcessAsync(TContext context);
+        Task ExecuteAsync(TContext context);
     }
 }
