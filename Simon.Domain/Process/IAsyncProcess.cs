@@ -1,9 +1,14 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace Simon.Domain.Process
 {
-    public interface IProcess<TDomain>
+    public interface IProcess<TContext, TResult>
     {
-        Task<TDomain> ProcessAsync();
+        Task<TResult> ProcessAsync(TContext context);
+    }
+    
+    public interface IProcess<TContext>
+    {
+        Task ProcessAsync(TContext context);
     }
 }
