@@ -2,12 +2,12 @@ using System.Threading.Tasks;
 
 namespace Simon.Domain.Process
 {
-    public interface IProcess<TContext, TResult>
+    public interface IAsyncProcess<TContext, TResult>
     {
         Task<TResult> ProcessAsync(TContext context);
     }
     
-    public interface IProcess<TContext>
+    public interface IAsyncProcess<TContext>
     {
         Task ProcessAsync(TContext context);
     }
