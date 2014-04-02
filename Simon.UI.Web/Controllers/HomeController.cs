@@ -1,11 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Simon.UI.Web.Controllers
 {
     /// <summary>
     /// Represents the controller for /Home
     /// </summary>
-    public class HomeController : Controller
+    public class HomeController : AsyncController
     {
         /// <summary>
         /// GET /Home/Index or /Home or /
@@ -13,9 +14,12 @@ namespace Simon.UI.Web.Controllers
         /// <returns>
         /// View for the index page.
         /// </returns>
-        public ActionResult Index()
+        public async Task<ActionResult> IndexAsync()
         {
-            return View();
+            return await Task.Run<ActionResult>(() =>
+            {
+                return View();
+            });
         }
     }
 }

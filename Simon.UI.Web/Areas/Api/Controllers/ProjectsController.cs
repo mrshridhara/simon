@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Simon.UI.Web.Areas.Api.Controllers
@@ -33,9 +34,12 @@ namespace Simon.UI.Web.Areas.Api.Controllers
         /// <returns>
         /// A sequence of projects.
         /// </returns>
-        public IHttpActionResult Get()
+        public async Task<IHttpActionResult> GetAsync()
         {
-            return Ok(projects);
+            return await Task.Run<IHttpActionResult>(() =>
+            {
+                return Ok(projects);
+            });
         }
 
         /// <summary>
@@ -45,16 +49,19 @@ namespace Simon.UI.Web.Areas.Api.Controllers
         /// <returns>
         /// Project with the sepecifed <paramref name="id"/>.
         /// </returns>
-        public IHttpActionResult Get(string id)
+        public async Task<IHttpActionResult> GetAsync(string id)
         {
-            var availableProject = projects.FirstOrDefault(project => project.Id == new Guid(id));
-
-            if (availableProject != null)
+            return await Task.Run<IHttpActionResult>(() =>
             {
-                return Ok(availableProject);
-            }
+                var availableProject = projects.FirstOrDefault(project => project.Id == new Guid(id));
 
-            return NotFound();
+                if (availableProject != null)
+                {
+                    return Ok(availableProject);
+                }
+
+                return NotFound();
+            });
         }
 
         /// <summary>
@@ -64,9 +71,12 @@ namespace Simon.UI.Web.Areas.Api.Controllers
         /// <returns>
         /// Status of the addition.
         /// </returns>
-        public IHttpActionResult Post([FromBody]Project project)
+        public async Task<IHttpActionResult> PostAsync([FromBody]Project project)
         {
-            return Ok();
+            return await Task.Run<IHttpActionResult>(() =>
+            {
+                return Ok();
+            });
         }
 
         /// <summary>
@@ -77,18 +87,24 @@ namespace Simon.UI.Web.Areas.Api.Controllers
         /// <returns>
         /// Status of the addition.
         /// </returns>
-        public IHttpActionResult Put(string id, [FromBody]Project project)
+        public async Task<IHttpActionResult> PutAsync(string id, [FromBody]Project project)
         {
-            return Ok();
+            return await Task.Run<IHttpActionResult>(() =>
+            {
+                return Ok();
+            });
         }
 
         /// <summary>
         /// Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
         /// </summary>
         /// <param name="id">The ID of a peoject.</param>
-        public IHttpActionResult Delete(string id)
+        public async Task<IHttpActionResult> DeleteAsync(string id)
         {
-            return Ok();
+            return await Task.Run<IHttpActionResult>(() =>
+            {
+                return Ok();
+            });
         }
     }
 }

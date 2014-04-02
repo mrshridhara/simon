@@ -68,7 +68,7 @@
             Initializes an instance of <see cref="T:Simon.UI.Web.Areas.Api.Controllers.ProjectsController"/>.
             </summary>
         </member>
-        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Get">
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.GetAsync">
             <summary>
             Gets the sequence of projects.
             </summary>
@@ -76,7 +76,7 @@
             A sequence of projects.
             </returns>
         </member>
-        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Get(System.String)">
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.GetAsync(System.String)">
             <summary>
             Gets the project with the sepecifed <paramref name="id"/>.
             </summary>
@@ -85,7 +85,7 @@
             Project with the sepecifed <paramref name="id"/>.
             </returns>
         </member>
-        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Post(Simon.Domain.Project)">
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.PostAsync(Simon.Domain.Project)">
             <summary>
             Adds the specified <paramref name="project"/> to the sequence of projects.
             </summary>
@@ -94,7 +94,7 @@
             Status of the addition.
             </returns>
         </member>
-        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Put(System.String,Simon.Domain.Project)">
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.PutAsync(System.String,Simon.Domain.Project)">
             <summary>
             Updates the specified <paramref name="project"/> with the specified <paramref name="id"/> in the sequence of projects.
             </summary>
@@ -104,7 +104,7 @@
             Status of the addition.
             </returns>
         </member>
-        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.Delete(System.String)">
+        <member name="M:Simon.UI.Web.Areas.Api.Controllers.ProjectsController.DeleteAsync(System.String)">
             <summary>
             Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
             </summary>
@@ -592,7 +592,7 @@
             Represents the controller for /Home
             </summary>
         </member>
-        <member name="M:Simon.UI.Web.Controllers.HomeController.Index">
+        <member name="M:Simon.UI.Web.Controllers.HomeController.IndexAsync">
             <summary>
             GET /Home/Index or /Home or /
             </summary>
