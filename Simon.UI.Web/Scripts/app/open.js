@@ -26,7 +26,7 @@ simonApi.onOpenFailed = function () {
 simonApi.open = function (domain) {
     'use strict';
 
-    var url = '/api/' + domain;
+    var url = 'http://localhost:55667/api/' + domain;
 
     $('.section').hide();
     simonApi.ui.showLoading();

@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using Simon.Api.Web.Ioc;
+using System.Web.Http;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
 {
@@ -11,7 +13,8 @@ namespace Simon.Api.Web
         /// Registers the HTTP route to the specified <paramref name="config"/> instance.
         /// </summary>
         /// <param name="config">The HTTP configuration.</param>
-        public static void Register(HttpConfiguration config)
+        /// <param name="dependencyResolver">The dependency resolver.</param>
+        public static void Register(HttpConfiguration config, IDependencyResolver dependencyResolver)
         {
             config.MapHttpAttributeRoutes();
 
@@ -20,6 +23,8 @@ namespace Simon.Api.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.DependencyResolver = dependencyResolver;
         }
     }
 }

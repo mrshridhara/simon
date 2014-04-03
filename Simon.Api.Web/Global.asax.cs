@@ -1,7 +1,5 @@
 ﻿using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
 {
@@ -15,12 +13,8 @@ namespace Simon.Api.Web
         /// </summary>
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            IocConfig.RegisterDependencies();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            IDependencyResolver resolver = IocConfig.RegisterDependencies();
+            GlobalConfiguration.Configure(config => WebApiConfig.Register(config, resolver));
         }
     }
 }

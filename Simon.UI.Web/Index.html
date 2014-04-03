@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SIMON</title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+
+    <link href="Content/bootstrap-tweaks.css" rel="stylesheet" />
+    <link href="Content/item-specific.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">SIMON</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="loading">
+        <p>Loading...</p>
+        <img src="Images/ajax-loader.gif" />
+    </div>
+    <div class="container body-content">
+        <div class="section main-nav-section">
+            <ol class="breadcrumb">
+                <li><a class="nav-list-all" href="#projects">Projects</a></li>
+            </ol>
+        </div>
+        <div class="section error-section panel panel-danger">
+            <div class="heading panel-heading">Error!!!</div>
+            <div class="contnet">Sorry! Something went wrong!</div>
+        </div>
+        <div class="section list-section panel panel-default">
+            <div class="heading panel-heading"></div>
+            <table class="contnet table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-2">Name</th>
+                        <th class="col-md-7">Description</th>
+                        <th class="col-md-2">
+                            <a class="btn btn-default add-new" href=""></a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="item-list"></tbody>
+            </table>
+        </div>
+        <div class="section details-section panel panel-default">
+            <div class="heading panel-heading"></div>
+            <div class="contnet"></div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; 2014 - <a href="mailto:mrshridhara@outlook.com">Shridhara Rangaraju</a></p>
+        </footer>
+    </div>
+
+    <script src="Scripts/jquery-2.1.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <script src="Scripts/app/ui.js"></script>
+    <script src="Scripts/app/ui.projects.js"></script>
+    <script src="Scripts/app/listAll.js"></script>
+    <script src="Scripts/app/listAll.projects.js"></script>
+    <script src="Scripts/app/open.js"></script>
+    <script src="Scripts/app/eventAttachments.js"></script>
+    <script src="Scripts/app/documentReady.js"></script>
+</body>
+</html>

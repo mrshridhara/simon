@@ -1,17 +1,18 @@
-﻿using StructureMap;
+﻿using Simon.Utilities;
+using StructureMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mvc = System.Web.Mvc;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web.Ioc
 {
     /// <summary>
     /// Defines the dependency resolver using structure map.
     /// </summary>
-    public class StructureMapDependencyResolver : Mvc.IDependencyResolver
+    public sealed class StructureMapDependencyResolver : Disposable, IDependencyResolver
     {
-        private IContainer container;
+        private readonly IContainer container;
 
         /// <summary>
         /// Initializes an instance of <see cref="StructureMapDependencyResolver"/> class.
@@ -20,6 +21,16 @@ namespace Simon.Api.Web.Ioc
         public StructureMapDependencyResolver(IContainer container)
         {
             this.container = container;
+        }
+
+        /// <summary>
+        /// Starts a resolution scope.
+        /// </summary>
+        /// <returns>The dependency scope.</returns>
+        public IDependencyScope BeginScope()
+        {
+            var nestedContainer = container.GetNestedContainer();
+            return new StructureMapDependencyResolver(nestedContainer);
         }
 
         /// <summary>
@@ -49,6 +60,22 @@ namespace Simon.Api.Web.Ioc
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return container.GetAllInstances(serviceType).Cast<object>();
+        }
+
+        /// <summary>
+        /// Disposes the managed resources used in this class.
+        /// </summary>
+        protected override void DisposeManaged()
+        {
+            container.Dispose();
+        }
+
+        /// <summary>
+        /// Disposes the unmanaged resources used in this class.
+        /// </summary>
+        protected override void DisposeUnmanaged()
+        {
+            // No unmanaged resources are used in this class.
         }
     }
 }

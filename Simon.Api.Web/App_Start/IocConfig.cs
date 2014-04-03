@@ -1,7 +1,7 @@
 ﻿using Simon.Api.Web.Ioc;
 using StructureMap;
-using Mvc = System.Web.Mvc;
-using WebApi = System.Web.Http.Controllers;
+using System.Web.Http.Controllers;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
 {
@@ -13,7 +13,7 @@ namespace Simon.Api.Web
         /// <summary>
         /// Registers the dependencies to the IoC container.
         /// </summary>
-        public static void RegisterDependencies()
+        public static IDependencyResolver RegisterDependencies()
         {
             ObjectFactory.Initialize(config =>
             {
@@ -21,12 +21,11 @@ namespace Simon.Api.Web
                 {
                     scanner.TheCallingAssembly();
                     scanner.WithDefaultConventions();
-                    scanner.AddAllTypesOf<Mvc.IController>();
-                    scanner.AddAllTypesOf<WebApi.IHttpController>();
+                    scanner.AddAllTypesOf<IHttpController>();
                 });
             });
 
-            Mvc.DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+            return new StructureMapDependencyResolver(ObjectFactory.Container);
         }
     }
 }
