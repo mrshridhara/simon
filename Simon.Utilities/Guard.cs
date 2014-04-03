@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Simon.Utilities
 {
@@ -16,6 +17,7 @@ namespace Simon.Utilities
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
         /// <typeparam name="TArgument">Type of the argument.</typeparam>
+        [DebuggerStepThrough]
         public static void NotNullArgument<TArgument>(string argumentName, TArgument argumentValue)
             where TArgument : class
         {
@@ -35,6 +37,7 @@ namespace Simon.Utilities
         /// </summary>
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
+        [DebuggerStepThrough]
         public static void NotNullOrEmptyStringArgument(string argumentName, string argumentValue)
         {
             Guard.NotNullArgument(argumentName, argumentValue);
@@ -53,6 +56,7 @@ namespace Simon.Utilities
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
         /// <typeparam name="TArgument">Type of argument.</typeparam>
+        [DebuggerStepThrough]
         public static void NotDefaultValueArgument<TArgument>(string argumentName, TArgument argumentValue)
             where TArgument : struct
         {

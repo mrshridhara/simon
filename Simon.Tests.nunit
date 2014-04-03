@@ -1,7 +1,7 @@
 ﻿<NUnitProject>
   <Settings activeconfig="Debug" />
   <Config name="Debug" binpathtype="Auto">
-    <assembly path="Simon.UI.Web.Tests\bin\Debug\Simon.UI.Web.Tests.dll" />
+    <assembly path="Simon.Api.Web.Tests\bin\Debug\Simon.Api.Web.Tests.dll" />
     <assembly path="Simon.Utilities.Tests\bin\Debug\Simon.Utilities.Tests.dll" />
   </Config>
   <Config name="Release" binpathtype="Auto" />
