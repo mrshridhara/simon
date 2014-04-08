@@ -31,7 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>App_Data\Simon.UI.Web.xml</DocumentationFile>
+    <DocumentationFile>App_Data\Simon.Api.Web.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
   </PropertyGroup>
