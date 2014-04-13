@@ -1,5 +1,4 @@
-﻿using Simon.Api.Web.Ioc;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
@@ -20,7 +19,7 @@ namespace Simon.Api.Web
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 

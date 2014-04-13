@@ -26,17 +26,17 @@
             <param name="config">The HTTP configuration.</param>
             <param name="dependencyResolver">The dependency resolver.</param>
         </member>
-        <member name="T:Simon.Api.Web.Areas.Api.Controllers.ProjectsController">
+        <member name="T:Simon.Api.Web.Controllers.ProjectsController">
             <summary>
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.#ctor">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor">
             <summary>
-            Initializes an instance of <see cref="T:Simon.Api.Web.Areas.Api.Controllers.ProjectsController"/>.
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.GetAsync">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync">
             <summary>
             Gets the sequence of projects.
             </summary>
@@ -44,7 +44,7 @@
             A sequence of projects.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.GetAsync(System.String)">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync(System.String)">
             <summary>
             Gets the project with the sepecifed <paramref name="id"/>.
             </summary>
@@ -53,7 +53,7 @@
             Project with the sepecifed <paramref name="id"/>.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.PostAsync(Simon.Domain.Project)">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PostAsync(Simon.Domain.Project)">
             <summary>
             Adds the specified <paramref name="project"/> to the sequence of projects.
             </summary>
@@ -62,7 +62,7 @@
             Status of the addition.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.PutAsync(System.String,Simon.Domain.Project)">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PutAsync(System.String,Simon.Domain.Project)">
             <summary>
             Updates the specified <paramref name="project"/> with the specified <paramref name="id"/> in the sequence of projects.
             </summary>
@@ -72,7 +72,7 @@
             Status of the addition.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Areas.Api.Controllers.ProjectsController.DeleteAsync(System.String)">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.DeleteAsync(System.String)">
             <summary>
             Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
             </summary>

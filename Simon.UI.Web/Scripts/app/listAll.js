@@ -13,7 +13,7 @@ simonApi.onListAllFailed = function () {
 simonApi.listAll = function (domain, listAllSuccessCallBack) {
     'use strict';
 
-    var url = 'http://localhost:55667/api/' + domain;
+    var url = 'http://localhost/Simon.Api.Web/' + domain;
 
     $('.section').hide();
     simonApi.ui.showLoading();

@@ -19,7 +19,7 @@ namespace Simon.Api.Web
             {
                 config.Scan(scanner =>
                 {
-                    scanner.TheCallingAssembly();
+                    scanner.AssemblyContainingType<WebApiConfig>();
                     scanner.WithDefaultConventions();
                     scanner.AddAllTypesOf<IHttpController>();
                 });

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Simon.Api.Web.Areas.Api.Controllers
+namespace Simon.Api.Web.Controllers
 {
     /// <summary>
     /// API to manipulate project data.
@@ -22,9 +22,9 @@ namespace Simon.Api.Web.Areas.Api.Controllers
             // TODO: Get data from repository.
             projects = new List<Project>()
 			{
-				new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262ba"), "Project 1", "Project 1 description", null),
+				new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262aa"), "Project 1", "Project 1 description", null),
 				new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262bb"), "Project 2", "Project 2 description", null),
-				new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262bc"), "Project 3", "Project 3 description", null)
+				new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262cc"), "Project 3", "Project 3 description", null)
 			};
         }
 
