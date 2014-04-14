@@ -78,16 +78,6 @@
             </summary>
             <param name="id">The ID of a peoject.</param>
         </member>
-        <member name="T:Simon.Api.Web.WebApiApplication">
-            <summary>
-            The application defenition class.
-            </summary>
-        </member>
-        <member name="M:Simon.Api.Web.WebApiApplication.Application_Start">
-            <summary>
-            Called when the application starts the web host.
-            </summary>
-        </member>
         <member name="T:Simon.Api.Web.Ioc.StructureMapDependencyResolver">
             <summary>
             Defines the dependency resolver using structure map.

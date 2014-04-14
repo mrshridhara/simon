@@ -1,13 +1,14 @@
-﻿using System.Web;
+﻿using Simon.Api.Web;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 
-namespace Simon.Api.Web
+namespace Simon.UI.Web
 {
     /// <summary>
     /// The application defenition class.
     /// </summary>
-    public class WebApiApplication : HttpApplication
+    public class SimonWebApplication : HttpApplication
     {
         /// <summary>
         /// Called when the application starts the web host.

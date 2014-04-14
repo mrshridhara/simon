@@ -16,10 +16,9 @@ namespace Simon.Api.Web
         public static void Register(HttpConfiguration config, IDependencyResolver dependencyResolver)
         {
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
