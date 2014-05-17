@@ -35,6 +35,7 @@
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
+            <param name="asyncProcessFactory">The async process factory.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync">
             <summary>
@@ -151,6 +152,32 @@
             <summary>
             Disposes the unmanaged resources used in this class.
             </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Ioc.StructureMapTypeInterceptor">
+            <summary>
+            Represents a type interceptor for structure map.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Ioc.StructureMapTypeInterceptor.MatchesType(System.Type)">
+            <summary>
+            Does this TypeInterceptor apply to the given type?
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+            <c>true</c> if specified <paramref name="type"/> matches; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Ioc.StructureMapTypeInterceptor.Process(System.Object,StructureMap.IContext)">
+            <summary>
+            An InstanceInterceptor can be registered on a per-Instance basis to act on,
+            or even replace, the object that is created before it is passed back to the
+            caller. This is primarily a hook for runtime AOP scenarios.
+            </summary>
+            <param name="target">The target instance.</param>
+            <param name="context">The context.</param>
+            <returns>
+            The processed instance.
+            </returns>
         </member>
     </members>
 </doc>

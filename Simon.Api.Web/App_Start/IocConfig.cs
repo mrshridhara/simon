@@ -23,13 +23,15 @@ namespace Simon.Api.Web
             {
                 config.Scan(scanner =>
                 {
-                    scanner.Assembly(Assembly.GetExecutingAssembly());
+                    var currentAssembly = Assembly.GetExecutingAssembly();
+                    scanner.Assembly(currentAssembly);
 
-                    foreach (var assembly in GetAllReferencedAssemblies())
+                    foreach (var assembly in GetAllReferencedAssemblies(currentAssembly))
                     {
                         scanner.Assembly(assembly);
                     }
 
+                    scanner.LookForRegistries();
                     scanner.WithDefaultConventions();
 
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<,>));
@@ -38,16 +40,17 @@ namespace Simon.Api.Web
                     scanner.AddAllTypesOf<IAsyncProcessFactory>();
                     scanner.AddAllTypesOf<IHttpController>();
                 });
+
+                config.RegisterInterceptor(new StructureMapTypeInterceptor());
             });
 
             return new StructureMapDependencyResolver(ObjectFactory.Container);
         }
 
-        private static IEnumerable<Assembly> GetAllReferencedAssemblies()
+        private static IEnumerable<Assembly> GetAllReferencedAssemblies(Assembly currentAssembly)
         {
             return
-                Assembly
-                    .GetExecutingAssembly()
+                currentAssembly
                     .GetReferencedAssemblies()
                     .Where(eachAssemblyName => eachAssemblyName.Name.Contains("Simon"))
                     .Select(eachAssemblyName => Assembly.Load(eachAssemblyName));

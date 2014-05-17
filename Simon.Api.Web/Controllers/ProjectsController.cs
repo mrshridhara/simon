@@ -19,6 +19,7 @@ namespace Simon.Api.Web.Controllers
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsController"/>.
         /// </summary>
+        /// <param name="asyncProcessFactory">The async process factory.</param>
         public ProjectsController(IAsyncProcessFactory asyncProcessFactory)
         {
             this.asyncProcessFactory = asyncProcessFactory;
