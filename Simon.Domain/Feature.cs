@@ -6,7 +6,7 @@ namespace Simon.Domain
     /// <summary>
     /// Represents a feature of an application.
     /// </summary>
-    public class Feature : DomainBase
+    public sealed class Feature : NamedEntityBase
     {
         /// <summary>
         /// Inititalizes an instance of <see cref="Feature"/> class.

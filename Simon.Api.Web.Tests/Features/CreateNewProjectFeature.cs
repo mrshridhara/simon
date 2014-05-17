@@ -6,9 +6,9 @@ namespace Simon.Api.Web.Tests.Features
     [TestFixture]
     public class CreateNewProjectFeature : FeatureBase<CreateNewProjectSteps>
     {
-        [Test]
+        [Test(Description = "Scenario: Create new project")]
         [Ignore("Incomplete feature.")]
-        public void ShouldBeAbleToCreateNewProject()
+        public void CreateNewProject()
         {
             Given.SimonNewProjectPageIsOpen();
             And.NewProjectTextBoxAndButtonAreVisible();

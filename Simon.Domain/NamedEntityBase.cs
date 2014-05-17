@@ -4,17 +4,17 @@ using System;
 namespace Simon.Domain
 {
     /// <summary>
-    /// Defines a base class for domain.
+    /// Defines a base class for named domain entity.
     /// </summary>
-    public abstract class DomainBase
+    public abstract class NamedEntityBase
     {
         /// <summary>
-        /// Initializes an instance of <see cref="DomainBase"/> class.
+        /// Initializes an instance of <see cref="NamedEntityBase"/> class.
         /// </summary>
         /// <param name="id">The ID.</param>
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
-        protected DomainBase(Guid id, string name, string description)
+        protected NamedEntityBase(Guid id, string name, string description)
         {
             Guard.NotNullOrEmptyStringArgument("name", name);
             Guard.NotNullOrEmptyStringArgument("description", description);
@@ -39,6 +39,10 @@ namespace Simon.Domain
         /// </summary>
         public string Description { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newName"></param>
         public void SetName(string newName)
         {
             Guard.NotNullOrEmptyStringArgument("newName", newName);
@@ -46,6 +50,10 @@ namespace Simon.Domain
             this.Name = newName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newDescription"></param>
         public void SetDescription(string newDescription)
         {
             Guard.NotNullOrEmptyStringArgument("newDescription", newDescription);
@@ -53,6 +61,10 @@ namespace Simon.Domain
             this.Description = newDescription;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newId"></param>
         public void SetId(Guid newId)
         {
             Guard.NotDefaultValueArgument("newId", newId);

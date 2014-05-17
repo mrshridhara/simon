@@ -88,6 +88,7 @@
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Ioc\StructureMapAsyncProcessFactory.cs" />
     <Compile Include="Ioc\StructureMapDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,6 +114,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

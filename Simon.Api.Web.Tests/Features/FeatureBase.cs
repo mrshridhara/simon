@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Simon.Api.Web.Tests.Features
 {
     public abstract class FeatureBase<TSteps>
@@ -12,27 +14,47 @@ namespace Simon.Api.Web.Tests.Features
 
         protected TSteps Given
         {
-            get { return steps; }
+            get 
+            {
+                Debug.Write("Given that ");
+                return steps;
+            }
         }
 
         protected TSteps When
         {
-            get { return steps; }
+            get
+            {
+                Debug.Write("When ");
+                return steps;
+            }
         }
 
         protected TSteps Then
         {
-            get { return steps; }
+            get
+            {
+                Debug.Write("Then ");
+                return steps;
+            }
         }
 
         protected TSteps And
         {
-            get { return steps; }
+            get
+            {
+                Debug.Write("and ");
+                return steps;
+            }
         }
 
         protected TSteps Or
         {
-            get { return steps; }
+            get
+            {
+                Debug.Write("or ");
+                return steps;
+            }
         }
     }
 }

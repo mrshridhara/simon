@@ -8,7 +8,7 @@ namespace Simon.Domain
     /// <summary>
     /// Represents a project.
     /// </summary>
-    public class Project : DomainBase
+    public sealed class Project : NamedEntityBase
     {
         private readonly List<Application> applications;
 

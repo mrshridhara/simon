@@ -31,7 +31,7 @@
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Domain.Process.IAsyncProcessFactory)">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
@@ -77,6 +77,35 @@
             Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
             </summary>
             <param name="id">The ID of a peoject.</param>
+        </member>
+        <member name="T:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory">
+            <summary>
+            Represents the implementaion of <see cref="T:Simon.Domain.Process.IAsyncProcessFactory"/>
+            using StructureMap IoC container.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.#ctor(StructureMap.IContainer)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory"/> class.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``2">
+            <summary>
+            Creates an async process which takes a context of type <typeparamref name="TContext"/>
+            and returns the result of type <typeparamref name="TResult"/>.
+            </summary>
+            <typeparam name="TContext">The type of context.</typeparam>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <returns>An instacnce of <see cref="T:Simon.Domain.Process.IAsyncProcess`2"/>.</returns>
+        </member>
+        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``1">
+            <summary>
+            Creates an async process which takes  a context of type <typeparamref name="TContext"/>
+            and does not return any value.
+            </summary>
+            <typeparam name="TContext">The type of context.</typeparam>
+            <returns>An instacnce of <see cref="T:Simon.Domain.Process.IAsyncProcess`1"/>.</returns>
         </member>
         <member name="T:Simon.Api.Web.Ioc.StructureMapDependencyResolver">
             <summary>

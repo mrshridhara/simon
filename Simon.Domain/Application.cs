@@ -8,7 +8,7 @@ namespace Simon.Domain
     /// <summary>
     /// Represents an application.
     /// </summary>
-    public class Application : DomainBase
+    public sealed class Application : NamedEntityBase
     {
         private readonly List<Feature> features;
 

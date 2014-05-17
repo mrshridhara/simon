@@ -1,4 +1,5 @@
 ﻿using Simon.Domain;
+using Simon.Domain.Process;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,15 @@ namespace Simon.Api.Web.Controllers
     public class ProjectsController : ApiController
     {
         private IEnumerable<Project> projects;
+        private readonly IAsyncProcessFactory asyncProcessFactory;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsController"/>.
         /// </summary>
-        public ProjectsController()
+        public ProjectsController(IAsyncProcessFactory asyncProcessFactory)
         {
+            this.asyncProcessFactory = asyncProcessFactory;
+
             // TODO: Get data from repository.
             projects = new List<Project>()
 			{
