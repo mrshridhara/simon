@@ -28,6 +28,10 @@
 Ankh.NoLoad
 App_Readme/
 
+#NuGet
+packages/
+!packages/repositories.config
+
 #Tooling
 _ReSharper*/
 *.resharper
@@ -42,9 +46,5 @@ _ReSharper*/
 
 #OS
 Thumbs.db
-
-#NuGet
-packages/
-!packages/repositories.config
 
 #EoF
