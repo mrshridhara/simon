@@ -1,0 +1,36 @@
+﻿<div class="section"
+     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'"></div>
+
+<div class="section"
+     data-ng-include="'Modules/Common/Templates/Loader.html'"
+     data-ng-hide="ProjectsServices.Projects"></div>
+
+<div class="section panel panel-danger"
+     data-ng-show="ProjectsServices.Error">
+    <div class="heading panel-heading">Error!!!</div>
+    <div class="contnet">Sorry! Something went wrong!</div>
+</div>
+
+<div class="section panel panel-default" data-ng-show="ProjectsServices.Projects">
+    <div class="heading panel-heading">Available projects</div>
+    <table class="contnet table table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-3">Name</th>
+                <th class="col-md-7">Description</th>
+                <th class="col-md-2">
+                    <a class="btn btn-default" href="#">Add new project</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="eachProject in ProjectsServices.Projects">
+                <td class="col-md-3" data-ng-bind="eachProject.Name"></td>
+                <td class="col-md-7" data-ng-bind="eachProject.Description"></td>
+                <td class="col-md-2">
+                    <a class="btn btn-default" href="#/Projects/{{eachProject.Id}}">Open</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

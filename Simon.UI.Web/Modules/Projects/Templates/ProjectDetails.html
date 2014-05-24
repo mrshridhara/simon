@@ -1,0 +1,42 @@
+﻿<div class="section"
+     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'"></div>
+
+<div class="section"
+     data-ng-include="'Modules/Common/Templates/Loader.html'"
+     data-ng-hide="ProjectsServices.SelectedProject"></div>
+
+<div class="section panel panel-danger"
+     data-ng-show="ProjectsServices.Error">
+    <div class="heading panel-heading">Error!!!</div>
+    <div class="contnet">Sorry! Something went wrong!</div>
+</div>
+
+<div data-ng-show="ProjectsServices.SelectedProject">
+    <h2 data-ng-bind="ProjectsServices.SelectedProject.Name"></h2>
+    <p data-ng-bind="ProjectsServices.SelectedProject.Description"></p>
+</div>
+
+<div class="section panel panel-default"
+     data-ng-show="ProjectsServices.SelectedProject">
+    <div class="heading panel-heading">Available applications</div>
+    <table class="contnet table table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-3">Name</th>
+                <th class="col-md-7">Description</th>
+                <th class="col-md-2">
+                    <a class="btn btn-default" href="#">Add new application</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="eachApplication in ProjectsServices.SelectedProject.Applications">
+                <td class="col-md-3" data-ng-bind="eachApplication.Name"></td>
+                <td class="col-md-7" data-ng-bind="eachApplication.Description"></td>
+                <td class="col-md-2">
+                    <a class="btn btn-default" href="#/Projects/{{ProjectsServices.SelectedProject.Id}}">Open</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
