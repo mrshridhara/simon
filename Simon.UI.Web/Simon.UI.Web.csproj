@@ -54,6 +54,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -434,6 +440,10 @@
     <ProjectReference Include="..\Simon.Processes.Git\Simon.Processes.Git.csproj">
       <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
       <Name>Simon.Processes.Git</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Simon.Processes.MongoDB\Simon.Processes.MongoDB.csproj">
+      <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
+      <Name>Simon.Processes.MongoDB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>

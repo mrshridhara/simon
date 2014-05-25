@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Aspects", "Simon.Aspe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.Git", "Simon.Processes.Git\Simon.Processes.Git.csproj", "{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.MongoDB", "Simon.Processes.MongoDB\Simon.Processes.MongoDB.csproj", "{EF99F59D-1BF8-4A24-9102-88DED202707F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF99F59D-1BF8-4A24-9102-88DED202707F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF99F59D-1BF8-4A24-9102-88DED202707F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF99F59D-1BF8-4A24-9102-88DED202707F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF99F59D-1BF8-4A24-9102-88DED202707F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +92,6 @@ Global
 		{0907AE34-D662-419D-9F0D-81E3832560E6} = {09A5F26D-FF55-4AD1-B144-815A33D2D08F}
 		{30A2FA4C-484A-4236-83B4-78B64516A1E8} = {9DC221D1-1925-4C64-BD43-E7D7C53AD17C}
 		{15AD2261-75FE-4ADF-B8F8-E8A785535BDC} = {1B97C730-9B7A-43F4-BD0C-454D967D1C2B}
+		{EF99F59D-1BF8-4A24-9102-88DED202707F} = {1B97C730-9B7A-43F4-BD0C-454D967D1C2B}
 	EndGlobalSection
 EndGlobal
