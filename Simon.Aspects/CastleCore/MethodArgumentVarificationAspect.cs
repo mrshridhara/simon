@@ -7,8 +7,15 @@ using System.Collections.Generic;
 
 namespace Simon.Aspects.CastleCore
 {
+    /// <summary>
+    /// Represents the aspect which varifies method arguments.
+    /// </summary>
     public sealed class MethodArgumentVarificationAspect : IInterceptor
     {
+        /// <summary>
+        /// Intercepts the call to the proxied instance.
+        /// </summary>
+        /// <param name="invocation">The invocation details.</param>
         public void Intercept(IInvocation invocation)
         {
             if (invocation.Arguments == null)
@@ -47,7 +54,7 @@ namespace Simon.Aspects.CastleCore
         {
             var attributes
                 = method
-                    .GetCustomAttributes(false)
+                    .GetCustomAttributes(true)
                     .OfType<TAttribute>();
 
             attributeList.AddRange(attributes);

@@ -1,3 +1,4 @@
+using Simon.Aspects;
 using System.Threading.Tasks;
 
 namespace Simon.Domain.Process
@@ -15,6 +16,7 @@ namespace Simon.Domain.Process
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>A task of type <see cref="Task&lt;TResult&gt;"/></returns>
+        [ArgumentsNotNull]
         Task<TResult> ExecuteAsync(TContext context);
     }
 
@@ -30,6 +32,7 @@ namespace Simon.Domain.Process
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>A task of type <see cref="Task"/></returns>
+        [ArgumentsNotNull]
         Task ExecuteAsync(TContext context);
     }
 }
