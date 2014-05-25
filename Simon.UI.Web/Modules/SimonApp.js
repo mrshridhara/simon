@@ -1,6 +1,6 @@
 ﻿/// <reference path="../Scripts/_references.js" />
 
-var simonApp = angular.module("SimonApp", ["ngRoute", "SimonAppControllers", "SimonAppServices"]);
+var simonApp = angular.module("SimonApp", ["ngRoute", "SimonAppDirectives", "SimonAppControllers", "SimonAppServices"]);
 
 simonApp.config(function ($routeProvider) {
     $routeProvider
