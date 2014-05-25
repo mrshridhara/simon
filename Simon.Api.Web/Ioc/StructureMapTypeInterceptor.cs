@@ -50,7 +50,7 @@ namespace Simon.Api.Web.Ioc
                 interfaces.Skip(1).ToArray(),
                 target,
                 new ElmahErrorLoggingAspect(),
-                new MethodArgumentVarificationAspect());
+                new MethodArgumentVerificationAspect());
 
             return target;
         }

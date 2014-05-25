@@ -6,7 +6,7 @@ namespace Simon.Aspects
     /// Indicates that the arguments of a method should not be default.
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-    public sealed class ArgumentsNotDefaultAttribute : ArgumentsVarificationAttributeBase
+    public sealed class ArgumentsNotDefaultAttribute : ArgumentsVerificationAttributeBase
     {
         /// <summary>
         /// Initializes an instance of <see cref="ArgumentsNotDefaultAttribute"/> class.
@@ -16,12 +16,12 @@ namespace Simon.Aspects
             : base(argumentNames) { }
 
         /// <summary>
-        /// Varifies the specified <paramref name="argumentValue"/> for validity.
+        /// Verifies the specified <paramref name="argumentValue"/> for validity.
         /// </summary>
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
         /// <returns>Any applicable exception.</returns>
-        protected override Exception VarifyArgument(string argumentName, object argumentValue)
+        protected override Exception VerifyArgument(string argumentName, object argumentValue)
         {
             Exception castException;
 

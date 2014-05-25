@@ -58,11 +58,11 @@
     <Compile Include="ArgumentsNotNullAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ArgumentsVarificationAttributeBase.cs">
+    <Compile Include="ArgumentsVerificationAttributeBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CastleCore\ElmahErrorLoggingAspect.cs" />
-    <Compile Include="CastleCore\MethodArgumentVarificationAspect.cs" />
+    <Compile Include="CastleCore\MethodArgumentVerificationAspect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

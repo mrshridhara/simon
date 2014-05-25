@@ -4,31 +4,31 @@ using System.Linq;
 namespace Simon.Aspects
 {
     /// <summary>
-    /// Defines a base class for all argument varification attributes.
+    /// Defines a base class for all argument verification attributes.
     /// </summary>
-    public abstract class ArgumentsVarificationAttributeBase : Attribute
+    public abstract class ArgumentsVerificationAttributeBase : Attribute
     {
         private readonly string[] argumentNames;
 
         /// <summary>
-        /// Initializes an instance of <see cref="ArgumentsVarificationAttributeBase"/> class.
+        /// Initializes an instance of <see cref="ArgumentsVerificationAttributeBase"/> class.
         /// </summary>
         /// <param name="argumentNames">The argument names.</param>
-        protected ArgumentsVarificationAttributeBase(params string[] argumentNames)
+        protected ArgumentsVerificationAttributeBase(params string[] argumentNames)
         {
             this.argumentNames = argumentNames;
         }
 
         /// <summary>
-        /// Varifies the specified <paramref name="argumentValue"/> for validity.
+        /// Verifies the specified <paramref name="argumentValue"/> for validity.
         /// </summary>
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
-        public void Varify(string argumentName, object argumentValue)
+        public void Verify(string argumentName, object argumentValue)
         {
             if (IsApplicable(argumentNames, argumentName))
             {
-                var exception = this.VarifyArgument(argumentName, argumentValue);
+                var exception = this.VerifyArgument(argumentName, argumentValue);
                 if (exception != null)
                 {
                     throw exception;
@@ -37,12 +37,12 @@ namespace Simon.Aspects
         }
 
         /// <summary>
-        /// Varifies the specified <paramref name="argumentValue"/> for validity.
+        /// Verifies the specified <paramref name="argumentValue"/> for validity.
         /// </summary>
         /// <param name="argumentName">The argument name.</param>
         /// <param name="argumentValue">The argument value.</param>
         /// <returns>Any applicable exception.</returns>
-        protected abstract Exception VarifyArgument(string argumentName, object argumentValue);
+        protected abstract Exception VerifyArgument(string argumentName, object argumentValue);
 
         private static bool IsApplicable(string[] argumentNames, string argumentName)
         {

@@ -8,9 +8,9 @@ using System.Collections.Generic;
 namespace Simon.Aspects.CastleCore
 {
     /// <summary>
-    /// Represents the aspect which varifies method arguments.
+    /// Represents the aspect which verifies method arguments.
     /// </summary>
-    public sealed class MethodArgumentVarificationAspect : IInterceptor
+    public sealed class MethodArgumentVerificationAspect : IInterceptor
     {
         /// <summary>
         /// Intercepts the call to the proxied instance.
@@ -23,7 +23,7 @@ namespace Simon.Aspects.CastleCore
                 invocation.Proceed();
             }
 
-            var attributeList = new List<ArgumentsVarificationAttributeBase>();
+            var attributeList = new List<ArgumentsVerificationAttributeBase>();
             Add<ArgumentsNotNullAttribute>(invocation.Method, ref attributeList);
             Add<ArgumentsNotEmptyAttribute>(invocation.Method, ref attributeList);
             Add<ArgumentsNotDefaultAttribute>(invocation.Method, ref attributeList);
@@ -42,15 +42,15 @@ namespace Simon.Aspects.CastleCore
 
                 foreach (var attribute in attributeList)
                 {
-                    attribute.Varify(argumentName, argumentValue);
+                    attribute.Verify(argumentName, argumentValue);
                 }
             }
 
             invocation.Proceed();
         }
 
-        private static void Add<TAttribute>(MethodInfo method, ref List<ArgumentsVarificationAttributeBase> attributeList)
-            where TAttribute : ArgumentsVarificationAttributeBase
+        private static void Add<TAttribute>(MethodInfo method, ref List<ArgumentsVerificationAttributeBase> attributeList)
+            where TAttribute : ArgumentsVerificationAttributeBase
         {
             var attributes
                 = method
