@@ -1,4 +1,5 @@
-﻿using Simon.Domain.Process;
+﻿using Simon.Aspects;
+using Simon.Domain.Process;
 using Simon.Domain.Process.Contexts;
 using Simon.Domain.Process.Results;
 using Simon.Utilities;
@@ -48,8 +49,8 @@ namespace Simon.Domain
             {
                 if (branches == null)
                 {
-                    GetExistingBranches();
-                    UpdateBranchData();
+                    branches = GetExistingBranches(asyncProcessFactory, repoPath).ToList();
+                    UpdateBranchData(asyncProcessFactory, this, branches);
                 }
 
                 return branches.AsReadOnly();
@@ -61,10 +62,9 @@ namespace Simon.Domain
         /// </summary>
         /// <param name="feature">The feature.</param>
         /// <returns>The instance of <see cref="SourceRepositoryBranch"/>.</returns>
+        [ArgumentsNotNull]
         public SourceRepositoryBranch CreateNewFeatureBranch(Feature feature)
         {
-            Guard.NotNullArgument("feature", feature);
-
             var asyncProcess
                 = asyncProcessFactory
                     .CreateAsyncProcess<
@@ -87,7 +87,9 @@ namespace Simon.Domain
             return featureBranch;
         }
 
-        private void GetExistingBranches()
+        private static IEnumerable<SourceRepositoryBranch> GetExistingBranches(
+            IAsyncProcessFactory asyncProcessFactory,
+            string repoPath)
         {
             var asyncProcess
                 = asyncProcessFactory
@@ -103,10 +105,13 @@ namespace Simon.Domain
 
             getReposirotyBranchesTask.Wait();
 
-            branches = getReposirotyBranchesTask.Result.Branches.ToList();
+            return getReposirotyBranchesTask.Result.Branches;
         }
 
-        private void UpdateBranchData()
+        private static void UpdateBranchData(
+            IAsyncProcessFactory asyncProcessFactory,
+            SourceRepository repository,
+            IEnumerable<SourceRepositoryBranch> branches)
         {
             Parallel.ForEach(branches, eachBranch =>
             {
@@ -124,7 +129,7 @@ namespace Simon.Domain
 
                 getFeatureForBranchTask.Wait();
 
-                eachBranch.Repository = this;
+                eachBranch.Repository = repository;
                 eachBranch.Feature = getFeatureForBranchTask.Result.Feature;
             });
         }
