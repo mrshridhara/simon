@@ -46,6 +46,9 @@
     <Reference Include="Elmah">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="LibGit2Sharp">
+      <HintPath>..\packages\LibGit2Sharp.0.17.0.0\lib\net35\LibGit2Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -428,9 +431,9 @@
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Simon.Process\Simon.Process.csproj">
-      <Project>{47bf9102-5468-4889-9181-050249241419}</Project>
-      <Name>Simon.Process</Name>
+    <ProjectReference Include="..\Simon.Processes.Git\Simon.Processes.Git.csproj">
+      <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
+      <Name>Simon.Processes.Git</Name>
     </ProjectReference>
     <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
@@ -461,6 +464,14 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
+if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.17.0.0\lib\net35\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
+if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.17.0.0\lib\net35\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
