@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Simon.Api.Web.Tests.Features
+namespace Simon.Presentation.Tests.Features
 {
     public abstract class FeatureBase<TSteps>
         where TSteps : class, new()

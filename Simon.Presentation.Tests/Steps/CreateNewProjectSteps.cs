@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Simon.Api.Web.Tests.Steps
+namespace Simon.Presentation.Tests.Steps
 {
     public class CreateNewProjectSteps
     {

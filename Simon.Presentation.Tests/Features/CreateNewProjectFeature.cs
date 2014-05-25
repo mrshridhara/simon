@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using Simon.Api.Web.Tests.Steps;
+using Simon.Presentation.Tests.Steps;
 
-namespace Simon.Api.Web.Tests.Features
+namespace Simon.Presentation.Tests.Features
 {
     [TestFixture]
     public class CreateNewProjectFeature : FeatureBase<CreateNewProjectSteps>

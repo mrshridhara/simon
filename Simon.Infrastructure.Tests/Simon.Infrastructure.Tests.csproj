@@ -6,8 +6,8 @@
     <ProjectGuid>{30DE4FF9-6F63-48DC-838E-7495A2B4027C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simon.Utilities.Tests</RootNamespace>
-    <AssemblyName>Simon.Utilities.Tests</AssemblyName>
+    <RootNamespace>Simon.Infrastructure.Tests</RootNamespace>
+    <AssemblyName>Simon.Infrastructure.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,6 +69,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Simon.Aspects\Simon.Aspects.csproj">
+      <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
+      <Name>Simon.Aspects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
       <Name>Simon.Utilities</Name>
