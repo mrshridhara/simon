@@ -48,8 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElmahErrorLogAspect.cs" />
-    <Compile Include="MethodArgumentNotNullAspect.cs" />
+    <Compile Include="ArgumentsNotDefaultAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ArgumentsNotEmptyAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ArgumentsNotNullAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ArgumentsVarificationAttributeBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CastleCore\ElmahErrorLoggingAspect.cs" />
+    <Compile Include="CastleCore\MethodArgumentVarificationAspect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

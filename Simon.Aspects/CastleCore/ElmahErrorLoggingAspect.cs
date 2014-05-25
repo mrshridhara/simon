@@ -3,10 +3,9 @@ using Elmah;
 using System;
 using System.Diagnostics;
 
-namespace Simon.Aspects
+namespace Simon.Aspects.CastleCore
 {
-    [DebuggerStepThrough]
-    public sealed class ElmahErrorLogAspect : IInterceptor
+    public sealed class ElmahErrorLoggingAspect : IInterceptor
     {
         public void Intercept(IInvocation invocation)
         {
@@ -19,6 +18,7 @@ namespace Simon.Aspects
                 ErrorLog
                     .GetDefault(null)
                     .Log(new Error(exception));
+                throw;
             }
         }
     }

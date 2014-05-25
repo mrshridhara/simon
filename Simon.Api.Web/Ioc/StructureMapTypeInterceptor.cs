@@ -1,5 +1,5 @@
 ﻿using Castle.DynamicProxy;
-using Simon.Aspects;
+using Simon.Aspects.CastleCore;
 using StructureMap;
 using StructureMap.Interceptors;
 using System;
@@ -49,8 +49,8 @@ namespace Simon.Api.Web.Ioc
                 interfaces[0],
                 interfaces.Skip(1).ToArray(),
                 target,
-                new ElmahErrorLogAspect(),
-                new MethodArgumentNotNullAspect());
+                new ElmahErrorLoggingAspect(),
+                new MethodArgumentVarificationAspect());
 
             return target;
         }
