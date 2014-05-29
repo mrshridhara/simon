@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="FeatureState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NamedEntityBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Feature.cs" />
-    <Compile Include="FeatureState.cs" />
     <Compile Include="Process\Contexts\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
