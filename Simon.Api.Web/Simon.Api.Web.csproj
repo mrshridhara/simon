@@ -119,6 +119,10 @@
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Simon.Processes.FileSystem\Simon.Processes.FileSystem.csproj">
+      <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
+      <Name>Simon.Processes.FileSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Simon.Processes.Git\Simon.Processes.Git.csproj">
       <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
       <Name>Simon.Processes.Git</Name>

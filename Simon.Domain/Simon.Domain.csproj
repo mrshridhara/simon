@@ -54,21 +54,23 @@
     <Compile Include="Process\Contexts\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Process\Contexts\CreateNewProjectContext.cs" />
     <Compile Include="Process\Contexts\EmptyContext.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Process\Contexts\GetFeatureForBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Process\Contexts\GetReposirotyBranchesContext.cs" />
     <Compile Include="Process\IAsyncProcess.cs" />
     <Compile Include="Process\IAsyncProcessFactory.cs" />
     <Compile Include="Process\Results\CreateNewFeatureBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Process\Results\CreateNewProjectResult.cs" />
     <Compile Include="Process\Results\GetFeatureForBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Process\Results\GetGlobalSettingsResult.cs" />
     <Compile Include="Process\Results\GetReposirotyBranchesResult.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,30 +14,22 @@ namespace Simon.Domain
     /// </summary>
     public sealed class SourceRepository
     {
-        private readonly string repoPath;
+        private readonly GlobalSettings globalSettings;
         private readonly IAsyncProcessFactory asyncProcessFactory;
         private List<SourceRepositoryBranch> branches;
 
         /// <summary>
         /// Initializes an instance of <see cref="SourceRepository"/> class.
         /// </summary>
-        /// <param name="repoPath">The repo path.</param>
+        /// <param name="globalSettings">The global settings.</param>
         /// <param name="asyncProcessFactory">The asyncProcess factory.</param>
-        public SourceRepository(string repoPath, IAsyncProcessFactory asyncProcessFactory)
+        public SourceRepository(GlobalSettings globalSettings, IAsyncProcessFactory asyncProcessFactory)
         {
-            Guard.NotNullOrEmptyStringArgument("repoPath", repoPath);
+            Guard.NotNullArgument("globalSettings", globalSettings);
             Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
 
-            this.repoPath = repoPath;
+            this.globalSettings = globalSettings;
             this.asyncProcessFactory = asyncProcessFactory;
-        }
-
-        /// <summary>
-        /// Gets or sets the repo path.
-        /// </summary>
-        public string RepoPath
-        {
-            get { return repoPath; }
         }
 
         /// <summary>
@@ -49,7 +41,7 @@ namespace Simon.Domain
             {
                 if (branches == null)
                 {
-                    branches = GetExistingBranches(asyncProcessFactory, repoPath).ToList();
+                    branches = GetExistingBranches(asyncProcessFactory).ToList();
                     UpdateBranchData(asyncProcessFactory, this, branches);
                 }
 
@@ -74,8 +66,7 @@ namespace Simon.Domain
             var createNewFeatureBranchTask
                 = asyncProcess.ExecuteAsync(new CreateNewFeatureBranchContext
                 {
-                    Feature = feature,
-                    RepoPath = repoPath
+                    Feature = feature
                 });
 
             createNewFeatureBranchTask.Wait();
@@ -88,20 +79,16 @@ namespace Simon.Domain
         }
 
         private static IEnumerable<SourceRepositoryBranch> GetExistingBranches(
-            IAsyncProcessFactory asyncProcessFactory,
-            string repoPath)
+            IAsyncProcessFactory asyncProcessFactory)
         {
             var asyncProcess
                 = asyncProcessFactory
                     .CreateAsyncProcess<
-                        GetReposirotyBranchesContext,
+                        EmptyContext,
                         GetReposirotyBranchesResult>();
 
             var getReposirotyBranchesTask
-                = asyncProcess.ExecuteAsync(new GetReposirotyBranchesContext
-                {
-                    RepoPath = repoPath
-                });
+                = asyncProcess.ExecuteAsync(EmptyContext.Instance);
 
             getReposirotyBranchesTask.Wait();
 

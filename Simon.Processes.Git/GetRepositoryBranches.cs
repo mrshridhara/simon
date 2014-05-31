@@ -13,23 +13,34 @@ namespace Simon.Processes.Git
     /// Represents the process of getting existing branches in a git repository.
     /// </summary>
     public sealed class GetRepositoryBranches
-        : IAsyncProcess<GetReposirotyBranchesContext, GetReposirotyBranchesResult>
+        : IAsyncProcess<EmptyContext, GetReposirotyBranchesResult>
     {
+        private readonly GlobalSettings globalSettings;
+
+        /// <summary>
+        /// Initializes an instance of <see cref="GetRepositoryBranches"/> class.
+        /// </summary>
+        /// <param name="globalSettings">The global settings.</param>
+        public GetRepositoryBranches(GlobalSettings globalSettings)
+        {
+            this.globalSettings = globalSettings;
+        }
+
         /// <summary>
         /// Executes the async process.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>A task of type <see cref="Task&lt;GetReposirotyBranchesResult&gt;"/></returns>
-        public async Task<GetReposirotyBranchesResult> ExecuteAsync(GetReposirotyBranchesContext context)
+        public async Task<GetReposirotyBranchesResult> ExecuteAsync(EmptyContext context)
         {
             return await Task.Factory.StartNew(
-                () => Execute(context),
+                () => Execute(this.globalSettings),
                 TaskCreationOptions.LongRunning);
         }
 
-        private static GetReposirotyBranchesResult Execute(GetReposirotyBranchesContext context)
+        private static GetReposirotyBranchesResult Execute(GlobalSettings globalSettings)
         {
-            var repo = new Repository(context.RepoPath);
+            var repo = new Repository(globalSettings.RepoPath);
             var branches
                 = (from branch in repo.Branches
                    select new SourceRepositoryBranch(Guid.NewGuid(), branch.Name, branch.CanonicalName));

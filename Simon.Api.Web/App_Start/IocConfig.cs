@@ -1,5 +1,8 @@
 ﻿using Simon.Api.Web.Ioc;
+using Simon.Domain;
 using Simon.Domain.Process;
+using Simon.Domain.Process.Contexts;
+using Simon.Domain.Process.Results;
 using StructureMap;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +45,26 @@ namespace Simon.Api.Web
                 });
 
                 config.RegisterInterceptor(new StructureMapTypeInterceptor());
+
+                config
+                    .For<GlobalSettings>()
+                    .Singleton()
+                    .OnCreationForAll((context, globalSettings) =>
+                    {
+                        var getGlobalSettings
+                            = context.GetInstance<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
+
+                        var getGlobalSettingsResult
+                            = getGlobalSettings
+                                .ExecuteAsync(EmptyContext.Instance)
+                                .Result;
+
+                        globalSettings.RepoPath
+                            = getGlobalSettingsResult.GlobalSettings.RepoPath;
+
+                        globalSettings.DatabaseConnectionString
+                            = getGlobalSettingsResult.GlobalSettings.DatabaseConnectionString;
+                    });
             });
 
             return new StructureMapDependencyResolver(ObjectFactory.Container);

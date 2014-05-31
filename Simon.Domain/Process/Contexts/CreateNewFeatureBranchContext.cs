@@ -9,10 +9,5 @@
         /// Gets or sets the feature.
         /// </summary>
         public Feature Feature { get; set; }
-
-        /// <summary>
-        /// Gets or sets the repo path.
-        /// </summary>
-        public string RepoPath { get; set; }
     }
 }

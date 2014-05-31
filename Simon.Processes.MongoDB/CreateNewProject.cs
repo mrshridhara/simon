@@ -5,21 +5,21 @@ using Simon.Domain.Process.Results;
 using System;
 using System.Threading.Tasks;
 
-namespace Simon.Processes.Git
+namespace Simon.Processes.MongoDB
 {
     /// <summary>
-    /// Represents the process of creating new feature branch in a git repository.
+    /// Represents the process of creating new project in the Mongo DB.
     /// </summary>
-    public sealed class CreateNewFeatureBranch
-        : IAsyncProcess<CreateNewFeatureBranchContext, CreateNewFeatureBranchResult>
+    public sealed class CreateNewProject
+        : IAsyncProcess<CreateNewProjectContext, CreateNewProjectResult>
     {
         private readonly GlobalSettings globalSettings;
 
         /// <summary>
-        /// Initializes an instance of <see cref="CreateNewFeatureBranch"/> class.
+        /// Initializes an instance of <see cref="CreateNewProject"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        public CreateNewFeatureBranch(GlobalSettings globalSettings)
+        public CreateNewProject(GlobalSettings globalSettings)
         {
             this.globalSettings = globalSettings;
         }
@@ -28,19 +28,19 @@ namespace Simon.Processes.Git
         /// Executes the async process.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>A task of type <see cref="Task&lt;CreateNewFeatureBranchResult&gt;"/></returns>
-        public async Task<CreateNewFeatureBranchResult> ExecuteAsync(CreateNewFeatureBranchContext context)
+        /// <returns>A task of type <see cref="Task&lt;CreateNewProjectResult&gt;"/></returns>
+        public async Task<CreateNewProjectResult> ExecuteAsync(CreateNewProjectContext context)
         {
             return await Task.Factory.StartNew(
                 () => Execute(this.globalSettings, context),
                 TaskCreationOptions.LongRunning);
         }
 
-        private static CreateNewFeatureBranchResult Execute(
+        private static CreateNewProjectResult Execute(
             GlobalSettings globalSettings,
-            CreateNewFeatureBranchContext context)
+            CreateNewProjectContext context)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }
