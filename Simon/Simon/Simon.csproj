@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Application.cs" />
     <Compile Include="FeatureState.cs">
       <SubType>Code</SubType>
@@ -52,6 +55,7 @@
     </Compile>
     <Compile Include="Feature.cs" />
     <Compile Include="Processes\Database\GetAllProjectsResult.cs" />
+    <Compile Include="Processes\FileSystem\UpdateGlobalSettingsContext.cs" />
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,7 +98,6 @@
       <Name>Simon.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

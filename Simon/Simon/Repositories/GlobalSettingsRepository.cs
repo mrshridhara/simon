@@ -1,6 +1,9 @@
 ﻿using Simon.Processes;
+using Simon.Processes.FileSystem;
 using Simon.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Simon.Repositories
@@ -11,22 +14,17 @@ namespace Simon.Repositories
     public sealed class GlobalSettingsRepository
         : IAsyncPersistence<GlobalSettings>
     {
-        private readonly GlobalSettings globalSettings;
         private readonly IAsyncProcessFactory asyncProcessFactory;
 
         /// <summary>
         /// Initializes an instance of <see cref="GlobalSettingsRepository"/> class.
         /// </summary>
-        /// <param name="globalSettings">The global settings.</param>
         /// <param name="asyncProcessFactory">The asyncProcess factory.</param>
         public GlobalSettingsRepository(
-            GlobalSettings globalSettings,
             IAsyncProcessFactory asyncProcessFactory)
         {
-            Guard.NotNullArgument("globalSettings", globalSettings);
             Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
 
-            this.globalSettings = globalSettings;
             this.asyncProcessFactory = asyncProcessFactory;
         }
 
@@ -36,9 +34,17 @@ namespace Simon.Repositories
         /// <returns>
         /// All the persisted data.
         /// </returns>
-        public Task<IEnumerable<GlobalSettings>> ReadAll()
+        public async Task<IEnumerable<GlobalSettings>> ReadAll()
         {
-            throw new System.NotImplementedException();
+            var asyncProcess
+                = asyncProcessFactory
+                    .CreateAsyncProcess<
+                        EmptyContext,
+                        GetGlobalSettingsResult>(GlobalSettings.Empty);
+
+            var globalSettings = await asyncProcess.ExecuteAsync(EmptyContext.Instance);
+
+            return Enumerable.Repeat(globalSettings.GlobalSettings, 1);
         }
 
         /// <summary>
@@ -47,16 +53,25 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public Task Create(GlobalSettings data)
         {
-            throw new System.NotImplementedException();
+            throw new InvalidOperationException(
+                "This operation is not supported for global settings.");
         }
 
         /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        public Task Update(GlobalSettings data)
+        public async Task Update(GlobalSettings data)
         {
-            throw new System.NotImplementedException();
+            var asyncProcess
+                = asyncProcessFactory
+                    .CreateAsyncProcess<
+                        UpdateGlobalSettingsContext>(GlobalSettings.Empty);
+
+            await asyncProcess.ExecuteAsync(new UpdateGlobalSettingsContext
+            {
+                GlobalSettings = data
+            });
         }
 
         /// <summary>
@@ -65,7 +80,8 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public Task Delete(GlobalSettings data)
         {
-            throw new System.NotImplementedException();
+            throw new InvalidOperationException(
+                "This operation is not supported for global settings.");
         }
     }
 }

@@ -40,17 +40,17 @@ namespace Simon.Processes.FileSystem.Json
                 return GetDefaultResult();
             }
 
-            var globalSettingsDictionary
-                = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonFromFile);
+            var globalSettings
+                = JsonConvert.DeserializeObject<GlobalSettings>(jsonFromFile);
 
-            if (globalSettingsDictionary == null)
+            if (globalSettings == null)
             {
                 return GetDefaultResult();
             }
 
             return new GetGlobalSettingsResult
             {
-                GlobalSettings = new GlobalSettings(globalSettingsDictionary)
+                GlobalSettings = globalSettings
             };
         }
 
@@ -58,7 +58,7 @@ namespace Simon.Processes.FileSystem.Json
         {
             return new GetGlobalSettingsResult
             {
-                GlobalSettings = new GlobalSettings(new Dictionary<string, dynamic>())
+                GlobalSettings = GlobalSettings.Empty
             };
         }
     }

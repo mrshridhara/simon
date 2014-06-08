@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A7D5664-7322-4981-AEA9-E26B4698DC1F}</ProjectGuid>
+    <ProjectGuid>{9D5F91D3-064F-4733-9FA9-24BD75CB558F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simon.Core.Tests</RootNamespace>
-    <AssemblyName>Simon.Core.Tests</AssemblyName>
+    <RootNamespace>Simon.Plugins.Tests</RootNamespace>
+    <AssemblyName>Simon.Plugins.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,7 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,10 +43,6 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -63,25 +59,36 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="GlobalSettingsRepositoryTests.cs" />
+    <Compile Include="GetGlobalSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SourceRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
+      <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
+      <Name>Simon.Processes.Database.MongoDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\Simon.Processes.FileSystem.Json\Simon.Processes.FileSystem.Json.csproj">
+      <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
+      <Name>Simon.Processes.FileSystem.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
+      <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
+      <Name>Simon.Processes.SourceControl.Git</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Simon\Simon.Aspects\Simon.Aspects.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Aspects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon\Simon.csproj">
-      <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
-      <Name>Simon</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Simon\Simon.Utilities\Simon.Utilities.csproj">
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
       <Name>Simon.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Simon\Simon\Simon.csproj">
+      <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
+      <Name>Simon</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

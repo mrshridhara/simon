@@ -19,6 +19,12 @@ namespace Simon
         }
 
         /// <summary>
+        /// Gets the empty instance of <see cref="GlobalSettings"/> class.
+        /// </summary>
+        public static readonly GlobalSettings Empty
+            = new GlobalSettings(new Dictionary<string, dynamic>());
+
+        /// <summary>
         /// Gets the value of the setting specified in <paramref name="settingKey"/>.
         /// </summary>
         /// <param name="settingKey">The setting key.</param>
