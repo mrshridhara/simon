@@ -27,14 +27,16 @@ namespace Simon.Core.Tests
             asyncProcessMock
                 .Setup(mock => mock.ExecuteAsync(It.IsAny<EmptyContext>()))
                 .Returns(Task.Factory.StartNew(() =>
-                    new GetGlobalSettingsResult { GlobalSettings = expectedGlobalSettings }));
+                    new GetGlobalSettingsResult { GlobalSettings = expectedGlobalSettings }))
+                .Verifiable();
 
             var asyncProcessFactoryMock = new Mock<IAsyncProcessFactory>();
             asyncProcessFactoryMock
                 .Setup(mock => mock.CreateAsyncProcess<
                                         EmptyContext,
                                         GetGlobalSettingsResult>(It.IsAny<GlobalSettings>()))
-                .Returns(asyncProcessMock.Object);
+                .Returns(asyncProcessMock.Object)
+                .Verifiable();
 
             var target = new GlobalSettingsRepository(asyncProcessFactoryMock.Object);
 
@@ -42,11 +44,48 @@ namespace Simon.Core.Tests
             var results = target.ReadAll().Result;
 
             // Assert
+            asyncProcessFactoryMock.VerifyAll();
+            asyncProcessMock.VerifyAll();
+
             Assert.IsNotNull(results);
 
             var actualGlobalSettings = results.FirstOrDefault();
             Assert.IsNotNull(actualGlobalSettings);
             Assert.IsTrue(actualGlobalSettings["TestSetting"]);
+        }
+
+        [Test]
+        public void Shrould_Update_Global_Settings()
+        {
+            // Arrange
+            var globalSettingsDictionary = new Dictionary<string, dynamic>
+            {
+                { "TestSetting", true }
+            };
+
+            var globalSettingsToBeUpdated = new GlobalSettings(globalSettingsDictionary);
+
+            var asyncProcessMock = new Mock<IAsyncProcess<UpdateGlobalSettingsContext>>();
+            asyncProcessMock
+                .Setup(mock => mock.ExecuteAsync(It.IsAny<UpdateGlobalSettingsContext>()))
+                .Returns(Task.Run(() => { }))
+                .Verifiable();
+
+            var asyncProcessFactoryMock = new Mock<IAsyncProcessFactory>();
+            asyncProcessFactoryMock
+                .Setup(mock => mock.CreateAsyncProcess<
+                                        UpdateGlobalSettingsContext>(It.IsAny<GlobalSettings>()))
+                .Returns(asyncProcessMock.Object)
+                .Verifiable();
+
+            var target = new GlobalSettingsRepository(asyncProcessFactoryMock.Object);
+
+            // Act
+            target.Update(globalSettingsToBeUpdated).Wait();
+
+            // Assert
+            asyncProcessFactoryMock.VerifyAll();
+            asyncProcessMock.VerifyAll();
         }
     }
 }

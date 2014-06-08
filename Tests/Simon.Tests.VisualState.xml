@@ -5,29 +5,5 @@
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\Users\mrshr_000\Projects\Simon\Tests\Simon.Tests.nunit" Expanded="true" />
-    <Node UniqueName="[0-1005]C:\Users\mrshr_000\Projects\Simon\Tests\Simon.Core.Tests\bin\Debug\Simon.Core.Tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1006]Simon" Expanded="true" />
-    <Node UniqueName="[0-1007]Simon.Core" Expanded="true" />
-    <Node UniqueName="[0-1008]Simon.Core.Tests" Expanded="true" />
-    <Node UniqueName="[0-1001]Simon.Core.Tests.GlobalSettingsRepositoryTests" Expanded="true" />
-    <Node UniqueName="[0-1003]Simon.Core.Tests.SourceRepositoryTests" Expanded="true" />
-    <Node UniqueName="[0-1023]C:\Users\mrshr_000\Projects\Simon\Tests\Simon.Infrastructure.Tests\bin\Debug\Simon.Infrastructure.Tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1024]Simon" Expanded="true" />
-    <Node UniqueName="[0-1025]Simon.Infrastructure" Expanded="true" />
-    <Node UniqueName="[0-1026]Simon.Infrastructure.Tests" Expanded="true" />
-    <Node UniqueName="[0-1009]Simon.Infrastructure.Tests.GuardTests" Expanded="true" />
-    <Node UniqueName="[0-1012]Simon.Infrastructure.Tests.GuardTests.Shrould_ThrowException_For_EmptyStringArgument" Expanded="true" />
-    <Node UniqueName="[0-1015]Simon.Infrastructure.Tests.GuardTests.ShrouldNot_ThrowException_For_NonEmptyStringArgument" Expanded="true" />
-    <Node UniqueName="[0-1029]C:\Users\mrshr_000\Projects\Simon\Tests\Simon.Presentation.Tests\bin\Debug\Simon.Presentation.Tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1030]Simon" Expanded="true" />
-    <Node UniqueName="[0-1031]Simon.Presentation" Expanded="true" />
-    <Node UniqueName="[0-1032]Simon.Presentation.Tests" Expanded="true" />
-    <Node UniqueName="[0-1033]Simon.Presentation.Tests.Features" Expanded="true" />
-    <Node UniqueName="[0-1027]Simon.Presentation.Tests.Features.CreateNewProjectFeature" Expanded="true" />
-    <Node UniqueName="[0-1036]C:\Users\mrshr_000\Projects\Simon\Tests\Simon.Plugins.Tests\bin\Debug\Simon.Plugins.Tests.dll" Expanded="true" />
-    <Node UniqueName="[0-1037]Simon" Expanded="true" />
-    <Node UniqueName="[0-1038]Simon.Plugins" Expanded="true" />
-    <Node UniqueName="[0-1039]Simon.Plugins.Tests" Expanded="true" />
-    <Node UniqueName="[0-1034]Simon.Plugins.Tests.GetGlobalSettingsTests" Expanded="true" />
   </Nodes>
 </VisualState>
