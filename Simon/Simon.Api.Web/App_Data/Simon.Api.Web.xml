@@ -36,7 +36,7 @@
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
             <param name="asyncProcessFactory">The async process factory.</param>
-            <param name="projectPersistence">The project persistence</param>
+            <param name="projectPersistence">The project persistence.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync">
             <summary>
@@ -79,6 +79,35 @@
             Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
             </summary>
             <param name="id">The ID of a peoject.</param>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.SettingsController">
+            <summary>
+            API to manipulate project data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Processes.IAsyncProcessFactory,Simon.Repositories.IAsyncPersistence{Simon.GlobalSettings})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SettingsController"/>.
+            </summary>
+            <param name="asyncProcessFactory">The async process factory.</param>
+            <param name="globalSettingsPersistence">The global settings persistence.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.GetAsync">
+            <summary>
+            Gets the global settings.
+            </summary>
+            <returns>
+            The global settings.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.PutAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Updates the specified <paramref name="globalSettings"/>.
+            </summary>
+            <param name="globalSettings">The global settings taken from HTTP body.</param>
+            <returns>
+            Status of the addition.
+            </returns>
         </member>
         <member name="T:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory">
             <summary>
@@ -155,32 +184,6 @@
             <summary>
             Disposes the unmanaged resources used in this class.
             </summary>
-        </member>
-        <member name="T:Simon.Api.Web.Ioc.StructureMapTypeInterceptor">
-            <summary>
-            Represents a type interceptor for structure map.
-            </summary>
-        </member>
-        <member name="M:Simon.Api.Web.Ioc.StructureMapTypeInterceptor.MatchesType(System.Type)">
-            <summary>
-            Does this TypeInterceptor apply to the given type?
-            </summary>
-            <param name="type">The type.</param>
-            <returns>
-            <c>true</c> if specified <paramref name="type"/> matches; otherwise <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Simon.Api.Web.Ioc.StructureMapTypeInterceptor.Process(System.Object,StructureMap.IContext)">
-            <summary>
-            An InstanceInterceptor can be registered on a per-Instance basis to act on,
-            or even replace, the object that is created before it is passed back to the
-            caller. This is primarily a hook for runtime AOP scenarios.
-            </summary>
-            <param name="target">The target instance.</param>
-            <param name="context">The context.</param>
-            <returns>
-            The processed instance.
-            </returns>
         </member>
     </members>
 </doc>

@@ -1,7 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
 using Simon.Processes;
-using Simon.Processes.FileSystem;
 using Simon.Repositories;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +15,9 @@ namespace Simon.Core.Tests
         public void Shrould_Get_Global_Settings()
         {
             // Arrange
-            var globalSettingsDictionary = new Dictionary<string, dynamic>
+            var globalSettingsDictionary = new Dictionary<string, string>
             {
-                { "TestSetting", true }
+                { "TestSetting", "some value" }
             };
 
             var expectedGlobalSettings = new GlobalSettings(globalSettingsDictionary);
@@ -51,16 +50,16 @@ namespace Simon.Core.Tests
 
             var actualGlobalSettings = results.FirstOrDefault();
             Assert.IsNotNull(actualGlobalSettings);
-            Assert.IsTrue(actualGlobalSettings["TestSetting"]);
+            Assert.AreEqual("some value", actualGlobalSettings["TestSetting"]);
         }
 
         [Test]
         public void Shrould_Update_Global_Settings()
         {
             // Arrange
-            var globalSettingsDictionary = new Dictionary<string, dynamic>
+            var globalSettingsDictionary = new Dictionary<string, string>
             {
-                { "TestSetting", true }
+                { "TestSetting", "some other value" }
             };
 
             var globalSettingsToBeUpdated = new GlobalSettings(globalSettingsDictionary);

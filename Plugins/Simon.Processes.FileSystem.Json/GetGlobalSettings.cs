@@ -25,6 +25,8 @@ namespace Simon.Processes.FileSystem.Json
 
         private static GetGlobalSettingsResult Execute()
         {
+            CreateDirectoryIfRequired();
+
             string jsonFromFile;
             using (var fileStream
                 = new FileStream(Constants.GlobalSettingsSavePath, FileMode.OpenOrCreate))
@@ -52,6 +54,15 @@ namespace Simon.Processes.FileSystem.Json
             {
                 GlobalSettings = globalSettings
             };
+        }
+
+        private static void CreateDirectoryIfRequired()
+        {
+            var savePathDirectory = Path.GetDirectoryName(Constants.GlobalSettingsSavePath);
+            if (Directory.Exists(savePathDirectory) == false)
+            {
+                Directory.CreateDirectory(savePathDirectory);
+            }
         }
 
         private static GetGlobalSettingsResult GetDefaultResult()

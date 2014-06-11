@@ -23,6 +23,8 @@ namespace Simon.Processes.FileSystem.Json
 
         private static void Execute(UpdateGlobalSettingsContext context)
         {
+            CreateDirectoryIfRequired();
+
             var settingsAsJson = JsonConvert.SerializeObject(context.GlobalSettings);
 
             using (var fileStream
@@ -32,6 +34,15 @@ namespace Simon.Processes.FileSystem.Json
                 {
                     streamWriter.Write(settingsAsJson);
                 }
+            }
+        }
+
+        private static void CreateDirectoryIfRequired()
+        {
+            var savePathDirectory = Path.GetDirectoryName(Constants.GlobalSettingsSavePath);
+            if (Directory.Exists(savePathDirectory) == false)
+            {
+                Directory.CreateDirectory(savePathDirectory);
             }
         }
     }

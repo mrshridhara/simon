@@ -50,12 +50,13 @@
     <Compile Include="GlobalSettings.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IPlugin.cs" />
     <Compile Include="NamedEntityBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Feature.cs" />
     <Compile Include="Processes\Database\GetAllProjectsResult.cs" />
-    <Compile Include="Processes\FileSystem\UpdateGlobalSettingsContext.cs" />
+    <Compile Include="Processes\UpdateGlobalSettingsContext.cs" />
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,7 +76,7 @@
     <Compile Include="Processes\Database\GetFeatureForBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Processes\FileSystem\GetGlobalSettingsResult.cs" />
+    <Compile Include="Processes\GetGlobalSettingsResult.cs" />
     <Compile Include="Processes\SourceControl\GetReposirotyBranchesResult.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

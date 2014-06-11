@@ -7,6 +7,10 @@ simonApp.config(function ($routeProvider) {
         .when("/About", {
             templateUrl: "Modules/Common/Templates/About.html",
             controller: "AboutController"
+        })
+        .when("/Settings", {
+            templateUrl: "Modules/Common/Templates/Settings.html",
+            controller: "SettingsController"
         });
 
     $routeProvider

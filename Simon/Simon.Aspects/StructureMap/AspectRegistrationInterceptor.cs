@@ -5,12 +5,12 @@ using StructureMap.Interceptors;
 using System;
 using System.Linq;
 
-namespace Simon.Api.Web.Ioc
+namespace Simon.Aspects.StructureMap
 {
     /// <summary>
-    /// Represents a type interceptor for structure map.
+    /// Represents a type interceptor for structure map to register aspects.
     /// </summary>
-    public class StructureMapTypeInterceptor : TypeInterceptor
+    public class AspectRegistrationInterceptor : TypeInterceptor
     {
         /// <summary>
         /// Does this TypeInterceptor apply to the given type?

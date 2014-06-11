@@ -1,5 +1,6 @@
 ﻿using Simon.Processes;
 using Simon.Repositories;
+using Simon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,14 @@ namespace Simon.Api.Web.Controllers
         /// Initializes an instance of <see cref="ProjectsController"/>.
         /// </summary>
         /// <param name="asyncProcessFactory">The async process factory.</param>
-        /// <param name="projectPersistence">The project persistence</param>
+        /// <param name="projectPersistence">The project persistence.</param>
         public ProjectsController(
             IAsyncProcessFactory asyncProcessFactory,
             IAsyncPersistence<Project> projectPersistence)
         {
+            Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
+            Guard.NotNullArgument("projectPersistence", projectPersistence);
+
             this.asyncProcessFactory = asyncProcessFactory;
             this.projectPersistence = projectPersistence;
         }

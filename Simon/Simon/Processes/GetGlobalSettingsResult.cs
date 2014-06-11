@@ -1,4 +1,4 @@
-﻿namespace Simon.Processes.FileSystem
+﻿namespace Simon.Processes
 {
     /// <summary>
     /// Represents the result of getting global settings.

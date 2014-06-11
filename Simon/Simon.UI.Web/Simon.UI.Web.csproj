@@ -40,25 +40,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Elmah">
       <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
-    </Reference>
-    <Reference Include="LibGit2Sharp">
-      <HintPath>..\..\packages\LibGit2Sharp.0.17.0.0\lib\net35\LibGit2Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\packages\mongocsharpdriver.1.9.1\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -110,6 +98,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Modules\Common\Controllers\AboutController.js" />
+    <Content Include="Modules\Common\Controllers\SettingsController.js" />
     <Content Include="Modules\Common\Directives\AnchorDirective.js" />
     <Content Include="Modules\Common\Services\BreadcrumbServices.js" />
     <Content Include="Modules\Common\Controllers\NavbarController.js" />
@@ -123,6 +112,8 @@
     <Content Include="Modules\Projects\Services\ProjectsServices.js" />
     <Content Include="Modules\Projects\Templates\ProjectDetails.html" />
     <Content Include="Modules\Projects\Templates\Projects.html" />
+    <Content Include="Modules\Common\Services\SettingsServices.js" />
+    <Content Include="Modules\Common\Templates\Settings.html" />
     <Content Include="Modules\SimonAppControllers.js" />
     <Content Include="Modules\SimonApp.js" />
     <Content Include="Modules\SimonAppDirectives.js" />
@@ -442,18 +433,6 @@
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.FileSystem.Json\Simon.Processes.FileSystem.Json.csproj">
-      <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
-      <Name>Simon.Processes.FileSystem.Json</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
-      <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
-      <Name>Simon.Processes.SourceControl.Git</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
-      <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
-      <Name>Simon.Processes.Database.MongoDB</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
       <Name>Simon.Utilities</Name>
@@ -485,11 +464,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
-if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
-if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
-xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.17.0.0\lib\net35\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
-if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
-xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.17.0.0\lib\net35\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

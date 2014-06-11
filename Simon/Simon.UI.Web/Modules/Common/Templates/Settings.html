@@ -1,0 +1,36 @@
+﻿<div class="section"
+     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'"></div>
+
+<div class="section"
+     data-ng-include="'Modules/Common/Templates/Loader.html'"
+     data-ng-hide="SettingsServices.Settings"></div>
+
+<div class="section panel panel-danger"
+     data-ng-show="SettingsServices.Error">
+    <div class="heading panel-heading">Error!!!</div>
+    <div class="contnet">Sorry! Something went wrong!</div>
+</div>
+
+<div class="section panel panel-default" data-ng-show="SettingsServices.Settings">
+    <div class="heading panel-heading">Global settings</div>
+    <table class="contnet table table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-3">Name</th>
+                <th class="col-md-9">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="eachSetting in SettingsServices.Settings">
+                <td class="col-md-3" data-ng-bind="eachSetting.Key"></td>
+                <td class="col-md-9">
+                    <input class="col-md-12" type="text" data-ng-model="eachSetting.Value">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section" data-ng-show="SettingsServices.Settings">
+    <input class="pull-right" type="button" value="Save Changes" data-ng-click="SettingsServices.UpdateSettings()">
+</div>
