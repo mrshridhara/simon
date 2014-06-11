@@ -24,7 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>App_Data\Simon.Api.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\Simon.Api.Web.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -96,9 +96,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Simon.Api.Web.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Simon.Aspects\Simon.Aspects.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Aspects</Name>
@@ -133,7 +130,7 @@
   <PropertyGroup>
     <PostBuildEvent>
 if not exist "$(SolutionDir)Simon\Simon.UI.Web\ApiData" md "$(SolutionDir)Simon\Simon.UI.Web\ApiData"
-xcopy /s /y /d "$(ProjectDir)App_Data\Simon.Api.Web.xml" "$(SolutionDir)Simon\Simon.UI.Web\ApiData"</PostBuildEvent>
+xcopy /s /y /d "$(TargetDir)Simon.Api.Web.xml" "$(SolutionDir)Simon\Simon.UI.Web\ApiData"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
