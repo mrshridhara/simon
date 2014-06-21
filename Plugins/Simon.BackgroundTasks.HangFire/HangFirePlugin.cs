@@ -6,7 +6,7 @@ namespace Simon.BackgroundTasks.HangFire
     /// <summary>
     /// Represents the plugin intializer.
     /// </summary>
-    public sealed class HangFirePlugin
+    public sealed class HangFirePlugin : IPlugin
     {
         /// <summary>
         /// Initializes the plugin and updates the specified <paramref name="globalSettings"/>
