@@ -1,5 +1,7 @@
-﻿using Simon.Utilities;
+﻿using Simon.Observers;
+using Simon.Utilities;
 using System;
+using System.Collections.Generic;
 
 namespace Simon
 {
@@ -8,6 +10,8 @@ namespace Simon
     /// </summary>
     public sealed class Feature : NamedEntityBase
     {
+        private readonly IEnumerable<IAsyncObserver<FeatureState>> featureStateObservers;
+
         /// <summary>
         /// Inititalizes an instance of <see cref="Feature"/> class.
         /// </summary>
@@ -15,12 +19,14 @@ namespace Simon
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="state">The feature state.</param>
-        public Feature(Guid id, string name, string description, FeatureState state)
+        /// <param name="featureStateObservers">The observers of feature state.</param>
+        public Feature(Guid id, string name, string description, FeatureState state, IEnumerable<IAsyncObserver<FeatureState>> featureStateObservers)
             : base(id, name, description)
         {
-            Guard.NotDefaultValueArgument("state", state);
+            Guard.NotNullArgument("featureStateObservers", featureStateObservers);
 
             this.State = state;
+            this.featureStateObservers = featureStateObservers;
         }
 
         /// <summary>
@@ -88,6 +94,10 @@ namespace Simon
             Guard.NotDefaultValueArgument("newState", newState);
 
             this.State = newState;
+            foreach (var eachFeatureStateObserver in featureStateObservers)
+            {
+                eachFeatureStateObserver.UpdateAsync(newState);
+            }
         }
     }
 }

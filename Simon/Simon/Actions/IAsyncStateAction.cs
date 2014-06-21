@@ -1,13 +1,15 @@
-﻿namespace Simon.Rules
+﻿using System.Threading.Tasks;
+
+namespace Simon.Actions
 {
     /// <summary>
-    /// Defines a rule for an entity.
+    /// Defines a state action for an entity.
     /// </summary>
     /// <typeparam name="TEntity">The type of te entity.</typeparam>
-    public interface IRule<TEntity>
+    public interface IAsyncStateAction<TEntity>
     {
         /// <summary>
-        /// Determines whether the rule is applicable for the current state of the entity.
+        /// Determines whether the action is applicable for the current state of the entity.
         /// </summary>
         /// <param name="entiry">The entity instance.</param>
         /// <returns>
@@ -17,10 +19,10 @@
         bool IsApplicable(TEntity entiry);
 
         /// <summary>
-        /// Checks and returns the status of the rule for the current state of the entity.
+        /// Executes the action for the current state of the entity.
         /// </summary>
         /// <param name="entiry">The entity instance.</param>
         /// <returns>The rule status.</returns>
-        RuleStatus CheckStatus(TEntity entiry);
+        Task ExecuteAsync(TEntity entiry);
     }
 }

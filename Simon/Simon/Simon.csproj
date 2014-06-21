@@ -56,6 +56,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Feature.cs" />
+    <Compile Include="Observers\FeatureStateObserver.cs" />
+    <Compile Include="Observers\IAsyncObserver.cs" />
     <Compile Include="Processes\Database\GetAllProjectsResult.cs" />
     <Compile Include="Processes\UpdateGlobalSettingsContext.cs" />
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">
@@ -87,8 +89,7 @@
     <Compile Include="Repositories\IAsyncPersistence.cs" />
     <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\SourceControlRepository.cs" />
-    <Compile Include="Rules\IRule.cs" />
-    <Compile Include="Rules\RuleStatus.cs" />
+    <Compile Include="Actions\IAsyncStateAction.cs" />
     <Compile Include="SourceControlBranch.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
