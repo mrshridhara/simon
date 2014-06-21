@@ -24,7 +24,11 @@
             <tr data-ng-repeat="eachSetting in SettingsServices.Settings">
                 <td class="col-md-3" data-ng-bind="eachSetting.Key"></td>
                 <td class="col-md-9">
+<<<<<<< HEAD
                     <input class="col-md-12" type="text" data-ng-model="eachSetting.Value">
+=======
+                    <input class="col-md-12" type="text" data-ng-model="eachSetting.Value" />
+>>>>>>> Readme updates and minimal file changes.
                 </td>
             </tr>
         </tbody>
@@ -32,5 +36,9 @@
 </div>
 
 <div class="section" data-ng-show="SettingsServices.Settings">
+<<<<<<< HEAD
     <input class="pull-right" type="button" value="Save Changes" data-ng-click="SettingsServices.UpdateSettings()">
+=======
+    <input class="pull-right" type="button" value="Save Changes" data-ng-click="SettingsServices.UpdateSettings()" />
+>>>>>>> Readme updates and minimal file changes.
 </div>

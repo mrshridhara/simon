@@ -86,6 +86,8 @@
     <Compile Include="Repositories\IAsyncPersistence.cs" />
     <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\SourceControlRepository.cs" />
+    <Compile Include="Rules\IRule.cs" />
+    <Compile Include="Rules\RuleStatus.cs" />
     <Compile Include="SourceControlBranch.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
@@ -98,6 +100,9 @@
       <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
       <Name>Simon.Utilities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BackgroundTasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

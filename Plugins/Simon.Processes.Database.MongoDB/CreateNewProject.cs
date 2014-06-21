@@ -35,7 +35,14 @@ namespace Simon.Processes.Database.MongoDB
             GlobalSettings globalSettings,
             CreateNewProjectContext context)
         {
+<<<<<<< HEAD
             throw new System.NotImplementedException();
+=======
+            var projects = MongoHelper.GetMongoCollection<Project>(globalSettings);
+            var result = projects.Insert(context.Project);
+
+            return new CreateNewProjectResult { Project = context.Project };
+>>>>>>> Readme updates and minimal file changes.
         }
     }
 }

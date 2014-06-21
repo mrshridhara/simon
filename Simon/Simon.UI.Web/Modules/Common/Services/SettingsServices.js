@@ -1,12 +1,21 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../../SimonAppServices.js" />
 
+<<<<<<< HEAD
 simonAppServices.service("SettingsServices", ["$http",
     function ($http) {
         return new SettingsServices($http);
     }]);
 
 var SettingsServices = function ($http, undefined) {
+=======
+simonAppServices.service("SettingsServices", ["$http","$location",
+    function ($http, $location) {
+        return new SettingsServices($http, $location);
+    }]);
+
+var SettingsServices = function ($http, $location, undefined) {
+>>>>>>> Readme updates and minimal file changes.
     var self = this;
 
     this.Settings = [];
@@ -27,7 +36,11 @@ var SettingsServices = function ($http, undefined) {
         return $http
             .put('/api/settings', this.Settings)
             .success(function () {
+<<<<<<< HEAD
                 // Show updated toastr.
+=======
+                $location.path("/");
+>>>>>>> Readme updates and minimal file changes.
             })
             .error(function (result) {
                 self.Error = result;

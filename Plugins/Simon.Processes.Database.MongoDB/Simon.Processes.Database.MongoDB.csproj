@@ -53,6 +53,10 @@
     </Compile>
     <Compile Include="CreateNewProject.cs" />
     <Compile Include="MongoDBPlugin.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="CreateNewProject.cs" />
+    <Compile Include="MongoDBPlugin.cs" />
+    <Compile Include="MongoHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
