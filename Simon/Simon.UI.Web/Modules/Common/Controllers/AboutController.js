@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppControllers.js" />
+/// <reference path="../CommonModule.js" />
 
-simonAppControllers.controller("AboutController", ["$scope", "$location", "NavbarServices", "BreadcrumbServices",
+commonModule.controller("AboutController", ["$scope", "$location", "NavbarServices", "BreadcrumbServices",
     function ($scope, $location, navbarServices, breadcrumbServices) {
         navbarServices.DeactivateAll();
         navbarServices.AboutMenu.SetAsActive();

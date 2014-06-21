@@ -124,6 +124,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Modules\Common\CommonModule.js" />
     <Content Include="Modules\Common\Controllers\AboutController.js" />
     <Content Include="Modules\Common\Controllers\SettingsController.js" />
     <Content Include="Modules\Common\Directives\AnchorDirective.js" />
@@ -136,14 +137,13 @@
     <Content Include="Modules\Common\Templates\Navbar.html" />
     <Content Include="Modules\Projects\Controllers\ProjectDetailsController.js" />
     <Content Include="Modules\Projects\Controllers\ProjectsController.js" />
+    <Content Include="Modules\Projects\ProjectsModule.js" />
     <Content Include="Modules\Projects\Services\ProjectsServices.js" />
     <Content Include="Modules\Projects\Templates\ProjectDetails.html" />
     <Content Include="Modules\Projects\Templates\Projects.html" />
     <Content Include="Modules\Common\Services\SettingsServices.js" />
     <Content Include="Modules\Common\Templates\Settings.html" />
-    <Content Include="Modules\SimonAppControllers.js" />
     <Content Include="Modules\SimonApp.js" />
-    <Content Include="Modules\SimonAppDirectives.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -165,7 +165,6 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Modules\SimonAppServices.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />

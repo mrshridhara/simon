@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppServices.js" />
+/// <reference path="../CommonModule.js" />
 
-simonAppServices.service("NavbarServices",
+commonModule.service("NavbarServices",
     function () {
         return new NavbarServices();
     });

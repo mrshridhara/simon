@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppControllers.js" />
+/// <reference path="../ProjectsModule.js" />
 
-simonAppControllers.controller("ProjectsController", ["$scope", "$location", "NavbarServices", "BreadcrumbServices", "ProjectsServices",
+projectsModule.controller("ProjectsController", ["$scope", "$location", "NavbarServices", "BreadcrumbServices", "ProjectsServices",
     function ($scope, $location, navbarServices, breadcrumbServices, projectsServices) {
         navbarServices.DeactivateAll();
 

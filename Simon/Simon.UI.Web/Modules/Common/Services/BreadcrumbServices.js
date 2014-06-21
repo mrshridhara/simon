@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppServices.js" />
+/// <reference path="../CommonModule.js" />
 
-simonAppServices.service("BreadcrumbServices",
+commonModule.service("BreadcrumbServices",
     function () {
         return new BreadcrumbServices();
     });

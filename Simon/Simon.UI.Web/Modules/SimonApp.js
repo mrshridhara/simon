@@ -1,29 +1,9 @@
 ﻿/// <reference path="../Scripts/_references.js" />
 
-var simonApp = angular.module("SimonApp", ["ngRoute", "SimonAppDirectives", "SimonAppControllers", "SimonAppServices"]);
+var simonApp = angular.module("SimonApp", ["ngRoute", "CommonModule", "ProjectsModule"]);
 
-simonApp.config(function ($routeProvider) {
-    $routeProvider
-        .when("/About", {
-            templateUrl: "Modules/Common/Templates/About.html",
-            controller: "AboutController"
-        })
-        .when("/Settings", {
-            templateUrl: "Modules/Common/Templates/Settings.html",
-            controller: "SettingsController"
-        });
-
-    $routeProvider
-        .when("/Projects", {
-            templateUrl: "Modules/Projects/Templates/Projects.html",
-            controller: "ProjectsController"
-        })
-        .when("/Projects/:ProjectId", {
-            templateUrl: "Modules/Projects/Templates/ProjectDetails.html",
-            controller: "ProjectDetailsController"
-        });
-
+simonApp.config(["$routeProvider", function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo: "/Projects"
     });
-});
+}]);

@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppControllers.js" />
+/// <reference path="../CommonModule.js" />
 
-simonAppControllers.controller("NavbarController", ["$scope", "NavbarServices",
+commonModule.controller("NavbarController", ["$scope", "NavbarServices",
     function ($scope, navbarServices) {
         $scope.NavbarServices = navbarServices;
     }]);

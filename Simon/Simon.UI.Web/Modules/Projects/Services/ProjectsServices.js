@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppServices.js" />
+/// <reference path="../ProjectsModule.js" />
 
-simonAppServices.service("ProjectsServices", ["$http",
+projectsModule.service("ProjectsServices", ["$http",
     function ($http) {
         return new ProjectsServices($http);
     }]);

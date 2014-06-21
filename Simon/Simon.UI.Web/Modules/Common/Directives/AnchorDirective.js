@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
-/// <reference path="../../SimonAppDirectives.js" />
+/// <reference path="../CommonModule.js" />
 
-simonAppDirectives.directive('a', function () {
+commonModule.directive('a', function () {
     return {
         restrict: 'E',
         link: function (scope, elem, attrs) {
