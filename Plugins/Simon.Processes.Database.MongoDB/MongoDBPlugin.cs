@@ -15,15 +15,9 @@
         /// </returns>
         public GlobalSettings Init(GlobalSettings globalSettings)
         {
-<<<<<<< HEAD
-            if (globalSettings["MongoConnectionString"] == null)
-            {
-                globalSettings.Add("MongoConnectionString", "");
-=======
             if (globalSettings[Constants.ConnectionStringKey] == null)
             {
                 globalSettings.Add(Constants.ConnectionStringKey, "mongodb://localhost");
->>>>>>> Readme updates and minimal file changes.
             }
 
             return globalSettings;
