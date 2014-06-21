@@ -1,4 +1,4 @@
-﻿namespace Simon.Processes
+﻿namespace Simon
 {
     /// <summary>
     /// Represents an null object pattern implementaion.
