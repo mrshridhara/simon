@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Plugins.Tests", "Tests\Simon.Plugins.Tests\Simon.Plugins.Tests.csproj", "{9D5F91D3-064F-4733-9FA9-24BD75CB558F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.BackgroundTasks.HangFire", "Plugins\Simon.BackgroundTasks.HangFire\Simon.BackgroundTasks.HangFire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{9D5F91D3-064F-4733-9FA9-24BD75CB558F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D5F91D3-064F-4733-9FA9-24BD75CB558F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D5F91D3-064F-4733-9FA9-24BD75CB558F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D83EF49-9D02-4369-9FF2-B96053790DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D83EF49-9D02-4369-9FF2-B96053790DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D83EF49-9D02-4369-9FF2-B96053790DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D83EF49-9D02-4369-9FF2-B96053790DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +122,6 @@ Global
 		{2A7D5664-7322-4981-AEA9-E26B4698DC1F} = {87526A5B-882D-4BDE-A692-DCA7FD059F3A}
 		{DCCCA79F-CAA6-4A43-8152-4F0C5B408ADF} = {17070EAA-145C-4112-88EC-EF6511CCF25C}
 		{9D5F91D3-064F-4733-9FA9-24BD75CB558F} = {87526A5B-882D-4BDE-A692-DCA7FD059F3A}
+		{3D83EF49-9D02-4369-9FF2-B96053790DC2} = {17070EAA-145C-4112-88EC-EF6511CCF25C}
 	EndGlobalSection
 EndGlobal
