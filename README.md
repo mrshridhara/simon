@@ -25,3 +25,5 @@ Note: Even production defects are considered as features as that would simplify 
 ### New Feature Development and Deployment: ###
 
 ![New Feature Development](new-feature-development-process.png)
+
+More processes will be added soon . . .
