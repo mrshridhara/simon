@@ -8,15 +8,15 @@ namespace Simon.Observers
     /// <summary>
     /// Represents a feature state observer.
     /// </summary>
-    public sealed class FeatureStateObserver : IAsyncObserver<FeatureState>
+    public sealed class FeatureStateObserver : IAsyncObserver<Feature>
     {
-        private readonly IEnumerable<IAsyncStateAction<FeatureState>> stateActions;
+        private readonly IEnumerable<IAsyncStateAction<Feature>> stateActions;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.
         /// </summary>
         /// <param name="stateActions">The state actions.</param>
-        public FeatureStateObserver(IEnumerable<IAsyncStateAction<FeatureState>> stateActions)
+        public FeatureStateObserver(IEnumerable<IAsyncStateAction<Feature>> stateActions)
         {
             this.stateActions = stateActions;
         }
@@ -26,7 +26,7 @@ namespace Simon.Observers
         /// </summary>
         /// <param name="entity">The entity.</param>
         /// <returns>Task for async operations.</returns>
-        public async Task UpdateAsync(FeatureState entity)
+        public async Task UpdateAsync(Feature entity)
         {
             foreach (var eachStateAction in stateActions)
             {

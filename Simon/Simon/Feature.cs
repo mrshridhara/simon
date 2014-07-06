@@ -10,7 +10,7 @@ namespace Simon
     /// </summary>
     public sealed class Feature : NamedEntityBase
     {
-        private readonly IEnumerable<IAsyncObserver<FeatureState>> featureStateObservers;
+        private readonly IEnumerable<IAsyncObserver<Feature>> featureObservers;
 
         /// <summary>
         /// Inititalizes an instance of <see cref="Feature"/> class.
@@ -19,14 +19,14 @@ namespace Simon
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="state">The feature state.</param>
-        /// <param name="featureStateObservers">The observers of feature state.</param>
-        public Feature(Guid id, string name, string description, FeatureState state, IEnumerable<IAsyncObserver<FeatureState>> featureStateObservers)
+        /// <param name="featureObservers">The observers of feature.</param>
+        public Feature(Guid id, string name, string description, FeatureState state, IEnumerable<IAsyncObserver<Feature>> featureObservers)
             : base(id, name, description)
         {
-            Guard.NotNullArgument("featureStateObservers", featureStateObservers);
+            Guard.NotNullArgument("featureObservers", featureObservers);
 
             this.State = state;
-            this.featureStateObservers = featureStateObservers;
+            this.featureObservers = featureObservers;
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace Simon
             Guard.NotDefaultValueArgument("newState", newState);
 
             this.State = newState;
-            foreach (var eachFeatureStateObserver in featureStateObservers)
+            foreach (var eachFeatureObserver in featureObservers)
             {
-                eachFeatureStateObserver.UpdateAsync(newState);
+                eachFeatureObserver.UpdateAsync(this);
             }
         }
     }

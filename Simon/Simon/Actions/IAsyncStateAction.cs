@@ -22,7 +22,7 @@ namespace Simon.Actions
         /// Executes the action for the current state of the entity.
         /// </summary>
         /// <param name="entiry">The entity instance.</param>
-        /// <returns>The rule status.</returns>
+        /// <returns>The task.</returns>
         Task ExecuteAsync(TEntity entiry);
     }
 }

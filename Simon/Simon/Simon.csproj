@@ -43,7 +43,9 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Actions\RequirementsCompletedFeatureStateAction.cs" />
     <Compile Include="Application.cs" />
+    <Compile Include="BackgroundTasks\GenerateFeatureTestsContext.cs" />
     <Compile Include="BackgroundTasks\IBackgroundTask.cs" />
     <Compile Include="FeatureState.cs">
       <SubType>Code</SubType>
