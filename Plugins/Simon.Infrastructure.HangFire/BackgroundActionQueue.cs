@@ -1,10 +1,10 @@
-﻿using HangFire;
+﻿using Hangfire;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Simon.Infrastructure.HangFire
+namespace Simon.Infrastructure.Hangfire
 {
     /// <summary>
     /// Represents the background action queue.
@@ -21,7 +21,7 @@ namespace Simon.Infrastructure.HangFire
         /// <param name="entity">The entity.</param>
         public async Task EnqueueAsync(TAction action, TEntity entity)
         {
-            if (IsHangFireConfigured())
+            if (IsHangfireConfigured())
             {
                 var entityAsJson = JsonConvert.SerializeObject(entity);
 
@@ -35,7 +35,7 @@ namespace Simon.Infrastructure.HangFire
         }
 
         [DebuggerStepThrough]
-        private static bool IsHangFireConfigured()
+        private static bool IsHangfireConfigured()
         {
             try
             {

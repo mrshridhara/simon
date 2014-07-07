@@ -1,12 +1,12 @@
-﻿using HangFire;
-using HangFire.Redis;
+﻿using Hangfire;
+using Hangfire.Redis;
 
-namespace Simon.Infrastructure.HangFire
+namespace Simon.Infrastructure.Hangfire
 {
     /// <summary>
     /// Represents the plugin intializer.
     /// </summary>
-    public sealed class HangFirePlugin : IPlugin
+    public sealed class HangfirePlugin : IPlugin
     {
         /// <summary>
         /// Initializes the plugin and updates the specified <paramref name="globalSettings"/>
@@ -18,12 +18,12 @@ namespace Simon.Infrastructure.HangFire
         /// </returns>
         public GlobalSettings Init(GlobalSettings globalSettings)
         {
-            if (globalSettings[Constants.HangFireRedisStorageServerKey] == null)
+            if (globalSettings[Constants.HangfireRedisStorageServerKey] == null)
             {
-                globalSettings.Add(Constants.HangFireRedisStorageServerKey, "localhost:6379");
+                globalSettings.Add(Constants.HangfireRedisStorageServerKey, "localhost:6379");
             }
 
-            JobStorage.Current = new RedisStorage(globalSettings[Constants.HangFireRedisStorageServerKey], 1);
+            JobStorage.Current = new RedisStorage(globalSettings[Constants.HangfireRedisStorageServerKey], 1);
             var server = new BackgroundJobServer();
             server.Start();
 

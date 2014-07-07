@@ -1,4 +1,4 @@
-﻿namespace Simon.Infrastructure.HangFire
+﻿namespace Simon.Infrastructure.Hangfire
 {
     /// <summary>
     /// Represents the constants.
@@ -6,9 +6,9 @@
     public static class Constants
     {
         /// <summary>
-        /// The HangFire redis storage server key.
+        /// The Hangfire redis storage server key.
         /// </summary>
-        public const string HangFireRedisStorageServerKey
-            = "HangFireRedisStorageServer";
+        public const string HangfireRedisStorageServerKey
+            = "HangfireRedisStorageServer";
     }
 }

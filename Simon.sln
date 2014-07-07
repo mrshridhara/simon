@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure", "Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.Tests", "Tests\Simon.Infrastructure.Tests\Simon.Infrastructure.Tests.csproj", "{30DE4FF9-6F63-48DC-838E-7495A2B4027C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.HangFire", "Plugins\Simon.Infrastructure.HangFire\Simon.Infrastructure.HangFire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.Hangfire", "Plugins\Simon.Infrastructure.Hangfire\Simon.Infrastructure.Hangfire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
