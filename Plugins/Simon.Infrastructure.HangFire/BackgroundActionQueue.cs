@@ -10,27 +10,27 @@ namespace Simon.Infrastructure.HangFire
     /// Represents the background action queue.
     /// </summary>
     /// <typeparam name="TAction">The type of the action.</typeparam>
-    /// <typeparam name="TContext">The type of the context.</typeparam>
-    public class BackgroundActionQueue<TAction, TContext> : IAsyncActionQueue<TAction, TContext>
-        where TAction : IAsyncAction<TContext>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    public class BackgroundActionQueue<TAction, TEntity> : IAsyncActionQueue<TAction, TEntity>
+        where TAction : IAsyncAction<TEntity>
     {
         /// <summary>
         /// Enqueues the specified <paramref name="action"/>.
         /// </summary>
         /// <param name="action">The action.</param>
-        /// <param name="context">The context.</param>
-        public async Task EnqueueAsync(TAction action, TContext context)
+        /// <param name="entity">The entity.</param>
+        public async Task EnqueueAsync(TAction action, TEntity entity)
         {
             if (IsHangFireConfigured())
             {
-                var contextAsJson = JsonConvert.SerializeObject(context);
+                var entityAsJson = JsonConvert.SerializeObject(entity);
 
                 BackgroundJob.Enqueue<TAction>(
-                    backgroundAction => backgroundAction.DeserializeAndExecute(contextAsJson));
+                    backgroundAction => backgroundAction.DeserializeAndExecute(entityAsJson));
             }
             else
             {
-                await action.ExecuteAsync(context);
+                await action.ExecuteAsync(entity);
             }
         }
 

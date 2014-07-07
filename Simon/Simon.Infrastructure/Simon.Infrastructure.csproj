@@ -74,6 +74,7 @@
     <Compile Include="IAsyncActionQueue.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IAsyncActionQueueFactory.cs" />
     <Compile Include="IAsyncObserver.cs" />
     <Compile Include="IAsyncPersistence.cs" />
     <Compile Include="IAsyncProcess.cs" />

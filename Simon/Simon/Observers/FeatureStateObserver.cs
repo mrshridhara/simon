@@ -10,14 +10,19 @@ namespace Simon.Observers
     public sealed class FeatureStateObserver : IAsyncObserver<Feature>
     {
         private readonly IEnumerable<IAsyncAction<Feature>> stateActions;
+        private readonly IAsyncActionQueueFactory asyncActionQueueFactory;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.
         /// </summary>
-        /// <param name="stateActions">The state actions.</param>
-        public FeatureStateObserver(IEnumerable<IAsyncAction<Feature>> stateActions)
+        /// <param name="featureActions">The state actions.</param>
+        /// <param name="asyncActionQueueFactory">The async action queue factory.</param>
+        public FeatureStateObserver(
+            IEnumerable<IAsyncAction<Feature>> featureActions,
+            IAsyncActionQueueFactory asyncActionQueueFactory)
         {
-            this.stateActions = stateActions;
+            this.stateActions = featureActions;
+            this.asyncActionQueueFactory = asyncActionQueueFactory;
         }
 
         /// <summary>
@@ -27,11 +32,14 @@ namespace Simon.Observers
         /// <returns>Task for async operations.</returns>
         public async Task UpdateAsync(Feature entity)
         {
-            foreach (var eachStateAction in stateActions)
+            foreach (var eachFeatureAction in stateActions)
             {
-                if (eachStateAction.IsApplicable(entity))
+                if (eachFeatureAction.IsApplicable(entity))
                 {
-                    await eachStateAction.ExecuteAsync(entity);
+                    var asyncActionQueue
+                        = asyncActionQueueFactory.CreateAsyncActionQueue(eachFeatureAction, entity);
+
+                    await asyncActionQueue.EnqueueAsync(eachFeatureAction, entity);
                 }
             }
         }

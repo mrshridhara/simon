@@ -6,35 +6,35 @@ namespace Simon.Infrastructure
     /// <summary>
     /// Defines an action for an entity.
     /// </summary>
-    /// <typeparam name="TContext">The type of the context.</typeparam>
-    public interface IAsyncAction<in TContext>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    public interface IAsyncAction<in TEntity>
     {
         /// <summary>
         /// Determines whether the action is applicable for the current state of the entity.
         /// </summary>
-        /// <param name="context">The context.</param>
+        /// <param name="entity">The entity.</param>
         /// <returns>
         /// <c>true</c> if the rule is applicable for the
         /// current state of the entity, otherwise; <c>false</c>.
         /// </returns>
         [ArgumentsNotNull]
-        bool IsApplicable(TContext context);
+        bool IsApplicable(TEntity entity);
 
         /// <summary>
         /// Executes the action for the current state of the entity.
         /// </summary>
-        /// <param name="context">The context.</param>
+        /// <param name="entity">The entity.</param>
         /// <returns>The task.</returns>
         [ArgumentsNotNull]
-        Task ExecuteAsync(TContext context);
+        Task ExecuteAsync(TEntity entity);
 
         /// <summary>
         /// Deserialize and executes the action for the current state of the entity.
         /// </summary>
-        /// <param name="contextInJson">The context in JSON format.</param>
+        /// <param name="entityInJson">The entity in JSON format.</param>
         /// <returns>The task.</returns>
         [ArgumentsNotNull]
         [ArgumentsNotEmpty]
-        Task DeserializeAndExecute(string contextInJson);
+        Task DeserializeAndExecute(string entityInJson);
     }
 }
