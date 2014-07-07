@@ -1,4 +1,6 @@
-﻿namespace Simon.Processes
+﻿using Simon.Infrastructure;
+
+namespace Simon.Processes
 {
     /// <summary>
     /// Represents the context for updating global settings.

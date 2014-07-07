@@ -551,17 +551,13 @@
       <Project>{f88d371a-73ab-443c-ac9b-170d4009146b}</Project>
       <Name>Simon.Api.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Simon.Aspects\Simon.Aspects.csproj">
+    <ProjectReference Include="..\Simon.Infrastructure\Simon.Infrastructure.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
-      <Name>Simon.Aspects</Name>
+      <Name>Simon.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Simon\Simon.csproj">
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Simon.Utilities\Simon.Utilities.csproj">
-      <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
-      <Name>Simon.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

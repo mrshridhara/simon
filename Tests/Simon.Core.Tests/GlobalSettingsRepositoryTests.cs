@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using Simon.Infrastructure;
 using Simon.Processes;
 using Simon.Repositories;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Simon.Core.Tests
                 { "TestSetting", "some value" }
             };
 
-            var expectedGlobalSettings = new GlobalSettings(globalSettingsDictionary);
+            var expectedGlobalSettings = new Simon.Infrastructure.GlobalSettings(globalSettingsDictionary);
 
             var asyncProcessMock = new Mock<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
             asyncProcessMock
@@ -33,7 +34,7 @@ namespace Simon.Core.Tests
             asyncProcessFactoryMock
                 .Setup(mock => mock.CreateAsyncProcess<
                                         EmptyContext,
-                                        GetGlobalSettingsResult>(It.IsAny<GlobalSettings>()))
+                                        GetGlobalSettingsResult>(It.IsAny<Simon.Infrastructure.GlobalSettings>()))
                 .Returns(asyncProcessMock.Object)
                 .Verifiable();
 
@@ -62,7 +63,7 @@ namespace Simon.Core.Tests
                 { "TestSetting", "some other value" }
             };
 
-            var globalSettingsToBeUpdated = new GlobalSettings(globalSettingsDictionary);
+            var globalSettingsToBeUpdated = new Simon.Infrastructure.GlobalSettings(globalSettingsDictionary);
 
             var asyncProcessMock = new Mock<IAsyncProcess<UpdateGlobalSettingsContext>>();
             asyncProcessMock
@@ -73,7 +74,7 @@ namespace Simon.Core.Tests
             var asyncProcessFactoryMock = new Mock<IAsyncProcessFactory>();
             asyncProcessFactoryMock
                 .Setup(mock => mock.CreateAsyncProcess<
-                                        UpdateGlobalSettingsContext>(It.IsAny<GlobalSettings>()))
+                                        UpdateGlobalSettingsContext>(It.IsAny<Simon.Infrastructure.GlobalSettings>()))
                 .Returns(asyncProcessMock.Object)
                 .Verifiable();
 

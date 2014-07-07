@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Simon.Infrastructure;
 using System.IO;
 using System.Threading.Tasks;
+
 namespace Simon.Processes.FileSystem.Json
 {
     /// <summary>

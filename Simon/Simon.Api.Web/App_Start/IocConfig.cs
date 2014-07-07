@@ -1,10 +1,6 @@
-﻿using Simon.Actions;
-using Simon.Api.Web.Ioc;
-using Simon.Aspects.StructureMap;
-using Simon.BackgroundTasks;
-using Simon.Observers;
-using Simon.Processes;
-using Simon.Repositories;
+﻿using Simon.Api.Web.Ioc;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Aspects.StructureMap;
 using StructureMap;
 using System;
 using System.Collections.Generic;
@@ -49,8 +45,8 @@ namespace Simon.Api.Web
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<>));
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncPersistence<,>));
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncPersistence<>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncStateAction<>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IBackgroundTask<>));
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncActionQueue<,>));
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncAction<>));
 
                     scanner.AddAllTypesOf<IAsyncProcessFactory>();
                     scanner.AddAllTypesOf<IPlugin>();

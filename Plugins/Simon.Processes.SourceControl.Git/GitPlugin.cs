@@ -1,4 +1,6 @@
-﻿namespace Simon.Processes.SourceControl.Git
+﻿using Simon.Infrastructure;
+
+namespace Simon.Processes.SourceControl.Git
 {
     /// <summary>
     /// Represents the plugin intializer.

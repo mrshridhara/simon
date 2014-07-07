@@ -1,4 +1,4 @@
-﻿using Simon.Utilities;
+﻿using Simon.Infrastructure.Utilities;
 using StructureMap;
 using System;
 using System.Collections.Generic;

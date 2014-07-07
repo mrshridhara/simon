@@ -1,5 +1,5 @@
-﻿using Simon.Observers;
-using Simon.Utilities;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 using System;
 using System.Collections.Generic;
 

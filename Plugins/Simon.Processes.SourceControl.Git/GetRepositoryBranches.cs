@@ -1,4 +1,5 @@
 ﻿using LibGit2Sharp;
+using Simon.Infrastructure;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,13 +12,13 @@ namespace Simon.Processes.SourceControl.Git
     public sealed class GetRepositoryBranches
         : IAsyncProcess<EmptyContext, GetReposirotyBranchesResult>
     {
-        private readonly GlobalSettings globalSettings;
+        private readonly Simon.Infrastructure.GlobalSettings globalSettings;
 
         /// <summary>
         /// Initializes an instance of <see cref="GetRepositoryBranches"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        public GetRepositoryBranches(GlobalSettings globalSettings)
+        public GetRepositoryBranches(Simon.Infrastructure.GlobalSettings globalSettings)
         {
             this.globalSettings = globalSettings;
         }
@@ -34,7 +35,7 @@ namespace Simon.Processes.SourceControl.Git
                 TaskCreationOptions.LongRunning);
         }
 
-        private static GetReposirotyBranchesResult Execute(GlobalSettings globalSettings)
+        private static GetReposirotyBranchesResult Execute(Simon.Infrastructure.GlobalSettings globalSettings)
         {
             var repo = new Repository(globalSettings["RepoPath"]);
             var branches

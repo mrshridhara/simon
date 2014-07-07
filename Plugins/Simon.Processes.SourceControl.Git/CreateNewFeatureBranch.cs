@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Simon.Infrastructure;
+using System;
 using System.Threading.Tasks;
 
 namespace Simon.Processes.SourceControl.Git

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Simon.Infrastructure;
+using System.Threading.Tasks;
 
 namespace Simon.Processes.Database.MongoDB
 {

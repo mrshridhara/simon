@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using Simon.Infrastructure;
 
 namespace Simon.Processes.Database.MongoDB
 {

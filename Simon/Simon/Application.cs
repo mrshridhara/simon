@@ -1,4 +1,4 @@
-﻿using Simon.Utilities;
+﻿using Simon.Infrastructure.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

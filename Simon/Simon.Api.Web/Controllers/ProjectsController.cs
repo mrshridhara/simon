@@ -1,6 +1,5 @@
-﻿using Simon.Processes;
-using Simon.Repositories;
-using Simon.Utilities;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

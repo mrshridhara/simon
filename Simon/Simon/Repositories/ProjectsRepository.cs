@@ -1,5 +1,5 @@
-﻿using Simon.Processes;
-using Simon.Utilities;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

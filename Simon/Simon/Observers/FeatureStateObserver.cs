@@ -1,5 +1,4 @@
-﻿using Simon.Actions;
-using System;
+﻿using Simon.Infrastructure;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,13 +9,13 @@ namespace Simon.Observers
     /// </summary>
     public sealed class FeatureStateObserver : IAsyncObserver<Feature>
     {
-        private readonly IEnumerable<IAsyncStateAction<Feature>> stateActions;
+        private readonly IEnumerable<IAsyncAction<Feature>> stateActions;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.
         /// </summary>
         /// <param name="stateActions">The state actions.</param>
-        public FeatureStateObserver(IEnumerable<IAsyncStateAction<Feature>> stateActions)
+        public FeatureStateObserver(IEnumerable<IAsyncAction<Feature>> stateActions)
         {
             this.stateActions = stateActions;
         }

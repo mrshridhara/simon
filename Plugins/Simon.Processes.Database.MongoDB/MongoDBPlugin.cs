@@ -1,4 +1,6 @@
-﻿namespace Simon.Processes.Database.MongoDB
+﻿using Simon.Infrastructure;
+
+namespace Simon.Processes.Database.MongoDB
 {
     /// <summary>
     /// Represents the plugin intializer.

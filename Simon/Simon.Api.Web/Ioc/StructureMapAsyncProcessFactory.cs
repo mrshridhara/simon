@@ -1,5 +1,6 @@
-﻿using Simon.Processes;
-using Simon.Utilities;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using Simon.Processes;
 using StructureMap;
 
 namespace Simon.Api.Web.Ioc

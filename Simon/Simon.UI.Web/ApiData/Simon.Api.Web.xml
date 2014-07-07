@@ -31,7 +31,7 @@
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Processes.IAsyncProcessFactory,Simon.Repositories.IAsyncPersistence{Simon.Project})">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Infrastructure.IAsyncProcessFactory,Simon.Infrastructure.IAsyncPersistence{Simon.Project})">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
@@ -85,7 +85,7 @@
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Processes.IAsyncProcessFactory,Simon.Repositories.IAsyncPersistence{Simon.GlobalSettings})">
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Infrastructure.IAsyncProcessFactory,Simon.Infrastructure.IAsyncPersistence{Simon.Infrastructure.GlobalSettings})">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SettingsController"/>.
             </summary>
@@ -111,7 +111,7 @@
         </member>
         <member name="T:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory">
             <summary>
-            Represents the implementaion of <see cref="T:Simon.Processes.IAsyncProcessFactory"/>
+            Represents the implementaion of <see cref="T:Simon.Infrastructure.IAsyncProcessFactory"/>
             using StructureMap IoC container.
             </summary>
         </member>
@@ -121,7 +121,7 @@
             </summary>
             <param name="container">The container.</param>
         </member>
-        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``2(Simon.GlobalSettings)">
+        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``2(Simon.Infrastructure.GlobalSettings)">
             <summary>
             Creates an async process which takes a context of type <typeparamref name="TContext"/>
             and returns the result of type <typeparamref name="TResult"/>.
@@ -129,16 +129,16 @@
             <param name="globalSettings">The global settings.</param>
             <typeparam name="TContext">The type of context.</typeparam>
             <typeparam name="TResult">The type of result.</typeparam>
-            <returns>An instacnce of <see cref="T:Simon.Processes.IAsyncProcess`2"/>.</returns>
+            <returns>An instacnce of <see cref="T:Simon.Infrastructure.IAsyncProcess`2"/>.</returns>
         </member>
-        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``1(Simon.GlobalSettings)">
+        <member name="M:Simon.Api.Web.Ioc.StructureMapAsyncProcessFactory.CreateAsyncProcess``1(Simon.Infrastructure.GlobalSettings)">
             <summary>
             Creates an async process which takes  a context of type <typeparamref name="TContext"/>
             and does not return any value.
             </summary>
             <param name="globalSettings">The global settings.</param>
             <typeparam name="TContext">The type of context.</typeparam>
-            <returns>An instacnce of <see cref="T:Simon.Processes.IAsyncProcess`1"/>.</returns>
+            <returns>An instacnce of <see cref="T:Simon.Infrastructure.IAsyncProcess`1"/>.</returns>
         </member>
         <member name="T:Simon.Api.Web.Ioc.StructureMapDependencyResolver">
             <summary>

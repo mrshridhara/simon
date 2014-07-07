@@ -1,8 +1,8 @@
-﻿using Simon.Aspects;
-using Simon.Processes;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Aspects;
+using Simon.Infrastructure.Utilities;
 using Simon.Processes.Database;
 using Simon.Processes.SourceControl;
-using Simon.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

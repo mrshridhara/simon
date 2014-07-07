@@ -69,13 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Simon\Simon.Aspects\Simon.Aspects.csproj">
+    <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
-      <Name>Simon.Aspects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon.Utilities\Simon.Utilities.csproj">
-      <Project>{99228775-3509-4320-859e-1756496a298d}</Project>
-      <Name>Simon.Utilities</Name>
+      <Name>Simon.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
