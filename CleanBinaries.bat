@@ -1,3 +1,1 @@
-﻿FOR /D %%p IN ("**\bin\") DO rmdir "%%p" /s /q
-FOR /D %%p IN ("**\obj\") DO rmdir "%%p" /s /q
-pause
+@powershell -ExecutionPolicy unrestricted "Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { remove-item $_.fullname -Force -Recurse }"
