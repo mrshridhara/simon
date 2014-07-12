@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Simon.Processes.FileSystem.Json
+namespace Simon.Processes.FileSystem
 {
     /// <summary>
     /// Represents the constants.

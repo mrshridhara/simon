@@ -55,7 +55,10 @@
     <Compile Include="Feature.cs" />
     <Compile Include="Observers\FeatureStateObserver.cs" />
     <Compile Include="Processes\Database\GetAllProjectsResult.cs" />
-    <Compile Include="Processes\UpdateGlobalSettingsContext.cs" />
+    <Compile Include="Processes\FileSystem\Constants.cs" />
+    <Compile Include="Processes\FileSystem\GetGlobalSettings.cs" />
+    <Compile Include="Processes\FileSystem\UpdateGlobalSettings.cs" />
+    <Compile Include="Processes\FileSystem\UpdateGlobalSettingsContext.cs" />
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,7 +76,7 @@
     <Compile Include="Processes\Database\GetFeatureForBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Processes\GetGlobalSettingsResult.cs" />
+    <Compile Include="Processes\FileSystem\GetGlobalSettingsResult.cs" />
     <Compile Include="Processes\SourceControl\GetReposirotyBranchesResult.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

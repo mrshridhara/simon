@@ -12,7 +12,7 @@ namespace Simon.Actions
         /// Initializes an instance of <see cref="GenerateFeatureTests"/>class.
         /// </summary>
         /// <param name="serializer">The serializer.</param>
-        public GenerateFeatureTests(ISerializer<Feature> serializer)
+        public GenerateFeatureTests(ISerializer serializer)
             : base(serializer)
         {
         }

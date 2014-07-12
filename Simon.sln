@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.Database.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Core.Tests", "Tests\Simon.Core.Tests\Simon.Core.Tests.csproj", "{2A7D5664-7322-4981-AEA9-E26B4698DC1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.FileSystem.Json", "Plugins\Simon.Processes.FileSystem.Json\Simon.Processes.FileSystem.Json.csproj", "{DCCCA79F-CAA6-4A43-8152-4F0C5B408ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.Newtonsoft.Json", "Plugins\Simon.Infrastructure.Newtonsoft.Json\Simon.Infrastructure.Newtonsoft.Json.csproj", "{DCCCA79F-CAA6-4A43-8152-4F0C5B408ADF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Plugins.Tests", "Tests\Simon.Plugins.Tests\Simon.Plugins.Tests.csproj", "{9D5F91D3-064F-4733-9FA9-24BD75CB558F}"
 EndProject

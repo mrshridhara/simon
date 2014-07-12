@@ -40,16 +40,17 @@ namespace Simon.Api.Web
 
                     scanner.LookForRegistries();
 
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncAction<>));
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncObserver<>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<,>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<>));
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncPersistence<,>));
                     scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncPersistence<>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncActionQueue<,>));
-                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncAction<>));
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<,>));
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IAsyncProcess<>));
 
+                    scanner.AddAllTypesOf<IAsyncActionQueue>();
                     scanner.AddAllTypesOf<IAsyncProcessFactory>();
                     scanner.AddAllTypesOf<IPlugin>();
+                    scanner.AddAllTypesOf<ISerializer>();
                     scanner.AddAllTypesOf<IHttpController>();
                 });
 

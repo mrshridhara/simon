@@ -9,13 +9,13 @@ namespace Simon.Actions
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public abstract class AsyncActionBase<TEntity> : IAsyncAction<TEntity>
     {
-        private readonly ISerializer<TEntity> serializer;
+        private readonly ISerializer serializer;
 
         /// <summary>
         /// Initializes an instance of <see cref="AsyncActionBase&lt;TEntity&gt;"/> class.
         /// </summary>
         /// <param name="serializer">The serializer.</param>
-        protected AsyncActionBase(ISerializer<TEntity> serializer)
+        protected AsyncActionBase(ISerializer serializer)
         {
             this.serializer = serializer;
         }
@@ -44,7 +44,7 @@ namespace Simon.Actions
         /// <returns>The task.</returns>
         public async Task DeserializeAndExecute(string entityInJson)
         {
-            await ExecuteAsync(await serializer.DeserializeAsync(entityInJson));
+            await ExecuteAsync(await serializer.DeserializeAsync<TEntity>(entityInJson));
         }
     }
 }

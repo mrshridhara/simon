@@ -1,14 +1,14 @@
 ﻿using Simon.Infrastructure;
 
-namespace Simon.Processes
+namespace Simon.Processes.FileSystem
 {
     /// <summary>
-    /// Represents the context for updating global settings.
+    /// Represents the result of getting global settings.
     /// </summary>
-    public sealed class UpdateGlobalSettingsContext
+    public sealed class GetGlobalSettingsResult
     {
         /// <summary>
-        /// Gets or sets the global settings.
+        /// Gets or sets global settings.
         /// </summary>
         public GlobalSettings GlobalSettings { get; set; }
     }

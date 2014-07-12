@@ -83,9 +83,9 @@
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.FileSystem.Json\Simon.Processes.FileSystem.Json.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Newtonsoft.Json\Simon.Infrastructure.Newtonsoft.Json.csproj">
       <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
-      <Name>Simon.Processes.FileSystem.Json</Name>
+      <Name>Simon.Infrastructure.Newtonsoft.Json</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
       <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>

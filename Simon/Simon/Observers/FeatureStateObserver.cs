@@ -10,19 +10,19 @@ namespace Simon.Observers
     public sealed class FeatureStateObserver : IAsyncObserver<Feature>
     {
         private readonly IEnumerable<IAsyncAction<Feature>> stateActions;
-        private readonly IAsyncActionQueueFactory asyncActionQueueFactory;
+        private readonly IAsyncActionQueue asyncActionQueue;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.
         /// </summary>
         /// <param name="featureActions">The state actions.</param>
-        /// <param name="asyncActionQueueFactory">The async action queue factory.</param>
+        /// <param name="asyncActionQueue">The async action queue.</param>
         public FeatureStateObserver(
             IEnumerable<IAsyncAction<Feature>> featureActions,
-            IAsyncActionQueueFactory asyncActionQueueFactory)
+            IAsyncActionQueue asyncActionQueue)
         {
             this.stateActions = featureActions;
-            this.asyncActionQueueFactory = asyncActionQueueFactory;
+            this.asyncActionQueue = asyncActionQueue;
         }
 
         /// <summary>
@@ -36,9 +36,6 @@ namespace Simon.Observers
             {
                 if (eachFeatureAction.IsApplicable(entity))
                 {
-                    var asyncActionQueue
-                        = asyncActionQueueFactory.CreateAsyncActionQueue(eachFeatureAction, entity);
-
                     await asyncActionQueue.EnqueueAsync(eachFeatureAction, entity);
                 }
             }

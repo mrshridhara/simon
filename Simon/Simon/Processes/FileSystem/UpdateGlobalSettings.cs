@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Simon.Processes.FileSystem.Json
+namespace Simon.Processes.FileSystem
 {
     /// <summary>
     /// Updates the global settings.
@@ -11,6 +10,17 @@ namespace Simon.Processes.FileSystem.Json
     public sealed class UpdateGlobalSettings
         : IAsyncProcess<UpdateGlobalSettingsContext>
     {
+        private readonly ISerializer serializer;
+
+        /// <summary>
+        /// Initializes an instance of <see cref="UpdateGlobalSettings"/> class.
+        /// </summary>
+        /// <param name="serializer">The serializer.</param>
+        public UpdateGlobalSettings(ISerializer serializer)
+        {
+            this.serializer = serializer;
+        }
+
         /// <summary>
         /// Executes the async process.
         /// </summary>
@@ -18,16 +28,9 @@ namespace Simon.Processes.FileSystem.Json
         /// <returns>A task of type <see cref="Task&lt;EmptyResult&gt;"/></returns>
         public async Task ExecuteAsync(UpdateGlobalSettingsContext context)
         {
-            await Task.Factory.StartNew(
-                () => Execute(context),
-                TaskCreationOptions.LongRunning);
-        }
-
-        private static void Execute(UpdateGlobalSettingsContext context)
-        {
             CreateDirectoryIfRequired();
 
-            var settingsAsJson = JsonConvert.SerializeObject(context.GlobalSettings);
+            var settingsAsJson = await serializer.SerializeAsync(context.GlobalSettings);
 
             using (var fileStream
                 = new FileStream(Constants.GlobalSettingsSavePath, FileMode.Create))

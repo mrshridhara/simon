@@ -6,17 +6,17 @@ namespace Simon.Infrastructure
     /// <summary>
     /// Defines a queue for an action.
     /// </summary>
-    /// <typeparam name="TAction">The type of the action.</typeparam>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface IAsyncActionQueue<in TAction, in TEntity>
-        where TAction : IAsyncAction<TEntity>
+    public interface IAsyncActionQueue
     {
         /// <summary>
         /// Enqueues the specified <paramref name="action"/>.
         /// </summary>
         /// <param name="action">The action.</param>
         /// <param name="entity">The entity.</param>
+        /// <typeparam name="TAction">The type of the action.</typeparam>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
         [ArgumentsNotNull]
-        Task EnqueueAsync(TAction action, TEntity entity);
+        Task EnqueueAsync<TAction, TEntity>(TAction action, TEntity entity)
+            where TAction : IAsyncAction<TEntity>;
     }
 }

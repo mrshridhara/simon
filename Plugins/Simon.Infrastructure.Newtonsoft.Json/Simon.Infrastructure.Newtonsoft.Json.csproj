@@ -7,8 +7,8 @@
     <ProjectGuid>{DCCCA79F-CAA6-4A43-8152-4F0C5B408ADF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simon.Processes.FileSystem.Json</RootNamespace>
-    <AssemblyName>Simon.Processes.FileSystem.Json</AssemblyName>
+    <RootNamespace>Simon.Infrastructure.Newtonsoft.Json</RootNamespace>
+    <AssemblyName>Simon.Infrastructure.Newtonsoft.Json</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Simon.Processes.FileSystem.Json.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Simon.Infrastructure.Newtonsoft.Json.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,10 +48,8 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Constants.cs" />
-    <Compile Include="GetGlobalSettings.cs" />
+    <Compile Include="JsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateGlobalSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
