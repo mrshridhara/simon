@@ -57,7 +57,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="GetGlobalSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Simon.Infrastructure;
 using Simon.Processes.FileSystem;
@@ -46,12 +47,11 @@ namespace Simon.Core.Tests
 
             // Assert
             getGlobalSettingsMock.VerifyAll();
-
-            Assert.IsNotNull(results);
+            results.Should().NotBeNull();
 
             var actualGlobalSettings = results.FirstOrDefault();
-            Assert.IsNotNull(actualGlobalSettings);
-            Assert.AreEqual("some value", actualGlobalSettings["TestSetting"]);
+            actualGlobalSettings.Should().NotBeNull();
+            actualGlobalSettings["TestSetting"].Should().Be("some value");
         }
 
         [TestMethod]
