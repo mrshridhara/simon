@@ -1,13 +1,13 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Simon.Presentation.Tests.Steps;
 
 namespace Simon.Presentation.Tests.Features
 {
-    [TestFixture]
+    [TestClass]
     public class CreateNewProjectFeature : FeatureBase<CreateNewProjectSteps>
     {
-        [Test(Description = "Scenario: Create new project")]
-        [Ignore("Incomplete feature.")]
+        [TestMethod]
+        [Ignore]
         public void CreateNewProject()
         {
             Given.SimonNewProjectPageIsOpen();

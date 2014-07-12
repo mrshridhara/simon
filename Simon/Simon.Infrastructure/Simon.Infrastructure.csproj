@@ -77,8 +77,6 @@
     <Compile Include="IAsyncObserver.cs" />
     <Compile Include="IAsyncPersistence.cs" />
     <Compile Include="IAsyncProcess.cs" />
-    <Compile Include="IAsyncProcessFactory.cs" />
-    <Compile Include="IIocContainer.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="ISerializer.cs" />
     <Compile Include="JsonSerializer.cs" />

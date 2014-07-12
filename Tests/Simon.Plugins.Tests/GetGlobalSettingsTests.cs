@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Simon.Plugins.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class GetGlobalSettingsTests
     {
-        [Test]
-        [Ignore("Test incomplete.")]
+        [TestMethod]
+        [Ignore]
         public void Should_Get_Valid_Global_Settings()
         {
         }

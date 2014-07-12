@@ -12,22 +12,17 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public class SettingsController : ApiController
     {
-        private readonly IAsyncProcessFactory asyncProcessFactory;
         private readonly IAsyncPersistence<GlobalSettings> globalSettingsPersistence;
 
         /// <summary>
         /// Initializes an instance of <see cref="SettingsController"/>.
         /// </summary>
-        /// <param name="asyncProcessFactory">The async process factory.</param>
         /// <param name="globalSettingsPersistence">The global settings persistence.</param>
         public SettingsController(
-            IAsyncProcessFactory asyncProcessFactory,
             IAsyncPersistence<GlobalSettings> globalSettingsPersistence)
         {
-            Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
             Guard.NotNullArgument("globalSettingsPersistence", globalSettingsPersistence);
 
-            this.asyncProcessFactory = asyncProcessFactory;
             this.globalSettingsPersistence = globalSettingsPersistence;
         }
 

@@ -83,11 +83,10 @@
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Infrastructure.IAsyncProcessFactory,Simon.Infrastructure.IAsyncPersistence{Simon.Infrastructure.GlobalSettings})">
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Infrastructure.IAsyncPersistence{Simon.Infrastructure.GlobalSettings})">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SettingsController"/>.
             </summary>
-            <param name="asyncProcessFactory">The async process factory.</param>
             <param name="globalSettingsPersistence">The global settings persistence.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.SettingsController.GetAsync">

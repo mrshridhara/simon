@@ -12,22 +12,17 @@ namespace Simon.Repositories
         : IAsyncPersistence<Project>
     {
         private readonly GlobalSettings globalSettings;
-        private readonly IAsyncProcessFactory asyncProcessFactory;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsRepository"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        /// <param name="asyncProcessFactory">The asyncProcess factory.</param>
         public ProjectsRepository(
-            GlobalSettings globalSettings,
-            IAsyncProcessFactory asyncProcessFactory)
+            GlobalSettings globalSettings)
         {
             Guard.NotNullArgument("globalSettings", globalSettings);
-            Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
 
             this.globalSettings = globalSettings;
-            this.asyncProcessFactory = asyncProcessFactory;
         }
 
         /// <summary>

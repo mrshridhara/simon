@@ -1,13 +1,13 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Simon.Core.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class SourceRepositoryTests
     {
-        [Test]
-        [Ignore("Test incomplete.")]
+        [TestMethod]
+        [Ignore]
         public void Shrould_Create_Source_Repository()
         {
         }

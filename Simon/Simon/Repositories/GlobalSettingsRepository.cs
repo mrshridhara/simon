@@ -14,18 +14,23 @@ namespace Simon.Repositories
     public sealed class GlobalSettingsRepository
         : IAsyncPersistence<GlobalSettings>
     {
-        private readonly IAsyncProcessFactory asyncProcessFactory;
+        private readonly IAsyncProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings;
+        private readonly IAsyncProcess<UpdateGlobalSettingsContext> updateGlobalSettings;
 
         /// <summary>
         /// Initializes an instance of <see cref="GlobalSettingsRepository"/> class.
         /// </summary>
-        /// <param name="asyncProcessFactory">The asyncProcess factory.</param>
+        /// <param name="getGlobalSettings">The get global settings.</param>
+        /// <param name="updateGlobalSettings">The update global settings.</param>
         public GlobalSettingsRepository(
-            IAsyncProcessFactory asyncProcessFactory)
+            IAsyncProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings,
+            IAsyncProcess<UpdateGlobalSettingsContext> updateGlobalSettings)
         {
-            Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
+            Guard.NotNullArgument("getGlobalSettings", getGlobalSettings);
+            Guard.NotNullArgument("updateGlobalSettings", updateGlobalSettings);
 
-            this.asyncProcessFactory = asyncProcessFactory;
+            this.getGlobalSettings = getGlobalSettings;
+            this.updateGlobalSettings = updateGlobalSettings;
         }
 
         /// <summary>
@@ -36,13 +41,7 @@ namespace Simon.Repositories
         /// </returns>
         public async Task<IEnumerable<GlobalSettings>> ReadAll()
         {
-            var asyncProcess
-                = asyncProcessFactory
-                    .CreateAsyncProcess<
-                        EmptyContext,
-                        GetGlobalSettingsResult>(GlobalSettings.Empty);
-
-            var globalSettings = await asyncProcess.ExecuteAsync(EmptyContext.Instance);
+            var globalSettings = await getGlobalSettings.ExecuteAsync(EmptyContext.Instance);
 
             return Enumerable.Repeat(globalSettings.GlobalSettings, 1);
         }
@@ -63,12 +62,7 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public async Task Update(GlobalSettings data)
         {
-            var asyncProcess
-                = asyncProcessFactory
-                    .CreateAsyncProcess<
-                        UpdateGlobalSettingsContext>(GlobalSettings.Empty);
-
-            await asyncProcess.ExecuteAsync(new UpdateGlobalSettingsContext
+            await updateGlobalSettings.ExecuteAsync(new UpdateGlobalSettingsContext
             {
                 GlobalSettings = data
             });
