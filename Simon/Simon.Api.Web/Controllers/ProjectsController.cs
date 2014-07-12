@@ -27,8 +27,7 @@ namespace Simon.Api.Web.Controllers
         /// Initializes an instance of <see cref="ProjectsController"/>.
         /// </summary>
         /// <param name="projectPersistence">The project persistence.</param>
-        public ProjectsController(
-            IAsyncPersistence<Project> projectPersistence)
+        public ProjectsController(IAsyncPersistence<Project> projectPersistence)
         {
             Guard.NotNullArgument("projectPersistence", projectPersistence);
 

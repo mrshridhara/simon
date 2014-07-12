@@ -12,21 +12,18 @@ namespace Simon.Api.Web
         /// <summary>
         /// Configures the Simon API in Owin.
         /// </summary>
-        /// <param name="app">The app builder instance.</param>
+        /// <param name="appBuilder">The app builder instance.</param>
         /// <param name="config">The HTTP configuration.</param>
-        public static void ConfigureSimonApi(this IAppBuilder app, HttpConfiguration config)
+        public static void ConfigureSimonApi(this IAppBuilder appBuilder, HttpConfiguration config)
         {
             var container = IocConfig.RegisterDependencies();
             WebApiConfig.Register(config);
 
-            // Create an assign a dependency resolver for Web API to use.
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
-            // This should be the first middleware added to the IAppBuilder.
-            app.UseAutofacMiddleware(container);
-
-            // Make sure the Autofac lifetime scope is passed to Web API.
-            app.UseAutofacWebApi(config);
+            appBuilder.UseAutofacMiddleware(container);
+            appBuilder.UseAutofacWebApi(config);
+            appBuilder.UseWebApi(config);
         }
     }
 }

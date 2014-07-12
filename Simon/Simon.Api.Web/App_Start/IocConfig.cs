@@ -1,4 +1,8 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy2;
+using Autofac.Integration.WebApi;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Aspects.CastleCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +24,7 @@ namespace Simon.Api.Web
             var builder = new ContainerBuilder();
 
             var currentAssembly = Assembly.GetExecutingAssembly();
+            builder.RegisterApiControllers(currentAssembly);
 
             var allRequiredAssemblies
                 = GetAllReferencedAssemblies(currentAssembly)
@@ -30,44 +35,52 @@ namespace Simon.Api.Web
 
             builder
                 .RegisterAssemblyTypes(allRequiredAssemblies.ToArray())
-                .AsImplementedInterfaces();
+                .AsImplementedInterfaces()
+                .EnableClassInterceptors()
+                .InterceptedBy(typeof(ElmahErrorLoggingAspect))
+                .InterceptedBy(typeof(MethodArgumentVerificationAspect));
 
-            return builder.Build();
+            var container = builder.Build();
+
+            var globalSettings = GetCurrentGlobalSettings(container);
+            var updatedGlobalSettings = InitializePlugins(container, globalSettings);
+
+            FinalizeGlobalSettings(container, updatedGlobalSettings);
+
+            return container;
         }
 
-        //private static void InitializeGlobalSettings(IContainer container)
-        //{
-        //    var getGlobalPersistence
-        //        = container.Resolve<IAsyncPersistence<GlobalSettings>>();
+        private static GlobalSettings GetCurrentGlobalSettings(IContainer container)
+        {
+            var getGlobalPersistence
+                = container.Resolve<IAsyncPersistence<GlobalSettings>>();
 
-        //    var result = getGlobalPersistence.ReadAll().Result;
+            var result = getGlobalPersistence.ReadAll().Result;
+            return result.First();
+        }
 
-        //    container.EjectAllInstancesOf<GlobalSettings>();
-        //    container.Inject<GlobalSettings>(result.First());
-        //}
+        private static void FinalizeGlobalSettings(IContainer container, GlobalSettings globalSettings)
+        {
+            var getGlobalPersistence
+                = container.Resolve<IAsyncPersistence<GlobalSettings>>();
 
-        //private static void FinalizeGlobalSettings(IContainer container, GlobalSettings globalSettings)
-        //{
-        //    var getGlobalPersistence
-        //        = container.GetInstance<IAsyncPersistence<GlobalSettings>>();
+            getGlobalPersistence.Update(globalSettings).Wait();
 
-        //    getGlobalPersistence.Update(globalSettings).Wait();
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(globalSettings);
+            builder.Update(container);
+        }
 
-        //    container.EjectAllInstancesOf<GlobalSettings>();
-        //    container.Inject<GlobalSettings>(globalSettings);
-        //}
+        private static GlobalSettings InitializePlugins(IContainer container, GlobalSettings globalSettings)
+        {
+            var plugins = container.Resolve<IEnumerable<IPlugin>>();
+            foreach (var eachPlugin in plugins)
+            {
+                globalSettings = eachPlugin.Init(globalSettings);
+            }
 
-        //private static GlobalSettings InitializePlugins(IContainer container)
-        //{
-        //    var plugins = container.GetAllInstances<IPlugin>();
-        //    var globalSettings = container.GetInstance<GlobalSettings>();
-        //    foreach (var eachPlugin in plugins)
-        //    {
-        //        globalSettings = eachPlugin.Init(globalSettings);
-        //    }
-
-        //    return globalSettings;
-        //}
+            return globalSettings;
+        }
 
         private static IEnumerable<Assembly> GetAllReferencedAssemblies(Assembly currentAssembly)
         {

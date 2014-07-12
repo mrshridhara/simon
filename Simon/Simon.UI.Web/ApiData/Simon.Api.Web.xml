@@ -115,7 +115,7 @@
             <summary>
             Configures the Simon API in Owin.
             </summary>
-            <param name="app">The app builder instance.</param>
+            <param name="appBuilder">The app builder instance.</param>
             <param name="config">The HTTP configuration.</param>
         </member>
     </members>
