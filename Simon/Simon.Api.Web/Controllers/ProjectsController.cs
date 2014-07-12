@@ -21,22 +21,17 @@ namespace Simon.Api.Web.Controllers
 			new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262cc"), "Project 3", "Project 3 description", null)
 		};
 
-        private readonly IAsyncProcessFactory asyncProcessFactory;
         private readonly IAsyncPersistence<Project> projectPersistence;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsController"/>.
         /// </summary>
-        /// <param name="asyncProcessFactory">The async process factory.</param>
         /// <param name="projectPersistence">The project persistence.</param>
         public ProjectsController(
-            IAsyncProcessFactory asyncProcessFactory,
             IAsyncPersistence<Project> projectPersistence)
         {
-            Guard.NotNullArgument("asyncProcessFactory", asyncProcessFactory);
             Guard.NotNullArgument("projectPersistence", projectPersistence);
 
-            this.asyncProcessFactory = asyncProcessFactory;
             this.projectPersistence = projectPersistence;
         }
 

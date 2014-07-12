@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Threading.Tasks;
 
-namespace Simon.Infrastructure.Newtonsoft.Json
+namespace Simon.Infrastructure
 {
     /// <summary>
     /// Represents a JSON serializer.

@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -73,10 +74,6 @@
     <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
       <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
       <Name>Simon.Processes.Database.MongoDB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Newtonsoft.Json\Simon.Infrastructure.Newtonsoft.Json.csproj">
-      <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
-      <Name>Simon.Infrastructure.Newtonsoft.Json</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
       <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>

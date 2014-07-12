@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Simon.Infrastructure
@@ -28,7 +27,7 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>A sequence of instances.</returns>
-        IEnumerable GetAllInstances(Type type);
+        IEnumerable<object> GetAllInstances(Type type);
 
         /// <summary>
         /// Creates or finds the default instance of type <paramref name="type"/>.

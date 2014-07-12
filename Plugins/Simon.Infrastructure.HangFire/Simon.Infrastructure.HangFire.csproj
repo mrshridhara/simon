@@ -100,10 +100,6 @@
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon\Simon.csproj">
-      <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
-      <Name>Simon</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -113,7 +109,8 @@
   <PropertyGroup>
     <PostBuildEvent>
 if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-xcopy /s /y /d "$(TargetDir)*.*" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"</PostBuildEvent>
+xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
+xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

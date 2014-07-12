@@ -70,36 +70,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Simon\Simon.Api.Web\Simon.Api.Web.csproj">
-      <Project>{f88d371a-73ab-443c-ac9b-170d4009146b}</Project>
-      <Name>Simon.Api.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
-      <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
-      <Name>Simon.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon\Simon.csproj">
-      <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
-      <Name>Simon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Newtonsoft.Json\Simon.Infrastructure.Newtonsoft.Json.csproj">
-      <Project>{dccca79f-caa6-4a43-8152-4f0c5b408adf}</Project>
-      <Name>Simon.Infrastructure.Newtonsoft.Json</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
-      <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
-      <Name>Simon.Processes.SourceControl.Git</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
-      <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
-      <Name>Simon.Processes.Database.MongoDB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon.UI.Web\Simon.UI.Web.csproj">
-      <Project>{0907ae34-d662-419d-9f0d-81e3832560e6}</Project>
-      <Name>Simon.UI.Web</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
