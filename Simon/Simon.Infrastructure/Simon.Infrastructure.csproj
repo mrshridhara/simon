@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Elmah">
-      <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -55,20 +49,6 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Aspects\ArgumentsNotDefaultAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Aspects\ArgumentsNotEmptyAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Aspects\ArgumentsNotNullAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Aspects\ArgumentsVerificationAttributeBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Aspects\CastleCore\ElmahErrorLoggingAspect.cs" />
-    <Compile Include="Aspects\CastleCore\MethodArgumentVerificationAspect.cs" />
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="IAsyncAction.cs" />
     <Compile Include="IAsyncActionQueue.cs">

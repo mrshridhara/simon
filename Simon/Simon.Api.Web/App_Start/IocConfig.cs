@@ -1,9 +1,7 @@
 ﻿using Autofac;
 using Autofac.Core;
-using Autofac.Extras.DynamicProxy2;
 using Autofac.Integration.WebApi;
 using Simon.Infrastructure;
-using Simon.Infrastructure.Aspects.CastleCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,40 +43,7 @@ namespace Simon.Api.Web
 
             FinalizeGlobalSettings(container, updatedGlobalSettings);
 
-            ////RegisterAspects(container);
-
             return container;
-        }
-
-        private static void RegisterAspects(IContainer container)
-        {
-            var builder = new ContainerBuilder();
-            var registeredClasses
-                = container.ComponentRegistry.Registrations
-                    .SelectMany(reg => reg.Services)
-                    .OfType<IServiceWithType>()
-                    .Select(reg => reg.ServiceType)
-                    .Where(type => type.IsClass);
-
-            foreach (var eachClass in registeredClasses)
-            {
-                var expression
-                    = builder
-                        .RegisterType(eachClass)
-                        .EnableClassInterceptors();
-
-                if (eachClass != typeof(ElmahErrorLoggingAspect))
-                {
-                    expression.InterceptedBy(typeof(ElmahErrorLoggingAspect));
-                }
-
-                if (eachClass != typeof(MethodArgumentVerificationAspect))
-                {
-                    expression.InterceptedBy(typeof(MethodArgumentVerificationAspect));
-                }
-            }
-
-            builder.Update(container);
         }
 
         private static GlobalSettings GetCurrentGlobalSettings(IContainer container)

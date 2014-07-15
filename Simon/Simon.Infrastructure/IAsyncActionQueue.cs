@@ -1,5 +1,4 @@
-﻿using Simon.Infrastructure.Aspects;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
 {
@@ -15,7 +14,6 @@ namespace Simon.Infrastructure
         /// <param name="entity">The entity.</param>
         /// <typeparam name="TAction">The type of the action.</typeparam>
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
-        [ArgumentsNotNull]
         Task EnqueueAsync<TAction, TEntity>(TAction action, TEntity entity)
             where TAction : IAsyncAction<TEntity>;
     }

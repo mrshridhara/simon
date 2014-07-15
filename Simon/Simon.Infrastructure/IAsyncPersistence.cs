@@ -1,5 +1,4 @@
-﻿using Simon.Infrastructure.Aspects;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
@@ -19,7 +18,6 @@ namespace Simon.Infrastructure
         /// <returns>
         /// All the persisted data matching the specified <paramref name="filter"/>.
         /// </returns>
-        [ArgumentsNotNull]
         Task<IEnumerable<TData>> Read(TFilter filter);
     }
 
@@ -41,21 +39,18 @@ namespace Simon.Infrastructure
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        [ArgumentsNotNull]
         Task Create(TData data);
 
         /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        [ArgumentsNotNull]
         Task Update(TData data);
 
         /// <summary>
         /// Deletes the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        [ArgumentsNotNull]
         Task Delete(TData data);
     }
 }

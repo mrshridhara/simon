@@ -1,5 +1,4 @@
-﻿using Simon.Infrastructure.Aspects;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
 {
@@ -14,7 +13,6 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="entity">The entity.</param>
         /// <returns>Task for async operations.</returns>
-        [ArgumentsNotNull]
         Task UpdateAsync(TEntity entity);
     }
 }

@@ -1,5 +1,4 @@
-﻿using Simon.Infrastructure.Aspects;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
 {
@@ -17,7 +16,6 @@ namespace Simon.Infrastructure
         /// <c>true</c> if the rule is applicable for the
         /// current state of the entity, otherwise; <c>false</c>.
         /// </returns>
-        [ArgumentsNotNull]
         bool IsApplicable(TEntity entity);
 
         /// <summary>
@@ -25,7 +23,6 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="entity">The entity.</param>
         /// <returns>The task.</returns>
-        [ArgumentsNotNull]
         Task ExecuteAsync(TEntity entity);
 
         /// <summary>
@@ -33,8 +30,6 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="entityInJson">The entity in JSON format.</param>
         /// <returns>The task.</returns>
-        [ArgumentsNotNull]
-        [ArgumentsNotEmpty]
         Task DeserializeAndExecute(string entityInJson);
     }
 }

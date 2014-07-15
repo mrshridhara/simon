@@ -1,5 +1,4 @@
 ﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Aspects;
 using Simon.Infrastructure.Utilities;
 using Simon.Processes.Database;
 using Simon.Processes.SourceControl;
