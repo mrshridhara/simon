@@ -16,7 +16,7 @@ namespace Simon.Api.Web
         /// <param name="config">The HTTP configuration.</param>
         public static void ConfigureSimonApi(this IAppBuilder appBuilder, HttpConfiguration config)
         {
-            var container = IocConfig.RegisterDependencies();
+            var container = IocConfig.RegisterDependencies(appBuilder);
             WebApiConfig.Register(config);
 
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);

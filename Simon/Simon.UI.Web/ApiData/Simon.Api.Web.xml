@@ -9,10 +9,11 @@
             Represents the configuraion for the IoC.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies">
+        <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder)">
             <summary>
             Registers the dependencies to the IoC container.
             </summary>
+            <param name="appBuilder">The app builder.</param>
         </member>
         <member name="T:Simon.Api.Web.WebApiConfig">
             <summary>

@@ -32,7 +32,7 @@ namespace Simon.Observers
         /// <returns>Task for async operations.</returns>
         public async Task UpdateAsync(Feature entity)
         {
-            foreach (var eachFeatureAction in stateActions)
+            foreach (dynamic eachFeatureAction in stateActions)
             {
                 if (eachFeatureAction.IsApplicable(entity))
                 {

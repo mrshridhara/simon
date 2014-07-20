@@ -1,4 +1,6 @@
-﻿using Simon.Infrastructure;
+﻿using Autofac;
+using Owin;
+using Simon.Infrastructure;
 
 namespace Simon.Processes.SourceControl.Git
 {
@@ -11,11 +13,13 @@ namespace Simon.Processes.SourceControl.Git
         /// Initializes the plugin and updates the specified <paramref name="globalSettings"/>
         /// if required.
         /// </summary>
+        /// <param name="appBuilder">The app builder.</param>
+        /// <param name="container">The IOC container.</param>
         /// <param name="globalSettings">The global settings.</param>
         /// <returns>
         /// The updated instnce of <see cref="GlobalSettings"/> class.
         /// </returns>
-        public GlobalSettings Init(GlobalSettings globalSettings)
+        public GlobalSettings Init(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
             if (globalSettings["GitRepoPath"] == null)
             {

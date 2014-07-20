@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
@@ -42,6 +45,9 @@
     </Reference>
     <Reference Include="CronExpressionDescriptor">
       <HintPath>..\..\packages\CronExpressionDescriptor.1.10.1\lib\net35\CronExpressionDescriptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Autofac">
+      <HintPath>..\..\packages\HangFire.Autofac.1.0.0\lib\net45\Hangfire.Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Hangfire.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

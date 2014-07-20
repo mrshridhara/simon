@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
+using Owin;
 using Simon.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace Simon.Api.Web
         /// <summary>
         /// Registers the dependencies to the IoC container.
         /// </summary>
-        public static IContainer RegisterDependencies()
+        /// <param name="appBuilder">The app builder.</param>
+        public static IContainer RegisterDependencies(IAppBuilder appBuilder)
         {
             var builder = new ContainerBuilder();
 
@@ -39,7 +41,7 @@ namespace Simon.Api.Web
             var container = builder.Build();
 
             var globalSettings = GetCurrentGlobalSettings(container);
-            var updatedGlobalSettings = InitializePlugins(container, globalSettings);
+            var updatedGlobalSettings = InitializePlugins(appBuilder, container, globalSettings);
 
             FinalizeGlobalSettings(container, updatedGlobalSettings);
 
@@ -67,12 +69,12 @@ namespace Simon.Api.Web
             builder.Update(container);
         }
 
-        private static GlobalSettings InitializePlugins(IContainer container, GlobalSettings globalSettings)
+        private static GlobalSettings InitializePlugins(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
             var plugins = container.Resolve<IEnumerable<IPlugin>>();
             foreach (var eachPlugin in plugins)
             {
-                globalSettings = eachPlugin.Init(globalSettings);
+                globalSettings = eachPlugin.Init(appBuilder, container, globalSettings);
             }
 
             return globalSettings;
