@@ -51,7 +51,7 @@ namespace Simon.Core.Tests
 
             var actualGlobalSettings = results.FirstOrDefault();
             actualGlobalSettings.Should().NotBeNull();
-            actualGlobalSettings["TestSetting"].Should().Be(expectedGlobalSettings.First());
+            actualGlobalSettings.Should().BeEquivalentTo(expectedGlobalSettings);
         }
 
         [TestMethod]
