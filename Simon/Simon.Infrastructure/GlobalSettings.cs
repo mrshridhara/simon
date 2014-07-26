@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Infrastructure
 {
@@ -17,6 +18,8 @@ namespace Simon.Infrastructure
         /// <param name="settings">The settings sequence.</param>
         public GlobalSettings(IEnumerable<KeyValuePair<string, GlobalSettingsItem>> settings)
         {
+            Guard.NotNullArgument("settings", settings);
+
             this.settings
                 = settings.ToDictionary(
                     eachSetting => eachSetting.Key,
@@ -40,6 +43,8 @@ namespace Simon.Infrastructure
         {
             get
             {
+                Guard.NotNullOrEmptyStringArgument("settingKey", settingKey);
+
                 GlobalSettingsItem settingItem;
                 if (settings.TryGetValue(settingKey, out settingItem))
                 {
@@ -58,6 +63,9 @@ namespace Simon.Infrastructure
         /// <param name="item">The item.</param>
         public void Add(string key, GlobalSettingsItem item)
         {
+            Guard.NotNullOrEmptyStringArgument("key", key);
+            Guard.NotNullArgument("item", item);
+
             settings.Add(key, item);
         }
 
