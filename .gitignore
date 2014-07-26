@@ -19,6 +19,7 @@
 *.lib
 *.sbr
 *.cov
+*.[Ss]ln.ide
 [Bb]in/
 [Oo]bj/
 [Hh]elp/

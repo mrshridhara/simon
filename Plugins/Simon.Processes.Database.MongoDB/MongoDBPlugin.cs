@@ -23,7 +23,10 @@ namespace Simon.Processes.Database.MongoDB
         {
             if (globalSettings[Constants.ConnectionStringKey] == null)
             {
-                globalSettings.Add(Constants.ConnectionStringKey, "mongodb://localhost");
+                var settingsItem
+                    = new GlobalSettingsItem("Connection string for MongoDB", "mongodb://localhost");
+
+                globalSettings.Add(Constants.ConnectionStringKey, settingsItem);
             }
 
             return globalSettings;

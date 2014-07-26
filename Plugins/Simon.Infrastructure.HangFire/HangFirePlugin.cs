@@ -24,13 +24,18 @@ namespace Simon.Infrastructure.Hangfire
         {
             if (globalSettings[Constants.HangfireRedisStorageServerKey] == null)
             {
-                globalSettings.Add(Constants.HangfireRedisStorageServerKey, "localhost:6379");
+                var settingItem
+                    = new GlobalSettingsItem("Redis storage server for Hangfire", "localhost:6379");
+
+                globalSettings.Add(Constants.HangfireRedisStorageServerKey, settingItem);
             }
 
             appBuilder.UseHangfire(config =>
             {
+                var settingItem = globalSettings[Constants.HangfireRedisStorageServerKey];
+
                 config.UseAutofacActivator(container);
-                config.UseRedisStorage(globalSettings[Constants.HangfireRedisStorageServerKey], 1);
+                config.UseRedisStorage(settingItem.Value, 1);
                 config.UseServer();
             });
 

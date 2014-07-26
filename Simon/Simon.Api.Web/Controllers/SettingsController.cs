@@ -53,7 +53,7 @@ namespace Simon.Api.Web.Controllers
         /// <returns>
         /// Status of the addition.
         /// </returns>
-        public async Task<IHttpActionResult> PutAsync([FromBody]IEnumerable<KeyValuePair<string, string>> globalSettings)
+        public async Task<IHttpActionResult> PutAsync([FromBody]IEnumerable<KeyValuePair<string, GlobalSettingsItem>> globalSettings)
         {
             return await Task.Run<IHttpActionResult>(async () =>
             {

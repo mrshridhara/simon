@@ -55,6 +55,7 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="CreateNewFeatureBranch.cs" />
     <Compile Include="GetRepositoryBranches.cs" />
     <Compile Include="GitPlugin.cs" />

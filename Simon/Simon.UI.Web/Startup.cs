@@ -10,14 +10,14 @@ namespace Simon.UI.Web
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        public void Configuration(IAppBuilder appBuilder)
         {
             var config = new HttpConfiguration();
 
             AreaRegistration.RegisterAllAreas();
             HelpPageConfig.Register(config);
 
-            app.ConfigureSimonApi(config);
+            appBuilder.ConfigureSimonApi(config);
         }
     }
 }

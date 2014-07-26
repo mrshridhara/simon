@@ -18,12 +18,12 @@ namespace Simon.Core.Tests
         public void Shrould_Get_Global_Settings()
         {
             // Arrange
-            var globalSettingsDictionary = new Dictionary<string, string>
+            var globalSettingsDictionary = new Dictionary<string, GlobalSettingsItem>
             {
-                { "TestSetting", "some value" }
+                { "TestSetting", new GlobalSettingsItem("some name", "some value") }
             };
 
-            var expectedGlobalSettings = new Simon.Infrastructure.GlobalSettings(globalSettingsDictionary);
+            var expectedGlobalSettings = new GlobalSettings(globalSettingsDictionary);
 
             var getGlobalSettingsMock = new Mock<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
             getGlobalSettingsMock
@@ -58,12 +58,12 @@ namespace Simon.Core.Tests
         public void Shrould_Update_Global_Settings()
         {
             // Arrange
-            var globalSettingsDictionary = new Dictionary<string, string>
+            var globalSettingsDictionary = new Dictionary<string, GlobalSettingsItem>
             {
-                { "TestSetting", "some other value" }
+                { "TestSetting", new GlobalSettingsItem("some other name", "some other value") }
             };
 
-            var globalSettingsToBeUpdated = new Simon.Infrastructure.GlobalSettings(globalSettingsDictionary);
+            var globalSettingsToBeUpdated = new GlobalSettings(globalSettingsDictionary);
 
             var getGlobalSettingsMock = new Mock<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
             getGlobalSettingsMock

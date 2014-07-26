@@ -98,7 +98,7 @@
             The global settings.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.SettingsController.PutAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.PutAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Simon.Infrastructure.GlobalSettingsItem}})">
             <summary>
             Updates the specified <paramref name="globalSettings"/>.
             </summary>

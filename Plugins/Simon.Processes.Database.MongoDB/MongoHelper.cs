@@ -8,8 +8,9 @@ namespace Simon.Processes.Database.MongoDB
         internal static MongoCollection<TEntity> GetMongoCollection<TEntity>(
             GlobalSettings globalSettings, string databaseName = Constants.DefaultDatabaseName)
         {
-            var connectionString = globalSettings[Constants.ConnectionStringKey];
-            var client = new MongoClient(connectionString);
+            var settingsItem = globalSettings[Constants.ConnectionStringKey];
+
+            var client = new MongoClient(settingsItem.Value);
             var server = client.GetServer();
             var database = server.GetDatabase(databaseName);
 

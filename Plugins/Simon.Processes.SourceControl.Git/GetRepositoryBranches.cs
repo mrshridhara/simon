@@ -37,7 +37,9 @@ namespace Simon.Processes.SourceControl.Git
 
         private static GetReposirotyBranchesResult Execute(Simon.Infrastructure.GlobalSettings globalSettings)
         {
-            var repo = new Repository(globalSettings["RepoPath"]);
+            var settingItem = globalSettings[Constants.GitRepoPathKey];
+
+            var repo = new Repository(settingItem.Value);
             var branches
                 = (from branch in repo.Branches
                    select new SourceControlBranch(Guid.NewGuid(), branch.Name, branch.CanonicalName));
