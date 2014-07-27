@@ -1,16 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 20px;
-}
-
-/* styles for validation helpers */
+﻿/* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
 }
@@ -39,6 +27,10 @@ input[type="checkbox"].input-validation-error {
 a.thumbnail {
     text-decoration: none;
 }
+
+    a.thumbnail h4 {
+        color: #428bca;
+    }
 
 /* item specific */
 #loading {
