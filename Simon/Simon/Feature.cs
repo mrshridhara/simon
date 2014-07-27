@@ -10,7 +10,11 @@ namespace Simon
     /// </summary>
     public sealed class Feature : NamedEntityBase
     {
-        private readonly IEnumerable<IAsyncObserver<Feature>> featureObservers;
+        [NonSerialized]
+        private IEnumerable<IAsyncObserver<Feature>> featureObservers;
+
+        [NonSerialized]
+        private Application application;
 
         /// <summary>
         /// Inititalizes an instance of <see cref="Feature"/> class.
@@ -19,25 +23,18 @@ namespace Simon
         /// <param name="name">The name.</param>
         /// <param name="description">The description.</param>
         /// <param name="state">The feature state.</param>
-        /// <param name="featureObservers">The observers of feature.</param>
-        public Feature(Guid id, string name, string description, FeatureState state, IEnumerable<IAsyncObserver<Feature>> featureObservers)
+        public Feature(Guid id, string name, string description, FeatureState state)
             : base(id, name, description)
         {
             Guard.NotNullArgument("featureObservers", featureObservers);
 
             this.State = state;
-            this.featureObservers = featureObservers;
         }
 
         /// <summary>
         /// Gets the state of feature.
         /// </summary>
         public FeatureState State { get; private set; }
-
-        /// <summary>
-        /// Gets the application to which the feature belongs.
-        /// </summary>
-        public Application Application { get; private set; }
 
         /// <summary>
         /// Gets or sets the user who created the feature.
@@ -70,6 +67,20 @@ namespace Simon
         public SourceControlBranch Branch { get; set; }
 
         /// <summary>
+        /// Gets the application to which the feature belongs.
+        /// </summary>
+        internal Application Application { get { return application; } }
+
+        /// <summary>
+        /// Sets the observers to be used.
+        /// </summary>
+        /// <param name="featureObservers">The feature observers.</param>
+        public void SetObservers(IEnumerable<IAsyncObserver<Feature>> featureObservers)
+        {
+            this.featureObservers = featureObservers;
+        }
+
+        /// <summary>
         /// Sets the specified <paramref name="newApplication"/> as the application for this feature.
         /// </summary>
         /// <param name="newApplication">The application to be set.</param>
@@ -77,12 +88,12 @@ namespace Simon
         {
             Guard.NotNullArgument("newApplication", newApplication);
 
-            if (this.Application != null)
+            if (this.application != null)
             {
                 throw new ApplicationException("Application can be set only once per instance.");
             }
 
-            this.Application = newApplication;
+            this.application = newApplication;
         }
 
         /// <summary>

@@ -4,7 +4,8 @@
 
 <div class="section"
      data-ng-include="'Modules/Common/Templates/Loader.html'"
-     data-ng-hide="SettingsServices.Settings"></div>
+     data-ng-hide="SettingsServices.Settings">
+</div>
 
 <div class="section alert alert-danger" role="alert" data-ng-show="SettingsServices.Error">
     <button type="button" class="close" data-dismiss="alert">
@@ -21,7 +22,9 @@
             <div class="col-md-9 input-group">
                 <input id="{{eachSetting.Key}}" type="text" class="form-control" data-ng-model="eachSetting.Value.Value" />
                 <span class="input-group-btn">
-                    <input type="button" value="X" class="btn btn-danger" data-ng-click="SettingsServices.DeleteSettings(eachSetting)" />
+                    <button class="btn btn-danger" data-ng-click="SettingsServices.DeleteSettings(eachSetting)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
                 </span>
             </div>
         </div>

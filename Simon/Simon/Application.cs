@@ -12,6 +12,9 @@ namespace Simon
     {
         private readonly List<Feature> features;
 
+        [NonSerialized]
+        private Project project;
+
         /// <summary>
         /// Initializes an instance of <see cref="Application"/> class.
         /// </summary>
@@ -41,7 +44,7 @@ namespace Simon
         /// <summary>
         /// Gets the project to which this application belongs.
         /// </summary>
-        public Project Project { get; private set; }
+        internal Project Project { get { return project; } }
 
         /// <summary>
         /// Adds the specified <paramref name="newFeature"/> to this application.
@@ -63,12 +66,12 @@ namespace Simon
         {
             Guard.NotNullArgument("newProject", newProject);
 
-            if (this.Project != null)
+            if (this.project != null)
             {
                 throw new ApplicationException("Project can be set only once per instance.");
             }
 
-            this.Project = newProject;
+            this.project = newProject;
         }
     }
 }

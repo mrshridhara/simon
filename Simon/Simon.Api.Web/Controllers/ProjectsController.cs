@@ -15,11 +15,18 @@ namespace Simon.Api.Web.Controllers
     {
         // TODO: Get data from repository.
         private static readonly IEnumerable<Project> projects = new List<Project>()
-		{
-			new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262aa"), "Project 1", "Project 1 description", null),
-			new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262bb"), "Project 2", "Project 2 description", null),
-			new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262cc"), "Project 3", "Project 3 description", null)
-		};
+        {
+            new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262aa"), "Project 1", "Project 1 description",
+                new List<Application> {
+                    new Application(new Guid("1f65c0b6-5743-4981-b405-048101d368aa"), "Application 1", "Application 1 description", null)
+                }),
+            new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262bb"), "Project 2", "Project 2 description",
+                new List<Application> { }),
+            new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262cc"), "Project 3", "Project 3 description",
+                new List<Application> { }),
+            new Project(new Guid("1f65c0b6-5743-4981-b405-048101d262dd"), "Project 4", "Project 3 description",
+                new List<Application> { })
+        };
 
         private readonly IAsyncPersistence<Project> projectPersistence;
 

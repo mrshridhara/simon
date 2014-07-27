@@ -1,36 +1,36 @@
 ﻿<div class="section"
-     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'"></div>
+     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'">
+</div>
 
 <div class="section"
      data-ng-include="'Modules/Common/Templates/Loader.html'"
-     data-ng-hide="ProjectsServices.Projects"></div>
-
-<div class="section panel panel-danger"
-     data-ng-show="ProjectsServices.Error">
-    <div class="heading panel-heading">Error!!!</div>
-    <div class="contnet">Sorry! Something went wrong!</div>
+     data-ng-hide="ProjectsServices.Projects">
 </div>
 
-<div class="section panel panel-default" data-ng-show="ProjectsServices.Projects">
-    <div class="heading panel-heading">Available projects</div>
-    <table class="contnet table table-hover">
-        <thead>
-            <tr>
-                <th class="col-md-3">Name</th>
-                <th class="col-md-7">Description</th>
-                <th class="col-md-2">
-                    <a class="btn btn-default" href="#">Add new project</a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-ng-repeat="eachProject in ProjectsServices.Projects">
-                <td class="col-md-3" data-ng-bind="eachProject.Name"></td>
-                <td class="col-md-7" data-ng-bind="eachProject.Description"></td>
-                <td class="col-md-2">
-                    <a class="btn btn-info" href="#/Projects/{{eachProject.Id}}">Open</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<div class="section">
+    <h3>
+        Projects
+        <button class="btn btn-sm btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h3>
+    <hr />
+</div>
+
+<div class="section" data-ng-show="ProjectsServices.Projects">
+    <div class="col-sm-6 col-md-4" data-ng-repeat="eachProject in ProjectsServices.Projects">
+        <a class="thumbnail" href="#/{{eachProject.Id}}">
+            <div class="caption">
+                <h4 data-ng-bind="eachProject.Name"></h4>
+                <p data-ng-bind="eachProject.Description"></p>
+            </div>
+        </a>
+    </div>
 </div>

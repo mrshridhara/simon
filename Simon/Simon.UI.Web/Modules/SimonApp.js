@@ -4,6 +4,6 @@ var simonApp = angular.module("SimonApp", ["ngRoute", "CommonModule", "ProjectsM
 
 simonApp.config(["$routeProvider", function ($routeProvider) {
     $routeProvider.otherwise({
-        redirectTo: "/Projects"
+        redirectTo: "/"
     });
 }]);
