@@ -1,11 +1,6 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../CommonModule.js" />
 
-commonModule.service("SettingsServices", ["$http", "$location",
-    function ($http, $location) {
-        return new SettingsServices($http, $location);
-    }]);
-
 var SettingsServices = function ($http, $location, undefined) {
     var self = this;
 
@@ -41,3 +36,8 @@ var SettingsServices = function ($http, $location, undefined) {
         }
     };
 };
+
+commonModule.service("SettingsServices", ["$http", "$location",
+    function ($http, $location) {
+        return new SettingsServices($http, $location);
+    }]);

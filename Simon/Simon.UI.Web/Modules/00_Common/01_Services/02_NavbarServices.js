@@ -1,11 +1,6 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../CommonModule.js" />
 
-commonModule.service("NavbarServices",
-    function () {
-        return new NavbarServices();
-    });
-
 var NavbarServices = function () {
     var self = this;
 
@@ -31,3 +26,8 @@ var NavbarMenu = function () {
         self.Class = "active";
     };
 };
+
+(function () {
+    var singletonInstance = new NavbarServices();
+    commonModule.value("NavbarServices", singletonInstance);
+})();

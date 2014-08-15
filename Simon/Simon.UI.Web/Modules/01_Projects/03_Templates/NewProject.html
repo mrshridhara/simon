@@ -1,0 +1,43 @@
+﻿<div class="section"
+     data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'">
+</div>
+
+<div class="page-header" data-ng-show="ProjectsServices.SelectedProject">
+    <h1>
+        <span data-ng-bind="ProjectsServices.SelectedProject.Name"></span>
+        <small data-ng-bind="ProjectsServices.SelectedProject.Description"></small>
+    </h1>
+</div>
+
+<div class="section">
+    <h3>
+        Applications
+        <button class="btn btn-sm btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h3>
+    <hr />
+</div>
+
+<div class="section"
+     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="ProjectsServices.SelectedProject">
+</div>
+
+<div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<div class="section">
+    <div class="col-sm-6 col-md-4" data-ng-repeat="eachApplication in ProjectsServices.SelectedProject.Applications">
+        <a class="thumbnail" href="#/{{ProjectsServices.SelectedProject.Id}}/{{eachApplication.Id}}">
+            <div class="caption">
+                <h4 data-ng-bind="eachApplication.Name"></h4>
+                <p data-ng-bind="eachApplication.Description"></p>
+            </div>
+        </a>
+    </div>
+</div>

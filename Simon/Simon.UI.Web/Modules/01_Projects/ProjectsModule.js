@@ -5,11 +5,15 @@ var projectsModule = angular.module("ProjectsModule", ["ngRoute", "CommonModule"
 projectsModule.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "Modules/Projects/Templates/Projects.html",
+            templateUrl: "Modules/01_Projects/03_Templates/Projects.html",
             controller: "ProjectsController"
         })
+        .when("/new-project", {
+            templateUrl: "Modules/01_Projects/03_Templates/NewProject.html",
+            controller: "NewProjectController"
+        })
         .when("/:ProjectId", {
-            templateUrl: "Modules/Projects/Templates/ProjectDetails.html",
+            templateUrl: "Modules/01_Projects/03_Templates/ProjectDetails.html",
             controller: "ProjectDetailsController"
         });
 }]);

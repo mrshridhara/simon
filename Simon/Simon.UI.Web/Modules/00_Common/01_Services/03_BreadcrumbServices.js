@@ -1,11 +1,6 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../CommonModule.js" />
 
-commonModule.service("BreadcrumbServices",
-    function () {
-        return new BreadcrumbServices();
-    });
-
 var BreadcrumbServices = function () {
     var self = this;
 
@@ -22,3 +17,8 @@ var BreadcrumbServices = function () {
         //});
     };
 };
+
+(function () {
+    var singletonInstance = new BreadcrumbServices();
+    commonModule.value("BreadcrumbServices", singletonInstance);
+})();

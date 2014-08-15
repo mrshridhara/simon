@@ -24,6 +24,10 @@ input[type="checkbox"].input-validation-error {
 }
 
 /* other styles */
+.body-content {
+    margin-top: 50px;
+}
+
 a.thumbnail {
     text-decoration: none;
 }

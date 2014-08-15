@@ -8,6 +8,11 @@ namespace Simon.Api.Web
     public class WebApiConfig
     {
         /// <summary>
+        /// The default API route name.
+        /// </summary>
+        public const string DefaultRouteName = "DefaultApi";
+
+        /// <summary>
         /// Registers the HTTP route to the specified <paramref name="config"/> instance.
         /// </summary>
         /// <param name="config">The HTTP configuration.</param>
@@ -15,7 +20,7 @@ namespace Simon.Api.Web
         {
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+                name: DefaultRouteName,
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );

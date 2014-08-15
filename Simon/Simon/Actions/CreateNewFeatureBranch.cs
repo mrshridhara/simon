@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 namespace Simon.Actions
 {
     /// <summary>
-    /// Represents the action which generates the feature tests.
+    /// Represents the action which creates new feature branch.
     /// </summary>
-    public sealed class GenerateFeatureTests : AsyncActionBase<Feature>
+    public sealed class CreateNewFeatureBranch : AsyncActionBase<Feature>
     {
         /// <summary>
-        /// Initializes an instance of <see cref="GenerateFeatureTests"/>class.
+        /// Initializes an instance of <see cref="CreateNewFeatureBranch"/>class.
         /// </summary>
         /// <param name="serializer">The serializer.</param>
-        public GenerateFeatureTests(ISerializer serializer)
+        public CreateNewFeatureBranch(ISerializer serializer)
             : base(serializer)
         {
         }
@@ -27,7 +27,7 @@ namespace Simon.Actions
         /// </returns>
         public override bool IsApplicable(Feature entity)
         {
-            return entity.State == FeatureState.RequirementsCompleted;
+            return entity.State == FeatureState.NewFeature;
         }
 
         /// <summary>
@@ -37,9 +37,7 @@ namespace Simon.Actions
         /// <returns>The task.</returns>
         public override Task ExecuteAsync(Feature entiry)
         {
-            // TODO: Generate feature tests.
-
-            entiry.SetState(FeatureState.ReadyForDevelopment);
+            // TODO: Create new feature branch if it does not exists.
 
             throw new System.NotImplementedException();
         }

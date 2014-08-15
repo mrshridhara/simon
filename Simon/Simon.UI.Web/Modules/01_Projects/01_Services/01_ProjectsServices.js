@@ -1,11 +1,6 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../ProjectsModule.js" />
 
-projectsModule.service("ProjectsServices", ["$http",
-    function ($http) {
-        return new ProjectsServices($http);
-    }]);
-
 var ProjectsServices = function ($http, undefined) {
     var self = this;
 
@@ -34,4 +29,17 @@ var ProjectsServices = function ($http, undefined) {
                 self.Error = result;
             });
     };
+
+    this.AddProject = function (newProjectDetails) {
+        return $http
+            .post('/api/projects/', newProjectDetails)
+            .error(function (result) {
+                self.Error = result;
+            });
+    }
 };
+
+projectsModule.service("ProjectsServices", ["$http",
+    function ($http) {
+        return new ProjectsServices($http);
+    }]);

@@ -20,6 +20,11 @@
             Represents the configuraion for the Web API.
             </summary>
         </member>
+        <member name="F:Simon.Api.Web.WebApiConfig.DefaultRouteName">
+            <summary>
+            The default API route name.
+            </summary>
+        </member>
         <member name="M:Simon.Api.Web.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
             <summary>
             Registers the HTTP route to the specified <paramref name="config"/> instance.
@@ -31,11 +36,13 @@
             API to manipulate project data.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Infrastructure.IAsyncPersistence{Simon.Project})">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Infrastructure.IAsyncPersistence{Simon.Project},Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ProjectModel,Simon.Project},Simon.Infrastructure.IMapper{Simon.Project,Simon.Api.Web.Models.ProjectModel})">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
             </summary>
             <param name="projectPersistence">The project persistence.</param>
+            <param name="projectModelToProjectMapper">The project model to project mapper.</param>
+            <param name="projectToProjectModelMapper">The project to project model mapper.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync">
             <summary>
@@ -54,11 +61,11 @@
             Project with the sepecifed <paramref name="id"/>.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PostAsync(Simon.Project)">
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PostAsync(Simon.Api.Web.Models.ProjectModel)">
             <summary>
-            Adds the specified <paramref name="project"/> to the sequence of projects.
+            Adds the specified <paramref name="projectModel"/> to the sequence of projects.
             </summary>
-            <param name="project">The project data taken from HTTP body.</param>
+            <param name="projectModel">The project data taken from HTTP body.</param>
             <returns>
             Status of the addition.
             </returns>
@@ -106,6 +113,99 @@
             <returns>
             Status of the addition.
             </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper">
+            <summary>
+            Represnts a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper.Map(Simon.Api.Web.Models.ApplicationModel)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper">
+            <summary>
+            Represnts a mapper from <see cref="T:Simon.Api.Web.Models.ProjectModel"/> to <see cref="T:Simon.Project"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectModelToProjectMapper.#ctor(Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ApplicationModel,Simon.Application})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper"/> class.
+            </summary>
+            <param name="applicationModelToApplicationMapper">The application model to application mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectModelToProjectMapper.Map(Simon.Api.Web.Models.ProjectModel)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ProjectToProjectModelMapper">
+            <summary>
+            Represnts a mapper from <see cref="T:Simon.Project"/> to <see cref="T:Simon.Api.Web.Models.ProjectModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.Map(Simon.Project)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Models.ApplicationModel">
+            <summary>
+            Represents an application
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Id">
+            <summary>
+            Gets or sets the ID for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Name">
+            <summary>
+            Gets or sets the name for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Models.ProjectModel">
+            <summary>
+            Represents a project.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Id">
+            <summary>
+            Gets or sets the ID for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Name">
+            <summary>
+            Gets or sets the name for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Applications">
+            <summary>
+            Gets or sets the applications.
+            </summary>
         </member>
         <member name="T:Simon.Api.Web.AppBuilderExtensions">
             <summary>

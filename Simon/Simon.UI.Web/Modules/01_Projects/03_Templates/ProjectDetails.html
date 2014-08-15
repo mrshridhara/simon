@@ -1,17 +1,5 @@
 ﻿<div class="section"
-     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'">
-</div>
-
-<div class="section"
-     data-ng-include="'Modules/Common/Templates/Loader.html'"
-     data-ng-hide="ProjectsServices.SelectedProject">
-</div>
-
-<div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
-    <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-    </button>
-    <strong>Error!!!</strong> Sorry! Something went wrong.
+     data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'">
 </div>
 
 <div class="page-header" data-ng-show="ProjectsServices.SelectedProject">
@@ -29,6 +17,18 @@
         </button>
     </h3>
     <hr />
+</div>
+
+<div class="section"
+     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="ProjectsServices.SelectedProject">
+</div>
+
+<div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
 </div>
 
 <div class="section" data-ng-show="ProjectsServices.SelectedProject">

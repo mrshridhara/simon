@@ -48,9 +48,7 @@ _ReSharper*/
 #OS
 Thumbs.db
 
-<<<<<<< HEAD
-#EoF
-=======
 #Others
->>>>>>> Readme updates and minimal file changes.
 Simon/Simon.UI.Web/Data
+
+#EoF

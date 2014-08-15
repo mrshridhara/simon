@@ -1,9 +1,19 @@
 ﻿<div class="section"
-     data-ng-include="'Modules/Common/Templates/Breadcrumb.html'">
+     data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'">
+</div>
+
+<div class="section">
+    <h3>
+        Projects
+        <a class="btn btn-sm btn-primary" href="#/new-project">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </h3>
+    <hr />
 </div>
 
 <div class="section"
-     data-ng-include="'Modules/Common/Templates/Loader.html'"
+     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
      data-ng-hide="ProjectsServices.Projects">
 </div>
 
@@ -12,16 +22,6 @@
         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
     </button>
     <strong>Error!!!</strong> Sorry! Something went wrong.
-</div>
-
-<div class="section">
-    <h3>
-        Projects
-        <button class="btn btn-sm btn-primary">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </h3>
-    <hr />
 </div>
 
 <div class="section" data-ng-show="ProjectsServices.Projects">

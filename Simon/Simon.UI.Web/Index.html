@@ -1,9 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
+<html data-ng-app="SimonApp">
+<head data-ng-controller="PageHeadController">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>SIMON</title>
 
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
@@ -14,24 +13,31 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
 
-    <script src="Modules/Common/CommonModule.js"></script>
-    <script src="Modules/Common/Directives/AnchorDirective.js"></script>
-    <script src="Modules/Common/Services/NavbarServices.js"></script>
-    <script src="Modules/Common/Services/BreadcrumbServices.js"></script>
-    <script src="Modules/Common/Services/SettingsServices.js"></script>
-    <script src="Modules/Common/Controllers/NavbarController.js"></script>
-    <script src="Modules/Common/Controllers/AboutController.js"></script>
-    <script src="Modules/Common/Controllers/SettingsController.js"></script>
+    <script src="Modules/00_Common/CommonModule.js"></script>
+    <script src="Modules/00_Common/00_Directives/01_AnchorDirective.js"></script>
+    <script src="Modules/00_Common/01_Services/01_PageHeadServices.js"></script>
+    <script src="Modules/00_Common/01_Services/02_NavbarServices.js"></script>
+    <script src="Modules/00_Common/01_Services/03_BreadcrumbServices.js"></script>
+    <script src="Modules/00_Common/01_Services/04_SettingsServices.js"></script>
+    <script src="Modules/00_Common/02_Controllers/01_PageHeadController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/02_NavbarController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/03_SettingsController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/04_AboutController.js"></script>
 
-    <script src="Modules/Projects/ProjectsModule.js"></script>
-    <script src="Modules/Projects/Services/ProjectsServices.js"></script>
-    <script src="Modules/Projects/Controllers/ProjectsController.js"></script>
-    <script src="Modules/Projects/Controllers/ProjectDetailsController.js"></script>
+    <script src="Modules/01_Projects/ProjectsModule.js"></script>
+    <script src="Modules/01_Projects/01_Services/01_ProjectsServices.js"></script>
+    <script src="Modules/01_Projects/02_Controllers/01_ProjectsController.js"></script>
+    <script src="Modules/01_Projects/02_Controllers/02_NewProjectController.js"></script>
+    <script src="Modules/01_Projects/02_Controllers/03_ProjectDetailsController.js"></script>
+
+    <script src="Modules/02_Applications/ApplicationsModule.js"></script>
 
     <script src="Modules/SimonApp.js"></script>
+
+    <title>SIMON - {{PageHeadServices.Title}}</title>
 </head>
-<body data-ng-app="SimonApp">
-    <div data-ng-include="'Modules/Common/Templates/Navbar.html'"
+<body>
+    <div data-ng-include="'Modules/00_Common/03_Templates/Navbar.html'"
          data-ng-controller="NavbarController"></div>
 
     <div class="container body-content"
