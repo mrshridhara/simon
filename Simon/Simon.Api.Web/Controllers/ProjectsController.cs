@@ -20,15 +20,14 @@ namespace Simon.Api.Web.Controllers
                 Id = new Guid("1f65c0b6-5743-4981-b405-048101d262aa"),
                 Name = "Project 1",
                 Description = "Project 1 description",
-                Applications = new List<ApplicationModel>
-                {
-                    new ApplicationModel
-                    {
+                Applications = new List<ApplicationModel> {
+                    new ApplicationModel {
                         Id = new Guid("1f65c0b6-5743-4981-b405-048101d368aa"),
                         Name = "Application 1",
                         Description = "Application 1 description"
                     }
-                } },
+                }
+            },
             new ProjectModel {
                 Id = new Guid("1f65c0b6-5743-4981-b405-048101d262bb"),
                 Name = "Project 2",

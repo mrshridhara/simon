@@ -127,10 +127,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Modules\00_Common\02_Controllers\01_PageHeadController.js" />
     <Content Include="Modules\00_Common\01_Services\01_PageHeadServices.js" />
+    <Content Include="Modules\00_Common\02_Controllers\03_BreadcrumbController.js" />
     <Content Include="Modules\02_Applications\ApplicationsModule.js" />
     <Content Include="Modules\00_Common\CommonModule.js" />
-    <Content Include="Modules\00_Common\02_Controllers\04_AboutController.js" />
-    <Content Include="Modules\00_Common\02_Controllers\03_SettingsController.js" />
+    <Content Include="Modules\00_Common\02_Controllers\05_AboutController.js" />
+    <Content Include="Modules\00_Common\02_Controllers\04_SettingsController.js" />
     <Content Include="Modules\00_Common\00_Directives\01_AnchorDirective.js" />
     <Content Include="Modules\00_Common\01_Services\03_BreadcrumbServices.js" />
     <Content Include="Modules\00_Common\02_Controllers\02_NavbarController.js" />

@@ -3,32 +3,23 @@
 
 var SettingsServices = function ($http, $location, undefined) {
     var self = this;
-
-    this.Settings = [];
+    this.Settings = [
+    ];
     this.Error = undefined;
-
     this.GetSettings = function () {
-        return $http
-            .get('/api/settings')
-            .success(function (result) {
-                self.Settings = angular.fromJson(result);
-            })
-            .error(function (result) {
-                self.Error = result;
-            });
+        return $http.get('/api/settings').success(function (result) {
+            self.Settings = angular.fromJson(result);
+        }).error(function (result) {
+            self.Error = result;
+        });
     };
-
     this.UpdateSettings = function () {
-        return $http
-            .put('/api/settings', this.Settings)
-            .success(function () {
-                $location.path("/");
-            })
-            .error(function (result) {
-                self.Error = result;
-            });
+        return $http.put('/api/settings', this.Settings).success(function () {
+            $location.path('/');
+        }).error(function (result) {
+            self.Error = result;
+        });
     };
-
     this.DeleteSettings = function (eachSetting) {
         var i = this.Settings.indexOf(eachSetting);
         if (i != -1) {
@@ -37,7 +28,10 @@ var SettingsServices = function ($http, $location, undefined) {
     };
 };
 
-commonModule.service("SettingsServices", ["$http", "$location",
+commonModule.service('SettingsServices', [
+    '$http',
+    '$location',
     function ($http, $location) {
         return new SettingsServices($http, $location);
-    }]);
+    }
+]);

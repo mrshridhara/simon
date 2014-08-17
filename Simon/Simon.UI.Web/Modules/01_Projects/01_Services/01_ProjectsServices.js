@@ -1,45 +1,39 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../ProjectsModule.js" />
 
-var ProjectsServices = function ($http, undefined) {
+var ProjectsServices = function ($http, $location, undefined) {
     var self = this;
-
-    this.Projects = [];
+    this.Projects = [
+    ];
     this.Error = undefined;
     this.SelectedProject = undefined;
-
     this.GetProjects = function () {
-        return $http
-            .get('/api/projects')
-            .success(function (result) {
-                self.Projects = angular.fromJson(result);
-            })
-            .error(function (result) {
-                self.Error = result;
-            });
+        return $http.get('/api/projects').success(function (result) {
+            self.Projects = angular.fromJson(result);
+        }).error(function (result) {
+            self.Error = result;
+        });
     };
-
     this.GetProjectDetails = function (projectId) {
-        return $http
-            .get('/api/projects/' + projectId)
-            .success(function (result) {
-                self.SelectedProject = angular.fromJson(result);
-            })
-            .error(function (result) {
-                self.Error = result;
-            });
+        return $http.get('/api/projects/' + projectId).success(function (result) {
+            self.SelectedProject = angular.fromJson(result);
+        }).error(function (result) {
+            self.Error = result;
+        });
     };
-
     this.AddProject = function (newProjectDetails) {
-        return $http
-            .post('/api/projects/', newProjectDetails)
-            .error(function (result) {
-                self.Error = result;
-            });
+        return $http.post('/api/projects/', newProjectDetails).success(function (result) {
+            $location.path('/' + result.Id);
+        }).error(function (result) {
+            self.Error = result;
+        });
     }
 };
 
-projectsModule.service("ProjectsServices", ["$http",
-    function ($http) {
-        return new ProjectsServices($http);
-    }]);
+projectsModule.service('ProjectsServices', [
+    '$http',
+    '$location',
+    function ($http, $location) {
+        return new ProjectsServices($http, $location);
+    }
+]);

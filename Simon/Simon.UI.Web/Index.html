@@ -21,8 +21,9 @@
     <script src="Modules/00_Common/01_Services/04_SettingsServices.js"></script>
     <script src="Modules/00_Common/02_Controllers/01_PageHeadController.js"></script>
     <script src="Modules/00_Common/02_Controllers/02_NavbarController.js"></script>
-    <script src="Modules/00_Common/02_Controllers/03_SettingsController.js"></script>
-    <script src="Modules/00_Common/02_Controllers/04_AboutController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/03_BreadcrumbController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/04_SettingsController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/05_AboutController.js"></script>
 
     <script src="Modules/01_Projects/ProjectsModule.js"></script>
     <script src="Modules/01_Projects/01_Services/01_ProjectsServices.js"></script>
@@ -39,6 +40,9 @@
 <body>
     <div data-ng-include="'Modules/00_Common/03_Templates/Navbar.html'"
          data-ng-controller="NavbarController"></div>
+
+    <div data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'"
+         data-ng-controller="BreadcrumbController"></div>
 
     <div class="container body-content"
          data-ng-view=""></div>

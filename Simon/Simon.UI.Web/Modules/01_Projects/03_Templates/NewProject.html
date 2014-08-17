@@ -1,27 +1,5 @@
-﻿<div class="section"
-     data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'">
-</div>
-
-<div class="page-header" data-ng-show="ProjectsServices.SelectedProject">
-    <h1>
-        <span data-ng-bind="ProjectsServices.SelectedProject.Name"></span>
-        <small data-ng-bind="ProjectsServices.SelectedProject.Description"></small>
-    </h1>
-</div>
-
-<div class="section">
-    <h3>
-        Applications
-        <button class="btn btn-sm btn-primary">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-    </h3>
-    <hr />
-</div>
-
-<div class="section"
-     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
-     data-ng-hide="ProjectsServices.SelectedProject">
+﻿<div class="section page-header">
+    <h1>Create New Project</h1>
 </div>
 
 <div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
@@ -31,13 +9,15 @@
     <strong>Error!!!</strong> Sorry! Something went wrong.
 </div>
 
-<div class="section">
-    <div class="col-sm-6 col-md-4" data-ng-repeat="eachApplication in ProjectsServices.SelectedProject.Applications">
-        <a class="thumbnail" href="#/{{ProjectsServices.SelectedProject.Id}}/{{eachApplication.Id}}">
-            <div class="caption">
-                <h4 data-ng-bind="eachApplication.Name"></h4>
-                <p data-ng-bind="eachApplication.Description"></p>
-            </div>
-        </a>
-    </div>
-</div>
+<fieldset class="section">
+    <legend>New Project Details</legend>
+    <form class="contnet" role="form">
+        <div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <input class="form-control" id=" name" type="text" data-ng-model="NewProjectDetails.Name" />
+            <label class="control-label" for="description">Description</label>
+            <input class="form-control" id="description" type="text" data-ng-model="NewProjectDetails.Description" />
+        </div>
+        <input class="btn btn-primary pull-right" type="button" value="Save" data-ng-click="ProjectsServices.AddProject(NewProjectDetails)" />
+    </form>
+</fieldset>

@@ -1,18 +1,20 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../ProjectsModule.js" />
 
-projectsModule.controller("ProjectsController", ["$scope", "$location", "PageHeadServices", "NavbarServices", "BreadcrumbServices", "ProjectsServices",
+projectsModule.controller('ProjectsController', [
+    '$scope',
+    '$location',
+    'PageHeadServices',
+    'NavbarServices',
+    'BreadcrumbServices',
+    'ProjectsServices',
     function ($scope, $location, pageHeadServices, navbarServices, breadcrumbServices, projectsServices) {
         navbarServices.DeactivateAll();
-
-        pageHeadServices.Title = "Projects";
-
+        pageHeadServices.Title = 'Projects';
         breadcrumbServices.Reset();
-
-        projectsServices.GetProjects()
-            .success(function () {
-                breadcrumbServices.AddNew($location, "Projects");
-                $scope.BreadcrumbServices = breadcrumbServices;
-            });
+        breadcrumbServices.AddNew($location, 'Projects');
+        projectsServices.GetProjects().success(function () {
+        });
         $scope.ProjectsServices = projectsServices;
-    }]);
+    }
+]);

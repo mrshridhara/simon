@@ -1,5 +1,5 @@
-﻿<ol class="breadcrumb" data-ng-show="BreadcrumbServices.Items">
-    <li data-ng-repeat="eachItem in BreadcrumbServices.Items">
-        <a href="#{{eachItem.Href}}" data-ng-bind="eachItem.Text"></a>
+﻿<ol class="breadcrumb" data-ng-show="BreadcrumbServices.IsVisible">
+    <li data-ng-repeat="eachItem in BreadcrumbServices.GetItems()">
+        <a href="#{{eachItem.Location}}" data-ng-bind="eachItem.Text"></a>
     </li>
 </ol>
