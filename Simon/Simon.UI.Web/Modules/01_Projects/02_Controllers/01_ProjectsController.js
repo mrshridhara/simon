@@ -10,10 +10,10 @@ projectsModule.controller('ProjectsController', [
     'ProjectsServices',
     function ($scope, $location, pageHeadServices, navbarServices, breadcrumbServices, projectsServices) {
         navbarServices.DeactivateAll();
-        pageHeadServices.Title = 'Projects';
-        breadcrumbServices.Reset();
-        breadcrumbServices.AddNew($location, 'Projects');
+        pageHeadServices.Title = 'Home';
         projectsServices.GetProjects().success(function () {
+            breadcrumbServices.Reset();
+            breadcrumbServices.AddNew($location, pageHeadServices.Title);
         });
         $scope.ProjectsServices = projectsServices;
     }

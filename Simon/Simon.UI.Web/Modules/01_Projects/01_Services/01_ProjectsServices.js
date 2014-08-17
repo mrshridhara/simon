@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../ProjectsModule.js" />
 
-var ProjectsServices = function ($http, $location, undefined) {
+var ProjectsServices = function ($http, $location, breadcrumbServices, undefined) {
     var self = this;
     this.Projects = [
     ];
@@ -23,6 +23,7 @@ var ProjectsServices = function ($http, $location, undefined) {
     };
     this.AddProject = function (newProjectDetails) {
         return $http.post('/api/projects/', newProjectDetails).success(function (result) {
+            breadcrumbServices.RemoveLast();
             $location.path('/' + result.Id);
         }).error(function (result) {
             self.Error = result;
@@ -33,7 +34,8 @@ var ProjectsServices = function ($http, $location, undefined) {
 projectsModule.service('ProjectsServices', [
     '$http',
     '$location',
-    function ($http, $location) {
-        return new ProjectsServices($http, $location);
+    'BreadcrumbServices',
+    function ($http, $location, breadcrumbServices) {
+        return new ProjectsServices($http, $location, breadcrumbServices);
     }
 ]);

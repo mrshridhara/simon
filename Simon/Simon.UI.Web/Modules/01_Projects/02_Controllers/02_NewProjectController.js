@@ -12,7 +12,7 @@ projectsModule.controller('NewProjectController', [
     function ($scope, $location, $routeParams, pageHeadServices, navbarServices, breadcrumbServices, projectsServices) {
         navbarServices.DeactivateAll();
         pageHeadServices.Title = 'Add New Project';
-        breadcrumbServices.AddNew($location, 'New Project');
+        breadcrumbServices.AddNew($location, pageHeadServices.Title);
         $scope.ProjectsServices = projectsServices;
         $scope.NewProjectDetails = {
             Name: '',

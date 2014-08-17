@@ -13,7 +13,7 @@ projectsModule.controller('ProjectDetailsController', [
         navbarServices.DeactivateAll();
         projectsServices.GetProjectDetails($routeParams.ProjectId).success(function () {
             pageHeadServices.Title = projectsServices.SelectedProject.Name;
-            breadcrumbServices.AddNew($location, projectsServices.SelectedProject.Name);
+            breadcrumbServices.AddNew($location, pageHeadServices.Title);
         });
         $scope.ProjectsServices = projectsServices;
     }

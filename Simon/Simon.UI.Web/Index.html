@@ -41,11 +41,11 @@
     <div data-ng-include="'Modules/00_Common/03_Templates/Navbar.html'"
          data-ng-controller="NavbarController"></div>
 
-    <div data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'"
-         data-ng-controller="BreadcrumbController"></div>
-
-    <div class="container body-content"
-         data-ng-view=""></div>
+    <div class="container body-content">
+        <div data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'"
+             data-ng-controller="BreadcrumbController"></div>
+        <div data-ng-view=""></div>
+    </div>
 
     <footer>
         <hr />
