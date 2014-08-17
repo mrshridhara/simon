@@ -1,5 +1,7 @@
 ﻿using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
+using Simon.Processes.Database;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,17 +14,27 @@ namespace Simon.Repositories
         : IAsyncPersistence<Project>
     {
         private readonly GlobalSettings globalSettings;
+        private readonly IAsyncProcess<CreateNewProjectContext> createNewProject;
+        private readonly IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsRepository"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
+        /// <param name="createNewProject">The create new project process.</param>
+        /// <param name="getAllProjects">The get all projects process.</param>
         public ProjectsRepository(
-            GlobalSettings globalSettings)
+            GlobalSettings globalSettings,
+            IAsyncProcess<CreateNewProjectContext> createNewProject,
+            IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects)
         {
             Guard.NotNullArgument("globalSettings", globalSettings);
+            Guard.NotNullArgument("createNewProject", createNewProject);
+            Guard.NotNullArgument("getAllProjects", getAllProjects);
 
             this.globalSettings = globalSettings;
+            this.createNewProject = createNewProject;
+            this.getAllProjects = getAllProjects;
         }
 
         /// <summary>
@@ -31,18 +43,24 @@ namespace Simon.Repositories
         /// <returns>
         /// All the persisted data.
         /// </returns>
-        public Task<IEnumerable<Project>> ReadAll()
+        public async Task<IEnumerable<Project>> ReadAll()
         {
-            throw new System.NotImplementedException();
+            var result = await getAllProjects.ExecuteAsync(EmptyContext.Instance);
+            return result.Projects;
         }
 
         /// <summary>
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        public Task Create(Project data)
+        public async Task<Project> Create(Project data)
         {
-            throw new System.NotImplementedException();
+            Guard.NotNullArgument("data", data);
+
+            data.SetId(Guid.NewGuid());
+            await createNewProject.ExecuteAsync(new CreateNewProjectContext { Project = data });
+
+            return data;
         }
 
         /// <summary>

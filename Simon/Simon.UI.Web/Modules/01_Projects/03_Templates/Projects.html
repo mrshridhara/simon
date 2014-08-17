@@ -8,16 +8,16 @@
     <hr />
 </div>
 
-<div class="section"
-     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
-     data-ng-hide="ProjectsServices.Projects">
-</div>
-
 <div class="section alert alert-danger" role="alert" data-ng-show="ProjectsServices.Error">
     <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
     </button>
     <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<div class="section"
+     data-ng-include="'Modules/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="ProjectsServices.Projects">
 </div>
 
 <div class="section" data-ng-show="ProjectsServices.Projects">

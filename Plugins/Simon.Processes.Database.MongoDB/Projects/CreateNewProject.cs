@@ -1,13 +1,13 @@
 ﻿using Simon.Infrastructure;
 using System.Threading.Tasks;
 
-namespace Simon.Processes.Database.MongoDB
+namespace Simon.Processes.Database.MongoDB.Projects
 {
     /// <summary>
     /// Represents the process of creating new project in the Mongo DB.
     /// </summary>
     public sealed class CreateNewProject
-        : IAsyncProcess<CreateNewProjectContext, CreateNewProjectResult>
+        : IAsyncProcess<CreateNewProjectContext>
     {
         private readonly GlobalSettings globalSettings;
 
@@ -25,21 +25,19 @@ namespace Simon.Processes.Database.MongoDB
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>A task of type <see cref="Task&lt;CreateNewProjectResult&gt;"/></returns>
-        public async Task<CreateNewProjectResult> ExecuteAsync(CreateNewProjectContext context)
+        public async Task ExecuteAsync(CreateNewProjectContext context)
         {
-            return await Task.Factory.StartNew(
+            await Task.Factory.StartNew(
                 () => Execute(this.globalSettings, context),
                 TaskCreationOptions.LongRunning);
         }
 
-        private static CreateNewProjectResult Execute(
+        private static void Execute(
             GlobalSettings globalSettings,
             CreateNewProjectContext context)
         {
             var projects = MongoHelper.GetMongoCollection<Project>(globalSettings);
             var result = projects.Insert(context.Project);
-
-            return new CreateNewProjectResult { Project = context.Project };
         }
     }
 }

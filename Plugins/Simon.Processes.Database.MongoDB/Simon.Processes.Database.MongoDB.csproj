@@ -60,10 +60,11 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CreateNewProject.cs" />
+    <Compile Include="Projects\CreateNewProject.cs" />
     <Compile Include="MongoDBPlugin.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="MongoHelper.cs" />
+    <Compile Include="Projects\GetAllProjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

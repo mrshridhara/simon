@@ -73,7 +73,6 @@
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Processes\Database\CreateNewProjectResult.cs" />
     <Compile Include="Processes\Database\GetFeatureForBranchResult.cs">
       <SubType>Code</SubType>
     </Compile>

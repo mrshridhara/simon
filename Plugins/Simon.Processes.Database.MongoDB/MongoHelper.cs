@@ -14,7 +14,7 @@ namespace Simon.Processes.Database.MongoDB
             var server = client.GetServer();
             var database = server.GetDatabase(databaseName);
 
-            return database.GetCollection<TEntity>(typeof(TEntity).FullName);
+            return database.GetCollection<TEntity>(typeof(TEntity).Name + "Collection");
         }
     }
 }

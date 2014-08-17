@@ -50,7 +50,7 @@ namespace Simon.Repositories
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        public Task Create(GlobalSettings data)
+        public Task<GlobalSettings> Create(GlobalSettings data)
         {
             throw new InvalidOperationException(
                 "This operation is not supported for global settings.");

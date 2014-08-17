@@ -38,7 +38,7 @@ namespace Simon
         /// </summary>
         public IEnumerable<Feature> Features
         {
-            get { return features.AsReadOnly(); }
+            get { return (features ?? new List<Feature>()).AsReadOnly(); }
         }
 
         /// <summary>

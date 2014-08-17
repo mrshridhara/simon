@@ -35,7 +35,7 @@ namespace Simon
         /// </summary>
         public IEnumerable<Application> Applications
         {
-            get { return applications.AsReadOnly(); }
+            get { return (applications ?? new List<Application>()).AsReadOnly(); }
         }
 
         /// <summary>

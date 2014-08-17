@@ -2,7 +2,6 @@
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,37 +13,6 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public class ProjectsController : ApiController
     {
-        private static readonly ICollection<ProjectModel> projects = new List<ProjectModel>()
-        {
-            new ProjectModel {
-                Id = new Guid("1f65c0b6-5743-4981-b405-048101d262aa"),
-                Name = "Project 1",
-                Description = "Project 1 description",
-                Applications = new List<ApplicationModel> {
-                    new ApplicationModel {
-                        Id = new Guid("1f65c0b6-5743-4981-b405-048101d368aa"),
-                        Name = "Application 1",
-                        Description = "Application 1 description"
-                    }
-                }
-            },
-            new ProjectModel {
-                Id = new Guid("1f65c0b6-5743-4981-b405-048101d262bb"),
-                Name = "Project 2",
-                Description = "Project 2 description"
-            },
-            new ProjectModel {
-                Id = new Guid("1f65c0b6-5743-4981-b405-048101d262cc"),
-                Name = "Project 3",
-                Description = "Project 3 description"
-            },
-            new ProjectModel {
-                Id = new Guid("1f65c0b6-5743-4981-b405-048101d262dd"),
-                Name = "Project 4",
-                Description = "Project 4 description"
-            }
-        };
-
         private readonly IAsyncPersistence<Project> projectPersistence;
         private readonly IMapper<ProjectModel, Project> projectModelToProjectMapper;
         private readonly IMapper<Project, ProjectModel> projectToProjectModelMapper;
@@ -77,11 +45,13 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> GetAsync()
         {
-            return await Task.Run<IHttpActionResult>(() =>
-            {
-                // TODO: Get data from repository.
-                return Ok(projects);
-            });
+            var projects = await projectPersistence.ReadAll();
+
+            var projectModels
+                = projects.Select(
+                    eachProject => projectToProjectModelMapper.Map(eachProject));
+
+            return Ok(projectModels);
         }
 
         /// <summary>
@@ -93,19 +63,25 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> GetAsync(string id)
         {
-            return await Task.Run<IHttpActionResult>(() =>
+            Guid inputId;
+            if (Guid.TryParse(id, out inputId) == false)
             {
-                // TODO: Get data from repository.
-                var availableProject
-                    = projects.FirstOrDefault(project => project.Id == new Guid(id));
+                return BadRequest("id should be a valid GUID");
+            }
 
-                if (availableProject != null)
-                {
-                    return Ok(availableProject);
-                }
+            var projects = await projectPersistence.ReadAll();
 
-                return NotFound();
-            });
+            var availableProject
+                    = projects.FirstOrDefault(
+                        eachProject => eachProject.Id == inputId);
+
+            if (availableProject != null)
+            {
+                var projectModel = projectToProjectModelMapper.Map(availableProject);
+                return Ok(projectModel);
+            }
+
+            return NotFound();
         }
 
         /// <summary>
@@ -117,20 +93,14 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> PostAsync([FromBody]ProjectModel projectModel)
         {
-            return await Task.Run<IHttpActionResult>(() =>
-            {
-                projectModel.Id = Guid.NewGuid();
-                projects.Add(projectModel);
+            var project = projectModelToProjectMapper.Map(projectModel);
+            var updatedProject = await projectPersistence.Create(project);
+            var updatedProjectModel = projectToProjectModelMapper.Map(updatedProject);
 
-                // TODO: Store data to repository.
-                //var project = projectModelToProjectMapper.Map(projectModel);
-                //projectPersistence.Create(project);
-
-                return CreatedAtRoute(
-                    RouteConfig.DefaultRouteName,
-                    new { controller = "Projects", id = projectModel.Id },
-                    projectModel);
-            });
+            return CreatedAtRoute(
+                RouteConfig.DefaultRouteName,
+                new { controller = "Projects", id = updatedProjectModel.Id },
+                updatedProjectModel);
         }
 
         /// <summary>

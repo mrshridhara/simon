@@ -39,7 +39,7 @@ namespace Simon.Infrastructure
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        Task Create(TData data);
+        Task<TData> Create(TData data);
 
         /// <summary>
         /// Updates the data in persistence.

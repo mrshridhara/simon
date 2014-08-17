@@ -2,6 +2,7 @@
 using Simon.Infrastructure;
 using System.Linq;
 using Simon.Infrastructure.Utilities;
+using System.Collections.Generic;
 
 namespace Simon.Api.Web.Mappers
 {
@@ -36,11 +37,14 @@ namespace Simon.Api.Web.Mappers
         {
             Guard.NotNullArgument("instance", instance);
 
-            var applications
-                = instance.Applications
+            IEnumerable<Application> applications = null;
+            if (instance.Applications != null)
+            {
+                applications = instance.Applications
                     .Select(
                         eachApplication =>
                             applicationModelToApplicationMapper.Map(eachApplication));
+            }
 
             return new Project(
                 instance.Id.GetValueOrDefault(),
