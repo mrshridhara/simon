@@ -16,6 +16,9 @@ projectsModule.config(['$routeProvider',
         }).when('/:ProjectId', {
             templateUrl: 'Modules/01_Projects/03_Templates/ProjectDetails.html',
             controller: 'ProjectDetailsController'
+        }).when('/:ProjectId/edit', {
+            templateUrl: 'Modules/01_Projects/03_Templates/EditProject.html',
+            controller: 'EditProjectController'
         });
     }
 ]);

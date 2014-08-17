@@ -1,5 +1,10 @@
 ﻿<div class="page-header" data-ng-show="ProjectsServices.SelectedProject">
-    <h1 data-ng-bind="ProjectsServices.SelectedProject.Name"></h1>
+    <h1>
+        <span data-ng-bind="ProjectsServices.SelectedProject.Name"></span>
+        <a class="btn btn-sm btn-primary" href="#/{{ProjectsServices.SelectedProject.Id}}/edit">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+    </h1>
     <p data-ng-bind="ProjectsServices.SelectedProject.Description"></p>
 </div>
 

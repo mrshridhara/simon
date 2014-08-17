@@ -12,7 +12,7 @@
 
 <fieldset class="section" data-ng-show="SettingsServices.Settings">
     <legend>Global settings</legend>
-    <form class="contnet" role="form">
+    <form class="contnet form-horizontal" role="form">
         <div class="form-group" data-ng-repeat="eachSetting in SettingsServices.Settings">
             <label for="{{eachSetting.Key}}" class="col-md-3 control-label" data-ng-bind="eachSetting.Value.Name"></label>
             <div class="col-md-9 input-group">
@@ -24,6 +24,6 @@
                 </span>
             </div>
         </div>
-        <input class="btn btn-primary pull-right" type="button" value="Save Changes" data-ng-click="SettingsServices.UpdateSettings()" />
+        <button class="btn btn-primary pull-right" data-ng-click="SettingsServices.UpdateSettings()">Save Changes</button>
     </form>
 </fieldset>

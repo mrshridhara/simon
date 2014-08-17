@@ -29,6 +29,11 @@ var ProjectsServices = function ($http, $location, breadcrumbServices, undefined
             self.Error = result;
         });
     }
+    this.UpdateProject = function () {
+        return $http.put('/api/projects/', self.SelectedProject).error(function (result) {
+            self.Error = result;
+        });
+    }
 };
 
 projectsModule.service('ProjectsServices', [
