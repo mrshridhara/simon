@@ -3,9 +3,9 @@
 namespace Simon.Api.Web
 {
     /// <summary>
-    /// Represents the configuraion for the Web API.
+    /// Represents the route configuraion for the Web API.
     /// </summary>
-    public class WebApiConfig
+    public class RouteConfig
     {
         /// <summary>
         /// The default API route name.

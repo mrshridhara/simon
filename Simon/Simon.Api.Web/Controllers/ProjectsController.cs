@@ -127,7 +127,7 @@ namespace Simon.Api.Web.Controllers
                 //projectPersistence.Create(project);
 
                 return CreatedAtRoute(
-                    WebApiConfig.DefaultRouteName,
+                    RouteConfig.DefaultRouteName,
                     new { controller = "Projects", id = projectModel.Id },
                     projectModel);
             });

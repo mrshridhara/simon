@@ -15,17 +15,17 @@
             </summary>
             <param name="appBuilder">The app builder.</param>
         </member>
-        <member name="T:Simon.Api.Web.WebApiConfig">
+        <member name="T:Simon.Api.Web.RouteConfig">
             <summary>
-            Represents the configuraion for the Web API.
+            Represents the route configuraion for the Web API.
             </summary>
         </member>
-        <member name="F:Simon.Api.Web.WebApiConfig.DefaultRouteName">
+        <member name="F:Simon.Api.Web.RouteConfig.DefaultRouteName">
             <summary>
             The default API route name.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+        <member name="M:Simon.Api.Web.RouteConfig.Register(System.Web.Http.HttpConfiguration)">
             <summary>
             Registers the HTTP route to the specified <paramref name="config"/> instance.
             </summary>
@@ -212,9 +212,15 @@
             Extensions for <see cref="T:Owin.IAppBuilder"/> class.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder)">
             <summary>
             Configures the Simon API in Owin.
+            </summary>
+            <param name="appBuilder">The app builder instance.</param>
+        </member>
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Configures the Simon API in Owin using specified <paramref name="config"/>.
             </summary>
             <param name="appBuilder">The app builder instance.</param>
             <param name="config">The HTTP configuration.</param>

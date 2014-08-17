@@ -3,11 +3,9 @@
 
 var NavbarServices = function () {
     var self = this;
-    this.ApiDocumentationMenu = new NavbarMenu();
     this.AboutMenu = new NavbarMenu();
     this.SettingsMenu = new NavbarMenu();
     this.DeactivateAll = function () {
-        self.ApiDocumentationMenu.Class = '';
         self.AboutMenu.Class = '';
         self.SettingsMenu.Class = '';
     }
