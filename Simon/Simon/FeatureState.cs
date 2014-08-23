@@ -26,10 +26,15 @@
         InBuild,
 
         /// <summary>
-        /// The ready for testing state.
+        /// The ready for feature testing state.
         /// </summary>
-        ReadyForTesting,
-        
+        ReadyForFeatureTesting,
+
+        /// <summary>
+        /// The ready for integration testing state.
+        /// </summary>
+        ReadyForIntegrationTesting,
+
         /// <summary>
         /// The in automated test state.
         /// </summary>
@@ -46,9 +51,9 @@
         InManualTest,
 
         /// <summary>
-        /// The ready for deployment state.
+        /// The ready for production state.
         /// </summary>
-        ReadyForDeployment,
+        ReadyForProduction,
 
         /// <summary>
         /// The in production state.

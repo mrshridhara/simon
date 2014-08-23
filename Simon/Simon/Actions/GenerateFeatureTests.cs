@@ -33,14 +33,13 @@ namespace Simon.Actions
         /// <summary>
         /// Executes the action for the current state of the entity.
         /// </summary>
-        /// <param name="entiry">The entity.</param>
+        /// <param name="entity">The entity.</param>
         /// <returns>The task.</returns>
-        public override Task ExecuteAsync(Feature entiry)
+        public override Task ExecuteAsync(Feature entity)
         {
             // TODO: Generate feature tests.
-
-            entiry.SetState(FeatureState.ReadyForDevelopment);
-
+            // TODO: Mark feature as ready for development.
+            // TODO: Save the feature to the persistance.
             throw new System.NotImplementedException();
         }
     }

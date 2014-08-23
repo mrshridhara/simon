@@ -33,9 +33,9 @@ namespace Simon.Actions
         /// <summary>
         /// Executes the action for the current state of the entity.
         /// </summary>
-        /// <param name="entiry">The entity.</param>
+        /// <param name="entity">The entity.</param>
         /// <returns>The task.</returns>
-        public abstract Task ExecuteAsync(TEntity entiry);
+        public abstract Task ExecuteAsync(TEntity entity);
 
         /// <summary>
         /// Deserialize and executes the action for the current state of the entity.
@@ -44,7 +44,8 @@ namespace Simon.Actions
         /// <returns>The task.</returns>
         public async Task DeserializeAndExecute(string entityInJson)
         {
-            await ExecuteAsync(await serializer.DeserializeAsync<TEntity>(entityInJson));
+            var entity = await serializer.DeserializeAsync<TEntity>(entityInJson);
+            await ExecuteAsync(entity);
         }
     }
 }

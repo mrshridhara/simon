@@ -9,7 +9,7 @@ namespace Simon.Observers
     /// </summary>
     public sealed class FeatureStateObserver : IAsyncObserver<Feature>
     {
-        private readonly IEnumerable<IAsyncAction<Feature>> stateActions;
+        private readonly IEnumerable<IAsyncAction<Feature>> featureActions;
         private readonly IAsyncActionQueue asyncActionQueue;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Simon.Observers
             IEnumerable<IAsyncAction<Feature>> featureActions,
             IAsyncActionQueue asyncActionQueue)
         {
-            this.stateActions = featureActions;
+            this.featureActions = featureActions;
             this.asyncActionQueue = asyncActionQueue;
         }
 
@@ -32,7 +32,7 @@ namespace Simon.Observers
         /// <returns>Task for async operations.</returns>
         public async Task UpdateAsync(Feature entity)
         {
-            foreach (dynamic eachFeatureAction in stateActions)
+            foreach (dynamic eachFeatureAction in featureActions)
             {
                 if (eachFeatureAction.IsApplicable(entity))
                 {

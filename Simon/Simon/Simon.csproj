@@ -45,7 +45,10 @@
     </Compile>
     <Compile Include="Actions\AsyncActionBase.cs" />
     <Compile Include="Actions\CreateNewFeatureBranch.cs" />
+    <Compile Include="Actions\DeployToProduction.cs" />
     <Compile Include="Actions\GenerateFeatureTests.cs" />
+    <Compile Include="Actions\RunIntegrationTests.cs" />
+    <Compile Include="Actions\RunFeatureTests.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="FeatureState.cs">
       <SubType>Code</SubType>

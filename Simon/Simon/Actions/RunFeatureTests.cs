@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 namespace Simon.Actions
 {
     /// <summary>
-    /// Represents the action which creates new feature branch.
+    /// Represents the action which runs the feature tests.
     /// </summary>
-    public sealed class CreateNewFeatureBranch : AsyncActionBase<Feature>
+    public sealed class RunFeatureTests : AsyncActionBase<Feature>
     {
         /// <summary>
-        /// Initializes an instance of <see cref="CreateNewFeatureBranch"/>class.
+        /// Initializes an instance of <see cref="RunFeatureTests"/>class.
         /// </summary>
         /// <param name="serializer">The serializer.</param>
-        public CreateNewFeatureBranch(ISerializer serializer)
+        public RunFeatureTests(ISerializer serializer)
             : base(serializer)
         {
         }
@@ -27,7 +27,7 @@ namespace Simon.Actions
         /// </returns>
         public override bool IsApplicable(Feature entity)
         {
-            return entity.State == FeatureState.NewFeature;
+            return entity.State == FeatureState.ReadyForFeatureTesting;
         }
 
         /// <summary>
@@ -37,7 +37,10 @@ namespace Simon.Actions
         /// <returns>The task.</returns>
         public override Task ExecuteAsync(Feature entity)
         {
-            // TODO: Create new feature branch if it does not exists.
+            // TODO: Run feature tests.
+            // TODO: If tests are passing, mark as ready for integration testing.
+            // TODO: Else, mark as failed testing.
+            // TODO: Save the feature to the persistance.
             throw new System.NotImplementedException();
         }
     }
