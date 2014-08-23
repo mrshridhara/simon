@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\SourceControlRepository.cs" />
+    <Compile Include="SimonAssembly.cs" />
     <Compile Include="SourceControlBranch.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

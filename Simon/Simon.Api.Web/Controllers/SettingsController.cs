@@ -10,7 +10,7 @@ namespace Simon.Api.Web.Controllers
     /// <summary>
     /// API to manipulate project data.
     /// </summary>
-    public class SettingsController : ApiController
+    public sealed class SettingsController : ApiController
     {
         private readonly IAsyncPersistence<GlobalSettings> globalSettingsPersistence;
 

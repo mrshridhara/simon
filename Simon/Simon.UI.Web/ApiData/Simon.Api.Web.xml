@@ -9,11 +9,12 @@
             Represents the configuraion for the IoC.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder)">
+        <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
             <summary>
             Registers the dependencies to the IoC container.
             </summary>
             <param name="appBuilder">The app builder.</param>
+            <param name="config">The HTTP configuration.</param>
         </member>
         <member name="T:Simon.Api.Web.RouteConfig">
             <summary>
@@ -25,10 +26,11 @@
             The default API route name.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.RouteConfig.Register(System.Web.Http.HttpConfiguration)">
+        <member name="M:Simon.Api.Web.RouteConfig.Register(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
             <summary>
             Registers the HTTP route to the specified <paramref name="config"/> instance.
             </summary>
+            <param name="appBuilder">The app builder.</param>
             <param name="config">The HTTP configuration.</param>
         </member>
         <member name="T:Simon.Api.Web.Controllers.ProjectsController">
@@ -114,6 +116,25 @@
             Status of the addition.
             </returns>
         </member>
+        <member name="T:Simon.Api.Web.Controllers.SimonVersionController">
+            <summary>
+            API to manipulate SIMON version.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SimonVersionController.#ctor(Simon.Infrastructure.IMapper{System.Version,Simon.Api.Web.Models.SimonVersionModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SimonVersionController"/> class.
+            </summary>
+            <param name="versionToSimonVersionModelMapper">The version to simon version model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SimonVersionController.GetAsync">
+            <summary>
+            Gets the current version of SIMON.
+            </summary>
+            <returns>
+            A sequence of projects.
+            </returns>
+        </member>
         <member name="T:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper">
             <summary>
             Represnts a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
@@ -154,6 +175,20 @@
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.Map(Simon.Project)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper">
+            <summary>
+            Represnts a mapper from <see cref="T:System.Version"/> to <see cref="T:Simon.Api.Web.Models.SimonVersionModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper.Map(System.Version)">
             <summary>
             Copies the data from <paramref name="instance"/>.
             </summary>

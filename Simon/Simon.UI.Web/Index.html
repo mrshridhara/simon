@@ -19,11 +19,13 @@
     <script src="Modules/00_Common/01_Services/02_NavbarServices.js"></script>
     <script src="Modules/00_Common/01_Services/03_BreadcrumbServices.js"></script>
     <script src="Modules/00_Common/01_Services/04_SettingsServices.js"></script>
+    <script src="Modules/00_Common/01_Services/05_FooterServices.js"></script>
     <script src="Modules/00_Common/02_Controllers/01_PageHeadController.js"></script>
     <script src="Modules/00_Common/02_Controllers/02_NavbarController.js"></script>
     <script src="Modules/00_Common/02_Controllers/03_BreadcrumbController.js"></script>
     <script src="Modules/00_Common/02_Controllers/04_SettingsController.js"></script>
     <script src="Modules/00_Common/02_Controllers/05_AboutController.js"></script>
+    <script src="Modules/00_Common/02_Controllers/06_FooterController.js"></script>
 
     <script src="Modules/01_Projects/ProjectsModule.js"></script>
     <script src="Modules/01_Projects/01_Services/01_ProjectsServices.js"></script>
@@ -36,7 +38,7 @@
 
     <script src="Modules/SimonApp.js"></script>
 
-    <title>{{PageHeadServices.Title}} - SIMON</title>
+    <title>{{PageHeadServices.Title}} | SIMON (pre-alpha)</title>
 </head>
 <body>
     <div data-ng-include="'Modules/00_Common/03_Templates/Navbar.html'"
@@ -48,11 +50,7 @@
         <div data-ng-view=""></div>
     </div>
 
-    <footer>
-        <hr />
-        <div class="container">
-            <p>&copy; 2014</p>
-        </div>
-    </footer>
+    <div data-ng-include="'Modules/00_Common/03_Templates/Footer.html'"
+         data-ng-controller="FooterController"></div>
 </body>
 </html>

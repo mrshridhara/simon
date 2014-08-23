@@ -91,11 +91,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Modules\00_Common\01_Services\05_FooterServices.js" />
     <Content Include="Modules\00_Common\02_Controllers\01_PageHeadController.js" />
     <Content Include="Modules\00_Common\01_Services\01_PageHeadServices.js" />
     <Content Include="Modules\00_Common\02_Controllers\03_BreadcrumbController.js" />
+    <Content Include="Modules\00_Common\02_Controllers\06_FooterController.js" />
     <Content Include="Modules\01_Projects\02_Controllers\04_EditProjectController.js" />
     <Content Include="Modules\01_Projects\03_Templates\EditProject.html" />
+    <Content Include="Modules\00_Common\03_Templates\Footer.html" />
     <Content Include="Modules\02_Applications\ApplicationsModule.js" />
     <Content Include="Modules\00_Common\CommonModule.js" />
     <Content Include="Modules\00_Common\02_Controllers\05_AboutController.js" />

@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Core;
 using Autofac.Integration.WebApi;
 using Owin;
 using Simon.Infrastructure;
@@ -8,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web.Http;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
 {
@@ -20,7 +21,8 @@ namespace Simon.Api.Web
         /// Registers the dependencies to the IoC container.
         /// </summary>
         /// <param name="appBuilder">The app builder.</param>
-        public static IContainer RegisterDependencies(IAppBuilder appBuilder)
+        /// <param name="config">The HTTP configuration.</param>
+        public static IDependencyResolver RegisterDependencies(IAppBuilder appBuilder, HttpConfiguration config)
         {
             var builder = new ContainerBuilder();
 
@@ -45,7 +47,10 @@ namespace Simon.Api.Web
 
             FinalizeGlobalSettings(container, updatedGlobalSettings);
 
-            return container;
+            appBuilder.UseAutofacMiddleware(container);
+            appBuilder.UseAutofacWebApi(config);
+
+            return new AutofacWebApiDependencyResolver(container);
         }
 
         private static GlobalSettings GetCurrentGlobalSettings(IContainer container)

@@ -1,5 +1,4 @@
-﻿using Autofac.Integration.WebApi;
-using Owin;
+﻿using Owin;
 using System.Web.Http;
 
 namespace Simon.Api.Web
@@ -25,14 +24,10 @@ namespace Simon.Api.Web
         /// <param name="config">The HTTP configuration.</param>
         public static void ConfigureSimonApi(this IAppBuilder appBuilder, HttpConfiguration config)
         {
-            var container = IocConfig.RegisterDependencies(appBuilder);
-            RouteConfig.Register(config);
+            var dependencyResolver = IocConfig.RegisterDependencies(appBuilder, config);
+            config.DependencyResolver = dependencyResolver;
 
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            appBuilder.UseAutofacMiddleware(container);
-            appBuilder.UseAutofacWebApi(config);
-            appBuilder.UseWebApi(config);
+            RouteConfig.Register(appBuilder, config);
         }
     }
 }

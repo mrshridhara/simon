@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Owin;
+using System.Web.Http;
 
 namespace Simon.Api.Web
 {
@@ -15,8 +16,9 @@ namespace Simon.Api.Web
         /// <summary>
         /// Registers the HTTP route to the specified <paramref name="config"/> instance.
         /// </summary>
+        /// <param name="appBuilder">The app builder.</param>
         /// <param name="config">The HTTP configuration.</param>
-        public static void Register(HttpConfiguration config)
+        public static void Register(IAppBuilder appBuilder, HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
@@ -24,6 +26,8 @@ namespace Simon.Api.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            appBuilder.UseWebApi(config);
         }
     }
 }

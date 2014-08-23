@@ -11,7 +11,7 @@ namespace Simon.Api.Web.Controllers
     /// <summary>
     /// API to manipulate project data.
     /// </summary>
-    public class ProjectsController : ApiController
+    public sealed class ProjectsController : ApiController
     {
         private readonly IAsyncPersistence<Project> projectPersistence;
         private readonly IMapper<ProjectModel, Project> projectModelToProjectMapper;
