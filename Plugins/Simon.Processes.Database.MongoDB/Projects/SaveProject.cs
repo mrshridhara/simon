@@ -6,16 +6,16 @@ namespace Simon.Processes.Database.MongoDB.Projects
     /// <summary>
     /// Represents the process of creating new project in the Mongo DB.
     /// </summary>
-    public sealed class CreateNewProject
-        : IAsyncProcess<CreateNewProjectContext>
+    public sealed class SaveProject
+        : IAsyncProcess<SaveProjectContext>
     {
         private readonly GlobalSettings globalSettings;
 
         /// <summary>
-        /// Initializes an instance of <see cref="CreateNewProject"/> class.
+        /// Initializes an instance of <see cref="SaveProject"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        public CreateNewProject(GlobalSettings globalSettings)
+        public SaveProject(GlobalSettings globalSettings)
         {
             this.globalSettings = globalSettings;
         }
@@ -25,7 +25,7 @@ namespace Simon.Processes.Database.MongoDB.Projects
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>A task of type <see cref="Task&lt;CreateNewProjectResult&gt;"/></returns>
-        public async Task ExecuteAsync(CreateNewProjectContext context)
+        public async Task ExecuteAsync(SaveProjectContext context)
         {
             await Task.Factory.StartNew(
                 () => Execute(this.globalSettings, context),
@@ -34,10 +34,10 @@ namespace Simon.Processes.Database.MongoDB.Projects
 
         private static void Execute(
             GlobalSettings globalSettings,
-            CreateNewProjectContext context)
+            SaveProjectContext context)
         {
             var projects = MongoHelper.GetMongoCollection<Project>(globalSettings);
-            var result = projects.Insert(context.Project);
+            var result = projects.Save(context.Project);
         }
     }
 }

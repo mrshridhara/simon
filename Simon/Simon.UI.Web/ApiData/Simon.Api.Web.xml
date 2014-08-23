@@ -15,6 +15,7 @@
             </summary>
             <param name="appBuilder">The app builder.</param>
             <param name="config">The HTTP configuration.</param>
+            <returns>A <see cref="T:System.Web.Http.Dependencies.IDependencyResolver"/> instance.</returns>
         </member>
         <member name="T:Simon.Api.Web.RouteConfig">
             <summary>
@@ -72,22 +73,6 @@
             Status of the addition.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PutAsync(System.String,Simon.Project)">
-            <summary>
-            Updates the specified <paramref name="project"/> with the specified <paramref name="id"/> in the sequence of projects.
-            </summary>
-            <param name="id">The ID of the project.</param>
-            <param name="project">The project data taken from HTTP body.</param>
-            <returns>
-            Status of the addition.
-            </returns>
-        </member>
-        <member name="M:Simon.Api.Web.Controllers.ProjectsController.DeleteAsync(System.String)">
-            <summary>
-            Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
-            </summary>
-            <param name="id">The ID of a peoject.</param>
-        </member>
         <member name="T:Simon.Api.Web.Controllers.SettingsController">
             <summary>
             API to manipulate project data.
@@ -107,7 +92,7 @@
             The global settings.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.SettingsController.PutAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Simon.Infrastructure.GlobalSettingsItem}})">
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.PostAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Simon.Infrastructure.GlobalSettingsItem}})">
             <summary>
             Updates the specified <paramref name="globalSettings"/>.
             </summary>

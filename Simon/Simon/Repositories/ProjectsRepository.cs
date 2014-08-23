@@ -14,26 +14,26 @@ namespace Simon.Repositories
         : IAsyncPersistence<Project>
     {
         private readonly GlobalSettings globalSettings;
-        private readonly IAsyncProcess<CreateNewProjectContext> createNewProject;
+        private readonly IAsyncProcess<SaveProjectContext> saveProject;
         private readonly IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsRepository"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        /// <param name="createNewProject">The create new project process.</param>
+        /// <param name="saveProject">The save project process.</param>
         /// <param name="getAllProjects">The get all projects process.</param>
         public ProjectsRepository(
             GlobalSettings globalSettings,
-            IAsyncProcess<CreateNewProjectContext> createNewProject,
+            IAsyncProcess<SaveProjectContext> saveProject,
             IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects)
         {
             Guard.NotNullArgument("globalSettings", globalSettings);
-            Guard.NotNullArgument("createNewProject", createNewProject);
+            Guard.NotNullArgument("createNewProject", saveProject);
             Guard.NotNullArgument("getAllProjects", getAllProjects);
 
             this.globalSettings = globalSettings;
-            this.createNewProject = createNewProject;
+            this.saveProject = saveProject;
             this.getAllProjects = getAllProjects;
         }
 
@@ -58,7 +58,7 @@ namespace Simon.Repositories
             Guard.NotNullArgument("data", data);
 
             data.SetId(Guid.NewGuid());
-            await createNewProject.ExecuteAsync(new CreateNewProjectContext { Project = data });
+            await saveProject.ExecuteAsync(new SaveProjectContext { Project = data });
 
             return data;
         }
@@ -67,9 +67,11 @@ namespace Simon.Repositories
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        public Task Update(Project data)
+        public async Task Update(Project data)
         {
-            throw new System.NotImplementedException();
+            Guard.NotNullArgument("data", data);
+
+            await saveProject.ExecuteAsync(new SaveProjectContext { Project = data });
         }
 
         /// <summary>

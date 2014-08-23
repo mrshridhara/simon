@@ -6,13 +6,14 @@ commonModule.controller('SettingsController', [
     '$location',
     'NavbarServices',
     'BreadcrumbServices',
+    'PageHeadServices',
     'SettingsServices',
-    function ($scope, $location, navbarServices, breadcrumbServices, settingsServices) {
+    function ($scope, $location, navbarServices, breadcrumbServices, pageHeadServices, settingsServices) {
         navbarServices.DeactivateAll();
         navbarServices.SettingsMenu.SetAsActive();
+        pageHeadServices.Title = "Global settings";
         breadcrumbServices.IsVisible = false;
-        settingsServices.GetSettings().success(function () {
-        });
+        settingsServices.GetSettings();
         $scope.SettingsServices = settingsServices;
     }
 ]);

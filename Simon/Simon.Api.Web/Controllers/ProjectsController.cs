@@ -94,41 +94,21 @@ namespace Simon.Api.Web.Controllers
         public async Task<IHttpActionResult> PostAsync([FromBody]ProjectModel projectModel)
         {
             var project = projectModelToProjectMapper.Map(projectModel);
-            var updatedProject = await projectPersistence.Create(project);
-            var updatedProjectModel = projectToProjectModelMapper.Map(updatedProject);
 
-            return CreatedAtRoute(
-                RouteConfig.DefaultRouteName,
-                new { controller = "Projects", id = updatedProjectModel.Id },
-                updatedProjectModel);
-        }
-
-        /// <summary>
-        /// Updates the specified <paramref name="project"/> with the specified <paramref name="id"/> in the sequence of projects.
-        /// </summary>
-        /// <param name="id">The ID of the project.</param>
-        /// <param name="project">The project data taken from HTTP body.</param>
-        /// <returns>
-        /// Status of the addition.
-        /// </returns>
-        public async Task<IHttpActionResult> PutAsync(string id, [FromBody]Project project)
-        {
-            return await Task.Run<IHttpActionResult>(() =>
+            if (project.Id == Guid.Empty)
             {
-                return Ok();
-            });
-        }
+                var updatedProject = await projectPersistence.Create(project);
+                var updatedProjectModel = projectToProjectModelMapper.Map(updatedProject);
 
-        /// <summary>
-        /// Deletes the project with the specified <paramref name="id"/> from the sequence of projects.
-        /// </summary>
-        /// <param name="id">The ID of a peoject.</param>
-        public async Task<IHttpActionResult> DeleteAsync(string id)
-        {
-            return await Task.Run<IHttpActionResult>(() =>
-            {
-                return Ok();
-            });
+                return CreatedAtRoute(
+                    RouteConfig.DefaultRouteName,
+                    new { controller = "Projects", id = updatedProjectModel.Id },
+                    updatedProjectModel);
+            }
+
+            await projectPersistence.Update(project);
+
+            return Ok();
         }
     }
 }

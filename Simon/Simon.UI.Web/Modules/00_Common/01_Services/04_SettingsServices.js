@@ -14,7 +14,7 @@ var SettingsServices = function ($http, $location, undefined) {
         });
     };
     this.UpdateSettings = function () {
-        return $http.put('/api/settings', this.Settings).success(function () {
+        return $http.post('/api/settings', this.Settings).success(function () {
             $location.path('/');
         }).error(function (result) {
             self.Error = result;

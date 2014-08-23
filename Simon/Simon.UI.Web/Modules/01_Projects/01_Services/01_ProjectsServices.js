@@ -30,7 +30,10 @@ var ProjectsServices = function ($http, $location, breadcrumbServices, undefined
         });
     }
     this.UpdateProject = function () {
-        return $http.put('/api/projects/', self.SelectedProject).error(function (result) {
+        return $http.post('/api/projects/', self.SelectedProject).success(function () {
+            breadcrumbServices.RemoveLast();
+            $location.path('/' + self.SelectedProject.Id);
+        }).error(function (result) {
             self.Error = result;
         });
     }

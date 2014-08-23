@@ -21,7 +21,9 @@ namespace Simon.Api.Web.Controllers
         public SimonVersionController(
             IMapper<Version, SimonVersionModel> versionToSimonVersionModelMapper)
         {
-            Guard.NotNullArgument("versionToSimonVersionModelMapper", versionToSimonVersionModelMapper);
+            Guard.NotNullArgument(
+                "versionToSimonVersionModelMapper",
+                versionToSimonVersionModelMapper);
 
             this.versionToSimonVersionModelMapper = versionToSimonVersionModelMapper;
         }

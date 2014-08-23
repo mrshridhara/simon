@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the context for creating new project.
     /// </summary>
-    public class CreateNewProjectContext
+    public class SaveProjectContext
     {
         /// <summary>
         /// Gets or sets the project.

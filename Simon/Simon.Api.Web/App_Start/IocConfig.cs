@@ -22,6 +22,7 @@ namespace Simon.Api.Web
         /// </summary>
         /// <param name="appBuilder">The app builder.</param>
         /// <param name="config">The HTTP configuration.</param>
+        /// <returns>A <see cref="IDependencyResolver"/> instance.</returns>
         public static IDependencyResolver RegisterDependencies(IAppBuilder appBuilder, HttpConfiguration config)
         {
             var builder = new ContainerBuilder();

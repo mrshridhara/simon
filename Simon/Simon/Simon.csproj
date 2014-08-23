@@ -63,7 +63,7 @@
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Processes\Database\CreateNewProjectContext.cs" />
+    <Compile Include="Processes\Database\SaveProjectContext.cs" />
     <Compile Include="EmptyContext.cs">
       <SubType>Code</SubType>
     </Compile>
