@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../Scripts/_references.js" />
 /// <reference path="../CommonModule.js" />
 
-var SettingsServices = function ($http, $location, undefined) {
+var SettingsServices = function ($http, $location, navbarServices, undefined) {
     var self = this;
     this.Settings = [
     ];
@@ -15,6 +15,7 @@ var SettingsServices = function ($http, $location, undefined) {
     };
     this.UpdateSettings = function () {
         return $http.post('/api/settings', this.Settings).success(function () {
+            navbarServices.UpdateTools($http);
             $location.path('/');
         }).error(function (result) {
             self.Error = result;
@@ -31,7 +32,8 @@ var SettingsServices = function ($http, $location, undefined) {
 commonModule.service('SettingsServices', [
     '$http',
     '$location',
-    function ($http, $location) {
-        return new SettingsServices($http, $location);
+    'NavbarServices',
+    function ($http, $location, navbarServices) {
+        return new SettingsServices($http, $location, navbarServices);
     }
 ]);

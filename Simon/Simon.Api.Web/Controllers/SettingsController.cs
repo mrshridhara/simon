@@ -34,16 +34,13 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> GetAsync()
         {
-            return await Task.Run<IHttpActionResult>(async () =>
-            {
-                var globalSettingsSequence = await globalSettingsPersistence.ReadAll();
-                var globalSettings = globalSettingsSequence.FirstOrDefault();
+            var globalSettingsSequence = await globalSettingsPersistence.ReadAll();
+            var globalSettings = globalSettingsSequence.FirstOrDefault();
 
-                if (globalSettings == null)
-                    return NotFound();
+            if (globalSettings == null)
+                return NotFound();
 
-                return Ok(globalSettings.AsEnumerable());
-            });
+            return Ok(globalSettings.AsEnumerable());
         }
 
         /// <summary>
@@ -55,11 +52,8 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> PostAsync([FromBody]IEnumerable<KeyValuePair<string, GlobalSettingsItem>> globalSettings)
         {
-            return await Task.Run<IHttpActionResult>(async () =>
-            {
-                await globalSettingsPersistence.Update(new GlobalSettings(globalSettings));
-                return Ok();
-            });
+            await globalSettingsPersistence.Update(new GlobalSettings(globalSettings));
+            return Ok();
         }
     }
 }
