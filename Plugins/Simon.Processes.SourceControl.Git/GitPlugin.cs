@@ -24,7 +24,7 @@ namespace Simon.Processes.SourceControl.Git
             if (globalSettings[Constants.GitRepoPathKey] == null)
             {
                 var settingItem
-                    = new GlobalSettingsItem("Repository path for Git", "");
+                    = new GlobalSettingsItem("Git Repository path", "");
 
                 globalSettings.Add(Constants.GitRepoPathKey, settingItem);
             }

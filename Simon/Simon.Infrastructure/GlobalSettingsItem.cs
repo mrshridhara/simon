@@ -12,13 +12,15 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public GlobalSettingsItem(string name, string value)
+        /// <param name="isNavigationPath">The is navigation path.</param>
+        public GlobalSettingsItem(string name, string value, bool isNavigationPath = false)
         {
             Guard.NotNullArgument("name", name);
             Guard.NotNullArgument("value", value);
 
             this.Name = name;
             this.Value = value;
+            this.IsNavigationPath = isNavigationPath;
         }
 
         /// <summary>
@@ -30,6 +32,11 @@ namespace Simon.Infrastructure
         /// Gets the value.
         /// </summary>
         public string Value { get; private set; }
+
+        /// <summary>
+        /// Gets the is navigation path.
+        /// </summary>
+        public bool IsNavigationPath { get; private set; }
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.

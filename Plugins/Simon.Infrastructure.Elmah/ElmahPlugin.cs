@@ -1,13 +1,13 @@
-﻿using Autofac;
+﻿using Elmah;
+using Autofac;
 using Owin;
-using Simon.Infrastructure;
 
-namespace Simon.Processes.Database.MongoDB
+namespace Simon.Infrastructure.Elmah
 {
     /// <summary>
     /// Represents the plug-in initializer.
     /// </summary>
-    public sealed class MongoDBPlugin : IPlugin
+    public sealed class ElmahPlugin : IPlugin
     {
         /// <summary>
         /// Initializes the plug-in and updates the specified <paramref name="globalSettings"/>
@@ -21,13 +21,13 @@ namespace Simon.Processes.Database.MongoDB
         /// </returns>
         public GlobalSettings Init(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
-            if (globalSettings[Constants.ConnectionStringKey] == null)
-            {
-                var settingsItem
-                    = new GlobalSettingsItem("MongoDB Connection string", "mongodb://localhost");
+            ////if (globalSettings[Constants.ElmahDashboardPathKey] == null)
+            ////{
+            ////    var settingItem
+            ////        = new GlobalSettingsItem("ELMAH Dashboard", "/elmah", true);
 
-                globalSettings.Add(Constants.ConnectionStringKey, settingsItem);
-            }
+            ////    globalSettings.Add(Constants.ElmahDashboardPathKey, settingItem);
+            ////}
 
             return globalSettings;
         }

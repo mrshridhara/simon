@@ -3,8 +3,10 @@
 
 commonModule.controller('NavbarController', [
     '$scope',
+    '$http',
     'NavbarServices',
-    function ($scope, navbarServices) {
+    function ($scope, $http, navbarServices) {
+        navbarServices.UpdateTools($http);
         $scope.NavbarServices = navbarServices;
     }
 ]);

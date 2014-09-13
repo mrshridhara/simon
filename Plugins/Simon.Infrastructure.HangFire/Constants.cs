@@ -10,5 +10,11 @@
         /// </summary>
         public const string HangfireRedisStorageServerKey
             = "HangfireRedisStorageServer";
+
+        /// <summary>
+        /// The Hangfire dashboard path key.
+        /// </summary>
+        public const string HangfireDashboardPathKey
+            = "HangfireDashboardPath";
     }
 }

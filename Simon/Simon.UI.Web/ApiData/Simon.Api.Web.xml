@@ -34,6 +34,26 @@
             <param name="appBuilder">The app builder.</param>
             <param name="config">The HTTP configuration.</param>
         </member>
+        <member name="T:Simon.Api.Web.Controllers.PluginPathsController">
+            <summary>
+            API to manipulate plug-in paths.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginPathsController.#ctor(Simon.Infrastructure.IAsyncPersistence{Simon.Infrastructure.GlobalSettings},Simon.Infrastructure.IMapper{Simon.Infrastructure.GlobalSettingsItem,Simon.Api.Web.Models.PluginPathModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.PluginPathsController"/>.
+            </summary>
+            <param name="globalSettingsPersistence">The global settings persistence.</param>
+            <param name="globalSettingsItemToPluginPathModelMapper">The global settings item to plug-in path model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginPathsController.GetAsync">
+            <summary>
+            Gets the plug-in navigation paths set under global settings.
+            </summary>
+            <returns>
+            The plug-in navigation paths set under global settings.
+            </returns>
+        </member>
         <member name="T:Simon.Api.Web.Controllers.ProjectsController">
             <summary>
             API to manipulate project data.
@@ -134,6 +154,20 @@
             The copied instance.
             </returns>
         </member>
+        <member name="T:Simon.Api.Web.Mappers.GlobalSettingsItemToPluginPathModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Infrastructure.GlobalSettingsItem"/> to <see cref="T:Simon.Api.Web.Models.PluginPathModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.GlobalSettingsItemToPluginPathModelMapper.Map(Simon.Infrastructure.GlobalSettingsItem)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
         <member name="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper">
             <summary>
             Represents a mapper from <see cref="T:Simon.Api.Web.Models.ProjectModel"/> to <see cref="T:Simon.Project"/>.
@@ -200,6 +234,21 @@
         <member name="P:Simon.Api.Web.Models.ApplicationModel.Description">
             <summary>
             Gets or sets the description for the instance.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Models.PluginPathModel">
+            <summary>
+            Represents a navigation path of a plug-in.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.PluginPathModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.PluginPathModel.Path">
+            <summary>
+            Gets or sets the path.
             </summary>
         </member>
         <member name="T:Simon.Api.Web.Models.ProjectModel">

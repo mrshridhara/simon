@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Simon.Api.Web.Models;
 using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Mappers
 {
@@ -25,6 +26,8 @@ namespace Simon.Api.Web.Mappers
         /// </returns>
         public ProjectModel Map(Project instance)
         {
+            Guard.NotNullArgument("instance", instance);
+
             return Mapper.Map<Project, ProjectModel>(instance);
         }
     }
