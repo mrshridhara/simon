@@ -6,7 +6,7 @@
     <members>
         <member name="T:Simon.Api.Web.IocConfig">
             <summary>
-            Represents the configuraion for the IoC.
+            Represents the configuration for the IoC.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
@@ -19,7 +19,7 @@
         </member>
         <member name="T:Simon.Api.Web.RouteConfig">
             <summary>
-            Represents the route configuraion for the Web API.
+            Represents the route configuration for the Web API.
             </summary>
         </member>
         <member name="F:Simon.Api.Web.RouteConfig.DefaultRouteName">
@@ -57,11 +57,11 @@
         </member>
         <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync(System.String)">
             <summary>
-            Gets the project with the sepecifed <paramref name="id"/>.
+            Gets the project with the specified <paramref name="id"/>.
             </summary>
             <param name="id">The ID of a project.</param>
             <returns>
-            Project with the sepecifed <paramref name="id"/>.
+            Project with the specified <paramref name="id"/>.
             </returns>
         </member>
         <member name="M:Simon.Api.Web.Controllers.ProjectsController.PostAsync(Simon.Api.Web.Models.ProjectModel)">
@@ -110,7 +110,7 @@
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SimonVersionController"/> class.
             </summary>
-            <param name="versionToSimonVersionModelMapper">The version to simon version model mapper.</param>
+            <param name="versionToSimonVersionModelMapper">The version to SIMON version model mapper.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.SimonVersionController.GetAsync">
             <summary>
@@ -122,7 +122,7 @@
         </member>
         <member name="T:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper">
             <summary>
-            Represnts a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
+            Represents a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper.Map(Simon.Api.Web.Models.ApplicationModel)">
@@ -136,7 +136,7 @@
         </member>
         <member name="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper">
             <summary>
-            Represnts a mapper from <see cref="T:Simon.Api.Web.Models.ProjectModel"/> to <see cref="T:Simon.Project"/>.
+            Represents a mapper from <see cref="T:Simon.Api.Web.Models.ProjectModel"/> to <see cref="T:Simon.Project"/>.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Mappers.ProjectModelToProjectMapper.#ctor(Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ApplicationModel,Simon.Application})">
@@ -156,7 +156,7 @@
         </member>
         <member name="T:Simon.Api.Web.Mappers.ProjectToProjectModelMapper">
             <summary>
-            Represnts a mapper from <see cref="T:Simon.Project"/> to <see cref="T:Simon.Api.Web.Models.ProjectModel"/>.
+            Represents a mapper from <see cref="T:Simon.Project"/> to <see cref="T:Simon.Api.Web.Models.ProjectModel"/>.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.Map(Simon.Project)">
@@ -170,7 +170,7 @@
         </member>
         <member name="T:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper">
             <summary>
-            Represnts a mapper from <see cref="T:System.Version"/> to <see cref="T:Simon.Api.Web.Models.SimonVersionModel"/>.
+            Represents a mapper from <see cref="T:System.Version"/> to <see cref="T:Simon.Api.Web.Models.SimonVersionModel"/>.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper.Map(System.Version)">
@@ -227,6 +227,31 @@
             Gets or sets the applications.
             </summary>
         </member>
+        <member name="T:Simon.Api.Web.Models.SimonVersionModel">
+            <summary>
+            Represents the version of SIMON.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Major">
+            <summary>
+            Gets or sets the major version.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Minor">
+            <summary>
+            Gets or sets the minor version.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Build">
+            <summary>
+            Gets or sets the build number.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.DisplayText">
+            <summary>
+            Gets or sets the display text.
+            </summary>
+        </member>
         <member name="T:Simon.Api.Web.AppBuilderExtensions">
             <summary>
             Extensions for <see cref="T:Owin.IAppBuilder"/> class.
@@ -234,13 +259,13 @@
         </member>
         <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder)">
             <summary>
-            Configures the Simon API in Owin.
+            Configures the Simon API in OWIN.
             </summary>
             <param name="appBuilder">The app builder instance.</param>
         </member>
         <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
             <summary>
-            Configures the Simon API in Owin using specified <paramref name="config"/>.
+            Configures the Simon API in OWIN using specified <paramref name="config"/>.
             </summary>
             <param name="appBuilder">The app builder instance.</param>
             <param name="config">The HTTP configuration.</param>

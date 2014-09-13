@@ -1,9 +1,9 @@
-﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using Simon.Processes.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using Simon.Processes.Database;
 
 namespace Simon.Repositories
 {

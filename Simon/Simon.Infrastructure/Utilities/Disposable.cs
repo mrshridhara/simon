@@ -8,7 +8,7 @@ namespace Simon.Infrastructure.Utilities
     /// </summary>
     public abstract class Disposable : IDisposable
     {
-        bool disposed = false;
+        private bool disposed = false;
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or

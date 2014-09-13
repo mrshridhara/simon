@@ -1,12 +1,4 @@
-﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using Simon.Processes.Database;
-using Simon.Processes.SourceControl;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Simon.Repositories
+﻿namespace Simon.Repositories
 {
     /// <summary>
     /// Represents a source control repository.

@@ -1,7 +1,7 @@
-﻿using Hangfire;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Hangfire;
 
 namespace Simon.Infrastructure.Hangfire
 {

@@ -1,10 +1,10 @@
-﻿using Simon.Api.Web.Models;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Simon.Api.Web.Models;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Controllers
 {
@@ -55,11 +55,11 @@ namespace Simon.Api.Web.Controllers
         }
 
         /// <summary>
-        /// Gets the project with the sepecifed <paramref name="id"/>.
+        /// Gets the project with the specified <paramref name="id"/>.
         /// </summary>
         /// <param name="id">The ID of a project.</param>
         /// <returns>
-        /// Project with the sepecifed <paramref name="id"/>.
+        /// Project with the specified <paramref name="id"/>.
         /// </returns>
         public async Task<IHttpActionResult> GetAsync(string id)
         {

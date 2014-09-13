@@ -1,10 +1,10 @@
-﻿using Owin;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Owin;
 
 namespace Simon.Api.Web
 {
     /// <summary>
-    /// Represents the route configuraion for the Web API.
+    /// Represents the route configuration for the Web API.
     /// </summary>
     public class RouteConfig
     {

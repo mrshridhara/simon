@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Actions
 {
@@ -38,9 +38,9 @@ namespace Simon.Actions
         public override Task ExecuteAsync(Feature entity)
         {
             // TODO: Merge main branch to feature branch.
-            // TODO: Deploy the main beanch to production.
+            // TODO: Deploy the main branch to production.
             // TODO: Mark as in production.
-            // TODO: Save the feature to the persistance.
+            // TODO: Save the feature to the persistence.
             throw new System.NotImplementedException();
         }
     }

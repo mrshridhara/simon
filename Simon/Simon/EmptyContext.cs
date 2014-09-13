@@ -5,9 +5,13 @@
     /// </summary>
     public sealed class EmptyContext
     {
-        private EmptyContext() { }
+        private EmptyContext()
+        {
+        }
 
-        static EmptyContext() { }
+        static EmptyContext()
+        {
+        }
 
         /// <summary>
         /// Gets the instance of <see cref="EmptyContext"/> class.

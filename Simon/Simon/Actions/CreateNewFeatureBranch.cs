@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Actions
 {

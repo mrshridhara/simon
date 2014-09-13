@@ -1,6 +1,6 @@
-﻿using Simon.Infrastructure;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Observers
 {

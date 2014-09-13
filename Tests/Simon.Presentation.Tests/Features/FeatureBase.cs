@@ -14,7 +14,7 @@ namespace Simon.Presentation.Tests.Features
 
         protected TSteps Given
         {
-            get 
+            get
             {
                 Debug.Write("Given that ");
                 return steps;

@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Simon.Infrastructure
 {
@@ -23,11 +23,11 @@ namespace Simon.Infrastructure
         }
 
         /// <summary>
-        /// Deserializes the data from string to instance.
+        /// De-serializes the data from string to instance.
         /// </summary>
         /// <param name="serializedData">The serialized data.</param>
         /// <typeparam name="TData">The type of data.</typeparam>
-        /// <returns>The deserialized instance.</returns>
+        /// <returns>The instance of type <typeparamref name="TData"/>.</returns>
         public async Task<TData> DeserializeAsync<TData>(string serializedData)
         {
             return await Task.Run(() =>

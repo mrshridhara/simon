@@ -1,12 +1,12 @@
-﻿using Simon.Api.Web.Models;
-using Simon.Infrastructure;
+﻿using System;
 using AutoMapper;
-using System;
+using Simon.Api.Web.Models;
+using Simon.Infrastructure;
 
 namespace Simon.Api.Web.Mappers
 {
     /// <summary>
-    /// Represnts a mapper from <see cref="Version"/> to <see cref="SimonVersionModel"/>.
+    /// Represents a mapper from <see cref="Version"/> to <see cref="SimonVersionModel"/>.
     /// </summary>
     public sealed class VersionToSimonVersionModelMapper
         : IMapper<Version, SimonVersionModel>

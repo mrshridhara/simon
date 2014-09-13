@@ -1,10 +1,10 @@
-﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using Simon.Processes.FileSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using Simon.Processes.FileSystem;
 
 namespace Simon.Repositories
 {

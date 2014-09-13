@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Actions
 {
@@ -40,7 +40,7 @@ namespace Simon.Actions
             // TODO: Run feature tests.
             // TODO: If tests are passing, mark as ready for integration testing.
             // TODO: Else, mark as failed testing.
-            // TODO: Save the feature to the persistance.
+            // TODO: Save the feature to the persistence.
             throw new System.NotImplementedException();
         }
     }

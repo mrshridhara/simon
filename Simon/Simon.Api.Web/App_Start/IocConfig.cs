@@ -1,19 +1,19 @@
-﻿using Autofac;
-using Autofac.Integration.WebApi;
-using Owin;
-using Simon.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
+using Autofac;
+using Autofac.Integration.WebApi;
+using Owin;
+using Simon.Infrastructure;
 
 namespace Simon.Api.Web
 {
     /// <summary>
-    /// Represents the configuraion for the IoC.
+    /// Represents the configuration for the IoC.
     /// </summary>
     public class IocConfig
     {

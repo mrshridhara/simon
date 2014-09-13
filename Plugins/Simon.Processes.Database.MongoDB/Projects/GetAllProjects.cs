@@ -1,11 +1,11 @@
-﻿using Simon.Infrastructure;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Processes.Database.MongoDB.Projects
 {
     /// <summary>
-    /// Represents the process of getting all the projets from the Mongo DB.
+    /// Represents the process of getting all the projects from the Mongo DB.
     /// </summary>
     public sealed class GetAllProjects
         : IAsyncProcess<EmptyContext, GetAllProjectsResult>

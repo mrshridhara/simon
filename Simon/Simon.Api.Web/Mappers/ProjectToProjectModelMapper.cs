@@ -1,11 +1,11 @@
-﻿using Simon.Api.Web.Models;
+﻿using AutoMapper;
+using Simon.Api.Web.Models;
 using Simon.Infrastructure;
-using AutoMapper;
 
 namespace Simon.Api.Web.Mappers
 {
     /// <summary>
-    /// Represnts a mapper from <see cref="Project"/> to <see cref="ProjectModel"/>.
+    /// Represents a mapper from <see cref="Project"/> to <see cref="ProjectModel"/>.
     /// </summary>
     public sealed class ProjectToProjectModelMapper
         : IMapper<Project, ProjectModel>

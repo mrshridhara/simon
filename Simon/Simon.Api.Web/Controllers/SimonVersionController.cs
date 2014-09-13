@@ -1,9 +1,9 @@
-﻿using Simon.Api.Web.Models;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Simon.Api.Web.Models;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Controllers
 {
@@ -17,7 +17,7 @@ namespace Simon.Api.Web.Controllers
         /// <summary>
         /// Initializes an instance of <see cref="SimonVersionController"/> class.
         /// </summary>
-        /// <param name="versionToSimonVersionModelMapper">The version to simon version model mapper.</param>
+        /// <param name="versionToSimonVersionModelMapper">The version to SIMON version model mapper.</param>
         public SimonVersionController(
             IMapper<Version, SimonVersionModel> versionToSimonVersionModelMapper)
         {

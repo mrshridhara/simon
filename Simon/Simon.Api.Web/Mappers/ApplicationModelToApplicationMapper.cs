@@ -5,7 +5,7 @@ using Simon.Infrastructure.Utilities;
 namespace Simon.Api.Web.Mappers
 {
     /// <summary>
-    /// Represnts a mapper from <see cref="ApplicationModel"/> to <see cref="Application"/>.
+    /// Represents a mapper from <see cref="ApplicationModel"/> to <see cref="Application"/>.
     /// </summary>
     public sealed class ApplicationModelToApplicationMapper
         : IMapper<ApplicationModel, Application>

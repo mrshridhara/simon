@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure.Utilities;
-using System;
+﻿using System;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon
 {
@@ -40,7 +40,7 @@ namespace Simon
         public string Description { get; private set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="newName"></param>
         public void SetName(string newName)
@@ -51,7 +51,7 @@ namespace Simon
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="newDescription"></param>
         public void SetDescription(string newDescription)
@@ -62,7 +62,7 @@ namespace Simon
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="newId"></param>
         public void SetId(Guid newId)

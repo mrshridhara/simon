@@ -16,11 +16,11 @@ namespace Simon.Infrastructure
         Task<string> SerializeAsync<TData>(TData data);
 
         /// <summary>
-        /// Deserializes the data from string to instance.
+        /// De-serializes the data from string to instance.
         /// </summary>
         /// <param name="serializedData">The serialized data.</param>
         /// <typeparam name="TData">The type of data.</typeparam>
-        /// <returns>The deserialized instance.</returns>
+        /// <returns>The instance of type <typeparamref name="TData"/>.</returns>
         Task<TData> DeserializeAsync<TData>(string serializedData);
     }
 }

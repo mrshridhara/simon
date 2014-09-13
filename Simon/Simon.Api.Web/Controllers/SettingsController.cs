@@ -1,9 +1,9 @@
-﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Controllers
 {

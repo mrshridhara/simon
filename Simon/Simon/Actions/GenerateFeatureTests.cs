@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Actions
 {
@@ -39,7 +39,7 @@ namespace Simon.Actions
         {
             // TODO: Generate feature tests.
             // TODO: Mark feature as ready for development.
-            // TODO: Save the feature to the persistance.
+            // TODO: Save the feature to the persistence.
             throw new System.NotImplementedException();
         }
     }

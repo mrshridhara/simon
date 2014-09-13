@@ -1,13 +1,13 @@
-﻿using Simon.Api.Web.Models;
-using Simon.Infrastructure;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Simon.Api.Web.Models;
+using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
-using System.Collections.Generic;
 
 namespace Simon.Api.Web.Mappers
 {
     /// <summary>
-    /// Represnts a mapper from <see cref="ProjectModel"/> to <see cref="Project"/>.
+    /// Represents a mapper from <see cref="ProjectModel"/> to <see cref="Project"/>.
     /// </summary>
     public sealed class ProjectModelToProjectMapper
         : IMapper<ProjectModel, Project>

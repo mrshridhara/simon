@@ -9,7 +9,7 @@
         /// The new feature state. This is the default value.
         /// </summary>
         NewFeature = 0,
-        
+
         /// <summary>
         /// The requirements completed state.
         /// </summary>

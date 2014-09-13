@@ -1,8 +1,8 @@
-﻿using LibGit2Sharp;
-using Simon.Infrastructure;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LibGit2Sharp;
+using Simon.Infrastructure;
 
 namespace Simon.Processes.SourceControl.Git
 {

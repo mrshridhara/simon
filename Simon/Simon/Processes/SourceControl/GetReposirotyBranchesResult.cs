@@ -8,7 +8,7 @@ namespace Simon.Processes.SourceControl
     public sealed class GetReposirotyBranchesResult
     {
         /// <summary>
-        /// Gets or sets the branches in a repo.
+        /// Gets or sets the branches in a repository.
         /// </summary>
         public IEnumerable<SourceControlBranch> Branches { get; set; }
     }

@@ -26,7 +26,7 @@ namespace Simon.Infrastructure
         Task ExecuteAsync(TEntity entity);
 
         /// <summary>
-        /// Deserialize and executes the action for the current state of the entity.
+        /// De-serialize and executes the action for the current state of the entity.
         /// </summary>
         /// <param name="entityInJson">The entity in JSON format.</param>
         /// <returns>The task.</returns>

@@ -6,7 +6,7 @@
     public static class Constants
     {
         /// <summary>
-        /// The Git repo path key.
+        /// The Git repository path key.
         /// </summary>
         public const string GitRepoPathKey
             = "GitRepoPath";

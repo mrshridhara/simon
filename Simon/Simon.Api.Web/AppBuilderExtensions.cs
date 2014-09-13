@@ -1,5 +1,5 @@
-﻿using Owin;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Owin;
 
 namespace Simon.Api.Web
 {
@@ -9,7 +9,7 @@ namespace Simon.Api.Web
     public static class AppBuilderExtensions
     {
         /// <summary>
-        /// Configures the Simon API in Owin.
+        /// Configures the Simon API in OWIN.
         /// </summary>
         /// <param name="appBuilder">The app builder instance.</param>
         public static void ConfigureSimonApi(this IAppBuilder appBuilder)
@@ -18,7 +18,7 @@ namespace Simon.Api.Web
         }
 
         /// <summary>
-        /// Configures the Simon API in Owin using specified <paramref name="config"/>.
+        /// Configures the Simon API in OWIN using specified <paramref name="config"/>.
         /// </summary>
         /// <param name="appBuilder">The app builder instance.</param>
         /// <param name="config">The HTTP configuration.</param>

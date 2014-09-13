@@ -1,5 +1,5 @@
-﻿using Simon.Infrastructure;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Simon.Infrastructure;
 
 namespace Simon.Actions
 {
@@ -38,7 +38,7 @@ namespace Simon.Actions
         public abstract Task ExecuteAsync(TEntity entity);
 
         /// <summary>
-        /// Deserialize and executes the action for the current state of the entity.
+        /// De-serialize and executes the action for the current state of the entity.
         /// </summary>
         /// <param name="entityInJson">The entity in JSON format.</param>
         /// <returns>The task.</returns>

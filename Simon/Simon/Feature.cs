@@ -1,7 +1,7 @@
-﻿using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon
 {
