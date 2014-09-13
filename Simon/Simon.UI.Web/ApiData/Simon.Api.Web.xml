@@ -306,15 +306,15 @@
             Extensions for <see cref="T:Owin.IAppBuilder"/> class.
             </summary>
         </member>
-        <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder)">
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseSimonWebApi(Owin.IAppBuilder)">
             <summary>
-            Configures the Simon API in OWIN.
+            Configures the Simon Web API in OWIN.
             </summary>
             <param name="appBuilder">The app builder instance.</param>
         </member>
-        <member name="M:Simon.Api.Web.AppBuilderExtensions.ConfigureSimonApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseSimonWebApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
             <summary>
-            Configures the Simon API in OWIN using specified <paramref name="config"/>.
+            Configures the Simon Web API in OWIN using specified <paramref name="config"/>.
             </summary>
             <param name="appBuilder">The app builder instance.</param>
             <param name="config">The HTTP configuration.</param>

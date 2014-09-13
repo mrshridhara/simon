@@ -10,7 +10,7 @@ namespace Simon.UI.Web
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder.ConfigureSimonApi();
+            appBuilder.UseSimonWebApi();
         }
     }
 }
