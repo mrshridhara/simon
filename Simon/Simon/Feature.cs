@@ -17,7 +17,7 @@ namespace Simon
         private Application application;
 
         /// <summary>
-        /// Inititalizes an instance of <see cref="Feature"/> class.
+        /// Initializes an instance of <see cref="Feature"/> class.
         /// </summary>
         /// <param name="id">The ID.</param>
         /// <param name="name">The name.</param>
@@ -62,9 +62,9 @@ namespace Simon
         public DateTime ModifiedAt { get; set; }
 
         /// <summary>
-        /// Gets or sets the feature branch in the source control repositiry.
+        /// Gets or sets the feature branch in the source control repository.
         /// </summary>
-        public SourceControlBranch Branch { get; set; }
+        public string BranchName { get; set; }
 
         /// <summary>
         /// Gets the application to which the feature belongs.

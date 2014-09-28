@@ -12,13 +12,13 @@ namespace Simon.Processes.SourceControl.Git
     public sealed class GetRepositoryBranches
         : IAsyncProcess<EmptyContext, GetReposirotyBranchesResult>
     {
-        private readonly Simon.Infrastructure.GlobalSettings globalSettings;
+        private readonly Infrastructure.GlobalSettings globalSettings;
 
         /// <summary>
         /// Initializes an instance of <see cref="GetRepositoryBranches"/> class.
         /// </summary>
         /// <param name="globalSettings">The global settings.</param>
-        public GetRepositoryBranches(Simon.Infrastructure.GlobalSettings globalSettings)
+        public GetRepositoryBranches(Infrastructure.GlobalSettings globalSettings)
         {
             this.globalSettings = globalSettings;
         }
@@ -35,14 +35,20 @@ namespace Simon.Processes.SourceControl.Git
                 TaskCreationOptions.LongRunning);
         }
 
-        private static GetReposirotyBranchesResult Execute(Simon.Infrastructure.GlobalSettings globalSettings)
+        private static GetReposirotyBranchesResult Execute(Infrastructure.GlobalSettings globalSettings)
         {
             var settingItem = globalSettings[Constants.GitRepoPathKey];
-
             var repo = new Repository(settingItem.Value);
+
             var branches
-                = (from branch in repo.Branches
-                   select new SourceControlBranch(Guid.NewGuid(), branch.Name, branch.CanonicalName));
+                = repo.Branches.Select(eachBranch =>
+                    new SourceControlBranch(
+                        Guid.Empty,
+                        eachBranch.CanonicalName,
+                        eachBranch.Name)
+                    {
+                        TipCommitSha = eachBranch.Tip.Id.Sha
+                    });
 
             return new GetReposirotyBranchesResult { Branches = branches };
         }

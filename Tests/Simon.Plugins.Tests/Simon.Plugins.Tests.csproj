@@ -61,6 +61,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="GitPlugin\GetRepositoryBranchesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Elmah\Simon.Infrastructure.Elmah.csproj">
+      <Project>{c69f658a-08ab-4287-baa9-e5d9d3f1ccbe}</Project>
+      <Name>Simon.Infrastructure.Elmah</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Hangfire\Simon.Infrastructure.Hangfire.csproj">
       <Project>{3d83ef49-9d02-4369-9ff2-b96053790dc2}</Project>
       <Name>Simon.Infrastructure.Hangfire</Name>
@@ -116,6 +121,14 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
+if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
+xcopy /s /y /d "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
+if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
+xcopy /s /y /d "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

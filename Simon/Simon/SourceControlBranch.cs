@@ -19,13 +19,8 @@ namespace Simon
         { }
 
         /// <summary>
-        /// Gets or sets the source control repository.
+        /// Gets or sets the tip commit SHA.
         /// </summary>
-        public SourceControlRepository Repository { get; set; }
-
-        /// <summary>
-        /// Gets or sets the feature to which this branch belongs.
-        /// </summary>
-        public Feature Feature { get; set; }
+        public string TipCommitSha { get; set; }
     }
 }

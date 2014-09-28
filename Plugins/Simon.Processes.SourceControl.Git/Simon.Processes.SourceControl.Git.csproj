@@ -87,12 +87,17 @@
     <PostBuildEvent>
 if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
 if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
-xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.18.1.0\lib\net40\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.19.0.0\lib\net40\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
 if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
-xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.18.1.0\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.19.0.0\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"
 if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
 xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"</PostBuildEvent>
+xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
+if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries"
+if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\x86" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\x86"
+xcopy /s /y /d "$(TargetDir)NativeBinaries\x86\*.*" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\x86"
+if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\amd64" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\amd64"
+xcopy /s /y /d "$(TargetDir)NativeBinaries\amd64\*.*" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\amd64"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

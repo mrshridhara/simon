@@ -21,6 +21,7 @@
 *.cov
 *.[Ss]ln.ide
 [Bb]in/
+!node_modules/**/[Bb]in/
 [Oo]bj/
 [Hh]elp/
 [Dd]ebug*/

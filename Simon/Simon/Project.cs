@@ -39,7 +39,7 @@ namespace Simon
         }
 
         /// <summary>
-        /// Adds the sepecified <paramref name="newApplication"/> to this project.
+        /// Adds the specified <paramref name="newApplication"/> to this project.
         /// </summary>
         /// <param name="newApplication">The application to be added.</param>
         public void AddApplication(Application newApplication)
