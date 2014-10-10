@@ -6,23 +6,30 @@ The idea is to build an ALM tool with minimum to no configuration which is funct
 
 Note: This project is still in active development.
 
-## Entity Relationship and Hierarchy: ##
+## Table of Contents
+1. [Entity Relationship and Hierarchy](#entity-relationship-and-hierarchy)
+1. [Processes](#processes)
+ 1. [Legend](#legend)
+ 1. [New Feature Request](#new-feature-request)
+ 1. [New Feature Development and Deployment](#new-feature-development-and-deployment)
+
+## Entity Relationship and Hierarchy
 
 ![Entity Hierarchy](Assets/entity-hierarchy.png)
 
-## Processes: ##
+## Processes
 
 Note: Even production defects are considered as features as that would simplify the process and make it uniform.
 
-### Legend: ###
+### Legend
 
 ![Legend](Assets/process-legend.png)
 
-### New Feature Request: ###
+### New Feature Request
 
 ![New Feature Request](Assets/new-feature-request-process.png)
 
-### New Feature Development and Deployment: ###
+### New Feature Development and Deployment
 
 ![New Feature Development](Assets/new-feature-development-process.png)
 

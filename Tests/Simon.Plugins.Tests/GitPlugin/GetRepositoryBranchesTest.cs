@@ -9,6 +9,7 @@ namespace Simon.Plugins.Tests.GitPlugin
     public class GetRepositoryBranchesTest
     {
         [TestMethod]
+        [Ignore]
         public void Should_Get_Available_Branches()
         {
             // Arrange.
