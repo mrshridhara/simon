@@ -8,7 +8,7 @@ Note: This project is still in active development.
 
 ## Entity Relationship and Hierarchy: ##
 
-![Entity Hierarchy](entity-hierarchy.png)
+![Entity Hierarchy](Assets/entity-hierarchy.png)
 
 ## Processes: ##
 
@@ -16,14 +16,14 @@ Note: Even production defects are considered as features as that would simplify 
 
 ### Legend: ###
 
-![Legend](process-legend.png)
+![Legend](Assets/process-legend.png)
 
 ### New Feature Request: ###
 
-![New Feature Request](new-feature-request-process.png)
+![New Feature Request](Assets/new-feature-request-process.png)
 
 ### New Feature Development and Deployment: ###
 
-![New Feature Development](new-feature-development-process.png)
+![New Feature Development](Assets/new-feature-development-process.png)
 
 More processes will be added soon . . .
