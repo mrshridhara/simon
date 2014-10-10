@@ -1,0 +1,8 @@
+﻿<div data-ng-controller="Breadcrumb as vm">
+    <ol class="breadcrumb"
+        data-ng-show="vm.BreadcrumbService.IsVisible">
+        <li class="{{eachItem.Class}}" data-ng-repeat="eachItem in vm.BreadcrumbService.GetItems()">
+            <a href="#{{eachItem.Location}}" data-ng-bind="eachItem.Text"></a>
+        </li>
+    </ol>
+</div>

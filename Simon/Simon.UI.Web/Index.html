@@ -1,28 +1,25 @@
 ﻿<!DOCTYPE html>
-<html data-ng-app="SimonApp">
-<head data-ng-controller="PageHeadController">
+<html data-ng-app="Simon">
+<head data-ng-controller="PageHead as vm">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
     <link href="favicon.ico" rel="shortcut icon" />
     <link href="Content/app.css" rel="stylesheet" />
 
-    <script src="lib.js"></script>
+    <script src="scripts.js"></script>
     <script src="app.js"></script>
 
-    <title>{{PageHeadServices.Title}} | SIMON (pre-alpha)</title>
+    <title data-ng-bind="vm.PageHeadService.Title + ' | SIMON (pre-alpha)'"></title>
 </head>
 <body>
-    <div data-ng-include="'Modules/00_Common/03_Templates/Navbar.html'"
-         data-ng-controller="NavbarController"></div>
+    <div data-ng-include="'App/00_Common/03_Templates/Navbar.html'"></div>
 
     <div class="container body-content">
-        <div data-ng-include="'Modules/00_Common/03_Templates/Breadcrumb.html'"
-             data-ng-controller="BreadcrumbController"></div>
+        <div data-ng-include="'App/00_Common/03_Templates/Breadcrumb.html'"></div>
         <div data-ng-view=""></div>
     </div>
 
-    <div data-ng-include="'Modules/00_Common/03_Templates/Footer.html'"
-         data-ng-controller="FooterController"></div>
+    <div data-ng-include="'App/00_Common/03_Templates/Footer.html'"></div>
 </body>
 </html>

@@ -1,0 +1,32 @@
+﻿<div class="section">
+    <h3>
+        Projects
+        <a class="btn btn-sm btn-primary" href="#/new-project">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </h3>
+    <hr />
+</div>
+
+<div class="section alert alert-danger" role="alert" data-ng-show="vm.ProjectsService.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<div class="section"
+     data-ng-include="'App/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="vm.ProjectsService.Projects">
+</div>
+
+<div class="section" data-ng-show="vm.ProjectsService.Projects">
+    <div class="col-sm-6 col-md-4" data-ng-repeat="eachProject in vm.ProjectsService.Projects">
+        <a class="thumbnail" href="#/{{eachProject.Id}}">
+            <div class="caption">
+                <h4 data-ng-bind="eachProject.Name"></h4>
+                <p data-ng-bind="eachProject.Description"></p>
+            </div>
+        </a>
+    </div>
+</div>

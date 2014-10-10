@@ -97,39 +97,41 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="lib.js" />
-    <Content Include="Modules\00_Common\02_Services\05_FooterServices.js" />
-    <Content Include="Modules\00_Common\03_Controllers\01_PageHeadController.js" />
-    <Content Include="Modules\00_Common\02_Services\01_PageHeadServices.js" />
-    <Content Include="Modules\00_Common\03_Controllers\03_BreadcrumbController.js" />
-    <Content Include="Modules\00_Common\03_Controllers\06_FooterController.js" />
-    <Content Include="Modules\01_Projects\02_Controllers\04_EditProjectController.js" />
-    <Content Include="Modules\01_Projects\03_Templates\EditProject.html" />
-    <Content Include="Modules\00_Common\04_Templates\Footer.html" />
-    <Content Include="Modules\02_Applications\00_ApplicationsModule.js" />
-    <Content Include="Modules\00_Common\00_CommonModule.js" />
-    <Content Include="Modules\00_Common\03_Controllers\05_AboutController.js" />
-    <Content Include="Modules\00_Common\03_Controllers\04_SettingsController.js" />
-    <Content Include="Modules\00_Common\01_Directives\01_AnchorDirective.js" />
-    <Content Include="Modules\00_Common\02_Services\03_BreadcrumbServices.js" />
-    <Content Include="Modules\00_Common\03_Controllers\02_NavbarController.js" />
-    <Content Include="Modules\00_Common\02_Services\02_NavbarServices.js" />
-    <Content Include="Modules\00_Common\04_Templates\About.html" />
-    <Content Include="Modules\00_Common\04_Templates\Breadcrumb.html" />
-    <Content Include="Modules\00_Common\04_Templates\Loader.html" />
-    <Content Include="Modules\00_Common\04_Templates\Navbar.html" />
-    <Content Include="Modules\01_Projects\02_Controllers\02_NewProjectController.js" />
-    <Content Include="Modules\01_Projects\02_Controllers\03_ProjectDetailsController.js" />
-    <Content Include="Modules\01_Projects\02_Controllers\01_ProjectsController.js" />
-    <Content Include="Modules\01_Projects\00_ProjectsModule.js" />
-    <Content Include="Modules\01_Projects\01_Services\01_ProjectsServices.js" />
-    <Content Include="Modules\01_Projects\03_Templates\NewProject.html" />
-    <Content Include="Modules\01_Projects\03_Templates\ProjectDetails.html" />
-    <Content Include="Modules\01_Projects\03_Templates\Projects.html" />
-    <Content Include="Modules\00_Common\02_Services\04_SettingsServices.js" />
-    <Content Include="Modules\00_Common\04_Templates\Settings.html" />
-    <Content Include="Modules\00_simon.module.js" />
-    <Content Include="Modules\01_simon.routes.js" />
+    <Content Include="scripts.js" />
+    <Content Include="App\00_Common\01_Common.Routes.js" />
+    <Content Include="App\00_Common\01_Services\05_Footer.Service.js" />
+    <Content Include="App\00_Common\02_Controllers\01_PageHead.Controller.js" />
+    <Content Include="App\00_Common\01_Services\01_PageHead.Service.js" />
+    <Content Include="App\00_Common\02_Controllers\03_Breadcrumb.Controller.js" />
+    <Content Include="App\00_Common\02_Controllers\06_Footer.Controller.js" />
+    <Content Include="App\01_Projects\01_Projects.Routes.js" />
+    <Content Include="App\01_Projects\02_Controllers\04_EditProject.Controller.js" />
+    <Content Include="App\01_Projects\03_Templates\EditProject.html" />
+    <Content Include="App\00_Common\03_Templates\Footer.html" />
+    <Content Include="App\02_Applications\00_Applications.Module.js" />
+    <Content Include="App\00_Common\00_Common.Module.js" />
+    <Content Include="App\00_Common\02_Controllers\05_About.Controller.js" />
+    <Content Include="App\00_Common\02_Controllers\04_Settings.Controller.js" />
+    <Content Include="App\00_Common\00_Directives\01_Anchor.Directive.js" />
+    <Content Include="App\00_Common\01_Services\03_Breadcrumb.Service.js" />
+    <Content Include="App\00_Common\02_Controllers\02_Navbar.Controller.js" />
+    <Content Include="App\00_Common\01_Services\02_Navbar.Service.js" />
+    <Content Include="App\00_Common\03_Templates\About.html" />
+    <Content Include="App\00_Common\03_Templates\Breadcrumb.html" />
+    <Content Include="App\00_Common\03_Templates\Loader.html" />
+    <Content Include="App\00_Common\03_Templates\Navbar.html" />
+    <Content Include="App\01_Projects\02_Controllers\02_NewProject.Controller.js" />
+    <Content Include="App\01_Projects\02_Controllers\03_ProjectDetails.Controller.js" />
+    <Content Include="App\01_Projects\02_Controllers\01_Projects.Controller.js" />
+    <Content Include="App\01_Projects\00_Projects.Module.js" />
+    <Content Include="App\01_Projects\01_Services\01_Projects.Service.js" />
+    <Content Include="App\01_Projects\03_Templates\NewProject.html" />
+    <Content Include="App\01_Projects\03_Templates\ProjectDetails.html" />
+    <Content Include="App\01_Projects\03_Templates\Projects.html" />
+    <Content Include="App\00_Common\01_Services\04_Settings.Service.js" />
+    <Content Include="App\00_Common\03_Templates\Settings.html" />
+    <Content Include="App\00_Simon.Module.js" />
+    <Content Include="App\01_Simon.Routes.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -929,9 +931,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\02_Applications\01_Services\" />
-    <Folder Include="Modules\02_Applications\02_Controllers\" />
-    <Folder Include="Modules\02_Applications\03_Templates\" />
+    <Folder Include="App\02_Applications\01_Services\" />
+    <Folder Include="App\02_Applications\02_Controllers\" />
+    <Folder Include="App\02_Applications\03_Templates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
