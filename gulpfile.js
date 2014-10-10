@@ -18,14 +18,13 @@
                     './Simon/Simon.UI.Web/Scripts/jquery-2.1.1.js',
                     './Simon/Simon.UI.Web/Scripts/bootstrap.js',
                     './Simon/Simon.UI.Web/Scripts/angular.js',
-                    './Simon/Simon.UI.Web/Scripts/angular-route.js',
-                    './Simon/Simon.UI.Web/Scripts/angular-animate.js'
+                    './Simon/Simon.UI.Web/Scripts/angular-route.js'
                 ],
-                dest: 'lib.js'
+                dest: 'scripts.js'
             },
             app: {
                 src: [
-                    './Simon/Simon.UI.Web/Modules/**/*.js'
+                    './Simon/Simon.UI.Web/App/**/*.js'
                 ],
                 dest: 'app.js'
             }
@@ -39,9 +38,16 @@
     var ngAnnotate = require('gulp-ng-annotate');
     var minifyCSS = require('gulp-minify-css');
     var gutil = require('gulp-util');
+    var jshint = require('gulp-jshint');
+
+    gulp.task('lint', function () {
+        return gulp.src(files.js.app.src)
+          .pipe(jshint())
+          .pipe(jshint.reporter('default'));
+    });
 
     gulp.task('bundle-css', function () {
-        gulp.src(files.css.src)
+        return gulp.src(files.css.src)
             .pipe(sourcemaps.init())
             .pipe(concat(files.css.dest))
             .pipe(minifyCSS({ keepBreaks: true }))
@@ -50,7 +56,7 @@
     });
 
     gulp.task('bundle-js-lib', function () {
-        gulp.src(files.js.lib.src)
+        return gulp.src(files.js.lib.src)
             .pipe(sourcemaps.init())
             .pipe(concat(files.js.lib.dest))
             .pipe(uglify())
@@ -59,21 +65,26 @@
     });
 
     gulp.task('bundle-js-app', function () {
-        gulp.src(files.js.app.src)
+        return gulp.src(files.js.app.src)
+            .pipe(sourcemaps.init())
             .pipe(ngAnnotate({
                 add: true,
                 single_quotes: true
             }))
-            .pipe(sourcemaps.init())
             .pipe(concat(files.js.app.dest))
             .pipe(uglify())
             .pipe(sourcemaps.write())
             .pipe(gulp.dest(files.js.destPath));
     });
 
-    gulp.task('default', [
+    gulp.task('bundle-all', [
         'bundle-css',
         'bundle-js-lib',
+        'bundle-js-app'
+    ]);
+
+    gulp.task('default', [
+        'lint',
         'bundle-js-app'
     ]);
 })();
