@@ -107,22 +107,22 @@ namespace Simon.Api.Web
 
         private static Assembly TryLoadAssembly(string eachAssemblyName)
         {
-            if (IsAssemblyLoaded(eachAssemblyName) == false)
+            if (IsAssemblyLoaded(eachAssemblyName))
             {
-                try
-                {
-                    var assembly = Assembly.LoadFrom(eachAssemblyName);
-                    AppDomain.CurrentDomain.Load(assembly.GetName());
-
-                    return assembly;
-                }
-                catch (BadImageFormatException)
-                {
-                    return null;
-                }
+                return null;
             }
 
-            return null;
+            try
+            {
+                var assembly = Assembly.LoadFrom(eachAssemblyName);
+                AppDomain.CurrentDomain.Load(assembly.GetName());
+
+                return assembly;
+            }
+            catch (BadImageFormatException)
+            {
+                return null;
+            }
         }
 
         private static bool IsAssemblyLoaded(string assemblyPath)

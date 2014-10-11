@@ -15,7 +15,7 @@ namespace Simon.Api.Web
         /// <param name="appBuilder">The app builder instance.</param>
         public static void UseSimonWebApi(this IAppBuilder appBuilder)
         {
-            UseSimonWebApi(appBuilder, new HttpConfiguration());
+            appBuilder.UseSimonWebApi(new HttpConfiguration());
         }
 
         /// <summary>
