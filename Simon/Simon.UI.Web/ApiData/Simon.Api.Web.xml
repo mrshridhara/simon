@@ -319,5 +319,16 @@
             <param name="appBuilder">The app builder instance.</param>
             <param name="config">The HTTP configuration.</param>
         </member>
+        <member name="T:Simon.Api.Web.Startup">
+            <summary>
+            Represents the OWIN start up class.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configures the specified <paramref name="appBuilder"/>.
+            </summary>
+            <param name="appBuilder">The app builder.</param>
+        </member>
     </members>
 </doc>
