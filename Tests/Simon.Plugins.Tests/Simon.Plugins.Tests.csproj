@@ -77,6 +77,10 @@
       <Project>{3d83ef49-9d02-4369-9ff2-b96053790dc2}</Project>
       <Name>Simon.Infrastructure.Hangfire</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Windows\Simon.Infrastructure.Windows.csproj">
+      <Project>{0bb4a52d-0f03-422f-b9f7-860676259687}</Project>
+      <Name>Simon.Infrastructure.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
       <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
       <Name>Simon.Processes.Database.MongoDB</Name>

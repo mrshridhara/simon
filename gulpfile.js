@@ -77,14 +77,14 @@
             .pipe(gulp.dest(files.js.destPath));
     });
 
-    gulp.task('bundle-all', [
-        'bundle-css',
-        'bundle-js-lib',
-        'bundle-js-app'
-    ]);
-
     gulp.task('default', [
         'lint',
         'bundle-js-app'
+    ]);
+
+    gulp.task('bundle-all', [
+        'bundle-css',
+        'bundle-js-lib',
+        'default'
     ]);
 })();

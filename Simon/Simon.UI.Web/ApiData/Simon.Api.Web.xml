@@ -4,6 +4,17 @@
         <name>Simon.Api.Web</name>
     </assembly>
     <members>
+        <member name="T:Simon.Api.Web.FilterConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.FilterConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+        </member>
         <member name="T:Simon.Api.Web.IocConfig">
             <summary>
             Represents the configuration for the IoC.
@@ -140,6 +151,17 @@
             A sequence of projects.
             </returns>
         </member>
+        <member name="T:Simon.Api.Web.Controllers.UserController">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.UserController.Get">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
         <member name="T:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper">
             <summary>
             Represents a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
@@ -215,6 +237,43 @@
             <returns>
             The copied instance.
             </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Middlewares.AuthenticationMiddleware">
+            <summary>
+            Represents the authentication middle-ware for OWIN environment.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.AuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Simon.Infrastructure.IAsyncAuthenticationProvider)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Middlewares.AuthenticationMiddleware"/> class.
+            </summary>
+            <param name="next">The next middle-ware.</param>
+            <param name="authenticationProvider">The authentication provider.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.AuthenticationMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Process an individual request.
+            </summary>
+            <param name="context">The OWIN context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Simon.Api.Web.Middlewares.CachingMiddleware">
+            <summary>
+            Represents the caching middle-ware for OWIN environment.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.CachingMiddleware.#ctor(Microsoft.Owin.OwinMiddleware)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Middlewares.CachingMiddleware"/> class.
+            </summary>
+            <param name="next">The next middle-ware.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.CachingMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Process an individual request.
+            </summary>
+            <param name="context">The OWIN context.</param>
+            <returns>A task to await.</returns>
         </member>
         <member name="T:Simon.Api.Web.Models.ApplicationModel">
             <summary>
@@ -305,6 +364,13 @@
             <summary>
             Extensions for <see cref="T:Owin.IAppBuilder"/> class.
             </summary>
+        </member>
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseBasicAuthentication(Owin.IAppBuilder,System.Web.Http.Dependencies.IDependencyResolver)">
+            <summary>
+            Configures the Simon Web API to use basic authentication.
+            </summary>
+            <param name="appBuilder">The app builder instance.</param>
+            <param name="dependencyResolver">The dependency resolver.</param>
         </member>
         <member name="M:Simon.Api.Web.AppBuilderExtensions.UseSimonWebApi(Owin.IAppBuilder)">
             <summary>

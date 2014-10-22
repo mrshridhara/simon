@@ -18,7 +18,8 @@
         activate();
 
         function activate() {
-            navbarService.UpdateTools($http);
+            navbarService.LoadTools($http);
+            navbarService.LoadUser($http);
         }
     }
 }(angular));

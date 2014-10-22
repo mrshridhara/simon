@@ -26,7 +26,7 @@ namespace Simon.Api.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
+            
             appBuilder.UseWebApi(config);
         }
     }

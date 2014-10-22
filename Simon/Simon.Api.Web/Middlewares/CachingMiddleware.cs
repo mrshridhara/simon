@@ -1,15 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Owin;
 
-namespace Simon.Infrastructure.Middlewares
+namespace Simon.Api.Web.Middlewares
 {
     /// <summary>
     /// Represents the caching middle-ware for OWIN environment.
     /// </summary>
     public sealed class CachingMiddleware : OwinMiddleware
     {
-        private OwinMiddleware next;
-
         /// <summary>
         /// Initializes an instance of <see cref="CachingMiddleware"/> class.
         /// </summary>
@@ -17,7 +15,6 @@ namespace Simon.Infrastructure.Middlewares
         public CachingMiddleware(OwinMiddleware next)
             : base(next)
         {
-            this.next = next;
         }
 
         /// <summary>
@@ -32,8 +29,7 @@ namespace Simon.Infrastructure.Middlewares
                 // TODO: Set headers.
             }, context.Response);
 
-            if (next != null)
-                await next.Invoke(context);
+            await Next.Invoke(context);
         }
     }
 }

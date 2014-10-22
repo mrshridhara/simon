@@ -109,17 +109,21 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PluginPathsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SimonVersionController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Mappers\ApplicationModelToApplicationMapper.cs" />
     <Compile Include="Mappers\GlobalSettingsItemToPluginPathModelMapper.cs" />
     <Compile Include="Mappers\ProjectModelToProjectMapper.cs" />
     <Compile Include="Mappers\ProjectToProjectModelMapper.cs" />
     <Compile Include="Mappers\VersionToSimonVersionModelMapper.cs" />
+    <Compile Include="Middlewares\AuthenticationMiddleware.cs" />
+    <Compile Include="Middlewares\CachingMiddleware.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Models\PluginPathModel.cs" />
     <Compile Include="Models\ProjectModel.cs" />

@@ -9,32 +9,41 @@
         /* jshint validthis: true */
         var self = this;
 
-        self.AboutMenu = new NavbarMenu('/About');
-        self.SettingsMenu = new NavbarMenu('/Settings');
+        self.AboutMenu = new NavbarMenu('/About', 'About');
+        self.SettingsMenu = new NavbarMenu('/Settings', 'Settings');
         self.Tools = undefined;
+        self.User = undefined;
 
         self.DeactivateAll = deactivateAll;
-        self.UpdateTools = updateTools;
+        self.LoadTools = loadTools;
+        self.LoadUser = loadUser;
 
         function deactivateAll() {
             self.AboutMenu.Class = '';
             self.SettingsMenu.Class = '';
         }
 
-        function updateTools($http) {
+        function loadTools($http) {
             $http.get('/api/PluginPaths').success(function (result) {
                 self.Tools = angular.fromJson(result);
             });
         }
+
+        function loadUser($http) {
+            $http.get('/api/User').success(function (result) {
+                self.User = angular.fromJson(result);
+            });
+        }
     }
 
-    function NavbarMenu(path) {
+    function NavbarMenu(path, text) {
         /* jshint validthis: true */
         var self = this;
 
         self.IsActive = false;
         self.Class = '';
         self.Path = path;
+        self.Text = text;
 
         self.SetAsActive = setAsActive;
 

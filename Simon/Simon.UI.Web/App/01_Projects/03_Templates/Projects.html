@@ -17,7 +17,7 @@
 
 <div class="section"
      data-ng-include="'App/00_Common/03_Templates/Loader.html'"
-     data-ng-hide="vm.ProjectsService.Projects">
+     data-ng-hide="vm.ProjectsService.Projects || vm.ProjectsService.Error">
 </div>
 
 <div class="section" data-ng-show="vm.ProjectsService.Projects">
