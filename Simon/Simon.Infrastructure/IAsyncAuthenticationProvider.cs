@@ -1,4 +1,4 @@
-﻿using System.Security.Principal;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
@@ -18,6 +18,6 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="authenticationToken">The authentication token.</param>
         /// <returns>The identity instance.</returns>
-        Task<IIdentity> AuthenticateAsync(string authenticationToken);
+        Task<ClaimsIdentity> AuthenticateAsync(string authenticationToken);
     }
 }

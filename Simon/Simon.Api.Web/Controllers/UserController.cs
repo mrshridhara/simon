@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Simon.Api.Web.Controllers
 {
@@ -11,14 +13,26 @@ namespace Simon.Api.Web.Controllers
         ///
         /// </summary>
         /// <returns></returns>
-        public User Get()
+        public async Task<IHttpActionResult> GetAsync()
         {
-            return new User
+            return await Task.Run(() =>
             {
-                Name = User.Identity.Name,
-                DisplayName = User.Identity.Name,
-                Role = ""
-            };
+                var claimsPrincipal = User as ClaimsPrincipal;
+
+                if (claimsPrincipal != null)
+                {
+                    var user = new User
+                    {
+                        Name = User.Identity.Name,
+                        DisplayName = User.Identity.Name,
+                        Role = ""
+                    };
+
+                    return Ok(user) as IHttpActionResult;
+                }
+
+                return Unauthorized() as IHttpActionResult;
+            });
         }
     }
 }

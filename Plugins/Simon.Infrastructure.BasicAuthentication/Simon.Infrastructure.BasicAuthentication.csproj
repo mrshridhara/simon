@@ -7,8 +7,8 @@
     <ProjectGuid>{0BB4A52D-0F03-422F-B9F7-860676259687}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simon.Infrastructure.Windows</RootNamespace>
-    <AssemblyName>Simon.Infrastructure.Windows</AssemblyName>
+    <RootNamespace>Simon.Infrastructure.BasicAuthentication</RootNamespace>
+    <AssemblyName>Simon.Infrastructure.BasicAuthentication</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Simon.Infrastructure.Windows.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Simon.Infrastructure.BasicAuthentication.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,7 +44,7 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="WindowsAuthenticationProvider.cs" />
+    <Compile Include="BasicAuthenticationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,8 +57,9 @@
   <PropertyGroup>
     <PostBuildEvent>
 if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"</PostBuildEvent>
+if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.BasicAuthentication" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.BasicAuthentication"
+xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.BasicAuthentication"
+xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.BasicAuthentication"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -156,7 +156,7 @@
             
              </summary>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.UserController.Get">
+        <member name="M:Simon.Api.Web.Controllers.UserController.GetAsync">
              <summary>
             
              </summary>

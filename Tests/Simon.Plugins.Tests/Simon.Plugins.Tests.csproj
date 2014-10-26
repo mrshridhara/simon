@@ -77,9 +77,9 @@
       <Project>{3d83ef49-9d02-4369-9ff2-b96053790dc2}</Project>
       <Name>Simon.Infrastructure.Hangfire</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Windows\Simon.Infrastructure.Windows.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.BasicAuthentication\Simon.Infrastructure.BasicAuthentication.csproj">
       <Project>{0bb4a52d-0f03-422f-b9f7-860676259687}</Project>
-      <Name>Simon.Infrastructure.Windows</Name>
+      <Name>Simon.Infrastructure.BasicAuthentication</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
       <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
@@ -129,9 +129,9 @@
     <PostBuildEvent>
 if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
 if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
-xcopy /s /y /d "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
+xcopy /s /y /d "$(SolutionDir)Plugins\Simon.Processes.SourceControl.Git\bin\Debug\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
 if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
-xcopy /s /y /d "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PostBuildEvent>
+xcopy /s /y /d "$(SolutionDir)Plugins\Simon.Processes.SourceControl.Git\bin\Debug\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

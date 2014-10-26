@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http.Headers;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Simon.Infrastructure;
@@ -15,6 +14,9 @@ namespace Simon.Api.Web.Middlewares
     public sealed class AuthenticationMiddleware : OwinMiddleware
     {
         private const string AuthorizationHeader = "Authorization";
+        private const string CookieHeader = "Cookie";
+        private const string CookieKey = "Token";
+        private const string SetCookieHeader = "Set-Cookie";
         private const string WwwAuthenticateHeader = "WWW-Authenticate";
 
         private readonly IAsyncAuthenticationProvider authenticationProvider;
@@ -41,7 +43,7 @@ namespace Simon.Api.Web.Middlewares
         {
             Guard.NotNullArgument("context", context);
 
-            context.Response.OnSendingHeaders(ValidateStatusCode, context.Response);
+            context.Response.OnSendingHeaders(ValidateStatusCode, context);
 
             AuthenticationHeaderValue authenticationHeader;
             if (TryGetAuthenticationHeader(context.Request, out authenticationHeader) == false)
@@ -50,7 +52,7 @@ namespace Simon.Api.Web.Middlewares
                 return;
             }
 
-            IIdentity identity = await authenticationProvider.AuthenticateAsync(authenticationHeader.Parameter);
+            var identity = await authenticationProvider.AuthenticateAsync(authenticationHeader.Parameter);
             if (identity != null)
             {
                 context.Request.User = new ClaimsPrincipal(identity);
@@ -59,18 +61,15 @@ namespace Simon.Api.Web.Middlewares
             await Next.Invoke(context);
         }
 
-        private void ValidateStatusCode(object state)
-        {
-            var response = (IOwinResponse)state;
-            if (response.StatusCode == 401)
-            {
-                response.Headers[WwwAuthenticateHeader] = authenticationProvider.AuthenticationMode;
-            }
-        }
-
         private bool TryGetAuthenticationHeader(IOwinRequest request, out AuthenticationHeaderValue authenticationHeader)
         {
-            var header = request.Headers[AuthorizationHeader];
+            var cookieValue = request.Cookies[CookieKey];
+
+            var header
+                = string.IsNullOrWhiteSpace(cookieValue)
+                    ? request.Headers[AuthorizationHeader]
+                    : cookieValue.ToDecodedBase64String();
+
             if (string.IsNullOrWhiteSpace(header))
             {
                 authenticationHeader = null;
@@ -79,6 +78,28 @@ namespace Simon.Api.Web.Middlewares
 
             authenticationHeader = AuthenticationHeaderValue.Parse(header);
             return string.Equals(authenticationProvider.AuthenticationMode, authenticationHeader.Scheme, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void ValidateStatusCode(object state)
+        {
+            var context = (IOwinContext)state;
+            AuthenticationHeaderValue authenticationHeader;
+            if (context.Response.StatusCode == 401)
+            {
+                context.Response.Headers[WwwAuthenticateHeader] = authenticationProvider.AuthenticationMode;
+            }
+            else if (context.Response.StatusCode == 200
+                && TryGetAuthenticationHeader(context.Request, out authenticationHeader)
+                && context.Request.Cookies[CookieKey] == null)
+            {
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true
+                };
+
+                var cookieValue = authenticationHeader.ToString().ToEncodedBase64String();
+                context.Response.Cookies.Append(CookieKey, cookieValue, cookieOptions);
+            }
         }
     }
 }
