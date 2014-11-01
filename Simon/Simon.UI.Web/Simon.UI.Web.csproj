@@ -83,7 +83,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="scripts.js" />
     <Content Include="App\00_Common\01_Common.Routes.js" />
-    <Content Include="App\00_Common\01_Services\05_Footer.Service.js" />
+    <Content Include="App\00_Common\01_Services\05_SimonVersion.Service.js" />
     <Content Include="App\00_Common\02_Controllers\01_PageHead.Controller.js" />
     <Content Include="App\00_Common\01_Services\01_PageHead.Service.js" />
     <Content Include="App\00_Common\02_Controllers\03_Breadcrumb.Controller.js" />
@@ -157,6 +157,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <None Include=".bin\node.cmd" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

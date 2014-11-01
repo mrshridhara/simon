@@ -1,21 +1,16 @@
 ﻿(function (angular) {
     'use strict';
 
-    try {
-        angular
-            .module('Common')
-            .controller('About', about);
+    angular
+        .module('Common')
+        .controller('About', about);
 
-        about.$inject = [
-            '$location',
-            'PageHeadService',
-            'BreadcrumbService',
-            'NavbarService'
-        ];
-    }
-    catch (error) {
-        console.log(err);
-    }
+    about.$inject = [
+        '$location',
+        'PageHeadService',
+        'BreadcrumbService',
+        'NavbarService'
+    ];
 
     function about($location, pageHeadService, breadcrumbService, navbarService) {
         /* jshint validthis: true */

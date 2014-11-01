@@ -3,11 +3,11 @@
 
     angular
         .module('Common')
-        .service('FooterService', footerService);
+        .service('SimonVersionService', simonVersionService);
 
-    footerService.$inject = ['$http'];
+    simonVersionService.$inject = ['$http'];
 
-    function footerService($http) {
+    function simonVersionService($http) {
         /* jshint validthis: true */
         var self = this;
 

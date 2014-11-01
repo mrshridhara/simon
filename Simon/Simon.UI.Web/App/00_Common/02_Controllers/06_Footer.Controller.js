@@ -5,17 +5,13 @@
         .module('Common')
         .controller('Footer', footer);
 
-    footer.$inject = ['FooterService'];
-
-    function footer(footerService) {
+    function footer() {
         /* jshint validthis: true */
         var vm = this;
-        vm.FooterService = footerService;
 
         activate();
 
         function activate() {
-            footerService.GetVersion();
         }
     }
 }(angular));

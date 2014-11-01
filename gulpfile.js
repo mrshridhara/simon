@@ -9,7 +9,7 @@
                 './Simon/Simon.UI.Web/Content/bootstrap-theme.css',
                 './Simon/Simon.UI.Web/Content/site-tweaks.css'
             ],
-            dest:'app.css'
+            dest: 'app.css'
         },
         js: {
             destPath: './Simon/Simon.UI.Web/',
@@ -29,21 +29,19 @@
                 dest: 'app.js'
             }
         }
-    };
-
-    var gulp = require('gulp');
-    var concat = require('gulp-concat');
-    var uglify = require('gulp-uglify');
-    var sourcemaps = require('gulp-sourcemaps');
-    var ngAnnotate = require('gulp-ng-annotate');
-    var minifyCSS = require('gulp-minify-css');
-    var gutil = require('gulp-util');
-    var jshint = require('gulp-jshint');
+    },
+        gulp = require('gulp'),
+        concat = require('gulp-concat'),
+        uglify = require('gulp-uglify'),
+        sourcemaps = require('gulp-sourcemaps'),
+        ngAnnotate = require('gulp-ng-annotate'),
+        minifyCSS = require('gulp-minify-css'),
+        jshint = require('gulp-jshint');
 
     gulp.task('lint', function () {
         return gulp.src(files.js.app.src)
-          .pipe(jshint())
-          .pipe(jshint.reporter('default'));
+            .pipe(jshint())
+            .pipe(jshint.reporter('default'));
     });
 
     gulp.task('bundle-css', function () {
@@ -87,4 +85,4 @@
         'bundle-js-lib',
         'default'
     ]);
-})();
+}());

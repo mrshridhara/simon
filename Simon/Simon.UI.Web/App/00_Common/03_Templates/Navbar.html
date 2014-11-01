@@ -1,5 +1,4 @@
-﻿<header class="navbar navbar-default navbar-fixed-top" role="navigation"
-        data-ng-controller="Navbar as vm">
+﻿<header class="navbar navbar-default navbar-fixed-top" role="navigation" data-ng-controller="Navbar as vm">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,12 +7,15 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/" class="navbar-brand">SIMON</a>
+            <p class="navbar-text" data-ng-bind="vm.SimonVersionService.Version"></p>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" data-ng-show="vm.NavbarService.Tools">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                        <span class="glyphicon glyphicon-th-list"></span> Tools
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        Tools
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li data-ng-repeat="eachTool in vm.NavbarService.Tools">
@@ -21,23 +23,27 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{vm.NavbarService.SettingsMenu.Class}}">
+                <li class="{{vm.NavbarService.SettingsMenu.Class}}" data-ng-show="vm.NavbarService.SettingsMenu.Text">
                     <a href="#{{vm.NavbarService.SettingsMenu.Path}}">
                         <span class="glyphicon glyphicon-cog"></span>
                         <span data-ng-bind="vm.NavbarService.SettingsMenu.Text"></span>
                     </a>
                 </li>
-                <li class="{{vm.NavbarService.AboutMenu.Class}}">
+                <li class="{{vm.NavbarService.AboutMenu.Class}}" data-ng-show="vm.NavbarService.AboutMenu.Text">
                     <a href="#{{vm.NavbarService.AboutMenu.Path}}">
                         <span class="glyphicon glyphicon-question-sign"></span>
                         <span data-ng-bind="vm.NavbarService.AboutMenu.Text"></span>
                     </a>
                 </li>
-                <li>
-                    <p class="navbar-text">
+                <li class="dropdown" data-ng-show="vm.NavbarService.User.DisplayName">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <span class="glyphicon glyphicon-user"></span>
                         <span data-ng-bind="vm.NavbarService.User.DisplayName"></span>
-                    </p>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">My Profile</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
