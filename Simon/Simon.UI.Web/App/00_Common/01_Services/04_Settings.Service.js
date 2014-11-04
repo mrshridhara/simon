@@ -16,14 +16,13 @@
         var self = this;
 
         self.Settings = [];
-        self.Error = undefined;
 
         self.GetSettings = getSettings;
         self.UpdateSettings = updateSettings;
         self.DeleteSettings = deleteSettings;
 
         function getSettings() {
-            return $http.get('/api/settings').success(function (result) {
+            return $http.get('/api/Settings').success(function (result) {
                 self.Settings = angular.fromJson(result);
             }).error(function (result) {
                 self.Error = result;
@@ -31,7 +30,7 @@
         }
 
         function updateSettings() {
-            return $http.post('/api/settings', self.Settings).success(function () {
+            return $http.post('/api/Settings', self.Settings).success(function () {
                 navbarService.UpdateTools($http);
                 $location.path('/');
             }).error(function (result) {

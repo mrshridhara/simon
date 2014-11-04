@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="App\00_Common\01_Services\06_Plugins.Service.js" />
     <Content Include="Content\app.css" />
     <Content Include="favicon.ico" />
     <Content Include="ApiData\Simon.Api.Web.xml" />
@@ -157,7 +158,6 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <None Include=".bin\node.cmd" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

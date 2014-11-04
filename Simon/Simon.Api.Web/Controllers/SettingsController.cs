@@ -8,7 +8,7 @@ using Simon.Infrastructure.Utilities;
 namespace Simon.Api.Web.Controllers
 {
     /// <summary>
-    /// API to manipulate project data.
+    /// API to manipulate settings data.
     /// </summary>
     public sealed class SettingsController : ApiController
     {

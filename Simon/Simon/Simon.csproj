@@ -61,6 +61,8 @@
     <Compile Include="Processes\Database\GetAllProjectsResult.cs" />
     <Compile Include="Processes\FileSystem\Constants.cs" />
     <Compile Include="Processes\FileSystem\GetGlobalSettings.cs" />
+    <Compile Include="Processes\FileSystem\GetInstalledPlugins.cs" />
+    <Compile Include="Processes\FileSystem\GetInstalledPluginsResult.cs" />
     <Compile Include="Processes\FileSystem\UpdateGlobalSettings.cs" />
     <Compile Include="Processes\FileSystem\UpdateGlobalSettingsContext.cs" />
     <Compile Include="Processes\SourceControl\CreateNewFeatureBranchContext.cs">

@@ -10,16 +10,19 @@
         'PageHeadService',
         'BreadcrumbService',
         'NavbarService',
-        'SettingsService'
+        'SettingsService',
+        'PluginsService'
     ];
 
-    function settings($location, pageHeadService, breadcrumbService, navbarService, settingsService) {
+    function settings($location, pageHeadService, breadcrumbService, navbarService, settingsService, pluginsService) {
         /* jshint validthis: true */
         var vm = this;
+        vm.Error = undefined;
         vm.PageHeadService = pageHeadService;
         vm.BreadcrumbService = breadcrumbService;
         vm.NavbarService = navbarService;
         vm.SettingsService = settingsService;
+        vm.PluginsService = pluginsService;
 
         activate();
 
@@ -29,7 +32,12 @@
                 breadcrumbService.IsVisible = false;
                 navbarService.DeactivateAll();
                 navbarService.SettingsMenu.SetAsActive();
-                settingsService.GetSettings();
+                settingsService.GetSettings().error(function (result) {
+                    vm.Error = result;
+                });
+                pluginsService.GetPlugins().error(function (result) {
+                    vm.Error = result;
+                });
             }
             catch (error) {
                 console.log(error);

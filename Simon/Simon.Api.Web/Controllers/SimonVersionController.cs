@@ -10,6 +10,7 @@ namespace Simon.Api.Web.Controllers
     /// <summary>
     /// API to manipulate SIMON version.
     /// </summary>
+    [AllowAnonymous]
     public sealed class SimonVersionController : ApiController
     {
         private readonly IMapper<Version, SimonVersionModel> versionToSimonVersionModelMapper;

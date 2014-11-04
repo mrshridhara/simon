@@ -65,6 +65,25 @@
             The plug-in navigation paths set under global settings.
             </returns>
         </member>
+        <member name="T:Simon.Api.Web.Controllers.PluginsController">
+            <summary>
+            API to manipulate plugins data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginsController.#ctor(Simon.Infrastructure.IAsyncProcess{Simon.EmptyContext,Simon.Processes.FileSystem.GetInstalledPluginsResult})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.PluginsController"/>.
+            </summary>
+            <param name="getInstalledPlugins">The get installed plugins process.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginsController.Get">
+            <summary>
+            Gets the installed plugins.
+            </summary>
+            <returns>
+            The installed plugins.
+            </returns>
+        </member>
         <member name="T:Simon.Api.Web.Controllers.ProjectsController">
             <summary>
             API to manipulate project data.
@@ -106,7 +125,7 @@
         </member>
         <member name="T:Simon.Api.Web.Controllers.SettingsController">
             <summary>
-            API to manipulate project data.
+            API to manipulate settings data.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Infrastructure.IAsyncPersistence{Simon.Infrastructure.GlobalSettings})">
