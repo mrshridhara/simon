@@ -62,14 +62,14 @@
     </Compile>
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="GlobalSettingsItem.cs" />
-    <Compile Include="IAsyncAction.cs" />
-    <Compile Include="IAsyncActionQueue.cs">
+    <Compile Include="IAction.cs" />
+    <Compile Include="IActionQueue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IAsyncObserver.cs" />
-    <Compile Include="IAsyncPersistence.cs" />
-    <Compile Include="IAsyncProcess.cs" />
-    <Compile Include="IAsyncAuthenticationProvider.cs" />
+    <Compile Include="IObserver.cs" />
+    <Compile Include="IPersistence.cs" />
+    <Compile Include="IProcess.cs" />
+    <Compile Include="IAuthenticationProvider.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="ISerializer.cs" />

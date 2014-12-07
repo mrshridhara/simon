@@ -10,7 +10,7 @@ namespace Simon.Infrastructure.BasicAuthentication
     /// <summary>
     /// Represents the windows authentication provider.
     /// </summary>
-    public class BasicAuthenticationProvider : IAsyncAuthenticationProvider
+    public class BasicAuthenticationProvider : IAuthenticationProvider
     {
         /// <summary>
         /// Gets the authentication mode.

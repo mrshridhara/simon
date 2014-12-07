@@ -11,11 +11,11 @@ namespace Simon.Repositories
     /// Represents a projects repository.
     /// </summary>
     public sealed class ProjectsRepository
-        : IAsyncPersistence<Project>
+        : IPersistence<Project>
     {
         private readonly GlobalSettings globalSettings;
-        private readonly IAsyncProcess<SaveProjectContext> saveProject;
-        private readonly IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
+        private readonly IProcess<SaveProjectContext> saveProject;
+        private readonly IProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsRepository"/> class.
@@ -25,8 +25,8 @@ namespace Simon.Repositories
         /// <param name="getAllProjects">The get all projects process.</param>
         public ProjectsRepository(
             GlobalSettings globalSettings,
-            IAsyncProcess<SaveProjectContext> saveProject,
-            IAsyncProcess<EmptyContext, GetAllProjectsResult> getAllProjects)
+            IProcess<SaveProjectContext> saveProject,
+            IProcess<EmptyContext, GetAllProjectsResult> getAllProjects)
         {
             Guard.NotNullArgument("globalSettings", globalSettings);
             Guard.NotNullArgument("createNewProject", saveProject);

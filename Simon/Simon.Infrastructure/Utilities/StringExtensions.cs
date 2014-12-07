@@ -4,7 +4,7 @@ using System.Text;
 namespace Simon.Infrastructure.Utilities
 {
     /// <summary>
-    ///
+    /// Extension methods to <see cref="string"/> class.
     /// </summary>
     public static class StringExtensions
     {

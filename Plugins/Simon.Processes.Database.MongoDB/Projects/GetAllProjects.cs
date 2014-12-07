@@ -8,7 +8,7 @@ namespace Simon.Processes.Database.MongoDB.Projects
     /// Represents the process of getting all the projects from the Mongo DB.
     /// </summary>
     public sealed class GetAllProjects
-        : IAsyncProcess<EmptyContext, GetAllProjectsResult>
+        : IProcess<EmptyContext, GetAllProjectsResult>
     {
         private readonly GlobalSettings globalSettings;
 

@@ -6,7 +6,7 @@ namespace Simon.Infrastructure
     /// Defines an async observer of entity.
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface IAsyncObserver<in TEntity>
+    public interface IObserver<in TEntity>
     {
         /// <summary>
         /// Updates the observer of the change in state of the entity.

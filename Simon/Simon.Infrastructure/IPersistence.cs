@@ -8,8 +8,8 @@ namespace Simon.Infrastructure
     /// </summary>
     /// <typeparam name="TData">Type of the data.</typeparam>
     /// <typeparam name="TFilter">The type of the filter.</typeparam>
-    public interface IAsyncPersistence<TData, TFilter>
-        : IAsyncPersistence<TData>
+    public interface IPersistence<TData, TFilter>
+        : IPersistence<TData>
     {
         /// <summary>
         /// Gets all the persisted data matching the specified <paramref name="filter"/>.
@@ -25,7 +25,7 @@ namespace Simon.Infrastructure
     /// Defines the structure of a CRUD persistence implementation.
     /// </summary>
     /// <typeparam name="TData">Type of the data.</typeparam>
-    public interface IAsyncPersistence<TData>
+    public interface IPersistence<TData>
     {
         /// <summary>
         /// Reads all the persisted data.

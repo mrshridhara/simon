@@ -7,10 +7,10 @@ namespace Simon.Observers
     /// <summary>
     /// Represents a feature state observer.
     /// </summary>
-    public sealed class FeatureStateObserver : IAsyncObserver<Feature>
+    public sealed class FeatureStateObserver : IObserver<Feature>
     {
-        private readonly IEnumerable<IAsyncAction<Feature>> featureActions;
-        private readonly IAsyncActionQueue asyncActionQueue;
+        private readonly IEnumerable<IAction<Feature>> featureActions;
+        private readonly IActionQueue asyncActionQueue;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.
@@ -18,8 +18,8 @@ namespace Simon.Observers
         /// <param name="featureActions">The state actions.</param>
         /// <param name="asyncActionQueue">The async action queue.</param>
         public FeatureStateObserver(
-            IEnumerable<IAsyncAction<Feature>> featureActions,
-            IAsyncActionQueue asyncActionQueue)
+            IEnumerable<IAction<Feature>> featureActions,
+            IActionQueue asyncActionQueue)
         {
             this.featureActions = featureActions;
             this.asyncActionQueue = asyncActionQueue;

@@ -12,10 +12,10 @@ namespace Simon.Repositories
     /// Represents a global settings repository.
     /// </summary>
     public sealed class GlobalSettingsRepository
-        : IAsyncPersistence<GlobalSettings>
+        : IPersistence<GlobalSettings>
     {
-        private readonly IAsyncProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings;
-        private readonly IAsyncProcess<UpdateGlobalSettingsContext> updateGlobalSettings;
+        private readonly IProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings;
+        private readonly IProcess<UpdateGlobalSettingsContext> updateGlobalSettings;
 
         /// <summary>
         /// Initializes an instance of <see cref="GlobalSettingsRepository"/> class.
@@ -23,8 +23,8 @@ namespace Simon.Repositories
         /// <param name="getGlobalSettings">The get global settings.</param>
         /// <param name="updateGlobalSettings">The update global settings.</param>
         public GlobalSettingsRepository(
-            IAsyncProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings,
-            IAsyncProcess<UpdateGlobalSettingsContext> updateGlobalSettings)
+            IProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings,
+            IProcess<UpdateGlobalSettingsContext> updateGlobalSettings)
         {
             Guard.NotNullArgument("getGlobalSettings", getGlobalSettings);
             Guard.NotNullArgument("updateGlobalSettings", updateGlobalSettings);

@@ -6,7 +6,7 @@ namespace Simon.Infrastructure
     /// Defines an action for an entity.
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface IAsyncAction<in TEntity>
+    public interface IAction<in TEntity>
     {
         /// <summary>
         /// Determines whether the action is applicable for the current state of the entity.

@@ -13,7 +13,7 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class ProjectsController : ApiController
     {
-        private readonly IAsyncPersistence<Project> projectPersistence;
+        private readonly IPersistence<Project> projectPersistence;
         private readonly IMapper<ProjectModel, Project> projectModelToProjectMapper;
         private readonly IMapper<Project, ProjectModel> projectToProjectModelMapper;
 
@@ -24,7 +24,7 @@ namespace Simon.Api.Web.Controllers
         /// <param name="projectModelToProjectMapper">The project model to project mapper.</param>
         /// <param name="projectToProjectModelMapper">The project to project model mapper.</param>
         public ProjectsController(
-            IAsyncPersistence<Project> projectPersistence,
+            IPersistence<Project> projectPersistence,
             IMapper<ProjectModel, Project> projectModelToProjectMapper,
             IMapper<Project, ProjectModel> projectToProjectModelMapper)
         {

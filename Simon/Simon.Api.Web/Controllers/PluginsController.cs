@@ -10,14 +10,14 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class PluginsController : ApiController
     {
-        private readonly IAsyncProcess<EmptyContext, GetInstalledPluginsResult> getInstalledPlugins;
+        private readonly IProcess<EmptyContext, GetInstalledPluginsResult> getInstalledPlugins;
 
         /// <summary>
         /// Initializes an instance of <see cref="PluginsController"/>.
         /// </summary>
         /// <param name="getInstalledPlugins">The get installed plugins process.</param>
         public PluginsController(
-            IAsyncProcess<EmptyContext, GetInstalledPluginsResult> getInstalledPlugins)
+            IProcess<EmptyContext, GetInstalledPluginsResult> getInstalledPlugins)
         {
             this.getInstalledPlugins = getInstalledPlugins;
         }

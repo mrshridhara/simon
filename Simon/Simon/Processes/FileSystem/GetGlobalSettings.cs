@@ -8,7 +8,7 @@ namespace Simon.Processes.FileSystem
     /// Gets the global settings.
     /// </summary>
     public sealed class GetGlobalSettings
-        : IAsyncProcess<EmptyContext, GetGlobalSettingsResult>
+        : IProcess<EmptyContext, GetGlobalSettingsResult>
     {
         private readonly ISerializer serializer;
 

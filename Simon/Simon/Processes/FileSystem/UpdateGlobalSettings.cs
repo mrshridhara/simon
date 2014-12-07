@@ -8,7 +8,7 @@ namespace Simon.Processes.FileSystem
     /// Updates the global settings.
     /// </summary>
     public sealed class UpdateGlobalSettings
-        : IAsyncProcess<UpdateGlobalSettingsContext>
+        : IProcess<UpdateGlobalSettingsContext>
     {
         private readonly ISerializer serializer;
 

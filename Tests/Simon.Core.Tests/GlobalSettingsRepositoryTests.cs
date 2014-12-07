@@ -25,14 +25,14 @@ namespace Simon.Core.Tests
 
             var expectedGlobalSettings = new GlobalSettings(globalSettingsDictionary);
 
-            var getGlobalSettingsMock = new Mock<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
+            var getGlobalSettingsMock = new Mock<IProcess<EmptyContext, GetGlobalSettingsResult>>();
             getGlobalSettingsMock
                 .Setup(mock => mock.ExecuteAsync(It.IsAny<EmptyContext>()))
                 .Returns(Task.Factory.StartNew(() =>
                     new GetGlobalSettingsResult { GlobalSettings = expectedGlobalSettings }))
                 .Verifiable();
 
-            var updateGlobalSettingsMock = new Mock<IAsyncProcess<UpdateGlobalSettingsContext>>();
+            var updateGlobalSettingsMock = new Mock<IProcess<UpdateGlobalSettingsContext>>();
             updateGlobalSettingsMock
                 .Setup(mock => mock.ExecuteAsync(It.IsAny<UpdateGlobalSettingsContext>()))
                 .Throws<InvalidOperationException>();
@@ -65,12 +65,12 @@ namespace Simon.Core.Tests
 
             var globalSettingsToBeUpdated = new GlobalSettings(globalSettingsDictionary);
 
-            var getGlobalSettingsMock = new Mock<IAsyncProcess<EmptyContext, GetGlobalSettingsResult>>();
+            var getGlobalSettingsMock = new Mock<IProcess<EmptyContext, GetGlobalSettingsResult>>();
             getGlobalSettingsMock
                 .Setup(mock => mock.ExecuteAsync(It.IsAny<EmptyContext>()))
                 .Throws<InvalidOperationException>();
 
-            var updateGlobalSettingsMock = new Mock<IAsyncProcess<UpdateGlobalSettingsContext>>();
+            var updateGlobalSettingsMock = new Mock<IProcess<UpdateGlobalSettingsContext>>();
             updateGlobalSettingsMock
                 .Setup(mock => mock.ExecuteAsync(It.IsAny<UpdateGlobalSettingsContext>()))
                 .Returns(Task.Run(() => { }))

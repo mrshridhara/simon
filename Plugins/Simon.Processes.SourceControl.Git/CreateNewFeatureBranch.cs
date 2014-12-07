@@ -8,7 +8,7 @@ namespace Simon.Processes.SourceControl.Git
     /// Represents the process of creating new feature branch in a git repository.
     /// </summary>
     public sealed class CreateNewFeatureBranch
-        : IAsyncProcess<CreateNewFeatureBranchContext, CreateNewFeatureBranchResult>
+        : IProcess<CreateNewFeatureBranchContext, CreateNewFeatureBranchResult>
     {
         private readonly GlobalSettings globalSettings;
 

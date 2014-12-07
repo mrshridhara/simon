@@ -57,7 +57,7 @@ namespace Simon.Api.Web
         private static GlobalSettings GetCurrentGlobalSettings(IContainer container)
         {
             var getGlobalPersistence
-                = container.Resolve<IAsyncPersistence<GlobalSettings>>();
+                = container.Resolve<IPersistence<GlobalSettings>>();
 
             var result = getGlobalPersistence.ReadAll().Result;
             return result.First();
@@ -66,7 +66,7 @@ namespace Simon.Api.Web
         private static void FinalizeGlobalSettings(IContainer container, GlobalSettings globalSettings)
         {
             var getGlobalPersistence
-                = container.Resolve<IAsyncPersistence<GlobalSettings>>();
+                = container.Resolve<IPersistence<GlobalSettings>>();
 
             getGlobalPersistence.Update(globalSettings).Wait();
 

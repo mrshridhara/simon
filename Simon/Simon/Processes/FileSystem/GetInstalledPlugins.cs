@@ -10,7 +10,7 @@ namespace Simon.Processes.FileSystem
     /// Gets the installed plugins.
     /// </summary>
     public sealed class GetInstalledPlugins
-        : IAsyncProcess<EmptyContext, GetInstalledPluginsResult>
+        : IProcess<EmptyContext, GetInstalledPluginsResult>
     {
         /// <summary>
         /// Executes the async process.

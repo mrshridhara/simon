@@ -7,7 +7,7 @@ namespace Simon.Actions
     /// Defines a base class for actions.
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public abstract class AsyncActionBase<TEntity> : IAsyncAction<TEntity>
+    public abstract class AsyncActionBase<TEntity> : IAction<TEntity>
     {
         private readonly ISerializer serializer;
 

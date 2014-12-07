@@ -8,7 +8,7 @@ namespace Simon.Infrastructure
     /// </summary>
     /// <typeparam name="TContext">The type of context.</typeparam>
     /// <typeparam name="TResult">The type of result.</typeparam>
-    public interface IAsyncProcess<in TContext, TResult>
+    public interface IProcess<in TContext, TResult>
     {
         /// <summary>
         /// Executes the async process.
@@ -23,7 +23,7 @@ namespace Simon.Infrastructure
     /// and does not return any value.
     /// </summary>
     /// <typeparam name="TContext">The type of context.</typeparam>
-    public interface IAsyncProcess<in TContext>
+    public interface IProcess<in TContext>
     {
         /// <summary>
         /// Executes the async process.

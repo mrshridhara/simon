@@ -19,14 +19,14 @@ namespace Simon.Api.Web.Middlewares
         private const string SetCookieHeader = "Set-Cookie";
         private const string WwwAuthenticateHeader = "WWW-Authenticate";
 
-        private readonly IAsyncAuthenticationProvider authenticationProvider;
+        private readonly IAuthenticationProvider authenticationProvider;
 
         /// <summary>
         /// Initializes an instance of <see cref="AuthenticationMiddleware"/> class.
         /// </summary>
         /// <param name="next">The next middle-ware.</param>
         /// <param name="authenticationProvider">The authentication provider.</param>
-        public AuthenticationMiddleware(OwinMiddleware next, IAsyncAuthenticationProvider authenticationProvider)
+        public AuthenticationMiddleware(OwinMiddleware next, IAuthenticationProvider authenticationProvider)
             : base(next)
         {
             Guard.NotNullArgument("authenticationProvider", authenticationProvider);

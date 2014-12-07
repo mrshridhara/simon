@@ -12,14 +12,14 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class SettingsController : ApiController
     {
-        private readonly IAsyncPersistence<GlobalSettings> globalSettingsPersistence;
+        private readonly IPersistence<GlobalSettings> globalSettingsPersistence;
 
         /// <summary>
         /// Initializes an instance of <see cref="SettingsController"/>.
         /// </summary>
         /// <param name="globalSettingsPersistence">The global settings persistence.</param>
         public SettingsController(
-            IAsyncPersistence<GlobalSettings> globalSettingsPersistence)
+            IPersistence<GlobalSettings> globalSettingsPersistence)
         {
             Guard.NotNullArgument("globalSettingsPersistence", globalSettingsPersistence);
 

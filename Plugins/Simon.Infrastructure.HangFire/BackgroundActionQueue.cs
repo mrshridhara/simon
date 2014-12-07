@@ -8,7 +8,7 @@ namespace Simon.Infrastructure.Hangfire
     /// <summary>
     /// Represents the background action queue.
     /// </summary>
-    public class BackgroundActionQueue : IAsyncActionQueue
+    public class BackgroundActionQueue : IActionQueue
     {
         private readonly ISerializer serializer;
 
@@ -29,7 +29,7 @@ namespace Simon.Infrastructure.Hangfire
         /// <typeparam name="TAction">The type of the action.</typeparam>
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         public async Task EnqueueAsync<TAction, TEntity>(TAction action, TEntity entity)
-            where TAction : IAsyncAction<TEntity>
+            where TAction : IAction<TEntity>
         {
             if (IsHangfireConfigured())
             {

@@ -7,7 +7,7 @@ namespace Simon.Processes.Database.MongoDB.Projects
     /// Represents the process of creating new project in the Mongo DB.
     /// </summary>
     public sealed class SaveProject
-        : IAsyncProcess<SaveProjectContext>
+        : IProcess<SaveProjectContext>
     {
         private readonly GlobalSettings globalSettings;
 

@@ -23,7 +23,7 @@ namespace Simon.Api.Web
             Guard.NotNullArgument("appBuilder", appBuilder);
             Guard.NotNullArgument("dependencyResolver", dependencyResolver);
 
-            var authenticationProvider = dependencyResolver.GetService(typeof(IAsyncAuthenticationProvider));
+            var authenticationProvider = dependencyResolver.GetService(typeof(IAuthenticationProvider));
 
             appBuilder.Use<AuthenticationMiddleware>(authenticationProvider);
             appBuilder.UseStageMarker(PipelineStage.Authenticate);

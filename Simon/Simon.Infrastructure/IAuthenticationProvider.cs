@@ -6,7 +6,7 @@ namespace Simon.Infrastructure
     /// <summary>
     /// Defines an authentication provider.
     /// </summary>
-    public interface IAsyncAuthenticationProvider
+    public interface IAuthenticationProvider
     {
         /// <summary>
         /// Gets the authentication mode.

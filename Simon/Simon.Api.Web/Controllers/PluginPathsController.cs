@@ -12,7 +12,7 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class PluginPathsController : ApiController
     {
-        private readonly IAsyncPersistence<GlobalSettings> globalSettingsPersistence;
+        private readonly IPersistence<GlobalSettings> globalSettingsPersistence;
         private readonly IMapper<GlobalSettingsItem, PluginPathModel> globalSettingsItemToPluginPathModelMapper;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Simon.Api.Web.Controllers
         /// <param name="globalSettingsPersistence">The global settings persistence.</param>
         /// <param name="globalSettingsItemToPluginPathModelMapper">The global settings item to plug-in path model mapper.</param>
         public PluginPathsController(
-            IAsyncPersistence<GlobalSettings> globalSettingsPersistence,
+            IPersistence<GlobalSettings> globalSettingsPersistence,
             IMapper<GlobalSettingsItem, PluginPathModel> globalSettingsItemToPluginPathModelMapper)
         {
             Guard.NotNullArgument("globalSettingsPersistence", globalSettingsPersistence);

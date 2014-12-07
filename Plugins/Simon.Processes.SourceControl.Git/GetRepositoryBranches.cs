@@ -10,7 +10,7 @@ namespace Simon.Processes.SourceControl.Git
     /// Represents the process of getting existing branches in a git repository.
     /// </summary>
     public sealed class GetRepositoryBranches
-        : IAsyncProcess<EmptyContext, GetReposirotyBranchesResult>
+        : IProcess<EmptyContext, GetReposirotyBranchesResult>
     {
         private readonly Infrastructure.GlobalSettings globalSettings;
 

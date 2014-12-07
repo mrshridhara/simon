@@ -44,7 +44,9 @@ namespace Simon.Infrastructure.Hangfire
 
                 config.UseDashboardPath(pathSettingItem.Value);
                 config.UseAutofacActivator(container);
-                config.UseStorage(new ApplicationJobStorage());
+
+                var jobStorgae = container.Resolve<ApplicationJobStorage>();
+                config.UseStorage(jobStorgae);
                 config.UseServer();
             });
 

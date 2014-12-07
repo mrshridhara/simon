@@ -11,7 +11,7 @@ namespace Simon
     public sealed class Feature : NamedEntityBase
     {
         [NonSerialized]
-        private IEnumerable<IAsyncObserver<Feature>> featureObservers;
+        private IEnumerable<Infrastructure.IObserver<Feature>> featureObservers;
 
         [NonSerialized]
         private Application application;
@@ -75,7 +75,7 @@ namespace Simon
         /// Sets the observers to be used.
         /// </summary>
         /// <param name="featureObservers">The feature observers.</param>
-        public void SetObservers(IEnumerable<IAsyncObserver<Feature>> featureObservers)
+        public void SetObservers(IEnumerable<Infrastructure.IObserver<Feature>> featureObservers)
         {
             this.featureObservers = featureObservers;
         }
