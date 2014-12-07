@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Hangfire;
-using Hangfire.Redis;
 using Owin;
 
 namespace Simon.Infrastructure.Hangfire
@@ -45,7 +44,7 @@ namespace Simon.Infrastructure.Hangfire
 
                 config.UseDashboardPath(pathSettingItem.Value);
                 config.UseAutofacActivator(container);
-                config.UseRedisStorage(redisSettingItem.Value, 1);
+                config.UseStorage(new ApplicationJobStorage());
                 config.UseServer();
             });
 
