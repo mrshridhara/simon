@@ -1,5 +1,4 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using Hangfire;
 using Hangfire.Mongo;
 using Owin;
@@ -28,8 +27,8 @@ namespace Simon.Infrastructure.Hangfire
             Guard.NotNullArgument("container", container);
             Guard.NotNullArgument("globalSettings", globalSettings);
 
-            AddDashboardDetailsIfRequired(globalSettings);
             AddStorageServerDetailsIfRequired(globalSettings);
+            AddDashboardDetailsIfRequired(globalSettings);
 
             appBuilder.UseHangfire(config =>
             {
@@ -37,17 +36,6 @@ namespace Simon.Infrastructure.Hangfire
             });
 
             return globalSettings;
-        }
-
-        private static void AddStorageServerDetailsIfRequired(GlobalSettings globalSettings)
-        {
-            if (globalSettings[Constants.MongoConnectionStringKey] == null)
-            {
-                var settingsItem
-                    = new GlobalSettingsItem("MongoDB Connection string for Hangfire", "mongodb://localhost");
-
-                globalSettings.Add(Constants.MongoConnectionStringKey, settingsItem);
-            }
         }
 
         private static void AddDashboardDetailsIfRequired(GlobalSettings globalSettings)
@@ -58,6 +46,17 @@ namespace Simon.Infrastructure.Hangfire
                     = new GlobalSettingsItem("Hangfire Dashboard", "/hangfire", true);
 
                 globalSettings.Add(Constants.DashboardPathKey, settingItem);
+            }
+        }
+
+        private static void AddStorageServerDetailsIfRequired(GlobalSettings globalSettings)
+        {
+            if (globalSettings[Constants.MongoConnectionStringKey] == null)
+            {
+                var settingsItem
+                    = new GlobalSettingsItem("MongoDB Connection String for Hangfire", "mongodb://localhost");
+
+                globalSettings.Add(Constants.MongoConnectionStringKey, settingsItem);
             }
         }
 

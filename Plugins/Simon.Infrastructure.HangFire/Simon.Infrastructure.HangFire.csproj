@@ -99,9 +99,9 @@
   <PropertyGroup>
     <PostBuildEvent>
 if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.Hangfire" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.Hangfire"
-xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.Hangfire"
-xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\Simon.Infrastructure.Hangfire"</PostBuildEvent>
+if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"
+xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"
+xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
