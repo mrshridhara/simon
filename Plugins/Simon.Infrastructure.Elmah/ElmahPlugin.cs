@@ -1,6 +1,7 @@
 ﻿using Elmah;
 using Autofac;
 using Owin;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Infrastructure.Elmah
 {
@@ -21,6 +22,10 @@ namespace Simon.Infrastructure.Elmah
         /// </returns>
         public GlobalSettings Init(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
+            Guard.NotNullArgument("appBuilder", appBuilder);
+            Guard.NotNullArgument("container", container);
+            Guard.NotNullArgument("globalSettings", globalSettings);
+
             ////if (globalSettings[Constants.ElmahDashboardPathKey] == null)
             ////{
             ////    var settingItem

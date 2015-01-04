@@ -1,6 +1,9 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using Hangfire;
+using Hangfire.Mongo;
 using Owin;
+using Simon.Infrastructure.Utilities;
 
 namespace Simon.Infrastructure.Hangfire
 {
@@ -21,36 +24,61 @@ namespace Simon.Infrastructure.Hangfire
         /// </returns>
         public GlobalSettings Init(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
-            if (globalSettings[Constants.HangfireRedisStorageServerKey] == null)
+            Guard.NotNullArgument("appBuilder", appBuilder);
+            Guard.NotNullArgument("container", container);
+            Guard.NotNullArgument("globalSettings", globalSettings);
+
+            AddDashboardDetailsIfRequired(globalSettings);
+            AddStorageServerDetailsIfRequired(globalSettings);
+
+            appBuilder.UseHangfire(config =>
             {
-                var settingItem
-                    = new GlobalSettingsItem("Hangfire Redis storage server", "localhost:6379");
+                ConfigureHangfire(container, globalSettings, config);
+            });
 
-                globalSettings.Add(Constants.HangfireRedisStorageServerKey, settingItem);
+            return globalSettings;
+        }
+
+        private static void AddStorageServerDetailsIfRequired(GlobalSettings globalSettings)
+        {
+            if (globalSettings[Constants.MongoConnectionStringKey] == null)
+            {
+                var settingsItem
+                    = new GlobalSettingsItem("MongoDB Connection string for Hangfire", "mongodb://localhost");
+
+                globalSettings.Add(Constants.MongoConnectionStringKey, settingsItem);
             }
+        }
 
-            if (globalSettings[Constants.HangfireDashboardPathKey] == null)
+        private static void AddDashboardDetailsIfRequired(GlobalSettings globalSettings)
+        {
+            if (globalSettings[Constants.DashboardPathKey] == null)
             {
                 var settingItem
                     = new GlobalSettingsItem("Hangfire Dashboard", "/hangfire", true);
 
-                globalSettings.Add(Constants.HangfireDashboardPathKey, settingItem);
+                globalSettings.Add(Constants.DashboardPathKey, settingItem);
             }
+        }
 
-            appBuilder.UseHangfire(config =>
-            {
-                var redisSettingItem = globalSettings[Constants.HangfireRedisStorageServerKey];
-                var pathSettingItem = globalSettings[Constants.HangfireDashboardPathKey];
+        private static void ConfigureHangfire(
+            IContainer container,
+            GlobalSettings globalSettings,
+            IBootstrapperConfiguration config)
+        {
+            var mongoSettingItem = globalSettings[Constants.MongoConnectionStringKey];
+            var pathSettingItem = globalSettings[Constants.DashboardPathKey];
 
-                config.UseDashboardPath(pathSettingItem.Value);
-                config.UseAutofacActivator(container);
+            config.UseDashboardPath(pathSettingItem.Value);
+            config.UseAutofacActivator(container);
 
-                var jobStorgae = container.Resolve<ApplicationJobStorage>();
-                config.UseStorage(jobStorgae);
-                config.UseServer();
-            });
+            var jobStorgae
+                = new MongoStorage(
+                    mongoSettingItem.Value,
+                    Constants.DefaultDatabaseName);
 
-            return globalSettings;
+            config.UseStorage(jobStorgae);
+            config.UseServer();
         }
     }
 }

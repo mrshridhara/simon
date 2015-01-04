@@ -8,7 +8,7 @@ namespace Simon.Infrastructure.Hangfire
     /// <summary>
     /// Represents the background action queue.
     /// </summary>
-    public class BackgroundActionQueue : IActionQueue
+    public sealed class BackgroundActionQueue : IActionQueue
     {
         private readonly ISerializer serializer;
 
@@ -16,7 +16,7 @@ namespace Simon.Infrastructure.Hangfire
         /// Initializes an instance of <see cref="BackgroundActionQueue"/> class.
         /// </summary>
         /// <param name="serializer">The serializer.</param>
-        protected BackgroundActionQueue(ISerializer serializer)
+        public BackgroundActionQueue(ISerializer serializer)
         {
             this.serializer = serializer;
         }

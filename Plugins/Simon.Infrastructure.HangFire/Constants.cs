@@ -6,15 +6,21 @@
     public static class Constants
     {
         /// <summary>
-        /// The Hangfire redis storage server key.
+        /// The Mongo DB connection string key.
         /// </summary>
-        public const string HangfireRedisStorageServerKey
-            = "HangfireRedisStorageServer";
+        public const string MongoConnectionStringKey
+            = "HangfireMongoConnectionString";
 
         /// <summary>
-        /// The Hangfire dashboard path key.
+        /// The dashboard path key.
         /// </summary>
-        public const string HangfireDashboardPathKey
+        public const string DashboardPathKey
             = "HangfireDashboardPath";
+
+        /// <summary>
+        /// The default database name.
+        /// </summary>
+        public const string DefaultDatabaseName
+             = "Simon_Hangfire";
     }
 }
