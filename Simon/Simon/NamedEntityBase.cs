@@ -1,5 +1,5 @@
-﻿using System;
-using Simon.Infrastructure.Utilities;
+﻿using Simon.Infrastructure.Utilities;
+using System;
 
 namespace Simon
 {
@@ -25,6 +25,11 @@ namespace Simon
         }
 
         /// <summary>
+        /// Gets the description for the instance.
+        /// </summary>
+        public string Description { get; private set; }
+
+        /// <summary>
         /// Gets the ID for the instance.
         /// </summary>
         public Guid Id { get; private set; }
@@ -33,22 +38,6 @@ namespace Simon
         /// Gets the name for the instance.
         /// </summary>
         public string Name { get; private set; }
-
-        /// <summary>
-        /// Gets the description for the instance.
-        /// </summary>
-        public string Description { get; private set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="newName"></param>
-        public void SetName(string newName)
-        {
-            Guard.NotNullOrEmptyStringArgument("newName", newName);
-
-            this.Name = newName;
-        }
 
         /// <summary>
         ///
@@ -75,6 +64,17 @@ namespace Simon
             }
 
             this.Id = newId;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="newName"></param>
+        public void SetName(string newName)
+        {
+            Guard.NotNullOrEmptyStringArgument("newName", newName);
+
+            this.Name = newName;
         }
     }
 }

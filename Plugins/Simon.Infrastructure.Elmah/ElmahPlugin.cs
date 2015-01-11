@@ -1,5 +1,4 @@
-﻿using Elmah;
-using Autofac;
+﻿using Autofac;
 using Owin;
 using Simon.Infrastructure.Utilities;
 

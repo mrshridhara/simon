@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Simon.Infrastructure.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon
 {

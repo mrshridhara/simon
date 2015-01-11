@@ -10,6 +10,24 @@ namespace Simon.Infrastructure.Utilities
     public static class Guard
     {
         /// <summary>
+        /// Throws an exception of type <see cref="ArgumentException"/>
+        /// with parameter name as the specified <paramref name="argumentName"/>
+        /// if the specified <paramref name="argumentValue"/> is empty.
+        /// </summary>
+        /// <param name="argumentName">The argument name.</param>
+        /// <param name="argumentValue">The argument value.</param>
+        /// <typeparam name="TArgument">Type of argument.</typeparam>
+        [DebuggerStepThrough]
+        public static void NotDefaultValueArgument<TArgument>(string argumentName, TArgument argumentValue)
+            where TArgument : struct
+        {
+            if (argumentValue.Equals(default(TArgument)))
+            {
+                throw new ArgumentException("The value cannot be default.", argumentName);
+            }
+        }
+
+        /// <summary>
         /// Throws an exception of type <see cref="ArgumentNullException"/>
         /// with parameter name as the specified <paramref name="argumentName"/>
         /// if the specified <paramref name="argumentValue"/> is null.
@@ -45,24 +63,6 @@ namespace Simon.Infrastructure.Utilities
             if (argumentValue.Trim().Length == 0)
             {
                 throw new ArgumentException("The value cannot be empty.", argumentName);
-            }
-        }
-
-        /// <summary>
-        /// Throws an exception of type <see cref="ArgumentException"/>
-        /// with parameter name as the specified <paramref name="argumentName"/>
-        /// if the specified <paramref name="argumentValue"/> is empty.
-        /// </summary>
-        /// <param name="argumentName">The argument name.</param>
-        /// <param name="argumentValue">The argument value.</param>
-        /// <typeparam name="TArgument">Type of argument.</typeparam>
-        [DebuggerStepThrough]
-        public static void NotDefaultValueArgument<TArgument>(string argumentName, TArgument argumentValue)
-            where TArgument : struct
-        {
-            if (argumentValue.Equals(default(TArgument)))
-            {
-                throw new ArgumentException("The value cannot be default.", argumentName);
             }
         }
     }

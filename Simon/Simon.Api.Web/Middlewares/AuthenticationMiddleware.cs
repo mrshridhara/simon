@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Owin;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using System;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.Owin;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Middlewares
 {

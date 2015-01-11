@@ -6,12 +6,6 @@
     public static class Constants
     {
         /// <summary>
-        /// The Mongo DB connection string key.
-        /// </summary>
-        public const string MongoConnectionStringKey
-            = "HangfireMongoConnectionString";
-
-        /// <summary>
         /// The dashboard path key.
         /// </summary>
         public const string DashboardPathKey
@@ -22,5 +16,11 @@
         /// </summary>
         public const string DefaultDatabaseName
              = "Simon_Hangfire";
+
+        /// <summary>
+        /// The Mongo DB connection string key.
+        /// </summary>
+        public const string MongoConnectionStringKey
+            = "HangfireMongoConnectionString";
     }
 }

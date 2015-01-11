@@ -1,5 +1,4 @@
 ﻿using System;
-using Simon.Repositories;
 
 namespace Simon
 {

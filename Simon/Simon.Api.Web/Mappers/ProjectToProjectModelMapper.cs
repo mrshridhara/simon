@@ -11,10 +11,23 @@ namespace Simon.Api.Web.Mappers
     public sealed class ProjectToProjectModelMapper
         : IMapper<Project, ProjectModel>
     {
+        private readonly IMapper<Application, ApplicationModel> applicationToApplicationModelMapper;
+
         static ProjectToProjectModelMapper()
         {
-            Mapper.CreateMap<Application, ApplicationModel>();
             Mapper.CreateMap<Project, ProjectModel>();
+        }
+
+        /// <summary>
+        /// Initializes an instance of <see cref="ProjectToProjectModelMapper"/> class.
+        /// </summary>
+        /// <param name="applicationToApplicationModelMapper">The application model to application mapper.</param>
+        public ProjectToProjectModelMapper(
+            IMapper<Application, ApplicationModel> applicationToApplicationModelMapper)
+        {
+            Guard.NotNullArgument("applicationToApplicationModelMapper", applicationToApplicationModelMapper);
+
+            this.applicationToApplicationModelMapper = applicationToApplicationModelMapper;
         }
 
         /// <summary>

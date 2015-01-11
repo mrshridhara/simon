@@ -11,6 +11,14 @@ namespace Simon.Infrastructure.Utilities
         private bool disposed = false;
 
         /// <summary>
+        /// Destroys the instance of <see cref="Disposable"/> class.
+        /// </summary>
+        ~Disposable()
+        {
+            Dispose(false);
+        }
+
+        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or
         /// resetting unmanaged resources.
         /// </summary>
@@ -43,14 +51,6 @@ namespace Simon.Infrastructure.Utilities
             DisposeUnmanaged();
 
             disposed = true;
-        }
-
-        /// <summary>
-        /// Destroys the instance of <see cref="Disposable"/> class.
-        /// </summary>
-        ~Disposable()
-        {
-            Dispose(false);
         }
     }
 }

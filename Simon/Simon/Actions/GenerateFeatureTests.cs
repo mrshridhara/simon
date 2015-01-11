@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
+using System.Threading.Tasks;
 
 namespace Simon.Actions
 {
     /// <summary>
     /// Represents the action which generates the feature tests.
     /// </summary>
-    public sealed class GenerateFeatureTests : AsyncActionBase<Feature>
+    public sealed class GenerateFeatureTests : ActionBase<Feature>
     {
         /// <summary>
         /// Initializes an instance of <see cref="GenerateFeatureTests"/>class.
@@ -15,19 +15,6 @@ namespace Simon.Actions
         public GenerateFeatureTests(ISerializer serializer)
             : base(serializer)
         {
-        }
-
-        /// <summary>
-        /// Determines whether the action is applicable for the current state of the entity.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <returns>
-        /// <c>true</c> if the rule is applicable for the
-        /// current state of the entity, otherwise; <c>false</c>.
-        /// </returns>
-        public override bool IsApplicable(Feature entity)
-        {
-            return entity.State == FeatureState.RequirementsCompleted;
         }
 
         /// <summary>
@@ -41,6 +28,19 @@ namespace Simon.Actions
             // TODO: Mark feature as ready for development.
             // TODO: Save the feature to the persistence.
             throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Determines whether the action is applicable for the current state of the entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns>
+        /// <c>true</c> if the rule is applicable for the
+        /// current state of the entity, otherwise; <c>false</c>.
+        /// </returns>
+        public override bool IsApplicable(Feature entity)
+        {
+            return entity.State == FeatureState.RequirementsCompleted;
         }
     }
 }

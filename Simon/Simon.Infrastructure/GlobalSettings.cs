@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using Simon.Infrastructure.Utilities;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon.Infrastructure
 {
@@ -10,6 +10,12 @@ namespace Simon.Infrastructure
     /// </summary>
     public sealed class GlobalSettings : IEnumerable<KeyValuePair<string, GlobalSettingsItem>>
     {
+        /// <summary>
+        /// Gets the empty instance of <see cref="GlobalSettings"/> class.
+        /// </summary>
+        public static readonly GlobalSettings Empty
+            = new GlobalSettings(new Dictionary<string, GlobalSettingsItem>());
+
         private readonly IDictionary<string, GlobalSettingsItem> settings;
 
         /// <summary>
@@ -25,12 +31,6 @@ namespace Simon.Infrastructure
                     eachSetting => eachSetting.Key,
                     eachSetting => eachSetting.Value);
         }
-
-        /// <summary>
-        /// Gets the empty instance of <see cref="GlobalSettings"/> class.
-        /// </summary>
-        public static readonly GlobalSettings Empty
-            = new GlobalSettings(new Dictionary<string, GlobalSettingsItem>());
 
         /// <summary>
         /// Gets the value of the setting specified in <paramref name="settingKey"/>.

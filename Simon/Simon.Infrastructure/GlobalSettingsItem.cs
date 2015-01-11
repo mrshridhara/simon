@@ -24,6 +24,11 @@ namespace Simon.Infrastructure
         }
 
         /// <summary>
+        /// Gets the is navigation path.
+        /// </summary>
+        public bool IsNavigationPath { get; private set; }
+
+        /// <summary>
         /// Gets the name.
         /// </summary>
         public string Name { get; private set; }
@@ -32,11 +37,6 @@ namespace Simon.Infrastructure
         /// Gets the value.
         /// </summary>
         public string Value { get; private set; }
-
-        /// <summary>
-        /// Gets the is navigation path.
-        /// </summary>
-        public bool IsNavigationPath { get; private set; }
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.

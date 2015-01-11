@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Simon.Core.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +49,7 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Actions\AsyncActionBase.cs" />
+    <Compile Include="Actions\ActionBase.cs" />
     <Compile Include="Actions\CreateNewFeatureBranch.cs" />
     <Compile Include="Actions\DeployToProduction.cs" />
     <Compile Include="Actions\GenerateFeatureTests.cs" />
@@ -89,7 +95,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\ProjectsRepository.cs" />
-    <Compile Include="Repositories\SourceControlRepository.cs" />
     <Compile Include="SimonAssembly.cs" />
     <Compile Include="SourceControlBranch.cs" />
     <Compile Include="User.cs" />
@@ -99,6 +104,11 @@
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Simon.Core.snk">
+      <Link>Simon.Core.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -114,6 +114,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\PluginPathsController.cs" />
     <Compile Include="Controllers\PluginsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Controllers\SimonVersionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Mappers\ApplicationModelToApplicationMapper.cs" />
+    <Compile Include="Mappers\ApplicationToApplicationModelMapper.cs" />
     <Compile Include="Mappers\GlobalSettingsItemToPluginPathModelMapper.cs" />
     <Compile Include="Mappers\ProjectModelToProjectMapper.cs" />
     <Compile Include="Mappers\ProjectToProjectModelMapper.cs" />
@@ -146,6 +148,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Simon.Core.snk">
+      <Link>Simon.Core.snk</Link>
+    </None>
     <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -155,6 +160,12 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Simon.Core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

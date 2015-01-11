@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using System.Web.Http;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
 using Simon.Processes.FileSystem;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Simon.Api.Web.Controllers
 {

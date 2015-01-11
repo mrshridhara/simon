@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Simon.Infrastructure.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon
 {
@@ -48,6 +48,37 @@ namespace Simon
 
             newApplication.SetProject(this);
             this.applications.Add(newApplication);
+        }
+
+        /// <summary>
+        /// Adds the specified <paramref name="updatedApplication"/> to this project.
+        /// </summary>
+        /// <param name="updatedApplication">The application to be added.</param>
+        public void ReplaceApplication(Application updatedApplication)
+        {
+            Guard.NotNullArgument("updatedApplication", updatedApplication);
+
+            if (updatedApplication.Id == Guid.Empty)
+            {
+                throw new ArgumentException(
+                    "Application should contain a valid ID field.",
+                    "updatedApplication");
+            }
+
+            var existingApplication
+                = applications.FirstOrDefault(
+                    eachApplication => eachApplication.Id == updatedApplication.Id);
+
+            if (existingApplication == null)
+            {
+                throw new ArgumentException(
+                    "Application with the specified ID does not exist.",
+                    "updatedApplication");
+            }
+
+            updatedApplication.SetProject(this);
+            applications.Remove(existingApplication);
+            applications.Add(updatedApplication);
         }
     }
 }

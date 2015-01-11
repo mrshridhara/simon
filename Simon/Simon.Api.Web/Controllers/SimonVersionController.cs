@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Simon.Api.Web.Models;
+﻿using Simon.Api.Web.Models;
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
+using System;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Simon.Api.Web.Controllers
 {

@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
 {
@@ -8,20 +8,6 @@ namespace Simon.Infrastructure
     /// </summary>
     public sealed class JsonSerializer : ISerializer
     {
-        /// <summary>
-        /// Serializes the data to string.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <typeparam name="TData">The type of data.</typeparam>
-        /// <returns>The serialized string.</returns>
-        public async Task<string> SerializeAsync<TData>(TData data)
-        {
-            return await Task.Run(() =>
-            {
-                return JsonConvert.SerializeObject(data);
-            });
-        }
-
         /// <summary>
         /// De-serializes the data from string to instance.
         /// </summary>
@@ -33,6 +19,20 @@ namespace Simon.Infrastructure
             return await Task.Run(() =>
             {
                 return JsonConvert.DeserializeObject<TData>(serializedData);
+            });
+        }
+
+        /// <summary>
+        /// Serializes the data to string.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <typeparam name="TData">The type of data.</typeparam>
+        /// <returns>The serialized string.</returns>
+        public async Task<string> SerializeAsync<TData>(TData data)
+        {
+            return await Task.Run(() =>
+            {
+                return JsonConvert.SerializeObject(data);
             });
         }
     }

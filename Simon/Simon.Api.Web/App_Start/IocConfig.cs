@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Autofac;
+using Autofac.Integration.WebApi;
+using Owin;
+using Simon.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
-using Autofac;
-using Autofac.Integration.WebApi;
-using Owin;
-using Simon.Infrastructure;
 
 namespace Simon.Api.Web
 {
     /// <summary>
-    /// Represents the configuration for the IoC.
+    /// Represents the configuration for the IoC registrations.
     /// </summary>
     public class IocConfig
     {
@@ -54,15 +54,6 @@ namespace Simon.Api.Web
             return new AutofacWebApiDependencyResolver(container);
         }
 
-        private static GlobalSettings GetCurrentGlobalSettings(IContainer container)
-        {
-            var getGlobalPersistence
-                = container.Resolve<IPersistence<GlobalSettings>>();
-
-            var result = getGlobalPersistence.ReadAll().Result;
-            return result.First();
-        }
-
         private static void FinalizeGlobalSettings(IContainer container, GlobalSettings globalSettings)
         {
             var getGlobalPersistence
@@ -73,6 +64,34 @@ namespace Simon.Api.Web
             var builder = new ContainerBuilder();
             builder.RegisterInstance(globalSettings);
             builder.Update(container);
+        }
+
+        private static IEnumerable<Assembly> GetAllPluginAssemblies()
+        {
+            var pluginsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin\Plugins");
+
+            return
+                Directory.GetFiles(pluginsPath, "*.dll", SearchOption.AllDirectories)
+                    .Select(eachAssemblyName => TryLoadAssembly(eachAssemblyName))
+                    .Where(loadedAssembly => loadedAssembly != null);
+        }
+
+        private static IEnumerable<Assembly> GetAllReferencedAssemblies(Assembly currentAssembly)
+        {
+            return
+                currentAssembly
+                    .GetReferencedAssemblies()
+                    .Where(eachAssemblyName => eachAssemblyName.Name.Contains("Simon"))
+                    .Select(eachAssemblyName => Assembly.Load(eachAssemblyName));
+        }
+
+        private static GlobalSettings GetCurrentGlobalSettings(IContainer container)
+        {
+            var getGlobalPersistence
+                = container.Resolve<IPersistence<GlobalSettings>>();
+
+            var result = getGlobalPersistence.ReadAll().Result;
+            return result.First();
         }
 
         private static GlobalSettings InitializePlugins(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
@@ -86,23 +105,11 @@ namespace Simon.Api.Web
             return globalSettings;
         }
 
-        private static IEnumerable<Assembly> GetAllReferencedAssemblies(Assembly currentAssembly)
+        private static bool IsAssemblyLoaded(string assemblyPath)
         {
-            return
-                currentAssembly
-                    .GetReferencedAssemblies()
-                    .Where(eachAssemblyName => eachAssemblyName.Name.Contains("Simon"))
-                    .Select(eachAssemblyName => Assembly.Load(eachAssemblyName));
-        }
-
-        private static IEnumerable<Assembly> GetAllPluginAssemblies()
-        {
-            var pluginsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin\Plugins");
-
-            return
-                Directory.GetFiles(pluginsPath, "*.dll", SearchOption.AllDirectories)
-                    .Select(eachAssemblyName => TryLoadAssembly(eachAssemblyName))
-                    .Where(loadedAssembly => loadedAssembly != null);
+            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var fileName = Path.GetFileNameWithoutExtension(assemblyPath);
+            return loadedAssemblies.Any(eachLoadedAssembly => eachLoadedAssembly.GetName().Name == fileName);
         }
 
         private static Assembly TryLoadAssembly(string eachAssemblyName)
@@ -123,13 +130,6 @@ namespace Simon.Api.Web
             {
                 return null;
             }
-        }
-
-        private static bool IsAssemblyLoaded(string assemblyPath)
-        {
-            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var fileName = Path.GetFileNameWithoutExtension(assemblyPath);
-            return loadedAssemblies.Any(eachLoadedAssembly => eachLoadedAssembly.GetName().Name == fileName);
         }
     }
 }

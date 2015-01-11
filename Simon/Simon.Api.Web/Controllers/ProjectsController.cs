@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Simon.Api.Web.Models;
+using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Simon.Api.Web.Models;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon.Api.Web.Controllers
 {
@@ -13,8 +13,8 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class ProjectsController : ApiController
     {
-        private readonly IPersistence<Project> projectPersistence;
         private readonly IMapper<ProjectModel, Project> projectModelToProjectMapper;
+        private readonly IPersistence<Project> projectPersistence;
         private readonly IMapper<Project, ProjectModel> projectToProjectModelMapper;
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Simon.Api.Web.Controllers
             Guid inputId;
             if (Guid.TryParse(id, out inputId) == false)
             {
-                return BadRequest("id should be a valid GUID");
+                return BadRequest("ID should be a valid GUID");
             }
 
             var projects = await projectPersistence.ReadAll();

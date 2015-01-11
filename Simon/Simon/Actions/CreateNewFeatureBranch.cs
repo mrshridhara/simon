@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
+using System.Threading.Tasks;
 
 namespace Simon.Actions
 {
     /// <summary>
     /// Represents the action which creates new feature branch.
     /// </summary>
-    public sealed class CreateNewFeatureBranch : AsyncActionBase<Feature>
+    public sealed class CreateNewFeatureBranch : ActionBase<Feature>
     {
         /// <summary>
         /// Initializes an instance of <see cref="CreateNewFeatureBranch"/>class.
@@ -15,6 +15,17 @@ namespace Simon.Actions
         public CreateNewFeatureBranch(ISerializer serializer)
             : base(serializer)
         {
+        }
+
+        /// <summary>
+        /// Executes the action for the current state of the entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns>The task.</returns>
+        public override Task ExecuteAsync(Feature entity)
+        {
+            // TODO: Create new feature branch if it does not exists.
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -28,17 +39,6 @@ namespace Simon.Actions
         public override bool IsApplicable(Feature entity)
         {
             return entity.State == FeatureState.NewFeature;
-        }
-
-        /// <summary>
-        /// Executes the action for the current state of the entity.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <returns>The task.</returns>
-        public override Task ExecuteAsync(Feature entity)
-        {
-            // TODO: Create new feature branch if it does not exists.
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
 using Simon.Processes.Database;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Simon.Repositories
 {
@@ -13,9 +13,9 @@ namespace Simon.Repositories
     public sealed class ProjectsRepository
         : IPersistence<Project>
     {
+        private readonly IProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
         private readonly GlobalSettings globalSettings;
         private readonly IProcess<SaveProjectContext> saveProject;
-        private readonly IProcess<EmptyContext, GetAllProjectsResult> getAllProjects;
 
         /// <summary>
         /// Initializes an instance of <see cref="ProjectsRepository"/> class.
@@ -38,18 +38,6 @@ namespace Simon.Repositories
         }
 
         /// <summary>
-        /// Reads all the persisted data.
-        /// </summary>
-        /// <returns>
-        /// All the persisted data.
-        /// </returns>
-        public async Task<IEnumerable<Project>> ReadAll()
-        {
-            var result = await getAllProjects.ExecuteAsync(EmptyContext.Instance);
-            return result.Projects;
-        }
-
-        /// <summary>
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
@@ -64,6 +52,27 @@ namespace Simon.Repositories
         }
 
         /// <summary>
+        /// Deletes the data in persistence.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        public Task Delete(Project data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Reads all the persisted data.
+        /// </summary>
+        /// <returns>
+        /// All the persisted data.
+        /// </returns>
+        public async Task<IEnumerable<Project>> ReadAll()
+        {
+            var result = await getAllProjects.ExecuteAsync(EmptyContext.Instance);
+            return result.Projects;
+        }
+
+        /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
@@ -72,15 +81,6 @@ namespace Simon.Repositories
             Guard.NotNullArgument("data", data);
 
             await saveProject.ExecuteAsync(new SaveProjectContext { Project = data });
-        }
-
-        /// <summary>
-        /// Deletes the data in persistence.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public Task Delete(Project data)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

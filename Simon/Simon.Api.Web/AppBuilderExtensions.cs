@@ -1,10 +1,10 @@
-﻿using System.Web.Http;
-using System.Web.Http.Dependencies;
-using Microsoft.Owin.Extensions;
+﻿using Microsoft.Owin.Extensions;
 using Owin;
 using Simon.Api.Web.Middlewares;
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
+using System.Web.Http;
+using System.Web.Http.Dependencies;
 
 namespace Simon.Api.Web
 {

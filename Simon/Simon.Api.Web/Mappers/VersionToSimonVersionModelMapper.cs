@@ -1,7 +1,7 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Simon.Api.Web.Models;
 using Simon.Infrastructure;
+using System;
 
 namespace Simon.Api.Web.Mappers
 {

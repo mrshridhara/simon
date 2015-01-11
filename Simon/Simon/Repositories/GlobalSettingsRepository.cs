@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Simon.Infrastructure;
+using Simon.Infrastructure.Utilities;
+using Simon.Processes.FileSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
-using Simon.Processes.FileSystem;
 
 namespace Simon.Repositories
 {
@@ -34,6 +34,26 @@ namespace Simon.Repositories
         }
 
         /// <summary>
+        /// Creates the data in persistence.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        public Task<GlobalSettings> Create(GlobalSettings data)
+        {
+            throw new InvalidOperationException(
+                "This operation is not supported for global settings.");
+        }
+
+        /// <summary>
+        /// Deletes the data in persistence.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        public Task Delete(GlobalSettings data)
+        {
+            throw new InvalidOperationException(
+                "This operation is not supported for global settings.");
+        }
+
+        /// <summary>
         /// Reads all the persisted data.
         /// </summary>
         /// <returns>
@@ -47,16 +67,6 @@ namespace Simon.Repositories
         }
 
         /// <summary>
-        /// Creates the data in persistence.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public Task<GlobalSettings> Create(GlobalSettings data)
-        {
-            throw new InvalidOperationException(
-                "This operation is not supported for global settings.");
-        }
-
-        /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
@@ -66,16 +76,6 @@ namespace Simon.Repositories
             {
                 GlobalSettings = data
             });
-        }
-
-        /// <summary>
-        /// Deletes the data in persistence.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public Task Delete(GlobalSettings data)
-        {
-            throw new InvalidOperationException(
-                "This operation is not supported for global settings.");
         }
     }
 }

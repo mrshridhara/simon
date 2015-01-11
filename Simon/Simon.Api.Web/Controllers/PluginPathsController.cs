@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Simon.Api.Web.Models;
+﻿using Simon.Api.Web.Models;
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Simon.Api.Web.Controllers
 {
@@ -12,8 +12,8 @@ namespace Simon.Api.Web.Controllers
     /// </summary>
     public sealed class PluginPathsController : ApiController
     {
-        private readonly IPersistence<GlobalSettings> globalSettingsPersistence;
         private readonly IMapper<GlobalSettingsItem, PluginPathModel> globalSettingsItemToPluginPathModelMapper;
+        private readonly IPersistence<GlobalSettings> globalSettingsPersistence;
 
         /// <summary>
         /// Initializes an instance of <see cref="PluginPathsController"/>.

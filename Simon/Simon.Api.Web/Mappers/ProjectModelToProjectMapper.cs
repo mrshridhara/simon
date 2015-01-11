@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Simon.Api.Web.Models;
+﻿using Simon.Api.Web.Models;
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Simon.Api.Web.Mappers
 {

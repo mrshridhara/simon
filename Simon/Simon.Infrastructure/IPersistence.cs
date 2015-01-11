@@ -28,6 +28,18 @@ namespace Simon.Infrastructure
     public interface IPersistence<TData>
     {
         /// <summary>
+        /// Creates the data in persistence.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        Task<TData> Create(TData data);
+
+        /// <summary>
+        /// Deletes the data in persistence.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        Task Delete(TData data);
+
+        /// <summary>
         /// Reads all the persisted data.
         /// </summary>
         /// <returns>
@@ -36,21 +48,9 @@ namespace Simon.Infrastructure
         Task<IEnumerable<TData>> ReadAll();
 
         /// <summary>
-        /// Creates the data in persistence.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        Task<TData> Create(TData data);
-
-        /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
         Task Update(TData data);
-
-        /// <summary>
-        /// Deletes the data in persistence.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        Task Delete(TData data);
     }
 }

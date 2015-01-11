@@ -6,18 +6,18 @@
     <members>
         <member name="T:Simon.Api.Web.FilterConfig">
             <summary>
-            
+            Represents the configuration for global HTTP action filers.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.FilterConfig.Register(System.Web.Http.HttpConfiguration)">
             <summary>
-            
+            Registers the global HTTP filters to the specified <paramref name="config"/>.
             </summary>
             <param name="config"></param>
         </member>
         <member name="T:Simon.Api.Web.IocConfig">
             <summary>
-            Represents the configuration for the IoC.
+            Represents the configuration for the IoC registrations.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
@@ -44,6 +44,39 @@
             </summary>
             <param name="appBuilder">The app builder.</param>
             <param name="config">The HTTP configuration.</param>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.ApplicationsController">
+            <summary>
+            API to manipulate application data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.#ctor(Simon.Infrastructure.IPersistence{Simon.Project},Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ApplicationModel,Simon.Application},Simon.Infrastructure.IMapper{Simon.Application,Simon.Api.Web.Models.ApplicationModel})">
+            <summary>
+            Initializes a new instance of <see cref="T:Simon.Api.Web.Controllers.ApplicationsController"/> class.
+            </summary>
+            <param name="projectPersistence">The project persistence.</param>
+            <param name="applicationModelToApplicationMapper">The application model to application mapper.</param>
+            <param name="applicationToApplicationModelMapper">The application to application model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.GetAsync(System.String,System.String)">
+            <summary>
+            Gets the application with the specified <paramref name="applicationId"/>
+            belonging to the project with the specified <paramref name="projectId"/>.
+            </summary>
+            <param name="projectId">The ID of a project.</param>
+            <param name="applicationId">The ID of a application.</param>
+            <returns>
+            Application with the specified <paramref name="applicationId"/>.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.PostAsync(Simon.Api.Web.Models.ApplicationModel)">
+            <summary>
+            Adds the specified <paramref name="applicationModel"/> to the sequence of applications.
+            </summary>
+            <param name="applicationModel">The application data taken from HTTP body.</param>
+            <returns>
+            Status of the addition.
+            </returns>
         </member>
         <member name="T:Simon.Api.Web.Controllers.PluginPathsController">
             <summary>
@@ -195,6 +228,20 @@
             The copied instance.
             </returns>
         </member>
+        <member name="T:Simon.Api.Web.Mappers.ApplicationToApplicationModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Application"/> to <see cref="T:Simon.Api.Web.Models.ApplicationModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ApplicationToApplicationModelMapper.Map(Simon.Application)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
         <member name="T:Simon.Api.Web.Mappers.GlobalSettingsItemToPluginPathModelMapper">
             <summary>
             Represents a mapper from <see cref="T:Simon.Infrastructure.GlobalSettingsItem"/> to <see cref="T:Simon.Api.Web.Models.PluginPathModel"/>.
@@ -233,6 +280,12 @@
             <summary>
             Represents a mapper from <see cref="T:Simon.Project"/> to <see cref="T:Simon.Api.Web.Models.ProjectModel"/>.
             </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.#ctor(Simon.Infrastructure.IMapper{Simon.Application,Simon.Api.Web.Models.ApplicationModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Mappers.ProjectToProjectModelMapper"/> class.
+            </summary>
+            <param name="applicationToApplicationModelMapper">The application model to application mapper.</param>
         </member>
         <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.Map(Simon.Project)">
             <summary>
@@ -299,6 +352,11 @@
             Represents an application
             </summary>
         </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
         <member name="P:Simon.Api.Web.Models.ApplicationModel.Id">
             <summary>
             Gets or sets the ID for the instance.
@@ -309,9 +367,9 @@
             Gets or sets the name for the instance.
             </summary>
         </member>
-        <member name="P:Simon.Api.Web.Models.ApplicationModel.Description">
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.ProjectId">
             <summary>
-            Gets or sets the description for the instance.
+            Gets or sets the Project ID for the instance.
             </summary>
         </member>
         <member name="T:Simon.Api.Web.Models.PluginPathModel">
@@ -334,6 +392,16 @@
             Represents a project.
             </summary>
         </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Applications">
+            <summary>
+            Gets or sets the applications.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
         <member name="P:Simon.Api.Web.Models.ProjectModel.Id">
             <summary>
             Gets or sets the ID for the instance.
@@ -344,29 +412,9 @@
             Gets or sets the name for the instance.
             </summary>
         </member>
-        <member name="P:Simon.Api.Web.Models.ProjectModel.Description">
-            <summary>
-            Gets or sets the description for the instance.
-            </summary>
-        </member>
-        <member name="P:Simon.Api.Web.Models.ProjectModel.Applications">
-            <summary>
-            Gets or sets the applications.
-            </summary>
-        </member>
         <member name="T:Simon.Api.Web.Models.SimonVersionModel">
             <summary>
             Represents the version of SIMON.
-            </summary>
-        </member>
-        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Major">
-            <summary>
-            Gets or sets the major version.
-            </summary>
-        </member>
-        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Minor">
-            <summary>
-            Gets or sets the minor version.
             </summary>
         </member>
         <member name="P:Simon.Api.Web.Models.SimonVersionModel.Build">
@@ -377,6 +425,16 @@
         <member name="P:Simon.Api.Web.Models.SimonVersionModel.DisplayText">
             <summary>
             Gets or sets the display text.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Major">
+            <summary>
+            Gets or sets the major version.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Minor">
+            <summary>
+            Gets or sets the minor version.
             </summary>
         </member>
         <member name="T:Simon.Api.Web.AppBuilderExtensions">

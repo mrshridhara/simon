@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Simon.Infrastructure.Utilities;
 using System.Security.Claims;
-using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon.Infrastructure.BasicAuthentication
 {

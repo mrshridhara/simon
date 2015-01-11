@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Simon.Infrastructure.Utilities;
+using System;
 using System.Collections.Generic;
-using Simon.Infrastructure;
-using Simon.Infrastructure.Utilities;
 
 namespace Simon
 {
@@ -11,10 +10,10 @@ namespace Simon
     public sealed class Feature : NamedEntityBase
     {
         [NonSerialized]
-        private IEnumerable<Infrastructure.IObserver<Feature>> featureObservers;
+        private Application application;
 
         [NonSerialized]
-        private Application application;
+        private IEnumerable<Infrastructure.IObserver<Feature>> featureObservers;
 
         /// <summary>
         /// Initializes an instance of <see cref="Feature"/> class.
@@ -32,14 +31,24 @@ namespace Simon
         }
 
         /// <summary>
-        /// Gets the state of feature.
+        /// Gets or sets the feature branch in the source control repository.
         /// </summary>
-        public FeatureState State { get; private set; }
+        public string BranchName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date and time when the feature was created.
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or sets the user who created the feature.
         /// </summary>
         public User CreatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date and time when the feature was modified.
+        /// </summary>
+        public DateTime ModifiedAt { get; set; }
 
         /// <summary>
         /// Gets or sets the user who modified the feature.
@@ -52,33 +61,14 @@ namespace Simon
         public User SignedOffBy { get; set; }
 
         /// <summary>
-        /// Gets or sets the date and time when the feature was created.
+        /// Gets the state of feature.
         /// </summary>
-        public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date and time when the feature was modified.
-        /// </summary>
-        public DateTime ModifiedAt { get; set; }
-
-        /// <summary>
-        /// Gets or sets the feature branch in the source control repository.
-        /// </summary>
-        public string BranchName { get; set; }
+        public FeatureState State { get; private set; }
 
         /// <summary>
         /// Gets the application to which the feature belongs.
         /// </summary>
         internal Application Application { get { return application; } }
-
-        /// <summary>
-        /// Sets the observers to be used.
-        /// </summary>
-        /// <param name="featureObservers">The feature observers.</param>
-        public void SetObservers(IEnumerable<Infrastructure.IObserver<Feature>> featureObservers)
-        {
-            this.featureObservers = featureObservers;
-        }
 
         /// <summary>
         /// Sets the specified <paramref name="newApplication"/> as the application for this feature.
@@ -94,6 +84,15 @@ namespace Simon
             }
 
             this.application = newApplication;
+        }
+
+        /// <summary>
+        /// Sets the observers to be used.
+        /// </summary>
+        /// <param name="featureObservers">The feature observers.</param>
+        public void SetObservers(IEnumerable<Infrastructure.IObserver<Feature>> featureObservers)
+        {
+            this.featureObservers = featureObservers;
         }
 
         /// <summary>

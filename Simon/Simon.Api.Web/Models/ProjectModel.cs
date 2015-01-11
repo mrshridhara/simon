@@ -9,6 +9,16 @@ namespace Simon.Api.Web.Models
     public sealed class ProjectModel
     {
         /// <summary>
+        /// Gets or sets the applications.
+        /// </summary>
+        public IEnumerable<ApplicationModel> Applications { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description for the instance.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or sets the ID for the instance.
         /// </summary>
         public Guid? Id { get; set; }
@@ -17,15 +27,5 @@ namespace Simon.Api.Web.Models
         /// Gets or sets the name for the instance.
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description for the instance.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the applications.
-        /// </summary>
-        public IEnumerable<ApplicationModel> Applications { get; set; }
     }
 }

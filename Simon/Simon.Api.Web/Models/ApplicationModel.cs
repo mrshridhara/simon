@@ -8,6 +8,11 @@ namespace Simon.Api.Web.Models
     public sealed class ApplicationModel
     {
         /// <summary>
+        /// Gets or sets the description for the instance.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or sets the ID for the instance.
         /// </summary>
         public Guid? Id { get; set; }
@@ -18,8 +23,8 @@ namespace Simon.Api.Web.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the description for the instance.
+        /// Gets or sets the Project ID for the instance.
         /// </summary>
-        public string Description { get; set; }
+        public Guid? ProjectId { get; set; }
     }
 }

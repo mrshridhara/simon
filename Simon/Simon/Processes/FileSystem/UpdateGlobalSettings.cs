@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using Simon.Infrastructure;
+using System.IO;
 using System.Threading.Tasks;
-using Simon.Infrastructure;
 
 namespace Simon.Processes.FileSystem
 {

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Simon.Infrastructure;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Simon.Infrastructure;
 
 namespace Simon.Observers
 {
@@ -9,8 +9,8 @@ namespace Simon.Observers
     /// </summary>
     public sealed class FeatureStateObserver : IObserver<Feature>
     {
-        private readonly IEnumerable<IAction<Feature>> featureActions;
         private readonly IActionQueue asyncActionQueue;
+        private readonly IEnumerable<IAction<Feature>> featureActions;
 
         /// <summary>
         /// Initializes an instance of <see cref="FeatureStateObserver"/> class.

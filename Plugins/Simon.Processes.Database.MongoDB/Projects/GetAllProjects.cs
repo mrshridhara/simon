@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using Simon.Infrastructure;
+using System.Linq;
 using System.Threading.Tasks;
-using Simon.Infrastructure;
 
 namespace Simon.Processes.Database.MongoDB.Projects
 {

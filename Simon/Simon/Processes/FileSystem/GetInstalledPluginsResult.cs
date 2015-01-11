@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Simon.Infrastructure;
+﻿using Simon.Infrastructure;
+using System.Collections.Generic;
 
 namespace Simon.Processes.FileSystem
 {
