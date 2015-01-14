@@ -27,9 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Presentation.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.UI.Web", "Simon\Simon.UI.Web\Simon.UI.Web.csproj", "{0907AE34-D662-419D-9F0D-81E3832560E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.SourceControl.Git", "Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj", "{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Git", "Plugins\Simon.Git\Simon.Git.csproj", "{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Processes.Database.MongoDB", "Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj", "{EF99F59D-1BF8-4A24-9102-88DED202707F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.MongoDB", "Plugins\Simon.MongoDB\Simon.MongoDB.csproj", "{EF99F59D-1BF8-4A24-9102-88DED202707F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Core.Tests", "Tests\Simon.Core.Tests\Simon.Core.Tests.csproj", "{2A7D5664-7322-4981-AEA9-E26B4698DC1F}"
 EndProject
@@ -37,11 +37,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Plugins.Tests", "Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure", "Simon\Simon.Infrastructure\Simon.Infrastructure.csproj", "{30A2FA4C-484A-4236-83B4-78B64516A1E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.Hangfire", "Plugins\Simon.Infrastructure.Hangfire\Simon.Infrastructure.Hangfire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Hangfire", "Plugins\Simon.Hangfire\Simon.Hangfire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.Elmah", "Plugins\Simon.Infrastructure.Elmah\Simon.Infrastructure.Elmah.csproj", "{C69F658A-08AB-4287-BAA9-E5D9D3F1CCBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Elmah", "Plugins\Simon.Elmah\Simon.Elmah.csproj", "{C69F658A-08AB-4287-BAA9-E5D9D3F1CCBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure.BasicAuthentication", "Plugins\Simon.Infrastructure.BasicAuthentication\Simon.Infrastructure.BasicAuthentication.csproj", "{0BB4A52D-0F03-422F-B9F7-860676259687}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.BasicAuthentication", "Plugins\Simon.BasicAuthentication\Simon.BasicAuthentication.csproj", "{0BB4A52D-0F03-422F-B9F7-860676259687}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9AC48563-5264-4594-91AF-9D2512833C04}"
 	ProjectSection(SolutionItems) = preProject

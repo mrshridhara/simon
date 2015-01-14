@@ -69,25 +69,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Elmah\Simon.Infrastructure.Elmah.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.Elmah\Simon.Elmah.csproj">
       <Project>{c69f658a-08ab-4287-baa9-e5d9d3f1ccbe}</Project>
-      <Name>Simon.Infrastructure.Elmah</Name>
+      <Name>Simon.Elmah</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.Hangfire\Simon.Infrastructure.Hangfire.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.Hangfire\Simon.Hangfire.csproj">
       <Project>{3d83ef49-9d02-4369-9ff2-b96053790dc2}</Project>
-      <Name>Simon.Infrastructure.Hangfire</Name>
+      <Name>Simon.Hangfire</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Infrastructure.BasicAuthentication\Simon.Infrastructure.BasicAuthentication.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.BasicAuthentication\Simon.BasicAuthentication.csproj">
       <Project>{0bb4a52d-0f03-422f-b9f7-860676259687}</Project>
-      <Name>Simon.Infrastructure.BasicAuthentication</Name>
+      <Name>Simon.BasicAuthentication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.Database.MongoDB\Simon.Processes.Database.MongoDB.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.MongoDB\Simon.MongoDB.csproj">
       <Project>{ef99f59d-1bf8-4a24-9102-88ded202707f}</Project>
-      <Name>Simon.Processes.Database.MongoDB</Name>
+      <Name>Simon.MongoDB</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Simon.Processes.SourceControl.Git\Simon.Processes.SourceControl.Git.csproj">
+    <ProjectReference Include="..\..\Plugins\Simon.Git\Simon.Git.csproj">
       <Project>{15ad2261-75fe-4adf-b8f8-e8a785535bdc}</Project>
-      <Name>Simon.Processes.SourceControl.Git</Name>
+      <Name>Simon.Git</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>

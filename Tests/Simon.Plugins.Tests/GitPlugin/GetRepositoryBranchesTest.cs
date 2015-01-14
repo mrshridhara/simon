@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Simon.Infrastructure;
-using Simon.Processes.SourceControl.Git;
+using Simon.Processes.SourceControl;
+using System.Collections.Generic;
 
 namespace Simon.Plugins.Tests.GitPlugin
 {
@@ -13,13 +13,18 @@ namespace Simon.Plugins.Tests.GitPlugin
         public void Should_Get_Available_Branches()
         {
             // Arrange.
-            var globalSettings = new GlobalSettings(new Dictionary<string, GlobalSettingsItem>
-            {
-                {
-                    Constants.GitRepoPathKey,
-                    new GlobalSettingsItem(string.Empty, @"C:\Users\mrshr_000\Projects\Simon\.git", false)
-                }
-            });
+            var globalSettings
+                = new GlobalSettings(
+                    new Dictionary<string, GlobalSettingsItem>
+                    {
+                        {
+                            "GitRepoPath",
+                            new GlobalSettingsItem(
+                                string.Empty,
+                                @"C:\Users\mrshr_000\Projects\Simon\.git",
+                                false)
+                        }
+                    });
             var target = new GetRepositoryBranches(globalSettings);
 
             // Act.
