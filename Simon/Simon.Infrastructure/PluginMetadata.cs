@@ -16,6 +16,11 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the short name.
+        /// </summary>
+        public string ShortName { get; set; }
+
+        /// <summary>
         /// Gets the string representation of this instance.
         /// </summary>
         /// <returns></returns>

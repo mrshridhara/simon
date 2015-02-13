@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Simon.Processes.FileSystem
 {
     /// <summary>
-    /// Gets the installed plugins.
+    /// Gets the installed plug-ins.
     /// </summary>
     public sealed class GetInstalledPlugins
         : IProcess<EmptyContext, GetInstalledPluginsResult>
@@ -39,10 +39,13 @@ namespace Simon.Processes.FileSystem
         {
             foreach (var pluginFolder in Directory.EnumerateDirectories(pluginsPath))
             {
+                var name = new DirectoryInfo(pluginFolder).Name;
+
                 yield return new PluginMetadata
                 {
-                    Name = new DirectoryInfo(pluginFolder).Name,
-                    FullPath = pluginFolder
+                    Name = name,
+                    FullPath = pluginFolder,
+                    ShortName = name.Replace(" ", "-").ToLower()
                 };
             }
         }

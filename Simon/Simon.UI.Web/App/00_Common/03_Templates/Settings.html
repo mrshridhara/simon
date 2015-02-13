@@ -1,6 +1,6 @@
-﻿<div class="section"
-     data-ng-include="'App/00_Common/03_Templates/Loader.html'"
-     data-ng-hide="vm.SettingsService.Settings">
+﻿<div class="section">
+    <h3>Plugins and Settings</h3>
+    <hr />
 </div>
 
 <div class="section alert alert-danger" role="alert" data-ng-show="vm.Error">
@@ -10,15 +10,18 @@
     <strong>Error!!!</strong> Sorry! Something went wrong.
 </div>
 
-<div class="panel panel-default section" data-ng-show="vm.PluginsService.Plugins">
-    <div class="panel-heading">
-        <h3 class="panel-title">Installed Plugins</h3>
+<div class="section"
+     data-ng-include="'App/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="vm.SettingsService.Settings">
+</div>
+
+<div class="section panel-group" data-ng-show="vm.PluginsService.Plugins">
+    <div class="panel panel-default" data-ng-repeat="eachPlugin in vm.PluginsService.Plugins">
+        <div class="panel-heading">
+            <h3 class="panel-title" data-ng-bind="eachPlugin.Name"></h3>
+        </div>
+        <div class="panel-body"></div>
     </div>
-    <ul class="list-group contnet">
-        <li class="list-group-item" data-ng-repeat="eachPlugin in vm.PluginsService.Plugins">
-            <span data-ng-bind="eachPlugin.Name"></span>
-        </li>
-    </ul>
 </div>
 
 <div class="panel panel-default section" data-ng-show="vm.SettingsService.Settings">

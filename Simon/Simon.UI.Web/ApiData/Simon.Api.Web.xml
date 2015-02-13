@@ -100,21 +100,21 @@
         </member>
         <member name="T:Simon.Api.Web.Controllers.PluginsController">
             <summary>
-            API to manipulate plugins data.
+            API to manipulate plug-ins data.
             </summary>
         </member>
         <member name="M:Simon.Api.Web.Controllers.PluginsController.#ctor(Simon.Infrastructure.IProcess{Simon.EmptyContext,Simon.Processes.FileSystem.GetInstalledPluginsResult})">
             <summary>
             Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.PluginsController"/>.
             </summary>
-            <param name="getInstalledPlugins">The get installed plugins process.</param>
+            <param name="getInstalledPlugins">The get installed plug-ins process.</param>
         </member>
         <member name="M:Simon.Api.Web.Controllers.PluginsController.Get">
             <summary>
-            Gets the installed plugins.
+            Gets the installed plug-ins.
             </summary>
             <returns>
-            The installed plugins.
+            The installed plug-ins.
             </returns>
         </member>
         <member name="T:Simon.Api.Web.Controllers.ProjectsController">

@@ -6,7 +6,7 @@ using System.Web.Http;
 namespace Simon.Api.Web.Controllers
 {
     /// <summary>
-    /// API to manipulate plugins data.
+    /// API to manipulate plug-ins data.
     /// </summary>
     public sealed class PluginsController : ApiController
     {
@@ -15,7 +15,7 @@ namespace Simon.Api.Web.Controllers
         /// <summary>
         /// Initializes an instance of <see cref="PluginsController"/>.
         /// </summary>
-        /// <param name="getInstalledPlugins">The get installed plugins process.</param>
+        /// <param name="getInstalledPlugins">The get installed plug-ins process.</param>
         public PluginsController(
             IProcess<EmptyContext, GetInstalledPluginsResult> getInstalledPlugins)
         {
@@ -23,10 +23,10 @@ namespace Simon.Api.Web.Controllers
         }
 
         /// <summary>
-        /// Gets the installed plugins.
+        /// Gets the installed plug-ins.
         /// </summary>
         /// <returns>
-        /// The installed plugins.
+        /// The installed plug-ins.
         /// </returns>
         public async Task<IHttpActionResult> Get()
         {
