@@ -7,5 +7,8 @@
 
         public const string DefaultDatabaseName
              = "Simon";
+
+        public static readonly string PluginName
+            = typeof(Constants).Assembly.FullName.Split(',')[0];
     }
 }

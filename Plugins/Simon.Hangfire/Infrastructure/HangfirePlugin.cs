@@ -43,7 +43,11 @@ namespace Simon.Infrastructure
             if (globalSettings[Constants.DashboardPathKey] == null)
             {
                 var settingItem
-                    = new GlobalSettingsItem("Hangfire Dashboard", "/hangfire", true);
+                    = new GlobalSettingsItem(
+                        "Hangfire Dashboard",
+                        "/hangfire",
+                        Constants.PluginName,
+                        true);
 
                 globalSettings.Add(Constants.DashboardPathKey, settingItem);
             }
@@ -54,7 +58,10 @@ namespace Simon.Infrastructure
             if (globalSettings[Constants.MongoConnectionStringKey] == null)
             {
                 var settingsItem
-                    = new GlobalSettingsItem("MongoDB Connection String for Hangfire", "mongodb://localhost");
+                    = new GlobalSettingsItem(
+                        "MongoDB Connection String for Hangfire",
+                        "mongodb://localhost",
+                        Constants.PluginName);
 
                 globalSettings.Add(Constants.MongoConnectionStringKey, settingsItem);
             }

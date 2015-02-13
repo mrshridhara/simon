@@ -22,7 +22,7 @@ namespace Simon.Plugins.Tests.GitPlugin
                             new GlobalSettingsItem(
                                 string.Empty,
                                 @"C:\Users\mrshr_000\Projects\Simon\.git",
-                                false)
+                                isNavigationPath: false)
                         }
                     });
             var target = new GetRepositoryBranches(globalSettings);

@@ -14,6 +14,7 @@ namespace Simon.Api.Web.Mappers
         static GlobalSettingsItemToPluginPathModelMapper()
         {
             Mapper.CreateMap<GlobalSettingsItem, PluginPathModel>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Path, opt => opt.MapFrom(src => src.Value));
         }
 

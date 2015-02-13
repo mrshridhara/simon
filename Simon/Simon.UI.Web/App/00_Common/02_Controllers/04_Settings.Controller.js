@@ -24,6 +24,8 @@
         vm.SettingsService = settingsService;
         vm.PluginsService = pluginsService;
 
+        vm.DeleteSettings = deleteSettings;
+
         activate();
 
         function activate() {
@@ -32,16 +34,41 @@
                 breadcrumbService.IsVisible = false;
                 navbarService.DeactivateAll();
                 navbarService.SettingsMenu.SetAsActive();
-                settingsService.GetSettings().error(function (result) {
-                    vm.Error = result;
-                });
-                pluginsService.GetPlugins().error(function (result) {
-                    vm.Error = result;
-                });
+                settingsService.GetSettings()
+                    .success(function () {
+                        updatePlugins();
+                    })
+                    .error(function (result) {
+                        vm.Error = result;
+                    });
             }
             catch (error) {
                 console.log(error);
             }
+        }
+
+        function deleteSettings(setting) {
+            settingsService.DeleteSettings(setting);
+            pluginsService.DeleteSettings(setting);
+        }
+
+        function updatePlugins() {
+            pluginsService.GetPlugins()
+                .error(function (result) {
+                    vm.Error = result;
+                })
+                .success(function (result) {
+                    angular.forEach(pluginsService.Plugins, function (onePlugin) {
+                        angular.forEach(settingsService.Settings, function (oneSetting) {
+                            if (onePlugin.Name === oneSetting.Value.PluginName) {
+                                if (!onePlugin.Settings) {
+                                    onePlugin.Settings = [];
+                                }
+                                onePlugin.Settings.push(oneSetting);
+                            }
+                        });
+                    });
+                });
         }
     }
 }(angular));

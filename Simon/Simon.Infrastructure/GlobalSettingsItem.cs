@@ -12,8 +12,9 @@ namespace Simon.Infrastructure
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
+        /// <param name="pluginName">The plug-in name.</param>
         /// <param name="isNavigationPath">The is navigation path.</param>
-        public GlobalSettingsItem(string name, string value, bool isNavigationPath = false)
+        public GlobalSettingsItem(string name, string value, string pluginName = null, bool isNavigationPath = false)
         {
             Guard.NotNullArgument("name", name);
             Guard.NotNullArgument("value", value);
@@ -21,6 +22,7 @@ namespace Simon.Infrastructure
             this.Name = name;
             this.Value = value;
             this.IsNavigationPath = isNavigationPath;
+            this.PluginName = pluginName;
         }
 
         /// <summary>
@@ -37,6 +39,11 @@ namespace Simon.Infrastructure
         /// Gets the value.
         /// </summary>
         public string Value { get; private set; }
+
+        /// <summary>
+        /// Gets the plug-in name.
+        /// </summary>
+        public string PluginName { get; private set; }
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.

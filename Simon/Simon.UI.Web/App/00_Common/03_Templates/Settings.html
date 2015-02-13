@@ -1,5 +1,5 @@
 ﻿<div class="section">
-    <h3>Plugins and Settings</h3>
+    <h3>Installed Plugins and Settings</h3>
     <hr />
 </div>
 
@@ -15,33 +15,50 @@
      data-ng-hide="vm.SettingsService.Settings">
 </div>
 
-<div class="section panel-group" data-ng-show="vm.PluginsService.Plugins">
-    <div class="panel panel-default" data-ng-repeat="eachPlugin in vm.PluginsService.Plugins">
-        <div class="panel-heading">
-            <h3 class="panel-title" data-ng-bind="eachPlugin.Name"></h3>
-        </div>
-        <div class="panel-body"></div>
-    </div>
-</div>
-
-<div class="panel panel-default section" data-ng-show="vm.SettingsService.Settings">
-    <div class="panel-heading">
-        <h3 class="panel-title">Global Settings</h3>
-    </div>
-    <div class="panel-body contnet">
-        <form role="form">
-            <div class="form-group" data-ng-repeat="eachSetting in vm.SettingsService.Settings">
-                <label for="{{eachSetting.Key}}" class="col-md-3 control-label" data-ng-bind="eachSetting.Value.Name"></label>
-                <div class="col-md-9 input-group">
-                    <input id="{{eachSetting.Key}}" type="text" class="form-control" data-ng-model="eachSetting.Value.Value" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" data-ng-click="vm.SettingsService.DeleteSettings(eachSetting)">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </span>
+<form role="form">
+    <div class="section" data-ng-show="vm.PluginsService.Plugins">
+        <div class="panel panel-default" data-ng-repeat="eachPlugin in vm.PluginsService.Plugins">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-ng-bind="eachPlugin.Name"></h3>
+            </div>
+            <div class="panel-body">
+                <span data-ng-hide="eachPlugin.Settings">No plug-in settings found.</span>
+                <div class="form-group" data-ng-show="eachPlugin.Settings" data-ng-repeat="eachSetting in eachPlugin.Settings">
+                    <label for="{{eachSetting.Key}}" class="col-md-3 control-label" data-ng-bind="eachSetting.Value.Name"></label>
+                    <div class="col-md-9 input-group">
+                        <input id="{{eachSetting.Key}}" type="text" class="form-control" data-ng-model="eachSetting.Value.Value" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" data-ng-click="vm.DeleteSettings(eachSetting)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <button class="btn btn-primary pull-right" data-ng-click="vm.SettingsService.UpdateSettings()">Save Changes</button>
-        </form>
+        </div>
     </div>
-</div>
+
+    <div class="section">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Other Settings</h3>
+            </div>
+            <div class="panel-body">
+                <span data-ng-hide="vm.SettingsService.NonPluginSettings">No settings found.</span>
+                <div class="form-group" data-ng-show="vm.SettingsService.NonPluginSettings" data-ng-repeat="eachSetting in vm.SettingsService.NonPluginSettings">
+                    <label for="{{eachSetting.Key}}" class="col-md-3 control-label" data-ng-bind="eachSetting.Value.Name"></label>
+                    <div class="col-md-9 input-group">
+                        <input id="{{eachSetting.Key}}" type="text" class="form-control" data-ng-model="eachSetting.Value.Value" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" data-ng-click="vm.SettingService.DeleteSettings(eachSetting)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary pull-right" data-ng-click="vm.SettingsService.UpdateSettings()">Save Changes</button>
+</form>

@@ -25,7 +25,8 @@ namespace Simon.Infrastructure
                 var settingsItem
                     = new GlobalSettingsItem(
                         "MongoDB Connection String for Application Data",
-                        "mongodb://localhost");
+                        "mongodb://localhost",
+                        Constants.PluginName);
 
                 globalSettings.Add(Constants.ConnectionStringKey, settingsItem);
             }

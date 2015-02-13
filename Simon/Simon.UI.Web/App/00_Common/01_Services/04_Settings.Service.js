@@ -24,6 +24,14 @@
         function getSettings() {
             return $http.get('/api/Settings').success(function (result) {
                 self.Settings = angular.fromJson(result);
+                angular.forEach(self.Settings, function (eachSetting) {
+                    if (!eachSetting.Value.PluginName || eachSetting.Value.PluginName === null) {
+                        if (!self.NonPluginSettings) {
+                            onePlugin.Settings = [];
+                        }
+                        self.NonPluginSettings.push(eachSetting);
+                    }
+                });
             }).error(function (result) {
                 self.Error = result;
             });
@@ -38,8 +46,8 @@
             });
         }
 
-        function deleteSettings(eachSetting) {
-            var i = self.Settings.indexOf(eachSetting);
+        function deleteSettings(setting) {
+            var i = self.Settings.indexOf(setting);
             if (i != -1) {
                 self.Settings.splice(i, 1);
             }
