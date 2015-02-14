@@ -25,6 +25,10 @@
             navbarService.DeactivateAll();
             projectsService.GetProjectDetails($routeParams.ProjectId).success(function () {
                 pageHeadService.Title = projectsService.SelectedProject.Name;
+
+                if (breadcrumbService.LastContains('Edit ')) {
+                    breadcrumbService.RemoveLast();
+                }
                 breadcrumbService.AddNew($location, pageHeadService.Title);
             });
         }

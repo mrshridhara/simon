@@ -16,6 +16,7 @@
         self.GetItems = getItems;
         self.AddNew = addNew;
         self.RemoveLast = removeLast;
+        self.LastContains = lastContains;
 
         function reset() {
             self.RootItem = undefined;
@@ -52,6 +53,12 @@
                 }
             }
         }
+
+        function lastContains(containsText) {
+            if (self.RootItem) {
+                return self.RootItem.LastContains(containsText);
+            }
+        }
     }
 
     function BreadcrumbItem($location, text) {
@@ -67,6 +74,7 @@
         self.AddTo = addTo;
         self.IsLast = isLast;
         self.RemoveLast = removeLast;
+        self.LastContains = lastContains;
 
         function setNextWith($location, text) {
             if (self.Next) {
@@ -105,6 +113,15 @@
                 else {
                     self.Next.RemoveLast();
                 }
+            }
+        }
+
+        function lastContains(containsText) {
+            if (self.IsLast()) {
+                return self.Text.indexOf(containsText) > -1;
+            }
+            else {
+                return self.Next.LastContains(containsText);
             }
         }
     }
