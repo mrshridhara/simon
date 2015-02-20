@@ -21,10 +21,5 @@ namespace Simon.Api.Web.Models
         /// Gets or sets the name for the instance.
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Project ID for the instance.
-        /// </summary>
-        public Guid? ProjectId { get; set; }
     }
 }

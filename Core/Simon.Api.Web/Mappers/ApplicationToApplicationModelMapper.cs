@@ -14,11 +14,7 @@ namespace Simon.Api.Web.Mappers
     {
         static ApplicationToApplicationModelMapper()
         {
-            Mapper.CreateMap<Application, ApplicationModel>()
-                  .ForMember(
-                    dest => dest.ProjectId,
-                    opt => opt.MapFrom(
-                        src => src.Project != null ? src.Project.Id : Guid.Empty));
+            Mapper.CreateMap<Application, ApplicationModel>();
         }
 
         /// <summary>

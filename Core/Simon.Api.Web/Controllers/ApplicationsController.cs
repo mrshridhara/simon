@@ -46,7 +46,9 @@ namespace Simon.Api.Web.Controllers
         /// <returns>
         /// Application with the specified <paramref name="applicationId"/>.
         /// </returns>
-        public async Task<IHttpActionResult> GetAsync(string projectId, string applicationId)
+        public async Task<IHttpActionResult> GetAsync(
+            [FromUri]string projectId,
+            [FromUri]string applicationId)
         {
             Guid inputProjectId;
             if (Guid.TryParse(projectId, out inputProjectId) == false)
@@ -88,16 +90,24 @@ namespace Simon.Api.Web.Controllers
         /// <summary>
         /// Adds the specified <paramref name="applicationModel"/> to the sequence of applications.
         /// </summary>
+        /// <param name="projectId">The project ID.</param>
         /// <param name="applicationModel">The application data taken from HTTP body.</param>
         /// <returns>
         /// Status of the addition.
         /// </returns>
-        public async Task<IHttpActionResult> PostAsync([FromBody]ApplicationModel applicationModel)
+        public async Task<IHttpActionResult> PostAsync(
+            [FromUri]string projectId,
+            [FromBody]ApplicationModel applicationModel)
         {
-            var projects = await projectPersistence.ReadAll();
+            Guid inputProjectId;
+            if (Guid.TryParse(projectId, out inputProjectId) == false)
+            {
+                return BadRequest("Project ID should be a valid GUID.");
+            }
 
+            var projects = await projectPersistence.ReadAll();
             var selectedProject
-                = projects.FirstOrDefault(eachProject => eachProject.Id == applicationModel.ProjectId);
+                = projects.FirstOrDefault(eachProject => eachProject.Id == inputProjectId);
 
             if (selectedProject == null)
             {
