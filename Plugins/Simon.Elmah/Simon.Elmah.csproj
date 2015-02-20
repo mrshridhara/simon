@@ -62,7 +62,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Core\Simon.Infrastructure\Simon.Infrastructure.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Infrastructure</Name>
     </ProjectReference>
