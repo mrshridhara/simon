@@ -6,7 +6,6 @@
             destPath: './Simon/Simon.UI.Web/Content/',
             src: [
                 './Simon/Simon.UI.Web/Content/bootstrap.css',
-                './Simon/Simon.UI.Web/Content/bootstrap-theme.css',
                 './Simon/Simon.UI.Web/Content/site-tweaks.css'
             ],
             dest: 'app.css'
