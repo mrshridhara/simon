@@ -179,8 +179,8 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\ApiData" md "$(SolutionDir)Simon\Simon.UI.Web\ApiData"
-xcopy /s /y /d "$(TargetDir)Simon.Api.Web.xml" "$(SolutionDir)Simon\Simon.UI.Web\ApiData"</PostBuildEvent>
+if not exist "$(SolutionDir)Core\Simon.UI.Web\ApiData" md "$(SolutionDir)Simon\Simon.UI.Web\ApiData"
+xcopy /s /y /d "$(TargetDir)Simon.Api.Web.xml" "$(SolutionDir)Core\Simon.UI.Web\ApiData"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

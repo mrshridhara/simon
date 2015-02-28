@@ -69,10 +69,11 @@
             Application with the specified <paramref name="applicationId"/>.
             </returns>
         </member>
-        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.PostAsync(Simon.Api.Web.Models.ApplicationModel)">
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.PostAsync(System.String,Simon.Api.Web.Models.ApplicationModel)">
             <summary>
             Adds the specified <paramref name="applicationModel"/> to the sequence of applications.
             </summary>
+            <param name="projectId">The project ID.</param>
             <param name="applicationModel">The application data taken from HTTP body.</param>
             <returns>
             Status of the addition.
@@ -365,11 +366,6 @@
         <member name="P:Simon.Api.Web.Models.ApplicationModel.Name">
             <summary>
             Gets or sets the name for the instance.
-            </summary>
-        </member>
-        <member name="P:Simon.Api.Web.Models.ApplicationModel.ProjectId">
-            <summary>
-            Gets or sets the Project ID for the instance.
             </summary>
         </member>
         <member name="T:Simon.Api.Web.Models.PluginPathModel">
