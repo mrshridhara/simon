@@ -10,7 +10,19 @@ namespace Simon
     /// </summary>
     public sealed class Application : NamedEntityBase
     {
-        private readonly List<Feature> features;
+        private List<Feature> _features;
+        private List<Feature> _Features
+        {
+            get
+            {
+                if (_features == null)
+                {
+                    _features = new List<Feature>();
+                }
+
+                return _features;
+            }
+        }
 
         [NonSerialized]
         private Project project;
@@ -25,8 +37,6 @@ namespace Simon
         public Application(Guid id, string name, string description, IEnumerable<Feature> features)
             : base(id, name, description)
         {
-            this.features = new List<Feature>();
-
             if (features != null)
             {
                 features.AsParallel().ForAll(AddFeature);
@@ -38,7 +48,7 @@ namespace Simon
         /// </summary>
         public IEnumerable<Feature> Features
         {
-            get { return (features ?? new List<Feature>()).AsReadOnly(); }
+            get { return _Features.AsReadOnly(); }
         }
 
         /// <summary>
@@ -55,7 +65,8 @@ namespace Simon
             Guard.NotNullArgument("newFeature", newFeature);
 
             newFeature.SetApplication(this);
-            this.features.Add(newFeature);
+            newFeature.SetId(Guid.NewGuid());
+            _Features.Add(newFeature);
         }
 
         /// <summary>

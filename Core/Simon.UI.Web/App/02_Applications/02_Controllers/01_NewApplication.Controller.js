@@ -18,6 +18,7 @@
         /* jshint validthis: true */
         var vm = this;
         vm.ApplicationsService = applicationsService;
+        vm.ProductId = $routeParams.ProjectId;
         vm.NewApplicationDetails = {
             Name: '',
             Description: ''

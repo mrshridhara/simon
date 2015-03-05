@@ -1,7 +1,7 @@
 ﻿namespace Simon
 {
     /// <summary>
-    /// Represents the possibles states of a feature.
+    /// Represents the possible states of a feature.
     /// </summary>
     public enum FeatureState
     {

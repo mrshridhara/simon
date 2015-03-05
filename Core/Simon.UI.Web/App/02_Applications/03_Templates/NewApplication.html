@@ -24,6 +24,6 @@
                 <textarea class="form-control" id="description" data-ng-model="vm.NewApplicationDetails.Description" />
             </div>
         </div>
-        <button class="btn btn-primary pull-right" data-ng-click="vm.ApplicationsService.AddApplication(vm.NewApplicationDetails)">Save</button>
+        <button class="btn btn-primary pull-right" data-ng-click="vm.ApplicationsService.AddApplication(vm.ProductId, vm.NewApplicationDetails)">Save</button>
     </form>
 </fieldset>

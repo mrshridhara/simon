@@ -10,7 +10,19 @@ namespace Simon
     /// </summary>
     public sealed class Project : NamedEntityBase
     {
-        private readonly List<Application> applications;
+        private List<Application> _applications;
+        private List<Application> _Applications
+        {
+            get
+            {
+                if (_applications == null)
+                {
+                    _applications = new List<Application>();
+                }
+
+                return _applications;
+            }
+        }
 
         /// <summary>
         /// Initializes an instance of a <see cref="Project"/> class.
@@ -22,8 +34,6 @@ namespace Simon
         public Project(Guid id, string name, string description, IEnumerable<Application> applications)
             : base(id, name, description)
         {
-            this.applications = new List<Application>();
-
             if (applications != null)
             {
                 applications.AsParallel().ForAll(AddApplication);
@@ -35,7 +45,7 @@ namespace Simon
         /// </summary>
         public IEnumerable<Application> Applications
         {
-            get { return (applications ?? new List<Application>()).AsReadOnly(); }
+            get { return _Applications.AsReadOnly(); }
         }
 
         /// <summary>
@@ -47,7 +57,8 @@ namespace Simon
             Guard.NotNullArgument("newApplication", newApplication);
 
             newApplication.SetProject(this);
-            this.applications.Add(newApplication);
+            newApplication.SetId(Guid.NewGuid());
+            _Applications.Add(newApplication);
         }
 
         /// <summary>
@@ -66,7 +77,7 @@ namespace Simon
             }
 
             var existingApplication
-                = applications.FirstOrDefault(
+                = _Applications.FirstOrDefault(
                     eachApplication => eachApplication.Id == updatedApplication.Id);
 
             if (existingApplication == null)
@@ -77,8 +88,8 @@ namespace Simon
             }
 
             updatedApplication.SetProject(this);
-            applications.Remove(existingApplication);
-            applications.Add(updatedApplication);
+            _Applications.Remove(existingApplication);
+            _Applications.Add(updatedApplication);
         }
     }
 }

@@ -34,7 +34,7 @@
         function addApplication(projectId, newApplicationDetails) {
             return $http.post('/api/applications?projectId=' + projectId, newApplicationDetails).success(function (result) {
                 breadcrumbService.RemoveLast();
-                $location.path('/' + result.Id);
+                $location.path('/' + projectId + '/' + result.Id);
             }).error(function (result) {
                 self.Error = result;
             });
@@ -43,7 +43,7 @@
         function updateApplication(projectId) {
             return $http.post('/api/applications?projectId=' + projectId, self.SelectedApplication).success(function () {
                 breadcrumbService.RemoveLast();
-                $location.path('/' + self.SelectedApplication.Id);
+                $location.path('/' + projectId + '/' + self.SelectedApplication.Id);
             }).error(function (result) {
                 self.Error = result;
             });

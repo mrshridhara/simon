@@ -115,10 +115,11 @@ namespace Simon.Api.Web.Controllers
             }
 
             var application = applicationModelToApplicationMapper.Map(applicationModel);
-
+            var newApplication = false;
             if (application.Id == Guid.Empty)
             {
                 selectedProject.AddApplication(application);
+                newApplication = true;
             }
             else
             {
@@ -126,6 +127,19 @@ namespace Simon.Api.Web.Controllers
             }
 
             await projectPersistence.Update(selectedProject);
+
+            if (newApplication)
+            {
+                return CreatedAtRoute(
+                    RouteConfig.DefaultRouteName,
+                    new
+                    {
+                        controller = "Applications",
+                        projectId = selectedProject.Id,
+                        applicationId = application.Id
+                    },
+                    application);
+            }
 
             return Ok();
         }
