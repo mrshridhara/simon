@@ -1,4 +1,5 @@
 ﻿using Simon.Infrastructure;
+using Simon.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,9 +37,12 @@ namespace Simon.Processes.Database
         private static GetAllProjectsResult Execute(
             GlobalSettings globalSettings)
         {
-            var projects = MongoHelper.GetMongoCollection<Project>(globalSettings);
+            var projects = MongoHelper.GetMongoCollection<ProjectModel>(globalSettings);
             var result = projects.FindAll();
-            return new GetAllProjectsResult { Projects = result.ToList() };
+            return new GetAllProjectsResult
+            {
+                Projects = result.Select(each => each.ToProject()).AsQueryable()
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Simon.Infrastructure;
+using Simon.Models;
 using System.Threading.Tasks;
 
 namespace Simon.Processes.Database
@@ -36,8 +37,8 @@ namespace Simon.Processes.Database
             GlobalSettings globalSettings,
             SaveProjectContext context)
         {
-            var projects = MongoHelper.GetMongoCollection<Project>(globalSettings);
-            var result = projects.Save(context.Project);
+            var projects = MongoHelper.GetMongoCollection<ProjectModel>(globalSettings);
+            var result = projects.Save(new ProjectModel(context.Project));
         }
     }
 }

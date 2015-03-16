@@ -45,7 +45,7 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> GetAsync()
         {
-            var projects = await projectPersistence.ReadAll();
+            var projects = await projectPersistence.ReadAsync();
 
             var projectModels
                 = projects.Select(
@@ -69,7 +69,7 @@ namespace Simon.Api.Web.Controllers
                 return BadRequest("ID should be a valid GUID");
             }
 
-            var projects = await projectPersistence.ReadAll();
+            var projects = await projectPersistence.ReadAsync();
 
             var availableProject
                     = projects.FirstOrDefault(
@@ -97,7 +97,7 @@ namespace Simon.Api.Web.Controllers
 
             if (project.Id == Guid.Empty)
             {
-                var updatedProject = await projectPersistence.Create(project);
+                var updatedProject = await projectPersistence.CreateAsync(project);
                 var updatedProjectModel = projectToProjectModelMapper.Map(updatedProject);
 
                 return CreatedAtRoute(
@@ -106,7 +106,7 @@ namespace Simon.Api.Web.Controllers
                     updatedProjectModel);
             }
 
-            await projectPersistence.Update(project);
+            await projectPersistence.UpdateAsync(project);
 
             return Ok();
         }

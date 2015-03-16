@@ -39,7 +39,7 @@ namespace Simon.Api.Web.Controllers
         /// </returns>
         public async Task<IHttpActionResult> GetAsync()
         {
-            var globalSettingsSequence = await globalSettingsPersistence.ReadAll();
+            var globalSettingsSequence = await globalSettingsPersistence.ReadAsync();
             var globalSettings = globalSettingsSequence.FirstOrDefault();
 
             if (globalSettings == null)

@@ -62,7 +62,7 @@ namespace Simon.Api.Web.Controllers
                 return BadRequest("Application ID should be a valid GUID.");
             }
 
-            var projects = await projectPersistence.ReadAll();
+            var projects = await projectPersistence.ReadAsync();
 
             var selectedProject
                 = projects.FirstOrDefault(eachProject => eachProject.Id == inputProjectId);
@@ -105,7 +105,7 @@ namespace Simon.Api.Web.Controllers
                 return BadRequest("Project ID should be a valid GUID.");
             }
 
-            var projects = await projectPersistence.ReadAll();
+            var projects = await projectPersistence.ReadAsync();
             var selectedProject
                 = projects.FirstOrDefault(eachProject => eachProject.Id == inputProjectId);
 
@@ -126,7 +126,7 @@ namespace Simon.Api.Web.Controllers
                 selectedProject.ReplaceApplication(application);
             }
 
-            await projectPersistence.Update(selectedProject);
+            await projectPersistence.UpdateAsync(selectedProject);
 
             if (newApplication)
             {

@@ -17,6 +17,11 @@ namespace Simon.Api.Web
     /// </summary>
     public class IocConfig
     {
+        static IocConfig()
+        {
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+        }
+
         /// <summary>
         /// Registers the dependencies to the IoC container.
         /// </summary>
@@ -54,12 +59,18 @@ namespace Simon.Api.Web
             return new AutofacWebApiDependencyResolver(container);
         }
 
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var requiredAssemblyName = new AssemblyName(args.Name);
+            return GetLoadedAssembly(requiredAssemblyName.Name);
+        }
+
         private static void FinalizeGlobalSettings(IContainer container, GlobalSettings globalSettings)
         {
             var getGlobalPersistence
                 = container.Resolve<IPersistence<GlobalSettings>>();
 
-            getGlobalPersistence.Update(globalSettings).Wait();
+            getGlobalPersistence.UpdateAsync(globalSettings).Wait();
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(globalSettings);
@@ -90,8 +101,19 @@ namespace Simon.Api.Web
             var getGlobalPersistence
                 = container.Resolve<IPersistence<GlobalSettings>>();
 
-            var result = getGlobalPersistence.ReadAll().Result;
+            var result = getGlobalPersistence.ReadAsync().Result;
             return result.First();
+        }
+
+        private static Assembly GetLoadedAssembly(string assemblyName, bool isAssemblyPath = false)
+        {
+            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            if (isAssemblyPath)
+            {
+                assemblyName = Path.GetFileNameWithoutExtension(assemblyName);
+            }
+
+            return loadedAssemblies.FirstOrDefault(eachLoadedAssembly => eachLoadedAssembly.GetName().Name == assemblyName);
         }
 
         private static GlobalSettings InitializePlugins(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
@@ -107,9 +129,7 @@ namespace Simon.Api.Web
 
         private static bool IsAssemblyLoaded(string assemblyPath)
         {
-            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var fileName = Path.GetFileNameWithoutExtension(assemblyPath);
-            return loadedAssemblies.Any(eachLoadedAssembly => eachLoadedAssembly.GetName().Name == fileName);
+            return GetLoadedAssembly(assemblyPath, true) != null;
         }
 
         private static Assembly TryLoadAssembly(string eachAssemblyName)
@@ -121,10 +141,8 @@ namespace Simon.Api.Web
 
             try
             {
-                var assembly = Assembly.LoadFrom(eachAssemblyName);
-                AppDomain.CurrentDomain.Load(assembly.GetName());
-
-                return assembly;
+                var assemblyName = AssemblyName.GetAssemblyName(eachAssemblyName);
+                return AppDomain.CurrentDomain.Load(assemblyName);
             }
             catch (BadImageFormatException)
             {

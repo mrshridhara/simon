@@ -10,19 +10,7 @@ namespace Simon
     /// </summary>
     public sealed class Project : NamedEntityBase
     {
-        private List<Application> _applications;
-        private List<Application> _Applications
-        {
-            get
-            {
-                if (_applications == null)
-                {
-                    _applications = new List<Application>();
-                }
-
-                return _applications;
-            }
-        }
+        private readonly List<Application> _applications = new List<Application>();
 
         /// <summary>
         /// Initializes an instance of a <see cref="Project"/> class.
@@ -43,9 +31,9 @@ namespace Simon
         /// <summary>
         /// Gets the sequence of applications in the project.
         /// </summary>
-        public IEnumerable<Application> Applications
+        public IReadOnlyList<Application> Applications
         {
-            get { return _Applications.AsReadOnly(); }
+            get { return _applications.AsReadOnly(); }
         }
 
         /// <summary>
@@ -56,9 +44,16 @@ namespace Simon
         {
             Guard.NotNullArgument("newApplication", newApplication);
 
+            if (newApplication.Project != null)
+                return;
+
             newApplication.SetProject(this);
-            newApplication.SetId(Guid.NewGuid());
-            _Applications.Add(newApplication);
+            if (newApplication.Id == Guid.Empty)
+            {
+                newApplication.SetId(Guid.NewGuid());
+            }
+
+            _applications.Add(newApplication);
         }
 
         /// <summary>
@@ -77,7 +72,7 @@ namespace Simon
             }
 
             var existingApplication
-                = _Applications.FirstOrDefault(
+                = _applications.FirstOrDefault(
                     eachApplication => eachApplication.Id == updatedApplication.Id);
 
             if (existingApplication == null)
@@ -88,8 +83,8 @@ namespace Simon
             }
 
             updatedApplication.SetProject(this);
-            _Applications.Remove(existingApplication);
-            _Applications.Add(updatedApplication);
+            _applications.Remove(existingApplication);
+            _applications.Add(updatedApplication);
         }
     }
 }

@@ -1,26 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Simon.Infrastructure
 {
-    /// <summary>
-    /// Defines the structure of a CRUD persistence with filter implementation.
-    /// </summary>
-    /// <typeparam name="TData">Type of the data.</typeparam>
-    /// <typeparam name="TFilter">The type of the filter.</typeparam>
-    public interface IPersistence<TData, TFilter>
-        : IPersistence<TData>
-    {
-        /// <summary>
-        /// Gets all the persisted data matching the specified <paramref name="filter"/>.
-        /// </summary>
-        /// <param name="filter">The filter.</param>
-        /// <returns>
-        /// All the persisted data matching the specified <paramref name="filter"/>.
-        /// </returns>
-        Task<IEnumerable<TData>> Read(TFilter filter);
-    }
-
     /// <summary>
     /// Defines the structure of a CRUD persistence implementation.
     /// </summary>
@@ -31,26 +15,28 @@ namespace Simon.Infrastructure
         /// Creates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        Task<TData> Create(TData data);
+        Task<TData> CreateAsync(TData data);
 
         /// <summary>
         /// Deletes the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        Task Delete(TData data);
+        Task DeleteAsync(TData data);
 
         /// <summary>
-        /// Reads all the persisted data.
+        /// Reads all the persisted data if the filter is null,
+        /// otherwise; reads filtered data.
         /// </summary>
         /// <returns>
-        /// All the persisted data.
+        /// The persisted data if the filter is null,
+        /// otherwise; reads filtered data.
         /// </returns>
-        Task<IEnumerable<TData>> ReadAll();
+        Task<IQueryable<TData>> ReadAsync(Expression<Func<TData, bool>> filter = null);
 
         /// <summary>
         /// Updates the data in persistence.
         /// </summary>
         /// <param name="data">The data.</param>
-        Task Update(TData data);
+        Task UpdateAsync(TData data);
     }
 }

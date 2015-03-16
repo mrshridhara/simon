@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Simon.Processes.Database
 {
@@ -10,6 +11,6 @@ namespace Simon.Processes.Database
         /// <summary>
         /// Gets or sets the projects.
         /// </summary>
-        public IEnumerable<Project> Projects { get; set; }
+        public IQueryable<Project> Projects { get; set; }
     }
 }
