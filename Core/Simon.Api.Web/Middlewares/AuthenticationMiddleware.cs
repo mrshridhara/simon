@@ -29,7 +29,7 @@ namespace Simon.Api.Web.Middlewares
         public AuthenticationMiddleware(OwinMiddleware next, IAuthenticationProvider authenticationProvider)
             : base(next)
         {
-            Guard.NotNullArgument("authenticationProvider", authenticationProvider);
+            Guard.NotNullArgument(nameof(authenticationProvider), authenticationProvider);
 
             this.authenticationProvider = authenticationProvider;
         }
@@ -41,7 +41,7 @@ namespace Simon.Api.Web.Middlewares
         /// <returns></returns>
         public override async Task Invoke(IOwinContext context)
         {
-            Guard.NotNullArgument("context", context);
+            Guard.NotNullArgument(nameof(context), context);
 
             context.Response.OnSendingHeaders(ValidateStatusCode, context);
 

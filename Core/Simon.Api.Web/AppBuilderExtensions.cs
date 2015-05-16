@@ -20,8 +20,8 @@ namespace Simon.Api.Web
         /// <param name="dependencyResolver">The dependency resolver.</param>
         public static void UseBasicAuthentication(this IAppBuilder appBuilder, IDependencyResolver dependencyResolver)
         {
-            Guard.NotNullArgument("appBuilder", appBuilder);
-            Guard.NotNullArgument("dependencyResolver", dependencyResolver);
+            Guard.NotNullArgument(nameof(appBuilder), appBuilder);
+            Guard.NotNullArgument(nameof(dependencyResolver), dependencyResolver);
 
             var authenticationProvider = dependencyResolver.GetService(typeof(IAuthenticationProvider));
 
@@ -35,7 +35,7 @@ namespace Simon.Api.Web
         /// <param name="appBuilder">The app builder instance.</param>
         public static void UseSimonWebApi(this IAppBuilder appBuilder)
         {
-            Guard.NotNullArgument("appBuilder", appBuilder);
+            Guard.NotNullArgument(nameof(appBuilder), appBuilder);
 
             appBuilder.UseSimonWebApi(new HttpConfiguration());
         }
@@ -47,8 +47,8 @@ namespace Simon.Api.Web
         /// <param name="config">The HTTP configuration.</param>
         public static void UseSimonWebApi(this IAppBuilder appBuilder, HttpConfiguration config)
         {
-            Guard.NotNullArgument("appBuilder", appBuilder);
-            Guard.NotNullArgument("config", config);
+            Guard.NotNullArgument(nameof(appBuilder), appBuilder);
+            Guard.NotNullArgument(nameof(config), config);
 
             var dependencyResolver = IocConfig.RegisterDependencies(appBuilder, config);
             config.DependencyResolver = dependencyResolver;

@@ -29,7 +29,7 @@ namespace Simon.Processes.SourceControl
         public async Task<CreateNewFeatureBranchResult> ExecuteAsync(CreateNewFeatureBranchContext context)
         {
             return await Task.Factory.StartNew(
-                () => Execute(this.globalSettings, context),
+                () => Execute(globalSettings, context),
                 TaskCreationOptions.LongRunning);
         }
 

@@ -26,8 +26,8 @@ namespace Simon.Repositories
             IProcess<EmptyContext, GetGlobalSettingsResult> getGlobalSettings,
             IProcess<UpdateGlobalSettingsContext> updateGlobalSettings)
         {
-            Guard.NotNullArgument("getGlobalSettings", getGlobalSettings);
-            Guard.NotNullArgument("updateGlobalSettings", updateGlobalSettings);
+            Guard.NotNullArgument(nameof(getGlobalSettings), getGlobalSettings);
+            Guard.NotNullArgument(nameof(updateGlobalSettings), updateGlobalSettings);
 
             this.getGlobalSettings = getGlobalSettings;
             this.updateGlobalSettings = updateGlobalSettings;

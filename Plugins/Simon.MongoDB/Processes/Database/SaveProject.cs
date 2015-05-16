@@ -29,7 +29,7 @@ namespace Simon.Processes.Database
         public async Task ExecuteAsync(SaveProjectContext context)
         {
             await Task.Factory.StartNew(
-                () => Execute(this.globalSettings, context),
+                () => Execute(globalSettings, context),
                 TaskCreationOptions.LongRunning);
         }
 

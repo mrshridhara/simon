@@ -33,7 +33,7 @@ namespace Simon.Infrastructure
         {
             if (IsHangfireConfigured())
             {
-                var entityAsJson = await this.serializer.SerializeAsync(entity);
+                var entityAsJson = await serializer.SerializeAsync(entity);
 
                 BackgroundJob.Enqueue<TAction>(
                     backgroundAction => backgroundAction.DeserializeAndExecute(entityAsJson));

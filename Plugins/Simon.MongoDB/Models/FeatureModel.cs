@@ -7,10 +7,10 @@ namespace Simon.Models
         public FeatureModel(Feature feature)
             : this()
         {
-            this.Id = feature.Id;
-            this.Name = feature.Name;
-            this.Description = feature.Description;
-            this.FeatureState = feature.State;
+            Id = feature.Id;
+            Name = feature.Name;
+            Description = feature.Description;
+            FeatureState = feature.State;
         }
 
         public FeatureModel()
@@ -28,10 +28,10 @@ namespace Simon.Models
         public Feature ToFeature()
         {
             return new Feature(
-                this.Id,
-                this.Name,
-                this.Description,
-                this.FeatureState);
+                Id,
+                Name,
+                Description,
+                FeatureState);
         }
     }
 }

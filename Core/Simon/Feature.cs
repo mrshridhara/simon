@@ -25,9 +25,7 @@ namespace Simon
         public Feature(Guid id, string name, string description, FeatureState state)
             : base(id, name, description)
         {
-            Guard.NotNullArgument("featureObservers", featureObservers);
-
-            this.State = state;
+            State = state;
         }
 
         /// <summary>
@@ -68,7 +66,7 @@ namespace Simon
         /// <summary>
         /// Gets the application to which the feature belongs.
         /// </summary>
-        internal Application Application { get { return application; } }
+        internal Application Application => application;
 
         /// <summary>
         /// Sets the specified <paramref name="newApplication"/> as the application for this feature.
@@ -76,14 +74,14 @@ namespace Simon
         /// <param name="newApplication">The application to be set.</param>
         public void SetApplication(Application newApplication)
         {
-            Guard.NotNullArgument("newApplication", newApplication);
+            Guard.NotNullArgument(nameof(newApplication), newApplication);
 
-            if (this.application != null)
+            if (application != null)
             {
                 throw new ApplicationException("Application can be set only once per instance.");
             }
 
-            this.application = newApplication;
+            application = newApplication;
         }
 
         /// <summary>
@@ -92,6 +90,8 @@ namespace Simon
         /// <param name="featureObservers">The feature observers.</param>
         public void SetObservers(IEnumerable<Infrastructure.IObserver<Feature>> featureObservers)
         {
+            Guard.NotNullArgument(nameof(featureObservers), featureObservers);
+
             this.featureObservers = featureObservers;
         }
 
@@ -101,9 +101,9 @@ namespace Simon
         /// <param name="newState">The state to be set.</param>
         public void SetState(FeatureState newState)
         {
-            Guard.NotDefaultValueArgument("newState", newState);
+            Guard.NotDefaultValueArgument(nameof(newState), newState);
 
-            this.State = newState;
+            State = newState;
             foreach (var eachFeatureObserver in featureObservers)
             {
                 eachFeatureObserver.UpdateAsync(this);

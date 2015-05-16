@@ -16,12 +16,12 @@ namespace Simon
         /// <param name="description">The description.</param>
         protected NamedEntityBase(Guid id, string name, string description)
         {
-            Guard.NotNullOrEmptyStringArgument("name", name);
-            Guard.NotNullOrEmptyStringArgument("description", description);
+            Guard.NotNullOrEmptyStringArgument(nameof(name), name);
+            Guard.NotNullOrEmptyStringArgument(nameof(description), description);
 
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
+            Id = id;
+            Name = name;
+            Description = description;
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace Simon
         /// <param name="newDescription"></param>
         public void SetDescription(string newDescription)
         {
-            Guard.NotNullOrEmptyStringArgument("newDescription", newDescription);
+            Guard.NotNullOrEmptyStringArgument(nameof(newDescription), newDescription);
 
-            this.Description = newDescription;
+            Description = newDescription;
         }
 
         /// <summary>
@@ -56,14 +56,14 @@ namespace Simon
         /// <param name="newId"></param>
         public void SetId(Guid newId)
         {
-            Guard.NotDefaultValueArgument("newId", newId);
+            Guard.NotDefaultValueArgument(nameof(newId), newId);
 
-            if (this.Id != Guid.Empty)
+            if (Id != Guid.Empty)
             {
                 throw new ApplicationException("ID can be set only once per instance.");
             }
 
-            this.Id = newId;
+            Id = newId;
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace Simon
         /// <param name="newName"></param>
         public void SetName(string newName)
         {
-            Guard.NotNullOrEmptyStringArgument("newName", newName);
+            Guard.NotNullOrEmptyStringArgument(nameof(newName), newName);
 
-            this.Name = newName;
+            Name = newName;
         }
     }
 }

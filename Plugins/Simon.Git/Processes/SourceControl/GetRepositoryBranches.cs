@@ -31,7 +31,7 @@ namespace Simon.Processes.SourceControl
         public async Task<GetReposirotyBranchesResult> ExecuteAsync(EmptyContext context)
         {
             return await Task.Factory.StartNew(
-                () => Execute(this.globalSettings),
+                () => Execute(globalSettings),
                 TaskCreationOptions.LongRunning);
         }
 

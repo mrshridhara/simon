@@ -8,13 +8,13 @@ namespace Simon.Models
         public ApplicationModel(Application application)
             : this()
         {
-            this.Id = application.Id;
-            this.Name = application.Name;
-            this.Description = application.Description;
-            this.Features = new FeatureModel[application.Features.Count];
-            for (int i = 0; i < this.Features.Length; i++)
+            Id = application.Id;
+            Name = application.Name;
+            Description = application.Description;
+            Features = new FeatureModel[application.Features.Count];
+            for (int i = 0; i < Features.Length; i++)
             {
-                this.Features[i] = new FeatureModel(application.Features[i]);
+                Features[i] = new FeatureModel(application.Features[i]);
             }
         }
 
@@ -33,10 +33,10 @@ namespace Simon.Models
         public Application ToApplication()
         {
             return new Application(
-                this.Id,
-                this.Name,
-                this.Description,
-                (this.Features ?? new FeatureModel[0]).Select(each => each.ToFeature()));
+                Id,
+                Name,
+                Description,
+                (Features ?? new FeatureModel[0]).Select(each => each.ToFeature()));
         }
     }
 }

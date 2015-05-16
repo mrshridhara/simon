@@ -24,7 +24,7 @@ namespace Simon.Infrastructure
         /// <param name="settings">The settings sequence.</param>
         public GlobalSettings(IEnumerable<KeyValuePair<string, GlobalSettingsItem>> settings)
         {
-            Guard.NotNullArgument("settings", settings);
+            Guard.NotNullArgument(nameof(settings), settings);
 
             this.settings
                 = settings.ToDictionary(
@@ -43,7 +43,7 @@ namespace Simon.Infrastructure
         {
             get
             {
-                Guard.NotNullOrEmptyStringArgument("settingKey", settingKey);
+                Guard.NotNullOrEmptyStringArgument(nameof(settingKey), settingKey);
 
                 GlobalSettingsItem settingItem;
                 if (settings.TryGetValue(settingKey, out settingItem))
@@ -63,8 +63,8 @@ namespace Simon.Infrastructure
         /// <param name="item">The item.</param>
         public void Add(string key, GlobalSettingsItem item)
         {
-            Guard.NotNullOrEmptyStringArgument("key", key);
-            Guard.NotNullArgument("item", item);
+            Guard.NotNullOrEmptyStringArgument(nameof(key), key);
+            Guard.NotNullArgument(nameof(item), item);
 
             settings.Add(key, item);
         }
@@ -76,10 +76,7 @@ namespace Simon.Infrastructure
         /// A <see cref="IEnumerator&lt;T&gt;"/>
         /// that can be used to iterate through the collection.
         /// </returns>
-        public IEnumerator<KeyValuePair<string, GlobalSettingsItem>> GetEnumerator()
-        {
-            return settings.GetEnumerator();
-        }
+        public IEnumerator<KeyValuePair<string, GlobalSettingsItem>> GetEnumerator() => settings.GetEnumerator();
 
         /// <summary>
         /// Returns an enumerator that iterates through a collection.
@@ -88,9 +85,6 @@ namespace Simon.Infrastructure
         /// An <see cref="IEnumerator"/> object that can be used to iterate through
         /// the collection.
         /// </returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

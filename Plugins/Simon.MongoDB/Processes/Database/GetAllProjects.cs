@@ -30,7 +30,7 @@ namespace Simon.Processes.Database
         public async Task<GetAllProjectsResult> ExecuteAsync(EmptyContext context)
         {
             return await Task.Factory.StartNew(
-                () => Execute(this.globalSettings),
+                () => Execute(globalSettings),
                 TaskCreationOptions.LongRunning);
         }
 

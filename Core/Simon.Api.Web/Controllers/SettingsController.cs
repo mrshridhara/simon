@@ -21,7 +21,7 @@ namespace Simon.Api.Web.Controllers
         public SettingsController(
             IPersistence<GlobalSettings> globalSettingsPersistence)
         {
-            Guard.NotNullArgument("globalSettingsPersistence", globalSettingsPersistence);
+            Guard.NotNullArgument(nameof(globalSettingsPersistence), globalSettingsPersistence);
 
             this.globalSettingsPersistence = globalSettingsPersistence;
         }

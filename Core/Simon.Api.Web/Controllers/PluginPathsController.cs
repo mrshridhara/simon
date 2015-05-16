@@ -24,8 +24,8 @@ namespace Simon.Api.Web.Controllers
             IPersistence<GlobalSettings> globalSettingsPersistence,
             IMapper<GlobalSettingsItem, PluginPathModel> globalSettingsItemToPluginPathModelMapper)
         {
-            Guard.NotNullArgument("globalSettingsPersistence", globalSettingsPersistence);
-            Guard.NotNullArgument("globalSettingsItemToPluginPathModelMapper", globalSettingsItemToPluginPathModelMapper);
+            Guard.NotNullArgument(nameof(globalSettingsPersistence), globalSettingsPersistence);
+            Guard.NotNullArgument(nameof(globalSettingsItemToPluginPathModelMapper), globalSettingsItemToPluginPathModelMapper);
 
             this.globalSettingsPersistence = globalSettingsPersistence;
             this.globalSettingsItemToPluginPathModelMapper = globalSettingsItemToPluginPathModelMapper;

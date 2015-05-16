@@ -34,15 +34,12 @@ namespace Simon
         /// <summary>
         /// Gets the sequence of features in the application.
         /// </summary>
-        public IReadOnlyList<Feature> Features
-        {
-            get { return _features.AsReadOnly(); }
-        }
+        public IReadOnlyList<Feature> Features => _features.AsReadOnly();
 
         /// <summary>
         /// Gets the project to which this application belongs.
         /// </summary>
-        internal Project Project { get { return project; } }
+        internal Project Project => project;
 
         /// <summary>
         /// Adds the specified <paramref name="newFeature"/> to this application.
@@ -50,7 +47,7 @@ namespace Simon
         /// <param name="newFeature">The feature to be added.</param>
         public void AddFeature(Feature newFeature)
         {
-            Guard.NotNullArgument("newFeature", newFeature);
+            Guard.NotNullArgument(nameof(newFeature), newFeature);
 
             if (newFeature.Application != null)
                 return;
@@ -70,14 +67,14 @@ namespace Simon
         /// <param name="newProject">The project to be set.</param>
         public void SetProject(Project newProject)
         {
-            Guard.NotNullArgument("newProject", newProject);
+            Guard.NotNullArgument(nameof(newProject), newProject);
 
-            if (this.project != null)
+            if (project != null)
             {
                 throw new ApplicationException("Project can be set only once per instance.");
             }
 
-            this.project = newProject;
+            project = newProject;
         }
     }
 }

@@ -24,9 +24,6 @@
         /// Gets the string representation of this instance.
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() => Name;
     }
 }

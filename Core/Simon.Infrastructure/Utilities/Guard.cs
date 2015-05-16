@@ -58,7 +58,7 @@ namespace Simon.Infrastructure.Utilities
         [DebuggerStepThrough]
         public static void NotNullOrEmptyStringArgument(string argumentName, string argumentValue)
         {
-            Guard.NotNullArgument(argumentName, argumentValue);
+            NotNullArgument(argumentName, argumentValue);
 
             if (argumentValue.Trim().Length == 0)
             {

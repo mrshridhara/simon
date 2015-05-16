@@ -2,7 +2,6 @@
 using Simon.Api.Web.Models;
 using Simon.Infrastructure;
 using Simon.Infrastructure.Utilities;
-using System;
 
 namespace Simon.Api.Web.Mappers
 {
@@ -26,7 +25,7 @@ namespace Simon.Api.Web.Mappers
         /// </returns>
         public ApplicationModel Map(Application instance)
         {
-            Guard.NotNullArgument("instance", instance);
+            Guard.NotNullArgument(nameof(instance), instance);
 
             return Mapper.Map<Application, ApplicationModel>(instance);
         }

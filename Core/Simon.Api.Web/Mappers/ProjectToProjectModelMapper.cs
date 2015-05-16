@@ -25,7 +25,7 @@ namespace Simon.Api.Web.Mappers
         public ProjectToProjectModelMapper(
             IMapper<Application, ApplicationModel> applicationToApplicationModelMapper)
         {
-            Guard.NotNullArgument("applicationToApplicationModelMapper", applicationToApplicationModelMapper);
+            Guard.NotNullArgument(nameof(applicationToApplicationModelMapper), applicationToApplicationModelMapper);
 
             this.applicationToApplicationModelMapper = applicationToApplicationModelMapper;
         }
@@ -39,7 +39,7 @@ namespace Simon.Api.Web.Mappers
         /// </returns>
         public ProjectModel Map(Project instance)
         {
-            Guard.NotNullArgument("instance", instance);
+            Guard.NotNullArgument(nameof(instance), instance);
 
             return Mapper.Map<Project, ProjectModel>(instance);
         }

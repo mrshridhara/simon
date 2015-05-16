@@ -31,10 +31,7 @@ namespace Simon
         /// <summary>
         /// Gets the sequence of applications in the project.
         /// </summary>
-        public IReadOnlyList<Application> Applications
-        {
-            get { return _applications.AsReadOnly(); }
-        }
+        public IReadOnlyList<Application> Applications => _applications.AsReadOnly();
 
         /// <summary>
         /// Adds the specified <paramref name="newApplication"/> to this project.
@@ -42,7 +39,7 @@ namespace Simon
         /// <param name="newApplication">The application to be added.</param>
         public void AddApplication(Application newApplication)
         {
-            Guard.NotNullArgument("newApplication", newApplication);
+            Guard.NotNullArgument(nameof(newApplication), newApplication);
 
             if (newApplication.Project != null)
                 return;
@@ -62,13 +59,13 @@ namespace Simon
         /// <param name="updatedApplication">The application to be added.</param>
         public void ReplaceApplication(Application updatedApplication)
         {
-            Guard.NotNullArgument("updatedApplication", updatedApplication);
+            Guard.NotNullArgument(nameof(updatedApplication), updatedApplication);
 
             if (updatedApplication.Id == Guid.Empty)
             {
                 throw new ArgumentException(
                     "Application should contain a valid ID field.",
-                    "updatedApplication");
+                    nameof(updatedApplication));
             }
 
             var existingApplication
@@ -79,7 +76,7 @@ namespace Simon
             {
                 throw new ArgumentException(
                     "Application with the specified ID does not exist.",
-                    "updatedApplication");
+                    nameof(updatedApplication));
             }
 
             updatedApplication.SetProject(this);

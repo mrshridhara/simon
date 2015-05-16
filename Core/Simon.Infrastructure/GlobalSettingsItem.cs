@@ -16,34 +16,34 @@ namespace Simon.Infrastructure
         /// <param name="isNavigationPath">The is navigation path.</param>
         public GlobalSettingsItem(string name, string value, string pluginName = null, bool isNavigationPath = false)
         {
-            Guard.NotNullArgument("name", name);
-            Guard.NotNullArgument("value", value);
+            Guard.NotNullArgument(nameof(name), name);
+            Guard.NotNullArgument(nameof(value), value);
 
-            this.Name = name;
-            this.Value = value;
-            this.IsNavigationPath = isNavigationPath;
-            this.PluginName = pluginName;
+            Name = name;
+            Value = value;
+            IsNavigationPath = isNavigationPath;
+            PluginName = pluginName;
         }
 
         /// <summary>
         /// Gets the is navigation path.
         /// </summary>
-        public bool IsNavigationPath { get; private set; }
+        public bool IsNavigationPath { get; }
 
         /// <summary>
         /// Gets the name.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the value.
         /// </summary>
-        public string Value { get; private set; }
+        public string Value { get; }
 
         /// <summary>
         /// Gets the plug-in name.
         /// </summary>
-        public string PluginName { get; private set; }
+        public string PluginName { get; }
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.
@@ -61,8 +61,8 @@ namespace Simon.Infrastructure
             }
 
             return
-                this.Name.Equals(otherItem.Name)
-                && this.Value.Equals(otherItem.Value);
+                Name.Equals(otherItem.Name)
+                && Value.Equals(otherItem.Value);
         }
 
         /// <summary>
@@ -71,11 +71,6 @@ namespace Simon.Infrastructure
         /// <returns>
         /// A hash code for the current object.
         /// </returns>
-        public override int GetHashCode()
-        {
-            return
-                this.Name.GetHashCode()
-                ^ this.Value.GetHashCode();
-        }
+        public override int GetHashCode() => Name.GetHashCode() ^ Value.GetHashCode();
     }
 }

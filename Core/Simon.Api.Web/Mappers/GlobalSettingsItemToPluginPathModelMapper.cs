@@ -27,7 +27,7 @@ namespace Simon.Api.Web.Mappers
         /// </returns>
         public PluginPathModel Map(GlobalSettingsItem instance)
         {
-            Guard.NotNullArgument("instance", instance);
+            Guard.NotNullArgument(nameof(instance), instance);
 
             return Mapper.Map<GlobalSettingsItem, PluginPathModel>(instance);
         }

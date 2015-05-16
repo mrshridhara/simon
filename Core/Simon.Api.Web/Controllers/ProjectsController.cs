@@ -28,9 +28,9 @@ namespace Simon.Api.Web.Controllers
             IMapper<ProjectModel, Project> projectModelToProjectMapper,
             IMapper<Project, ProjectModel> projectToProjectModelMapper)
         {
-            Guard.NotNullArgument("projectPersistence", projectPersistence);
-            Guard.NotNullArgument("projectModelToProjectMapper", projectModelToProjectMapper);
-            Guard.NotNullArgument("projectToProjectModelMapper", projectToProjectModelMapper);
+            Guard.NotNullArgument(nameof(projectPersistence), projectPersistence);
+            Guard.NotNullArgument(nameof(projectModelToProjectMapper), projectModelToProjectMapper);
+            Guard.NotNullArgument(nameof(projectToProjectModelMapper), projectToProjectModelMapper);
 
             this.projectPersistence = projectPersistence;
             this.projectModelToProjectMapper = projectModelToProjectMapper;

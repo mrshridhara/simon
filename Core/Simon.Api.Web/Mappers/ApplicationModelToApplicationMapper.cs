@@ -19,7 +19,7 @@ namespace Simon.Api.Web.Mappers
         /// </returns>
         public Application Map(ApplicationModel instance)
         {
-            Guard.NotNullArgument("instance", instance);
+            Guard.NotNullArgument(nameof(instance), instance);
 
             return new Application(
                 instance.Id.GetValueOrDefault(),

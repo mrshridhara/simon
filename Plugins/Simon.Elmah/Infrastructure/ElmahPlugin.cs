@@ -21,9 +21,9 @@ namespace Simon.Infrastructure
         /// </returns>
         public GlobalSettings Init(IAppBuilder appBuilder, IContainer container, GlobalSettings globalSettings)
         {
-            Guard.NotNullArgument("appBuilder", appBuilder);
-            Guard.NotNullArgument("container", container);
-            Guard.NotNullArgument("globalSettings", globalSettings);
+            Guard.NotNullArgument(nameof(appBuilder), appBuilder);
+            Guard.NotNullArgument(nameof(container), container);
+            Guard.NotNullArgument(nameof(globalSettings), globalSettings);
 
             ////if (globalSettings[Constants.ElmahDashboardPathKey] == null)
             ////{

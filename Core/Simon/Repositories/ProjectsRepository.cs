@@ -29,9 +29,9 @@ namespace Simon.Repositories
             IProcess<SaveProjectContext> saveProject,
             IProcess<EmptyContext, GetAllProjectsResult> getAllProjects)
         {
-            Guard.NotNullArgument("globalSettings", globalSettings);
-            Guard.NotNullArgument("createNewProject", saveProject);
-            Guard.NotNullArgument("getAllProjects", getAllProjects);
+            Guard.NotNullArgument(nameof(globalSettings), globalSettings);
+            Guard.NotNullArgument(nameof(saveProject), saveProject);
+            Guard.NotNullArgument(nameof(getAllProjects), getAllProjects);
 
             this.globalSettings = globalSettings;
             this.saveProject = saveProject;
@@ -44,7 +44,7 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public async Task<Project> CreateAsync(Project data)
         {
-            Guard.NotNullArgument("data", data);
+            Guard.NotNullArgument(nameof(data), data);
 
             data.SetId(Guid.NewGuid());
             await saveProject.ExecuteAsync(new SaveProjectContext { Project = data });
@@ -58,7 +58,7 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public Task DeleteAsync(Project data)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Simon.Repositories
         /// <param name="data">The data.</param>
         public async Task UpdateAsync(Project data)
         {
-            Guard.NotNullArgument("data", data);
+            Guard.NotNullArgument(nameof(data), data);
 
             await saveProject.ExecuteAsync(new SaveProjectContext { Project = data });
         }
