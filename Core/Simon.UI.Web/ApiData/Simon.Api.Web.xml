@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Simon.Api.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Simon.Api.Web.FilterConfig">
+            <summary>
+            Represents the configuration for global HTTP action filers.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.FilterConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the global HTTP filters to the specified <paramref name="config"/>.
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:Simon.Api.Web.IocConfig">
+            <summary>
+            Represents the configuration for the IoC registrations.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.IocConfig.RegisterDependencies(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the dependencies to the IoC container.
+            </summary>
+            <param name="appBuilder">The app builder.</param>
+            <param name="config">The HTTP configuration.</param>
+            <returns>A <see cref="T:System.Web.Http.Dependencies.IDependencyResolver"/> instance.</returns>
+        </member>
+        <member name="T:Simon.Api.Web.RouteConfig">
+            <summary>
+            Represents the route configuration for the Web API.
+            </summary>
+        </member>
+        <member name="F:Simon.Api.Web.RouteConfig.DefaultRouteName">
+            <summary>
+            The default API route name.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.RouteConfig.Register(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Registers the HTTP route to the specified <paramref name="config"/> instance.
+            </summary>
+            <param name="appBuilder">The app builder.</param>
+            <param name="config">The HTTP configuration.</param>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.ApplicationsController">
+            <summary>
+            API to manipulate application data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.#ctor(Simon.Infrastructure.IPersistence{Simon.Project},Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ApplicationModel,Simon.Application},Simon.Infrastructure.IMapper{Simon.Application,Simon.Api.Web.Models.ApplicationModel})">
+            <summary>
+            Initializes a new instance of <see cref="T:Simon.Api.Web.Controllers.ApplicationsController"/> class.
+            </summary>
+            <param name="projectPersistence">The project persistence.</param>
+            <param name="applicationModelToApplicationMapper">The application model to application mapper.</param>
+            <param name="applicationToApplicationModelMapper">The application to application model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.GetAsync(System.String,System.String)">
+            <summary>
+            Gets the application with the specified <paramref name="applicationId"/>
+            belonging to the project with the specified <paramref name="projectId"/>.
+            </summary>
+            <param name="projectId">The ID of a project.</param>
+            <param name="applicationId">The ID of a application.</param>
+            <returns>
+            Application with the specified <paramref name="applicationId"/>.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ApplicationsController.PostAsync(System.String,Simon.Api.Web.Models.ApplicationModel)">
+            <summary>
+            Adds the specified <paramref name="applicationModel"/> to the sequence of applications.
+            </summary>
+            <param name="projectId">The project ID.</param>
+            <param name="applicationModel">The application data taken from HTTP body.</param>
+            <returns>
+            Status of the addition.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.PluginPathsController">
+            <summary>
+            API to manipulate plug-in paths.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginPathsController.#ctor(Simon.Infrastructure.IPersistence{Simon.Infrastructure.GlobalSettings},Simon.Infrastructure.IMapper{Simon.Infrastructure.GlobalSettingsItem,Simon.Api.Web.Models.PluginPathModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.PluginPathsController"/>.
+            </summary>
+            <param name="globalSettingsPersistence">The global settings persistence.</param>
+            <param name="globalSettingsItemToPluginPathModelMapper">The global settings item to plug-in path model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginPathsController.GetAsync">
+            <summary>
+            Gets the plug-in navigation paths set under global settings.
+            </summary>
+            <returns>
+            The plug-in navigation paths set under global settings.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.PluginsController">
+            <summary>
+            API to manipulate plug-ins data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginsController.#ctor(Simon.Infrastructure.IProcess{Simon.EmptyContext,Simon.Processes.FileSystem.GetInstalledPluginsResult})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.PluginsController"/>.
+            </summary>
+            <param name="getInstalledPlugins">The get installed plug-ins process.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.PluginsController.Get">
+            <summary>
+            Gets the installed plug-ins.
+            </summary>
+            <returns>
+            The installed plug-ins.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.ProjectsController">
+            <summary>
+            API to manipulate project data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.#ctor(Simon.Infrastructure.IPersistence{Simon.Project},Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ProjectModel,Simon.Project},Simon.Infrastructure.IMapper{Simon.Project,Simon.Api.Web.Models.ProjectModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.ProjectsController"/>.
+            </summary>
+            <param name="projectPersistence">The project persistence.</param>
+            <param name="projectModelToProjectMapper">The project model to project mapper.</param>
+            <param name="projectToProjectModelMapper">The project to project model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync">
+            <summary>
+            Gets the sequence of projects.
+            </summary>
+            <returns>
+            A sequence of projects.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.GetAsync(System.String)">
+            <summary>
+            Gets the project with the specified <paramref name="id"/>.
+            </summary>
+            <param name="id">The ID of a project.</param>
+            <returns>
+            Project with the specified <paramref name="id"/>.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.ProjectsController.PostAsync(Simon.Api.Web.Models.ProjectModel)">
+            <summary>
+            Adds the specified <paramref name="projectModel"/> to the sequence of projects.
+            </summary>
+            <param name="projectModel">The project data taken from HTTP body.</param>
+            <returns>
+            Status of the addition.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.SettingsController">
+            <summary>
+            API to manipulate settings data.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.#ctor(Simon.Infrastructure.IPersistence{Simon.Infrastructure.GlobalSettings})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SettingsController"/>.
+            </summary>
+            <param name="globalSettingsPersistence">The global settings persistence.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.GetAsync">
+            <summary>
+            Gets the global settings.
+            </summary>
+            <returns>
+            The global settings.
+            </returns>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SettingsController.PostAsync(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Simon.Infrastructure.GlobalSettingsItem}})">
+            <summary>
+            Updates the specified <paramref name="globalSettings"/>.
+            </summary>
+            <param name="globalSettings">The global settings taken from HTTP body.</param>
+            <returns>
+            Status of the addition.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.SimonVersionController">
+            <summary>
+            API to manipulate SIMON version.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SimonVersionController.#ctor(Simon.Infrastructure.IMapper{System.Version,Simon.Api.Web.Models.SimonVersionModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Controllers.SimonVersionController"/> class.
+            </summary>
+            <param name="versionToSimonVersionModelMapper">The version to SIMON version model mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.SimonVersionController.GetAsync">
+            <summary>
+            Gets the current version of SIMON.
+            </summary>
+            <returns>
+            A sequence of projects.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Controllers.UserController">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Controllers.UserController.GetAsync">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Api.Web.Models.ApplicationModel"/> to <see cref="T:Simon.Application"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ApplicationModelToApplicationMapper.Map(Simon.Api.Web.Models.ApplicationModel)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ApplicationToApplicationModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Application"/> to <see cref="T:Simon.Api.Web.Models.ApplicationModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ApplicationToApplicationModelMapper.Map(Simon.Application)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.GlobalSettingsItemToPluginPathModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Infrastructure.GlobalSettingsItem"/> to <see cref="T:Simon.Api.Web.Models.PluginPathModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.GlobalSettingsItemToPluginPathModelMapper.Map(Simon.Infrastructure.GlobalSettingsItem)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Api.Web.Models.ProjectModel"/> to <see cref="T:Simon.Project"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectModelToProjectMapper.#ctor(Simon.Infrastructure.IMapper{Simon.Api.Web.Models.ApplicationModel,Simon.Application})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Mappers.ProjectModelToProjectMapper"/> class.
+            </summary>
+            <param name="applicationModelToApplicationMapper">The application model to application mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectModelToProjectMapper.Map(Simon.Api.Web.Models.ProjectModel)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.ProjectToProjectModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:Simon.Project"/> to <see cref="T:Simon.Api.Web.Models.ProjectModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.#ctor(Simon.Infrastructure.IMapper{Simon.Application,Simon.Api.Web.Models.ApplicationModel})">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Mappers.ProjectToProjectModelMapper"/> class.
+            </summary>
+            <param name="applicationToApplicationModelMapper">The application model to application mapper.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.ProjectToProjectModelMapper.Map(Simon.Project)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper">
+            <summary>
+            Represents a mapper from <see cref="T:System.Version"/> to <see cref="T:Simon.Api.Web.Models.SimonVersionModel"/>.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Mappers.VersionToSimonVersionModelMapper.Map(System.Version)">
+            <summary>
+            Copies the data from <paramref name="instance"/>.
+            </summary>
+            <param name="instance"></param>
+            <returns>
+            The copied instance.
+            </returns>
+        </member>
+        <member name="T:Simon.Api.Web.Middlewares.AuthenticationMiddleware">
+            <summary>
+            Represents the authentication middle-ware for OWIN environment.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.AuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Simon.Infrastructure.IAuthenticationProvider)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Middlewares.AuthenticationMiddleware"/> class.
+            </summary>
+            <param name="next">The next middle-ware.</param>
+            <param name="authenticationProvider">The authentication provider.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.AuthenticationMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Process an individual request.
+            </summary>
+            <param name="context">The OWIN context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Simon.Api.Web.Middlewares.CachingMiddleware">
+            <summary>
+            Represents the caching middle-ware for OWIN environment.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.CachingMiddleware.#ctor(Microsoft.Owin.OwinMiddleware)">
+            <summary>
+            Initializes an instance of <see cref="T:Simon.Api.Web.Middlewares.CachingMiddleware"/> class.
+            </summary>
+            <param name="next">The next middle-ware.</param>
+        </member>
+        <member name="M:Simon.Api.Web.Middlewares.CachingMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Process an individual request.
+            </summary>
+            <param name="context">The OWIN context.</param>
+            <returns>A task to await.</returns>
+        </member>
+        <member name="T:Simon.Api.Web.Models.ApplicationModel">
+            <summary>
+            Represents an application
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Id">
+            <summary>
+            Gets or sets the ID for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ApplicationModel.Name">
+            <summary>
+            Gets or sets the name for the instance.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Models.PluginPathModel">
+            <summary>
+            Represents a navigation path of a plug-in.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.PluginPathModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.PluginPathModel.Path">
+            <summary>
+            Gets or sets the path.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Models.ProjectModel">
+            <summary>
+            Represents a project.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Applications">
+            <summary>
+            Gets or sets the applications.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Description">
+            <summary>
+            Gets or sets the description for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Id">
+            <summary>
+            Gets or sets the ID for the instance.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.ProjectModel.Name">
+            <summary>
+            Gets or sets the name for the instance.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.Models.SimonVersionModel">
+            <summary>
+            Represents the version of SIMON.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Build">
+            <summary>
+            Gets or sets the build number.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.DisplayText">
+            <summary>
+            Gets or sets the display text.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Major">
+            <summary>
+            Gets or sets the major version.
+            </summary>
+        </member>
+        <member name="P:Simon.Api.Web.Models.SimonVersionModel.Minor">
+            <summary>
+            Gets or sets the minor version.
+            </summary>
+        </member>
+        <member name="T:Simon.Api.Web.AppBuilderExtensions">
+            <summary>
+            Extensions for <see cref="T:Owin.IAppBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseBasicAuthentication(Owin.IAppBuilder,System.Web.Http.Dependencies.IDependencyResolver)">
+            <summary>
+            Configures the Simon Web API to use basic authentication.
+            </summary>
+            <param name="appBuilder">The app builder instance.</param>
+            <param name="dependencyResolver">The dependency resolver.</param>
+        </member>
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseSimonWebApi(Owin.IAppBuilder)">
+            <summary>
+            Configures the Simon Web API in OWIN.
+            </summary>
+            <param name="appBuilder">The app builder instance.</param>
+        </member>
+        <member name="M:Simon.Api.Web.AppBuilderExtensions.UseSimonWebApi(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Configures the Simon Web API in OWIN using specified <paramref name="config"/>.
+            </summary>
+            <param name="appBuilder">The app builder instance.</param>
+            <param name="config">The HTTP configuration.</param>
+        </member>
+        <member name="T:Simon.Api.Web.Startup">
+            <summary>
+            Represents the OWIN start up class.
+            </summary>
+        </member>
+        <member name="M:Simon.Api.Web.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configures the specified <paramref name="appBuilder"/>.
+            </summary>
+            <param name="appBuilder">The app builder.</param>
+        </member>
+    </members>
+</doc>

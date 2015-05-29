@@ -43,7 +43,7 @@ namespace Simon.Core.Tests
                         updateGlobalSettingsMock.Object);
 
             // Act
-            var results = target.ReadAll().Result;
+            var results = target.ReadAsync().Result;
 
             // Assert
             getGlobalSettingsMock.VerifyAll();
@@ -82,7 +82,7 @@ namespace Simon.Core.Tests
                         updateGlobalSettingsMock.Object);
 
             // Act
-            target.Update(globalSettingsToBeUpdated).Wait();
+            target.UpdateAsync(globalSettingsToBeUpdated).Wait();
 
             // Assert
             updateGlobalSettingsMock.VerifyAll();

@@ -12,10 +12,7 @@ namespace Simon.Infrastructure
         /// <summary>
         /// Gets the authentication mode.
         /// </summary>
-        public string AuthenticationMode
-        {
-            get { return "Basic"; }
-        }
+        public string AuthenticationMode => "Basic";
 
         /// <summary>
         /// Authenticates the current logged in user.
@@ -24,7 +21,7 @@ namespace Simon.Infrastructure
         /// <returns>The identity instance.</returns>
         public async Task<ClaimsIdentity> AuthenticateAsync(string authenticationToken)
         {
-            Guard.NotNullOrEmptyStringArgument("authenticationToken", authenticationToken);
+            Guard.NotNullOrEmptyStringArgument(nameof(authenticationToken), authenticationToken);
 
             return await Task.Factory.StartNew(
                 () => Authenticate(authenticationToken),
@@ -43,7 +40,7 @@ namespace Simon.Infrastructure
             {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Role, "default")
-            }, this.AuthenticationMode);
+            }, AuthenticationMode);
         }
     }
 }

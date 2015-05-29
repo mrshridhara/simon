@@ -1,0 +1,42 @@
+﻿<div class="page-header" data-ng-show="vm.ProjectsService.SelectedProject">
+    <h1>
+        <span data-ng-bind="vm.ProjectsService.SelectedProject.Name"></span>
+        <a class="btn btn-sm btn-default" href="#/{{vm.ProjectsService.SelectedProject.Id}}/edit">
+            <span class="glyphicon glyphicon-edit"></span>
+        </a>
+    </h1>
+    <p data-ng-bind="vm.ProjectsService.SelectedProject.Description"></p>
+</div>
+
+<div class="section">
+    <h3>
+        Applications
+        <a class="btn btn-sm btn-default" href="#/{{vm.ProjectsService.SelectedProject.Id}}/new-application">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </h3>
+    <hr />
+</div>
+
+<div class="section"
+     data-ng-include="'App/00_Common/03_Templates/Loader.html'"
+     data-ng-hide="vm.ProjectsService.SelectedProject">
+</div>
+
+<div class="section alert alert-danger" role="alert" data-ng-show="vm.ProjectsService.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<div class="section" data-ng-show="vm.ProjectsService.SelectedProject">
+    <div class="col-sm-6 col-md-4" data-ng-repeat="eachApplication in vm.ProjectsService.SelectedProject.Applications">
+        <a class="thumbnail" href="#/{{vm.ProjectsService.SelectedProject.Id}}/{{eachApplication.Id}}">
+            <div class="caption">
+                <h4 data-ng-bind="eachApplication.Name"></h4>
+                <p data-ng-bind="eachApplication.Description"></p>
+            </div>
+        </a>
+    </div>
+</div>

@@ -3,28 +3,27 @@
 
     var files = {
         css: {
-            destPath: './Simon/Simon.UI.Web/Content/',
+            destPath: './Core/Simon.UI.Web/Content/',
             src: [
-                './Simon/Simon.UI.Web/Content/bootstrap.css',
-                './Simon/Simon.UI.Web/Content/bootstrap-theme.css',
-                './Simon/Simon.UI.Web/Content/site-tweaks.css'
+                './Core/Simon.UI.Web/Content/bootstrap.css',
+                './Core/Simon.UI.Web/Content/site-tweaks.css'
             ],
             dest: 'app.css'
         },
         js: {
-            destPath: './Simon/Simon.UI.Web/',
+            destPath: './Core/Simon.UI.Web/',
             lib: {
                 src: [
-                    './Simon/Simon.UI.Web/Scripts/jquery-2.1.3.js',
-                    './Simon/Simon.UI.Web/Scripts/bootstrap.js',
-                    './Simon/Simon.UI.Web/Scripts/angular.js',
-                    './Simon/Simon.UI.Web/Scripts/angular-route.js'
+                    './Core/Simon.UI.Web/Scripts/jquery-2.1.3.js',
+                    './Core/Simon.UI.Web/Scripts/bootstrap.js',
+                    './Core/Simon.UI.Web/Scripts/angular.js',
+                    './Core/Simon.UI.Web/Scripts/angular-route.js'
                 ],
                 dest: 'scripts.js'
             },
             app: {
                 src: [
-                    './Simon/Simon.UI.Web/App/**/*.js'
+                    './Core/Simon.UI.Web/App/**/*.js'
                 ],
                 dest: 'app.js'
             }

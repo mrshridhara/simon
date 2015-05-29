@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FFB634FF-98ED-44CF-AC8B-662FEC3F274D}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,33 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{1707
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{52CE57B0-7772-4F27-99A6-D7D8DC6AA8D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{353DD923-B462-45B0-9EEF-A83B1EE7D1E7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{87526A5B-882D-4BDE-A692-DCA7FD059F3A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon", "Simon\Simon\Simon.csproj", "{5164B079-218B-4798-840B-7DA290C1905C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Api.Web", "Simon\Simon.Api.Web\Simon.Api.Web.csproj", "{F88D371A-73AB-443C-AC9B-170D4009146B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Presentation.Tests", "Tests\Simon.Presentation.Tests\Simon.Presentation.Tests.csproj", "{0D49A897-1D4A-4FD9-98C3-F9032F0EED69}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.UI.Web", "Simon\Simon.UI.Web\Simon.UI.Web.csproj", "{0907AE34-D662-419D-9F0D-81E3832560E6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Git", "Plugins\Simon.Git\Simon.Git.csproj", "{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.MongoDB", "Plugins\Simon.MongoDB\Simon.MongoDB.csproj", "{EF99F59D-1BF8-4A24-9102-88DED202707F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Core.Tests", "Tests\Simon.Core.Tests\Simon.Core.Tests.csproj", "{2A7D5664-7322-4981-AEA9-E26B4698DC1F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Plugins.Tests", "Tests\Simon.Plugins.Tests\Simon.Plugins.Tests.csproj", "{9D5F91D3-064F-4733-9FA9-24BD75CB558F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure", "Simon\Simon.Infrastructure\Simon.Infrastructure.csproj", "{30A2FA4C-484A-4236-83B4-78B64516A1E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Hangfire", "Plugins\Simon.Hangfire\Simon.Hangfire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Elmah", "Plugins\Simon.Elmah\Simon.Elmah.csproj", "{C69F658A-08AB-4287-BAA9-E5D9D3F1CCBE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.BasicAuthentication", "Plugins\Simon.BasicAuthentication\Simon.BasicAuthentication.csproj", "{0BB4A52D-0F03-422F-B9F7-860676259687}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9AC48563-5264-4594-91AF-9D2512833C04}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,6 +24,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		package.json = package.json
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon", "Core\Simon\Simon.csproj", "{5164B079-218B-4798-840B-7DA290C1905C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Api.Web", "Core\Simon.Api.Web\Simon.Api.Web.csproj", "{F88D371A-73AB-443C-AC9B-170D4009146B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Infrastructure", "Core\Simon.Infrastructure\Simon.Infrastructure.csproj", "{30A2FA4C-484A-4236-83B4-78B64516A1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.UI.Web", "Core\Simon.UI.Web\Simon.UI.Web.csproj", "{0907AE34-D662-419D-9F0D-81E3832560E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Git", "Plugins\Simon.Git\Simon.Git.csproj", "{15AD2261-75FE-4ADF-B8F8-E8A785535BDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.MongoDB", "Plugins\Simon.MongoDB\Simon.MongoDB.csproj", "{EF99F59D-1BF8-4A24-9102-88DED202707F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Hangfire", "Plugins\Simon.Hangfire\Simon.Hangfire.csproj", "{3D83EF49-9D02-4369-9FF2-B96053790DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Elmah", "Plugins\Simon.Elmah\Simon.Elmah.csproj", "{C69F658A-08AB-4287-BAA9-E5D9D3F1CCBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.BasicAuthentication", "Plugins\Simon.BasicAuthentication\Simon.BasicAuthentication.csproj", "{0BB4A52D-0F03-422F-B9F7-860676259687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Core.Tests", "Tests\Simon.Core.Tests\Simon.Core.Tests.csproj", "{2A7D5664-7322-4981-AEA9-E26B4698DC1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Presentation.Tests", "Tests\Simon.Presentation.Tests\Simon.Presentation.Tests.csproj", "{0D49A897-1D4A-4FD9-98C3-F9032F0EED69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simon.Plugins.Tests", "Tests\Simon.Plugins.Tests\Simon.Plugins.Tests.csproj", "{9D5F91D3-064F-4733-9FA9-24BD75CB558F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,7 +111,7 @@ Global
 		{5164B079-218B-4798-840B-7DA290C1905C} = {52CE57B0-7772-4F27-99A6-D7D8DC6AA8D7}
 		{F88D371A-73AB-443C-AC9B-170D4009146B} = {52CE57B0-7772-4F27-99A6-D7D8DC6AA8D7}
 		{0D49A897-1D4A-4FD9-98C3-F9032F0EED69} = {87526A5B-882D-4BDE-A692-DCA7FD059F3A}
-		{0907AE34-D662-419D-9F0D-81E3832560E6} = {353DD923-B462-45B0-9EEF-A83B1EE7D1E7}
+		{0907AE34-D662-419D-9F0D-81E3832560E6} = {52CE57B0-7772-4F27-99A6-D7D8DC6AA8D7}
 		{15AD2261-75FE-4ADF-B8F8-E8A785535BDC} = {17070EAA-145C-4112-88EC-EF6511CCF25C}
 		{EF99F59D-1BF8-4A24-9102-88DED202707F} = {17070EAA-145C-4112-88EC-EF6511CCF25C}
 		{2A7D5664-7322-4981-AEA9-E26B4698DC1F} = {87526A5B-882D-4BDE-A692-DCA7FD059F3A}

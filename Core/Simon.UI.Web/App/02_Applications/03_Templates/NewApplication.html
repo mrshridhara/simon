@@ -1,0 +1,29 @@
+﻿<div class="section page-header">
+    <h1>Create New Application</h1>
+</div>
+
+<div class="section alert alert-danger" role="alert" data-ng-show="vm.ApplicationsService.Error">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <strong>Error!!!</strong> Sorry! Something went wrong.
+</div>
+
+<fieldset class="section">
+    <legend>New Application Details</legend>
+    <form class="contnet form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="name">Name</label>
+            <div class="col-md-10">
+                <input class="form-control" id=" name" type="text" data-ng-model="vm.NewApplicationDetails.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="description">Description</label>
+            <div class="col-md-10">
+                <textarea class="form-control" id="description" data-ng-model="vm.NewApplicationDetails.Description" />
+            </div>
+        </div>
+        <button class="btn btn-primary pull-right" data-ng-click="vm.ApplicationsService.AddApplication(vm.ProductId, vm.NewApplicationDetails)">Save</button>
+    </form>
+</fieldset>

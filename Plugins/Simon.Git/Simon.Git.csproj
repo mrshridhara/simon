@@ -64,11 +64,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Simon\Simon.Infrastructure\Simon.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Core\Simon.Infrastructure\Simon.Infrastructure.csproj">
       <Project>{30a2fa4c-484a-4236-83b4-78b64516a1e8}</Project>
       <Name>Simon.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Simon\Simon\Simon.csproj">
+    <ProjectReference Include="..\..\Core\Simon\Simon.csproj">
       <Project>{5164b079-218b-4798-840b-7da290c1905c}</Project>
       <Name>Simon</Name>
     </ProjectReference>
@@ -92,15 +92,15 @@ if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86
 if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
 xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.21.0.176\lib\net40\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
 xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.21.0.176\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"
-xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"
-xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86"
-if not exist "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64" md "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64"
-xcopy /s /y /d "$(TargetDir)NativeBinaries\x86\*.*" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86"
-xcopy /s /y /d "$(TargetDir)NativeBinaries\amd64\*.*" "$(SolutionDir)Simon\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64"</PostBuildEvent>
+if not exist "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins" md "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins"
+if not exist "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)" md "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)"
+xcopy /s /y /d "$(TargetDir)*.dll" "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)"
+xcopy /s /y /d "$(TargetDir)*.pdb" "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)"
+if not exist "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries" md "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries"
+if not exist "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86" md "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86"
+if not exist "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64" md "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64"
+xcopy /s /y /d "$(TargetDir)NativeBinaries\x86\*.*" "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\x86"
+xcopy /s /y /d "$(TargetDir)NativeBinaries\amd64\*.*" "$(SolutionDir)Core\Simon.UI.Web\bin\Plugins\$(TargetName)\NativeBinaries\amd64"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
