@@ -14,7 +14,7 @@
             destPath: './Core/Simon.UI.Web/',
             lib: {
                 src: [
-                    './Core/Simon.UI.Web/Scripts/jquery-2.1.3.js',
+                    './Core/Simon.UI.Web/Scripts/jquery-2.1.4.js',
                     './Core/Simon.UI.Web/Scripts/bootstrap.js',
                     './Core/Simon.UI.Web/Scripts/angular.js',
                     './Core/Simon.UI.Web/Scripts/angular-route.js'
